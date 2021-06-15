@@ -1,20 +1,25 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
 .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 0.2fr 0.2fr 1fr 2.5fr;
+	display: grid;
+	grid-template-columns: repeat(10, 1fr);
+	grid-template-rows: 0.2fr 0.2fr 1fr 2.5fr;
 }
 
 .lb-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  grid-column: 1 / 4;
-  grid-row: 2 / 3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-column: 1 / 10;
+	grid-row: 2 / 3;
 }
 
 .lb-best {
-  display: flex;
-  justify-content: center;
-  grid-column: 1 / 4;
-  grid-row: 3 / 4;
+	display: flex;
+	justify-content: center;
+	grid-column: 1 / 4;
+	grid-row: 3 / 4;
 }
