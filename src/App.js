@@ -1,9 +1,12 @@
 import React from "react";
+import Button from "@material-ui/core/Button";
 
 export default function App() {
 	return (
 		<div>
-			<h1>Why do you hate me so much?</h1>
+			<Button variant="contained" color="primary">
+				Why do you hate me so much?
+			</Button>
 		</div>
 	);
 }
