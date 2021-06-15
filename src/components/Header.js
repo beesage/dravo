@@ -23,7 +23,7 @@ export default function Header() {
 
 	return (
 		<div className="header-container">
-			<NavBar position="static" className=" lnav-bar">
+			<NavBar position="static">
 				<Tool>
 					<Link to="/leaderboard">
 						<p className="menu-item">Leaderboard</p>
