@@ -20,24 +20,67 @@ a {
 
 .user-container {
 	display: grid;
+	width: auto;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-rows: 1fr 1fr;
 	grid-column: 1/10;
-	grid-row: 2/4;
+}
+
+.user-profile {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-column: 1/10;
+	grid-row: 1/4;
 	background: #f2a154;
 	height: 250px;
 	width: auto;
 	position: relative;
+	margin: 0;
 }
 
-.user-container:before {
+.user-profile:before {
 	border-top: 35px solid #f2a154;
-	border-left: 185px solid transparent;
-	border-right: 185px solid transparent;
+	border-left: 188px solid transparent;
+	border-right: 188px solid transparent;
 	content: "";
 	height: 0;
 	left: 0;
 	position: absolute;
 	top: 250px;
 	width: 0;
+}
+
+.user-info {
+	margin-top: 1.5rem;
+	grid-column: 2;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0;
+}
+
+.username,
+.user-location {
+	font-family: "Krub", sans-serif;
+	font-weight: 500;
+	text-align: center;
+	color: #314e52;
+}
+
+.profile-pic {
+	align-self: center;
+	width: 100%;
+	border-radius: 50%;
+	border: 9px solid #314e52;
+}
+
+.username {
+	font-size: 20px;
+	white-space: nowrap;
+}
+
+.user-location {
+	font-size: 16px;
+	margin-top: 0;
 }

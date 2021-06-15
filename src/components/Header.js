@@ -34,8 +34,9 @@ export default function Header() {
 		root: {
 			height: "4rem",
 			display: "flex",
-			justifyContent: "space-evenly",
 			alignItems: "center",
+			justifyContent: "center",
+			gap: "1.5rem",
 		},
 	})(Toolbar);
 
