@@ -30,7 +30,7 @@ export default function App() {
 	return (
 		<div className="container">
 			<Router>
-				<Header />
+				{/* <Header /> */}
 				<Switch>
 				    <Route path="/" component={LogIn} />
 		            <Route path="/signup" component={SignUp} />
