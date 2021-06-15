@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import "./Header.css";
+import "./UserProfile-Header.css";
 
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -26,14 +26,16 @@ export default function Header() {
 	const NavBar = withStyles({
 		root: {
 			backgroundColor: "#F2A154",
-			boxShadow: "1px 1px",
+			padding: "0.5rem",
 		},
 	})(AppBar);
 
 	const Tool = withStyles({
 		root: {
+			height: "4rem",
 			display: "flex",
 			justifyContent: "space-evenly",
+			alignItems: "center",
 		},
 	})(Toolbar);
 
