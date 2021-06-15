@@ -47,7 +47,18 @@ export default function Header() {
 					<Link to="/profile">
 						<p className="menu-item">Profile</p>
 					</Link>
-					{isUserProfile ? <SettingsIcon /> : false}
+					{isUserProfile ? (
+						<SettingsIcon
+							style={{
+								color: "#314E52",
+								position: "fixed",
+								fontSize: "30px",
+								right: "0.8rem",
+							}}
+						/>
+					) : (
+						false
+					)}
 				</Tool>
 			</NavBar>
 		</div>
