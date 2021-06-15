@@ -16,6 +16,9 @@ function Leaderboard() {
         </button>
       </div>
       <div className="lb-best"></div>
+      <div className="lb-all">
+        <div className="hexagon ribbon-outset border"></div>
+      </div>
     </>
   );
 }
