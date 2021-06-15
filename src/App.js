@@ -30,7 +30,11 @@ export default function App() {
 			<Router>
 				<Header />
 				<Switch>
-					<Route path="/leaderboard" component={Leaderboard} />
+					<Route
+						path="/leaderboard"
+						render={(props) => <Leaderboard {...user} />}
+					/>
+
 					<Route
 						path="/profile"
 						render={() => <UserProfile user={user} loading={loading} />}
