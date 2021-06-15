@@ -4,6 +4,17 @@
   grid-template-rows: 0.2fr 0.2fr 1fr 2.5fr;
 }
 
-h1 {
-  color: red;
+.lb-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1 / 4;
+  grid-row: 2 / 3;
+}
+
+.lb-best {
+  display: flex;
+  justify-content: center;
+  grid-column: 1 / 4;
+  grid-row: 3 / 4;
 }
