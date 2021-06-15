@@ -11,6 +11,8 @@ import UserProfile from "./components/UserProfile";
 import LogIn from "./components/LogIn";
 import SignUp from "./components/SignUp";
 
+
+
 export default function App() {
 	const [user, setUser] = useState([]);
 	const [loading, setIsLoading] = useState(false);
@@ -32,7 +34,7 @@ export default function App() {
 			<Router>
 				{/* <Header /> */}
 				<Switch>
-				    <Route path="/" component={LogIn} />
+				    <Route exact path="/" component={LogIn} />
 		            <Route path="/signup" component={SignUp} />
 					<Route
 						path="/leaderboard"
