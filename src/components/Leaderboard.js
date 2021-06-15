@@ -1,8 +1,8 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
 import LeaderboardCard from "./LeaderboardCard";
+import Avatar from "@material-ui/core/Avatar";
 
-function Leaderboard({ user, beekeeper, location, profilepic, weightdelta }) {
+function Leaderboard({ beekeeper, location, profilepic, weightdelta }) {
   return (
     <>
       <div className="lb-button">
@@ -16,9 +16,15 @@ function Leaderboard({ user, beekeeper, location, profilepic, weightdelta }) {
           This Month
         </button>
       </div>
-      <div className="lb-best"></div>
-      <LeaderboardCard {...user} />
-      <LeaderboardCard {...user} />
+      <div className="lb-best">
+        {" "}
+        <Avatar alt={beekeeper} src={profilepic} />
+      </div>
+      <LeaderboardCard
+        beekeeper={beekeeper}
+        profilepic={profilepic}
+        location={location}
+      />
     </>
   );
 }
