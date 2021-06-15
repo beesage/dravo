@@ -1,7 +1,5 @@
 const path = require("path");
 
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
 module.exports = {
   mode: process.env.NODE_ENV,
   //output: where the file will be sent once they have been bundled with the webpack. The source file passes through all the presets and loaders and create a file that will be loaded in the browser
