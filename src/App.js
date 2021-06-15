@@ -1,11 +1,15 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
+import { BrowserRouter as Router } from "react-router-dom";
+
+import Header from "./components/Header";
 import "./styles.css";
 
 export default function App() {
-  return (
-    <div className="container">
-      <h1>Why do you hate me so much?</h1>
-    </div>
-  );
+	return (
+		<div className="container">
+			<Router>
+				<Header />
+			</Router>
+		</div>
+	);
 }

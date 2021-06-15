@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Krub&display=swap");
+
+.header-container {
+	grid-column: 1 / -1;
+}
+
+.menu-item {
+	font-family: "Krub", sans-serif;
+	text-transform: uppercase;
+	color: #314e52;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.nav-bar {
+}
