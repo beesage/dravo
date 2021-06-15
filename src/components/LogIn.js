@@ -10,12 +10,12 @@ export default function LogIn() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root} >
+    <div>
     <Container component="main" maxWidth="xs" className={classes.container} >
       <CssBaseline />
       <div className={classes.wrapper}>
          <img className={classes.logo}  src={logo}  />      
-        <Typography variant="h4">
+        <Typography className={classes.title} variant="h4">
           Log In 
         </Typography>
         <form className={classes.form} noValidate>
@@ -42,15 +42,17 @@ export default function LogIn() {
             id="password"
             autoComplete="current-password"
             className = {classes.textField}
-          />                   
+          />             
           <Grid container>
-            <Grid item xs >
-                <FormControlLabel
+            <Grid item xs>
+              <FormControlLabel
                 control={<Checkbox value="remember" />}
                 label="Keep me logged in"
-              />      
-              <Link href="#" variant="body2" className={classes.link}>
-                Forgot password?
+              />  
+            </Grid>
+            <Grid item>
+              <Link href="#" variant="body2" className={classes.forgotPassword}>
+                 Forgot password?
               </Link>
             </Grid>
           </Grid>

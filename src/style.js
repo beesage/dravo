@@ -5,7 +5,11 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "#F7F6E7",
     alignItems: 'center',    
     height: "100vh",    
-    },  
+    }, 
+    title: {
+    fontWeight: "800", 
+    marginBottom: "30px",
+    },
     wrapper: {      
       display: 'flex',
       flexDirection: 'column',
@@ -27,12 +31,19 @@ const useStyles = makeStyles(() => ({
     formcontrol: {
       color: "#314E52",
     },  
+    forgotPassword: {
+      color: "#314E52",
+      textDecoration: "underline",  
+      lineHeight: 2.8,         
+    },
     submit: {      
       backgroundColor: "#314E52",
-      color: "#F2A154"
+      color: "#F2A154",
+      marginTop: "30px",
+      fontWeight: "800", 
     },      
     link: {
-       color: "#314E52",
+       color: "#F2A154",
        textDecoration: "underline"
     }   
   }));
