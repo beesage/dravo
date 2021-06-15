@@ -1,7 +1,8 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
+import LeaderboardCard from "./LeaderboardCard";
 
-function Leaderboard() {
+function Leaderboard({ user, beekeeper, location, profilepic, weightdelta }) {
   return (
     <>
       <div className="lb-button">
@@ -16,9 +17,8 @@ function Leaderboard() {
         </button>
       </div>
       <div className="lb-best"></div>
-      <div className="lb-all">
-        <div className="hexagon ribbon-outset border"></div>
-      </div>
+      <LeaderboardCard {...user} />
+      <LeaderboardCard {...user} />
     </>
   );
 }
