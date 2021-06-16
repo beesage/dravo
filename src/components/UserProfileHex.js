@@ -4,10 +4,12 @@ import { Icons } from "./Icons";
 
 export default function UserProfileHex({ user }) {
 	return (
-		<div className="us-hex">
-			{Icons.map((icons) => (
-				<img src={icons.src} />
+		<>
+			{Icons.map((icons, index) => (
+				<div className="us-hex" key={index}>
+					<img src={icons.src} />
+				</div>
 			))}
-		</div>
+		</>
 	);
 }
