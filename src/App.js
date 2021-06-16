@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from "axios";
 
@@ -31,7 +30,7 @@ export default function App() {
 	return (
 		<div className="container">
 			<Router>
-				<Header />
+				<Header /> 
 				<Switch>
 				    <Route exact path="/" component={LogIn} />
 		            <Route path="/signup" component={SignUp} />
