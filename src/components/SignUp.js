@@ -29,7 +29,13 @@ export default function LogIn() {
             name="username"
             autoComplete="username"
             autoFocus
-            className = {classes.textField}
+            className={classes.textField}
+            InputLabelProps={{
+              classes: {
+                root: classes.cssLabel,
+                focused: classes.cssFocused,
+              },
+            }}
           />
           <TextField
             variant="outlined"
@@ -41,19 +47,31 @@ export default function LogIn() {
             name="email"
             autoComplete="email"
             autoFocus
-            className = {classes.textField}
+            className={classes.textField}
+            InputLabelProps={{
+              classes: {
+                root: classes.cssLabel,
+                focused: classes.cssFocused,
+              },
+            }}
           />
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            name="password"
+            name="password-signup"
             label="Enter your password"
             type="password"
-            id="password"
+            id="password-signup"
             autoComplete="current-password"
-            className = {classes.textField}
+            className={classes.textField}
+            InputLabelProps={{
+              classes: {
+                root: classes.cssLabel,
+                focused: classes.cssFocused,
+              },
+            }}            
           />     
           <TextField
             variant="outlined"
@@ -65,13 +83,25 @@ export default function LogIn() {
             type="password"
             id="password"
             autoComplete="current-password"
-            className = {classes.textField}
+            className={classes.textField}
+            InputLabelProps={{
+              classes: {
+                root: classes.cssLabel,
+                focused: classes.cssFocused,
+              },
+            }}
+            InputLabelProps={{
+              classes: {
+                root: classes.cssLabel,
+                focused: classes.cssFocused,
+              },
+            }}
           />                   
           <Grid container>
-            <Grid item xs>
+            <Grid item xs className={classes.formControl}>
               <FormControlLabel
-                control={<Checkbox value="remember" />}
-                label="Keep me logged in"
+                control={<Checkbox value="remember" color="default" />}
+                label="Keep me logged in"                               
               />  
             </Grid>
             <Grid item>
@@ -80,18 +110,21 @@ export default function LogIn() {
               </Link>
             </Grid>
           </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            className={classes.submit}
-          >
-            Create an account
-          </Button>
+          <NavLink to="/leaderboard">
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"            
+              className={classes.submit}
+            >
+              Create an account
+            </Button>
+          </NavLink>
+          
         </form>
       </div>
-      <Box align="center" mt={8}>
-         <Typography variant="body2">
+      <Box align="center">
+         <Typography className={classes.typographyColor} variant="body2">
             Already on Dravo?
          </Typography>
          <NavLink to="/" variant="body2" className={classes.link}>           

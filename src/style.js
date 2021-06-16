@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => ({
       color: "#314E52"
     },
     logo: {
-      marginTop: "30%",
+      marginTop: "20%",
       marginBottom: "10%",          
     }, 
     form: {
@@ -27,27 +27,40 @@ const useStyles = makeStyles(() => ({
     textField: {
       border: "none",
       background: "#F2A154",
-      /* borderRadius: "4px",   */    
+      marginBottom: "-2px",      
+      //outline: 'none',      
+      borderRadius: "4px",    
     },
-    formcontrol: {
+    formControl: {
       color: "#314E52",
-    },  
+      marginTop: "18px",
+    },
     forgotPassword: {
       color: "#314E52",
       textDecoration: "underline",  
-      lineHeight: 2.8,         
+      lineHeight: 5,   
+      fontSize: "1.1em",      
     },
     submit: {      
       backgroundColor: "#314E52",
       color: "#F2A154",
-      marginTop: "30px",
+      marginTop: "25px",
+      marginBottom: "30px",
       fontWeight: "800",
-      padding: "18.5px 14px",
+      padding: "18.px 14px",
+      textTransform: "none",
+      fontSize: "1.2em",
     },      
     link: {
        color: "#F2A154",
        textDecoration: "underline"
-    }   
+    },
+    cssLabel: {
+      color : "#314E52",
+    },
+    typographyColor: {
+      color : "#314E52",
+    }
   }));
   
 export default useStyles;
