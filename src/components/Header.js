@@ -29,6 +29,7 @@ export default function Header() {
 		root: {
 			backgroundColor: "#F2A154",
 			padding: "0.5rem",
+			boxShadow: "none",
 		},
 	})(AppBar);
 
@@ -56,7 +57,7 @@ export default function Header() {
 						<SettingsIcon
 							style={{
 								color: "#314E52",
-								position: "fixed",
+								position: "absolute",
 								fontSize: "30px",
 								right: "1rem",
 							}}
