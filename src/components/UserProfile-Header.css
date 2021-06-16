@@ -33,7 +33,7 @@ a {
 	grid-column: 1/10;
 	grid-row: 1/4;
 	background: #f2a154;
-	height: 250px;
+	height: 275px;
 	width: auto;
 	position: relative;
 	margin: 0;
@@ -47,7 +47,7 @@ a {
 	height: 0;
 	left: 0;
 	position: absolute;
-	top: 250px;
+	top: 275px;
 	width: 0;
 }
 
@@ -60,11 +60,11 @@ a {
 	margin: 0;
 }
 
-.username,
-.user-location {
-	font-family: "Krub", sans-serif;
-	font-weight: 500;
-	text-align: center;
+.medal {
+	grid-column: 1;
+	align-self: center;
+	justify-self: center;
+	font-size: 30px;
 	color: #314e52;
 }
 
@@ -73,6 +73,14 @@ a {
 	width: 100%;
 	border-radius: 50%;
 	border: 9px solid #314e52;
+}
+
+.username,
+.user-location {
+	font-family: "Krub", sans-serif;
+	font-weight: 500;
+	text-align: center;
+	color: #314e52;
 }
 
 .username {
