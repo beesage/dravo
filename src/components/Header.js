@@ -17,7 +17,7 @@ export default function Header() {
 	useEffect(() => {
 		if (location.pathname == "/profile") {
 			setIsUserProfile(true);
-		} else if (location.pathname == "/") {
+		} else if (location.pathname == "/" || location.pathname == "/signup") {
 			setIsUserProfile(false);
 			setIsLoginPage(false);
 		} else if (location.pathname == "/leaderboard") {
