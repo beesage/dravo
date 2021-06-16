@@ -19,6 +19,7 @@ function Leaderboard({ user }) {
               This Month
             </button>
           </div>
+          <div className="leaderboard-top"></div>
           <img
             className="lb-top-pic"
             id="lb-pic-left"
