@@ -10,16 +10,17 @@ import { withStyles } from "@material-ui/core/styles";
 
 export default function Header() {
 	const [isUserProfile, setIsUserProfile] = useState(false);
+	const [isLoginPage, setIsLoginPage] = useState(true);
 
 	let location = useLocation();
 
 	useEffect(() => {
 		if (location.pathname == "/profile") {
 			setIsUserProfile(true);
-		} else if (
-			location.pathname == "/" ||
-			location.pathname == "/leaderboard"
-		) {
+		} else if (location.pathname == "/") {
+			setIsUserProfile(false);
+			setIsLoginPage(false);
+		} else if (location.pathname == "/leaderboard") {
 			setIsUserProfile(false);
 		}
 	}, [location.pathname]);
@@ -42,7 +43,7 @@ export default function Header() {
 	})(Toolbar);
 
 	return (
-		<div className="header-container">
+		<div className={!isLoginPage ? "hidden" : "header-container"}>
 			<NavBar position="static">
 				<Tool>
 					<Link to="/leaderboard">

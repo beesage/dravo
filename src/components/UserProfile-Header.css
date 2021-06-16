@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Krub:wght@400;500;600&display=swap");
 
+.hidden {
+	display: none;
+}
+
 .header-container {
 	grid-column: 1 /10;
 }
