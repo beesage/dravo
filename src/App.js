@@ -7,6 +7,9 @@ import "./styles.css";
 import Header from "./components/Header";
 import Leaderboard from "./components/Leaderboard";
 import UserProfile from "./components/UserProfile";
+import LogIn from "./components/LogIn";
+import SignUp from "./components/SignUp";
+
 
 export default function App() {
 	const [user, setUser] = useState([]);
@@ -27,8 +30,10 @@ export default function App() {
 	return (
 		<div className="container">
 			<Router>
-				<Header />
+				<Header /> 
 				<Switch>
+				    <Route exact path="/" component={LogIn} />
+		            <Route path="/signup" component={SignUp} />
 					<Route
 						path="/leaderboard"
 						render={(props) => <Leaderboard {...user} />}
