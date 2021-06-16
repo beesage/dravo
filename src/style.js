@@ -22,11 +22,12 @@ const useStyles = makeStyles(() => ({
     }, 
     form: {
       width: '90%',      
-      color: "#314E52",
+      color: "#314E52",      
     },
     textField: {
       border: "none",
-      background: "#F2A154",      
+      background: "#F2A154",
+      /* borderRadius: "4px",   */    
     },
     formcontrol: {
       color: "#314E52",
@@ -40,7 +41,8 @@ const useStyles = makeStyles(() => ({
       backgroundColor: "#314E52",
       color: "#F2A154",
       marginTop: "30px",
-      fontWeight: "800", 
+      fontWeight: "800",
+      padding: "18.5px 14px",
     },      
     link: {
        color: "#F2A154",
