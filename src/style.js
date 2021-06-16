@@ -38,8 +38,8 @@ const useStyles = makeStyles(() => ({
     forgotPassword: {
       color: "#314E52",
       textDecoration: "underline",  
-      lineHeight: 5,   
-      fontSize: "1.1em",      
+      lineHeight: 5.3,   
+      fontSize: "1.03em",      
     },
     submit: {      
       backgroundColor: "#314E52",
