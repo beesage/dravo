@@ -12,7 +12,8 @@ body {
 .container {
   display: grid;
   grid-template-columns: repeat (10, minmax(0, 1fr));
-  grid-template-rows: 0.2fr 0.2fr 1fr 2.5fr;
+  grid-template-rows: 0.1fr 0.2fr 1fr 2.5fr;
+  background-color: #f7f6e7;
 }
 
 .lb-button {
