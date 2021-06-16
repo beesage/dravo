@@ -5,7 +5,10 @@
 }
 
 .header-container {
+	display: grid;
 	grid-column: 1 /10;
+	grid-row: 1/1;
+	margin-bottom: 0;
 }
 
 .menu-item {
@@ -25,9 +28,10 @@ a {
 .user-container {
 	display: grid;
 	width: auto;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: 0.1fr 0.1fr 0.3fr 1fr;
 	grid-column: 1/10;
+	grid-row: 2;
 }
 
 .user-profile {
@@ -35,18 +39,20 @@ a {
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-rows: 1fr 1fr;
 	grid-column: 1/10;
-	grid-row: 1/4;
+	grid-row: 1/10;
 	background: #f2a154;
+	border-top: 2px solid #f2a154;
+	border-bottom: 2px solid #f2a154;
 	height: 275px;
-	width: auto;
+	/* width: auto; */
 	position: relative;
-	margin: 0;
+	/* margin:0; */
 }
 
 .user-profile:before {
 	border-top: 35px solid #f2a154;
-	border-left: 188px solid transparent;
-	border-right: 188px solid transparent;
+	border-left: 187.5px solid transparent;
+	border-right: 187.5px solid transparent;
 	content: "";
 	height: 0;
 	left: 0;
@@ -96,3 +102,81 @@ a {
 	font-size: 16px;
 	margin-top: 0;
 }
+
+.all-us-hex {
+	grid-column: 2/3;
+	grid-row: 4;
+}
+
+/* .user-details1,
+.user-details2,
+.user-details3,
+.user-details4 {
+	grid-column: 2/3;
+	justify-self: center;
+	margin-bottom: 0.5rem;
+}
+
+.user-details1 {
+	grid-row: 7;
+}
+
+.user-details2 {
+	grid-row: 9;
+}
+
+.user-details3 {
+	grid-row: 11;
+}
+
+.user-details4 {
+	grid-row: 13;
+} */
+
+.us-hex {
+	/* width: 100px;
+	height: 57.735px;
+	background: #314e52; */
+	/* position: relative; */
+	/* transform: rotate(90deg); */
+	display: flex;
+	flex-direction: column;
+}
+
+/* .us-hex::before {
+	content: "";
+	position: absolute;
+	top: -28.8675px;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 28.8675px solid #314e52;
+}
+
+.us-hex::after {
+	content: "";
+	position: absolute;
+	bottom: -28.8675px;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-top: 28.8675px solid #314e52;
+}
+
+.us-hex.border:before,
+.us-hex.border:after {
+	border: 4px solid #314e52;
+	background: #314e52;
+}
+
+.us-hex.border:before {
+	border-bottom: none;
+}
+
+.us-hex.border:after {
+	border-top: none;
+} */
