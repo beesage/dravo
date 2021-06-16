@@ -23,11 +23,51 @@ body {
   grid-row: 2 / 3;
 }
 
-.lb-best {
+/* .lb-best {
   display: flex;
   justify-content: center;
   grid-column: 1 / 10;
   grid-row: 3 / 4;
+} */
+
+.lb-top-pic {
+  align-self: center;
+  border-radius: 50%;
+}
+
+#lb-pic-left {
+  display: flex;
+  width: 70%;
+  border: 7px solid #314e52;
+  grid-column: 1 / 4;
+  grid-row: 3/4;
+  justify-content: center;
+  justify-self: center;
+  margin-left: 10px;
+}
+#lb-pic-big {
+  display: flex;
+  width: 82%;
+  border: 8px solid #314e52;
+  grid-column: 4 / 7;
+  grid-row: 3 / 4;
+  justify-content: center;
+  justify-self: center;
+}
+
+#lb-pic-right {
+  display: flex;
+  width: 70%;
+  border: 7px solid #314e52;
+  grid-column: 7 / 10;
+  grid-row: 3 / 4;
+  justify-content: center;
+  justify-self: center;
+  margin-right: 10px;
+}
+
+#lb-pic-small {
+  width: 20%;
 }
 
 .lb-all {

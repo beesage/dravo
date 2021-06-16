@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import "./Header.css";
+
+import "./UserProfile-Header.css";
 
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -9,16 +10,17 @@ import { withStyles } from "@material-ui/core/styles";
 
 export default function Header() {
 	const [isUserProfile, setIsUserProfile] = useState(false);
+	const [isLoginPage, setIsLoginPage] = useState(true);
 
 	let location = useLocation();
 
 	useEffect(() => {
 		if (location.pathname == "/profile") {
 			setIsUserProfile(true);
-		} else if (
-			location.pathname == "/" ||
-			location.pathname == "/leaderboard"
-		) {
+		} else if (location.pathname == "/" || location.pathname == "/signup") {
+			setIsUserProfile(false);
+			setIsLoginPage(false);
+		} else if (location.pathname == "/leaderboard") {
 			setIsUserProfile(false);
 		}
 	}, [location.pathname]);
@@ -26,19 +28,22 @@ export default function Header() {
 	const NavBar = withStyles({
 		root: {
 			backgroundColor: "#F2A154",
-			boxShadow: "1px 1px",
+			padding: "0.5rem",
 		},
 	})(AppBar);
 
 	const Tool = withStyles({
 		root: {
+			height: "4rem",
 			display: "flex",
-			justifyContent: "space-evenly",
+			alignItems: "center",
+			justifyContent: "center",
+			gap: "1.5rem",
 		},
 	})(Toolbar);
 
 	return (
-		<div className="header-container">
+		<div className={!isLoginPage ? "hidden" : "header-container"}>
 			<NavBar position="static">
 				<Tool>
 					<Link to="/leaderboard">
@@ -53,7 +58,7 @@ export default function Header() {
 								color: "#314E52",
 								position: "fixed",
 								fontSize: "30px",
-								right: "0.8rem",
+								right: "1rem",
 							}}
 						/>
 					) : (

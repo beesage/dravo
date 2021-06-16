@@ -19,9 +19,24 @@ function Leaderboard({ user }) {
               This Month
             </button>
           </div>
-          <div className="lb-best">
-            <Avatar alt={user[0].beekeeper} src={user[0].profilepic} />
-          </div>
+          <img
+            className="lb-top-pic"
+            id="lb-pic-left"
+            alt={user[3].beekeeper}
+            src={user[3].profilepic}
+          />
+          <img
+            className="lb-top-pic"
+            id="lb-pic-big"
+            alt={user[2].beekeeper}
+            src={user[2].profilepic}
+          />
+          <img
+            className="lb-top-pic"
+            id="lb-pic-right"
+            alt={user[4].beekeeper}
+            src={user[4].profilepic}
+          />
           <LeaderboardCard user={user} />
         </>
       ) : (
