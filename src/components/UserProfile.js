@@ -29,10 +29,10 @@ export default function UserProfile({ user, loading }) {
 
 			{user.length > 0 ? (
 				<>
-					<div className="user-details1">
+					<div className="all-us-hex">
 						<UserProfileHex user={user} />
 					</div>
-					<div className="user-details2">
+					{/* <div className="user-details2">
 						<UserProfileHex user={user} />
 					</div>
 					<div className="user-details3">
@@ -40,7 +40,7 @@ export default function UserProfile({ user, loading }) {
 					</div>
 					<div className="user-details4">
 						<UserProfileHex user={user} />
-					</div>
+					</div> */}
 				</>
 			) : (
 				loading
