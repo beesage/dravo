@@ -22,7 +22,7 @@ export default function LogIn() {
           <TextField
             variant="outlined"
             margin="normal"
-            /* required */
+            required
             fullWidth
             id="email"
             label="Enter your email"
@@ -30,23 +30,35 @@ export default function LogIn() {
             autoComplete="email"
             autoFocus
             className = {classes.textField}
+            InputLabelProps={{
+              classes: {
+                root: classes.cssLabel,
+                focused: classes.cssFocused,
+              },
+            }}
           />
           <TextField
             variant="outlined"
             margin="normal"
-            /* required */
+            required
             fullWidth
-            name="password"
+            name="password-login"
             label="Enter your password"
             type="password"
-            id="password"
+            id="password-login"
             autoComplete="current-password"
             className = {classes.textField}
+            InputLabelProps={{
+              classes: {
+                root: classes.cssLabel,
+                focused: classes.cssFocused,
+              },
+            }}
           />             
           <Grid container>
-            <Grid item xs>
+            <Grid item xs className={classes.formControl}>
               <FormControlLabel
-                control={<Checkbox value="remember" />}
+                control={<Checkbox value="remember" color="default" />}
                 label="Keep me logged in"
               />  
             </Grid>
@@ -56,18 +68,20 @@ export default function LogIn() {
               </Link>
             </Grid>
           </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            className={classes.submit}
-          >
-            Log In
-          </Button>
+          <NavLink to="/leaderboard">
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              className={classes.submit}
+            >
+              Log In
+            </Button>
+          </NavLink>
         </form>
       </div>
-      <Box align="center" mt={8}>
-         <Typography variant="body2">
+      <Box align="center" mt={2}>
+         <Typography variant="body2" className={classes.typographyColor}>
             New to Dravo?
          </Typography>
          <NavLink to="/signup" variant="body2" className={classes.link}>           
