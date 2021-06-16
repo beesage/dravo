@@ -58,7 +58,7 @@ export default function Header() {
 								color: "#314E52",
 								position: "fixed",
 								fontSize: "30px",
-								right: "0.8rem",
+								right: "1rem",
 							}}
 						/>
 					) : (
