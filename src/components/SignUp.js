@@ -22,7 +22,7 @@ export default function LogIn() {
           <TextField
             variant="outlined"
             margin="normal"
-            /* required */
+            required
             fullWidth
             id="username"
             label="Enter your username"
@@ -34,7 +34,7 @@ export default function LogIn() {
           <TextField
             variant="outlined"
             margin="normal"
-            /* required */
+            required
             fullWidth
             id="email"
             label="Enter your email"
@@ -46,7 +46,7 @@ export default function LogIn() {
           <TextField
             variant="outlined"
             margin="normal"
-            /* required */
+            required
             fullWidth
             name="password"
             label="Enter your password"
@@ -58,7 +58,7 @@ export default function LogIn() {
           <TextField
             variant="outlined"
             margin="normal"
-            /* required */
+            required
             fullWidth
             name="password"
             label="Confirm your password"
