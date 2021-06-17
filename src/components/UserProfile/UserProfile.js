@@ -5,7 +5,7 @@ import { Icons } from "./Icons";
 import "../UserProfile-Header.css";
 
 import UserProfileHex from "./UserProfileHex";
-import UserProfileHexYell from "./UserProfileHexYell";
+import UserProfileHexData from "./UserProfileHexData";
 
 export default function UserProfile({ user, loading }) {
 	return (
@@ -38,7 +38,7 @@ export default function UserProfile({ user, loading }) {
 					</div>
 					<div className="all-us-b-hex">
 						{Icons.map((icons, index) => (
-							<UserProfileHexYell key={index} user={user} />
+							<UserProfileHexData key={index} user={user} />
 						))}
 					</div>
 				</>
