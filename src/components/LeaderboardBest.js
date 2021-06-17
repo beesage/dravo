@@ -10,6 +10,7 @@ function LeaderboardBest({ user, orientation }) {
         src={user.profilepic}
       />
       {user.beekeeper}
+      <div className="lb-top-location">{user.location}</div>
       <div className="lb-top-wd">{user.weightdelta}</div>
     </div>
   );

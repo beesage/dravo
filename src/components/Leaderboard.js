@@ -23,12 +23,17 @@ function Leaderboard({ user, loading }) {
             </button>
           </div>
           <div className="leaderboard-top"></div>
-
           <LeaderboardBest user={user[3]} orientation={left} />
           <LeaderboardBest user={user[0]} orientation={middle} />
           <LeaderboardBest user={user[10]} orientation={right} />
 
-          <LeaderboardCard user={user} />
+          <div className="lb-all">
+            {user.map((user, index) => (
+              <div key={index}>
+                <LeaderboardCard user={user} />
+              </div>
+            ))}
+          </div>
         </>
       ) : (
         loading
