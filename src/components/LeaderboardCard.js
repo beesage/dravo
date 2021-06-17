@@ -5,8 +5,14 @@ function LeaderboardCard({ user }) {
   return (
     <>
       <div className="hexagon ribbon-outset border">
-        <img id="lb-pic-small" alt={user.beekeeper} src={user.profilepic} />
-        {user.beekeeper} {user.location} {user.weightdelta}
+        <div className="lb-card-flex-container">
+          <img id="lb-pic-small" alt={user.beekeeper} src={user.profilepic} />
+          <div className="lb-card-usertext">
+            {user.beekeeper}
+            <div className="lb-top-location"> {user.location} </div>
+          </div>
+          <div className="lb-top-wd">{user.weightdelta}</div>
+        </div>
       </div>
     </>
   );

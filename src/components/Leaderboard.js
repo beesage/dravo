@@ -11,6 +11,7 @@ function Leaderboard({ user, loading }) {
     <>
       {user.length > 0 ? (
         <>
+          <div className="lb-navhex"></div>
           <div className="lb-button">
             <button variant="contained" color="primary">
               Today
@@ -23,8 +24,8 @@ function Leaderboard({ user, loading }) {
             </button>
           </div>
           <div className="leaderboard-top"></div>
-          <LeaderboardBest user={user[3]} orientation={left} />
-          <LeaderboardBest user={user[0]} orientation={middle} />
+          <LeaderboardBest user={user[15]} orientation={left} />
+          <LeaderboardBest user={user[12]} orientation={middle} />
           <LeaderboardBest user={user[10]} orientation={right} />
 
           <div className="lb-all">
