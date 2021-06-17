@@ -44,8 +44,8 @@ const useStyles = makeStyles(() => ({
     submit: {      
       backgroundColor: "#314E52",
       color: "#F2A154",
-      marginTop: "20px",
-      marginBottom: "20px",
+      marginTop: "25px",
+      marginBottom: "30px",
       fontWeight: "800",
       padding: "18.px 14px",
       textTransform: "none",
