@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { FaMedal } from "react-icons/fa";
 import { Icons } from "./Icons";
-import CircularProgress from "@material-ui/core/CircularProgress";
 
-import "./UserProfile-Header.css";
+import "../UserProfile-Header.css";
 
 import UserProfileHex from "./UserProfileHex";
+import UserProfileHexYell from "./UserProfileHexYell";
 
 export default function UserProfile({ user, loading }) {
 	return (
@@ -36,7 +36,11 @@ export default function UserProfile({ user, loading }) {
 							<UserProfileHex icons={icons} key={index} />
 						))}
 					</div>
-					<div className="us-b-hex-position"></div>
+					<div className="all-us-b-hex">
+						{Icons.map((icons, index) => (
+							<UserProfileHexYell key={index} user={user} />
+						))}
+					</div>
 				</>
 			) : (
 				loading

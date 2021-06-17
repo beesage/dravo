@@ -10,8 +10,6 @@ export default function UserProfileHex({ user, icons }) {
 				/>
 			</div>
 			<p className="icons-name">{icons.name}</p>
-
-			{/* <div className="us-b-hex" /> */}
 		</>
 	);
 }
