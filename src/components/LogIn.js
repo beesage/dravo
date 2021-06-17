@@ -47,14 +47,17 @@ export default function LogIn() {
 	
 	return (
 		<div>
-			<Container component="main" maxWidth="xs" className={classes.container}>
+			<Container component="main"  className={classes.container}>
 				<CssBaseline />
-				<div className={classes.wrapper}>
-					<img className={classes.logo} src={logo} />
+				<Grid container>
+				<Grid item className={classes.img} xs={12} sm={6} md={6}>	
+			       <img className={classes.logo} src={logo} />
+				</Grid>	
+				<Grid item  xs={12} sm={6} md={6} className={classes.breakpoints}>	
 					<Typography className={classes.title} variant="h4">
 						Log In
 					</Typography>
-					<form className={classes.form} noValidate>
+					<form className={classes.form}  noValidate>
 						<TextField
 							variant="outlined"
 							margin="normal"
@@ -72,10 +75,10 @@ export default function LogIn() {
 									focused: classes.cssFocused,
 								},
 							}}
-						/>
-						<FormControl className={clsx(classes.textField)}  fullWidth variant="outlined">
+						/>						
+						<FormControl className={clsx(classes.textField )}  fullWidth variant="outlined">
 							<InputLabel className={classes.fieldLabel} htmlFor="outlined-adornment-password" required >
-								Enter your password
+								Password
 							</InputLabel>
 							<OutlinedInput
 								id="outlined-adornment-password"								
@@ -97,15 +100,13 @@ export default function LogIn() {
 								}
 								labelWidth={70}
 							/>
-						</FormControl> 
-						<Grid container>
-							<Grid item xs className={classes.formControl}>
+						</FormControl>       
+						{/* <Grid item> */}
+							<Box /* item xs */ className={classes.formControl}>
 								<FormControlLabel
-									control={<Checkbox className={classes.fill} value="remember" color="default" />}
+									control={<Checkbox className={classes.fill} value="remember" />}
 									label="Keep me logged in"
-								/>
-							</Grid>
-							<Grid item>
+								/>							
 								<Link
 									href="#"
 									variant="body2"
@@ -113,9 +114,9 @@ export default function LogIn() {
 								>
 									Forgot password?
 								</Link>
-							</Grid>
-						</Grid>
-						<NavLink to="/leaderboard">
+							</Box>
+						{/* </Grid> */}
+						{/* <NavLink to="/leaderboard"> */}
 							<Button
 								type="submit"
 								fullWidth
@@ -124,9 +125,9 @@ export default function LogIn() {
 							>
 								Log In
 							</Button>
-						</NavLink>
+						{/* </NavLink> */}
 					</form>
-				</div>
+				{/* </div> */}
 				<Box align="center" mt={2}>
 					<Typography variant="body2" className={classes.typographyColor}>
 						New to Dravo?
@@ -135,6 +136,8 @@ export default function LogIn() {
 						{"Join Now"}
 					</NavLink>
 				</Box>
+				</Grid>
+				</Grid>	
 			</Container>
 		</div>
 	);
