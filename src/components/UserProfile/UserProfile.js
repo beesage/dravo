@@ -6,11 +6,12 @@ import "../UserProfile-Header.css";
 
 import Hex from "./Hex";
 import HexData from "./HexData";
+import LoadingPage from "../Spinner/LoadingPage";
 
 export default function UserProfile({ user, loading }) {
 	return (
 		<div className="user-container">
-			{user.length > 0 ? (
+			{loading ? (
 				<>
 					<div className="user-profile">
 						<FaMedal className="medal" />
@@ -32,7 +33,7 @@ export default function UserProfile({ user, loading }) {
 					</div>
 				</>
 			) : (
-				loading
+				<LoadingPage />
 			)}
 		</div>
 	);
