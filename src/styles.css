@@ -60,6 +60,13 @@ body {
   border-radius: 50%;
 }
 
+.lb-top-txt {
+  color: #314e52;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+}
+
 #lb-pic-left {
   display: flex;
   width: 60%;
@@ -80,6 +87,10 @@ body {
   justify-content: center;
   justify-self: center;
   z-index: 2;
+  color: #314e52;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 #lb-pic-right {
@@ -92,6 +103,10 @@ body {
   justify-self: center;
   margin-right: 10px;
   z-index: 2;
+  color: #314e52;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 #lb-pic-small {
