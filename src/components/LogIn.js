@@ -11,6 +11,15 @@ import {
 	Container,
 	Typography,
 } from "@material-ui/core";
+import FormControl from '@material-ui/core/FormControl';
+import clsx from 'clsx';
+import InputLabel from '@material-ui/core/InputLabel';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import IconButton from '@material-ui/core/IconButton';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import Visibility from '@material-ui/icons/Visibility';
+
 import "../styles.css";
 import useStyles from "../style";
 import logo from "../assets/logo-mobile.png";
@@ -18,7 +27,24 @@ import { NavLink } from "react-router-dom";
 
 export default function LogIn() {
 	const classes = useStyles();
+	const [values, setValues] = React.useState({    
+		password: '',
+		weight: '',    
+		showPassword: false,
+	});
 
+	const handleChange = (prop) => (event) => {
+		setValues({ ...values, [prop]: event.target.value });
+	};
+
+	const handleClickShowPassword = () => {
+		setValues({ ...values, showPassword: !values.showPassword });
+	};
+
+	const handleMouseDownPassword = (event) => {
+		event.preventDefault();
+	};
+	
 	return (
 		<div>
 			<Container component="main" maxWidth="xs" className={classes.container}>
@@ -47,28 +73,35 @@ export default function LogIn() {
 								},
 							}}
 						/>
-						<TextField
-							variant="outlined"
-							margin="normal"
-							required
-							fullWidth
-							name="password-login"
-							label="Enter your password"
-							type="password"
-							id="password-login"
-							autoComplete="current-password"
-							className={classes.textField}
-							InputLabelProps={{
-								classes: {
-									root: classes.cssLabel,
-									focused: classes.cssFocused,
-								},
-							}}
-						/>
+						<FormControl className={clsx(classes.textField)}  fullWidth variant="outlined">
+							<InputLabel className={classes.fieldLabel} htmlFor="outlined-adornment-password" required >
+								Password
+							</InputLabel>
+							<OutlinedInput
+								id="outlined-adornment-password"								
+								type={values.showPassword ? 'text' : 'password'}
+								value={values.password}
+								onChange={handleChange('password')}
+								endAdornment={
+								<InputAdornment position="end">
+									<IconButton
+									aria-label="toggle password visibility"
+									onClick={handleClickShowPassword}
+									onMouseDown={handleMouseDownPassword}
+									edge="end"
+									className={classes.fieldLabel}
+									>
+									{values.showPassword ? <Visibility /> : <VisibilityOff />}
+									</IconButton>
+								</InputAdornment>
+								}
+								labelWidth={70}
+							/>
+						</FormControl> 
 						<Grid container>
 							<Grid item xs className={classes.formControl}>
 								<FormControlLabel
-									control={<Checkbox value="remember" color="default" />}
+									control={<Checkbox className={classes.fill} value="remember" color="default" />}
 									label="Keep me logged in"
 								/>
 							</Grid>

@@ -27,13 +27,18 @@ const useStyles = makeStyles(() => ({
     textField: {
       border: "none",
       background: "#F2A154",
-      marginBottom: "-2px",      
-      //outline: 'none',      
-      borderRadius: "4px",    
+      marginBottom: "15px",           
+      borderRadius: "4px",          
+    },
+    fieldLabel: {
+      color: "#314E52",
     },
     formControl: {
       color: "#314E52",
       marginTop: "18px",
+    },
+    fill: {
+      color: "#314E52",
     },
     forgotPassword: {
       color: "#314E52",
