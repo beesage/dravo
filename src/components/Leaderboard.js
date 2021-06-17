@@ -1,12 +1,11 @@
 import React from "react";
 import LeaderboardCard from "./LeaderboardCard";
 import LeaderboardBest from "./LeaderboardBest";
-import { makeStyles } from "@material-ui/core/styles";
 
 function Leaderboard({ user, loading }) {
-  const left = { divprop: "lb-top-left", pic: "lb-pic-left" };
+  const left = { divprop: "lb-top-left", pic: "lb-pic-middle" };
   const middle = { divprop: "lb-top-big", pic: "lb-pic-big" };
-  const right = { divprop: "lb-top-right", pic: "lb-pic-right" };
+  const right = { divprop: "lb-top-right", pic: "lb-pic-middle" };
 
   return (
     <>
@@ -25,9 +24,9 @@ function Leaderboard({ user, loading }) {
           </div>
           <div className="leaderboard-top"></div>
 
-          <LeaderboardBest user={user} orientation={left} />
-          <LeaderboardBest user={user} orientation={middle} />
-          <LeaderboardBest user={user} orientation={right} />
+          <LeaderboardBest user={user[3]} orientation={left} />
+          <LeaderboardBest user={user[0]} orientation={middle} />
+          <LeaderboardBest user={user[10]} orientation={right} />
 
           <LeaderboardCard user={user} />
         </>
