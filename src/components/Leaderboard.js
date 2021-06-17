@@ -4,9 +4,9 @@ import LeaderboardBest from "./LeaderboardBest";
 import { makeStyles } from "@material-ui/core/styles";
 
 function Leaderboard({ user, loading }) {
-  const left = "lb-pic-left";
-  const big = "lb-pic-big";
-  const right = "lb-pic-right";
+  const left = { divprop: "lb-top-left", pic: "lb-pic-left" };
+  const middle = { divprop: "lb-top-big", pic: "lb-pic-big" };
+  const right = { divprop: "lb-top-right", pic: "lb-pic-right" };
 
   return (
     <>
@@ -26,7 +26,7 @@ function Leaderboard({ user, loading }) {
           <div className="leaderboard-top"></div>
 
           <LeaderboardBest user={user} orientation={left} />
-          <LeaderboardBest user={user} orientation={big} />
+          <LeaderboardBest user={user} orientation={middle} />
           <LeaderboardBest user={user} orientation={right} />
 
           <LeaderboardCard user={user} />
