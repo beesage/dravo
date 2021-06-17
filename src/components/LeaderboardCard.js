@@ -5,7 +5,7 @@ function LeaderboardCard({ user }) {
   return (
     <>
       <div className="hexagon ribbon-outset border">
-        <Avatar alt={user.beekeeper} src={user.profilepic} />
+        <img id="lb-pic-small" alt={user.beekeeper} src={user.profilepic} />
         {user.beekeeper} {user.location} {user.weightdelta}
       </div>
     </>
