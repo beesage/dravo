@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function UserProfileHexData({ user }) {
+export default function HexData({ user }) {
 	return (
 		<>
 			<div className="us-b-hex" />

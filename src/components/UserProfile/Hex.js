@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function UserProfileHex({ icons }) {
+export default function Hex({ icons }) {
 	return (
 		<>
 			<div className="us-hex">

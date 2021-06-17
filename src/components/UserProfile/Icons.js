@@ -8,7 +8,7 @@ export const Icons = [
 		src: "https://res.cloudinary.com/dg5lakmem/image/upload/v1623926735/Dravo/beehive.png",
 	},
 	{
-		name: "Apiary",
+		name: "Apiaries",
 		src: "https://res.cloudinary.com/dg5lakmem/image/upload/v1623926687/Dravo/apiary.png",
 	},
 	{

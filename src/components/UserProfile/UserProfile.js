@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaMedal } from "react-icons/fa";
 import { Icons } from "./Icons";
 
 import "../UserProfile-Header.css";
 
-import UserProfileHex from "./UserProfileHex";
-import UserProfileHexData from "./UserProfileHexData";
+import Hex from "./Hex";
+import HexData from "./HexData";
 
 export default function UserProfile({ user, loading }) {
 	return (
@@ -33,12 +33,12 @@ export default function UserProfile({ user, loading }) {
 				<>
 					<div className="all-us-hex">
 						{Icons.map((icons, index) => (
-							<UserProfileHex icons={icons} key={index} />
+							<Hex icons={icons} key={index} />
 						))}
 					</div>
 					<div className="all-us-b-hex">
 						{Icons.map((icons, index) => (
-							<UserProfileHexData key={index} user={user} />
+							<HexData key={index} user={user} />
 						))}
 					</div>
 				</>
