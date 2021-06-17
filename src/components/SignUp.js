@@ -5,9 +5,34 @@ import useStyles from "../style";
 import logo from "../assets/logo-mobile.png"; 
 import { NavLink } from "react-router-dom";
 
+import FormControl from '@material-ui/core/FormControl';
+import clsx from 'clsx';
+import InputLabel from '@material-ui/core/InputLabel';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import IconButton from '@material-ui/core/IconButton';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import Visibility from '@material-ui/icons/Visibility';
 
 export default function LogIn() {
   const classes = useStyles();
+	const [values, setValues] = React.useState({    
+		password: '',
+		weight: '',    
+		showPassword: false,
+	});
+
+	const handleChange = (prop) => (event) => {
+		setValues({ ...values, [prop]: event.target.value });
+	};
+
+	const handleClickShowPassword = () => {
+		setValues({ ...values, showPassword: !values.showPassword });
+	};
+
+	const handleMouseDownPassword = (event) => {
+		event.preventDefault();
+	};
 
   return (
     <div>
@@ -20,8 +45,7 @@ export default function LogIn() {
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
-            variant="outlined"
-            margin="normal"
+            variant="outlined"            
             required
             fullWidth
             id="username"
@@ -38,8 +62,7 @@ export default function LogIn() {
             }}
           />
           <TextField
-            variant="outlined"
-            margin="normal"
+            variant="outlined"            
             required
             fullWidth
             id="email"
@@ -55,52 +78,60 @@ export default function LogIn() {
               },
             }}
           />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password-signup"
-            label="Enter your password"
-            type="password"
-            id="password-signup"
-            autoComplete="current-password"
-            className={classes.textField}
-            InputLabelProps={{
-              classes: {
-                root: classes.cssLabel,
-                focused: classes.cssFocused,
-              },
-            }}            
-          />     
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Confirm your password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            className={classes.textField}
-            InputLabelProps={{
-              classes: {
-                root: classes.cssLabel,
-                focused: classes.cssFocused,
-              },
-            }}
-            InputLabelProps={{
-              classes: {
-                root: classes.cssLabel,
-                focused: classes.cssFocused,
-              },
-            }}
-          />                   
+          <FormControl className={clsx(classes.textField )}  fullWidth variant="outlined">
+							<InputLabel className={classes.fieldLabel} htmlFor="password" required >
+								Enter your password
+							</InputLabel>
+							<OutlinedInput
+								id="password"								
+								type={values.showPassword ? 'text' : 'password'}
+								value={values.password}
+								onChange={handleChange('password')}
+								endAdornment={
+								<InputAdornment position="end" className={classes.fieldLabel}>
+									<IconButton
+									aria-label="toggle password visibility"
+									onClick={handleClickShowPassword}
+									onMouseDown={handleMouseDownPassword}
+									edge="end"
+                  className={classes.fieldLabel}
+									>
+									{values.showPassword ? <Visibility /> : <VisibilityOff />}
+									</IconButton>
+								</InputAdornment>
+								}
+								labelWidth={70}
+							/>
+					</FormControl>
+          <FormControl className={clsx(classes.textField)}  fullWidth variant="outlined">
+							<InputLabel className={classes.fieldLabel} htmlFor="confirm-password" required >
+								Confirm your password
+							</InputLabel>
+							<OutlinedInput
+								id="confirm-password"								
+								type={values.showPassword ? 'text' : 'password'}
+								value={values.password}
+								onChange={handleChange('password')}
+								endAdornment={
+								<InputAdornment position="end" className={classes.fieldLabel}>
+									<IconButton
+									aria-label="toggle password visibility"
+									onClick={handleClickShowPassword}
+									onMouseDown={handleMouseDownPassword}
+									edge="end"
+                  className={classes.fieldLabel}
+									>
+									{values.showPassword ? <Visibility /> : <VisibilityOff />}
+									</IconButton>
+								</InputAdornment>
+								}
+								labelWidth={70}
+							/>
+						</FormControl>       
           <Grid container>
             <Grid item xs className={classes.formControl}>
               <FormControlLabel
-                control={<Checkbox value="remember" color="default" />}
+                control={<Checkbox  className={classes.fill} value="remember" color="default" />}
                 label="Keep me logged in"                               
               />  
             </Grid>

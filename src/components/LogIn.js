@@ -75,7 +75,7 @@ export default function LogIn() {
 						/>
 						<FormControl className={clsx(classes.textField)}  fullWidth variant="outlined">
 							<InputLabel className={classes.fieldLabel} htmlFor="outlined-adornment-password" required >
-								Password
+								Enter your password
 							</InputLabel>
 							<OutlinedInput
 								id="outlined-adornment-password"								
