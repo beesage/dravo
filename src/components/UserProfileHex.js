@@ -1,15 +1,17 @@
 import React from "react";
 
-import { Icons } from "./Icons";
-
-export default function UserProfileHex({ user }) {
+export default function UserProfileHex({ user, icons }) {
 	return (
 		<>
-			{Icons.map((icons, index) => (
-				<div className="us-hex" key={index}>
-					<img src={icons.src} />
-				</div>
-			))}
+			<div className="us-hex">
+				<img
+					src={icons.src}
+					style={{ transform: "rotate(270deg)", width: "120%" }}
+				/>
+			</div>
+			<p className="icons-name">{icons.name}</p>
+
+			{/* <div className="us-b-hex" /> */}
 		</>
 	);
 }

@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaMedal } from "react-icons/fa";
+import { Icons } from "./Icons";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 import "./UserProfile-Header.css";
 
@@ -30,17 +32,11 @@ export default function UserProfile({ user, loading }) {
 			{user.length > 0 ? (
 				<>
 					<div className="all-us-hex">
-						<UserProfileHex user={user} />
+						{Icons.map((icons, index) => (
+							<UserProfileHex icons={icons} key={index} />
+						))}
 					</div>
-					{/* <div className="user-details2">
-						<UserProfileHex user={user} />
-					</div>
-					<div className="user-details3">
-						<UserProfileHex user={user} />
-					</div>
-					<div className="user-details4">
-						<UserProfileHex user={user} />
-					</div> */}
+					<div className="us-b-hex-position"></div>
 				</>
 			) : (
 				loading
