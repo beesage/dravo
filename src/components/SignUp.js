@@ -61,7 +61,7 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
-                id="email"
+                id="name"
                 label="Enter your username"
                 name="text"
                 autoComplete="text"
@@ -198,7 +198,7 @@ export default function SignUp() {
             </form>
             <Box align="center" mt={2}>
               <Typography variant="body2" className={classes.typographyColor}>
-                New to Dravo?
+                Already on Dravo?
               </Typography>
               <NavLink to="/" variant="body2" className={classes.link}>
                 {"Log In"}

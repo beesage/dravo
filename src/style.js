@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   textField: {
     border: "none",
     background: "#F2A154",
-    marginBottom: "15px",
+    marginBottom: "3%",
     borderRadius: "4px",
   },
   formControl: {
@@ -42,9 +42,8 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     backgroundColor: "#314E52",
-    color: "#F2A154",
-    marginTop: "5%",
-    marginBottom: "30px",
+    color: "#F2A154",    
+    marginBottom: "2%",
     fontWeight: "800",
     padding: "10px 14px",
     textTransform: "none",
