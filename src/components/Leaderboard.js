@@ -11,7 +11,6 @@ function Leaderboard({ user, loading }) {
     <>
       {user.length > 0 ? (
         <>
-          <div className="lb-navhex"></div>
           <div className="lb-button">
             <button variant="contained" color="primary">
               Today

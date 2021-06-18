@@ -1,9 +1,14 @@
 import React from "react";
-import Avatar from "@material-ui/core/Avatar";
+import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
+import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 
 function LeaderboardCard({ user }) {
   return (
-    <>
+    <div className="lb-card-wrapper">
+      <div className="lb-card-rank">
+        4
+        <ArrowDropUpIcon style={{ fill: "green" }} />
+      </div>
       <div className="hexagon ribbon-outset border">
         <div className="lb-card-flex-container">
           <img id="lb-pic-small" alt={user.beekeeper} src={user.profilepic} />
@@ -14,7 +19,7 @@ function LeaderboardCard({ user }) {
           <div className="lb-top-wd">{user.weightdelta}</div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
