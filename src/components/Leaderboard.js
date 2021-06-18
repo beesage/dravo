@@ -70,9 +70,9 @@ function Leaderboard({ user, loading }) {
           </div>
 
           <div className="leaderboard-top"></div>
-          <LeaderboardBest user={lbTop[1]} orientation={left} />
-          <LeaderboardBest user={lbTop[0]} orientation={middle} />
-          <LeaderboardBest user={lbTop[2]} orientation={right} />
+          <LeaderboardBest user={lbTop[1]} orientation={left} rank={2} />
+          <LeaderboardBest user={lbTop[0]} orientation={middle} rank={1} />
+          <LeaderboardBest user={lbTop[2]} orientation={right} rank={3} />
 
           <div className="lb-all">
             {user.map((user, index) => (

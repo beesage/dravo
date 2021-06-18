@@ -1,6 +1,7 @@
 import React from "react";
+import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 
-function LeaderboardBest({ user, orientation }) {
+function LeaderboardBest({ user, orientation, rank }) {
   return (
     <div className="lb-top-general" id={orientation.divprop}>
       <img
@@ -12,6 +13,9 @@ function LeaderboardBest({ user, orientation }) {
       {user.beekeeper}
       <div className="lb-top-location">{user.location}</div>
       <div className="lb-top-wd">{user.weightdelta}</div>
+      <div className="lb-top-rank">
+        {rank} <ArrowDropUpIcon style={{ fill: "green" }} />
+      </div>
     </div>
   );
 }
