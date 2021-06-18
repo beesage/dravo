@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "4px",
   },
   formControl: {
-    color: "#314E52",    
+    color: "#314E52",
   },
   forgotPassword: {
     color: "#314E52",
