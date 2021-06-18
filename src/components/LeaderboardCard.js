@@ -2,11 +2,11 @@ import React from "react";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 
-function LeaderboardCard({ user }) {
+function LeaderboardCard({ user, index }) {
   return (
     <div className="lb-card-wrapper">
       <div className="lb-card-rank">
-        4
+        {index + 4}
         <ArrowDropUpIcon style={{ fill: "green" }} />
       </div>
       <div className="hexagon ribbon-outset border">
