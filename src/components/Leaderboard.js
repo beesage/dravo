@@ -18,6 +18,7 @@ function Leaderboard({ user, loading }) {
                 textTransform: "none",
                 fontSize: "10px",
                 backgroundColor: "#314e52",
+                color: "#f2a154",
                 borderRadius: "0%",
               }}
               variant="containedSecondary"
@@ -29,7 +30,7 @@ function Leaderboard({ user, loading }) {
               style={{
                 textTransform: "none",
                 fontSize: "10px",
-                fontColor: "#f2a154",
+                color: "#314e52",
                 backgroundColor: "rgba(255, 255, 255, 0.15)",
                 borderRadius: "0%",
               }}
@@ -43,6 +44,7 @@ function Leaderboard({ user, loading }) {
                 width: "100",
                 textTransform: "none",
                 fontSize: "10px",
+                color: "#314e52",
                 backgroundColor: "rgba(255, 255, 255, 0.15)",
                 borderRadius: "0%",
               }}
@@ -54,6 +56,7 @@ function Leaderboard({ user, loading }) {
               style={{
                 textTransform: "none",
                 fontSize: "10px",
+                color: "#314e52",
                 backgroundColor: "rgba(255, 255, 255, 0.15)",
                 borderRadius: "0%",
               }}
