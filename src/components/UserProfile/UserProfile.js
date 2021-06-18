@@ -1,4 +1,7 @@
 import React from "react";
+import Avatar from "@material-ui/core/Avatar";
+import { makeStyles } from "@material-ui/core/styles";
+import { deepOrange } from "@material-ui/core/colors";
 import { FaMedal } from "react-icons/fa";
 import { Icons } from "./Icons";
 
@@ -6,17 +9,36 @@ import "../UserProfile-Header.css";
 
 import Hex from "./Hex";
 import HexData from "./HexData";
-import LoadingPage from "../Spinner/LoadingPage";
 
-export default function UserProfile({ user, loading }) {
+const useStyles = makeStyles((theme) => ({
+	root: {
+		width: "100%",
+		height: "auto",
+		borderRadius: "50%",
+		border: "9px solid #314e52",
+		alignSelf: "center",
+		marginTop: "1rem",
+	},
+	orange: {
+		color: theme.palette.getContrastText(deepOrange[500]),
+		backgroundColor: deepOrange[500],
+	},
+}));
+
+export default function UserProfile({ user }) {
+	const classes = useStyles();
 	return (
 		<div className="user-container">
-			{loading ? (
+			{user.length > 0 ? (
 				<>
 					<div className="user-profile">
 						<FaMedal className="medal" />
 						<div className="user-info">
-							<img className="profile-pic" src={user[0].profilepic} />
+							<Avatar
+								classes={{ root: classes.root }}
+								alt=""
+								src={user[0].profilepic}
+							/>
 							<p className="username">{user[0].beekeeper}</p>
 							<p className="user-location">{user[0].location}</p>
 						</div>
@@ -33,7 +55,7 @@ export default function UserProfile({ user, loading }) {
 					</div>
 				</>
 			) : (
-				<LoadingPage />
+				false
 			)}
 		</div>
 	);
