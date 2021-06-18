@@ -32,8 +32,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "4px",
   },
   formControl: {
-    color: "#314E52",
-    marginTop: "2%",
+    color: "#314E52",    
   },
   forgotPassword: {
     color: "#314E52",
@@ -47,9 +46,9 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "5%",
     marginBottom: "30px",
     fontWeight: "800",
-    padding: "18px 14px",
+    padding: "10px 14px",
     textTransform: "none",
-    fontSize: "1.2em",
+    fontSize: "1.5em",
   },
   link: {
     color: "#F2A154",
