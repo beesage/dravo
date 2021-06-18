@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   textField: {
     border: "none",
     background: "#F2A154",
-    marginBottom: "3%",
+    marginBottom: "2.5%",
     borderRadius: "4px",
   },
   formControl: {

@@ -85,7 +85,7 @@ export default function LogIn() {
                   htmlFor="outlined-adornment-password"
                   required
                 >
-                  Password
+                  Enter your password
                 </InputLabel>
                 <OutlinedInput
                   id="outlined-adornment-password"

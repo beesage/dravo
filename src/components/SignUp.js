@@ -101,7 +101,7 @@ export default function SignUp() {
                   htmlFor="outlined-adornment-password"
                   required
                 >
-                  Password
+                  Enter your password
                 </InputLabel>
                 <OutlinedInput
                   id="outlined-adornment-password"
