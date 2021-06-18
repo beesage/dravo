@@ -1,6 +1,7 @@
 import React from "react";
 import LeaderboardCard from "./LeaderboardCard";
 import LeaderboardBest from "./LeaderboardBest";
+import Button from "@material-ui/core/Button";
 
 function Leaderboard({ user, loading }) {
   const left = { divprop: "lb-top-left", pic: "lb-pic-middle" };
@@ -12,15 +13,54 @@ function Leaderboard({ user, loading }) {
       {user.length > 0 ? (
         <>
           <div className="lb-button">
-            <button variant="contained" color="primary">
+            <Button
+              style={{
+                textTransform: "none",
+                fontSize: "10px",
+                backgroundColor: "#314e52",
+                borderRadius: "0%",
+              }}
+              variant="containedSecondary"
+            >
               Today
-            </button>
-            <button variant="contained" color="primary">
-              This Week
-            </button>
-            <button variant="contained" color="primary">
-              This Month
-            </button>
+            </Button>
+
+            <Button
+              style={{
+                textTransform: "none",
+                fontSize: "10px",
+                fontColor: "#f2a154",
+                backgroundColor: "rgba(255, 255, 255, 0.15)",
+                borderRadius: "0%",
+              }}
+              variant="none"
+            >
+              Week
+            </Button>
+
+            <Button
+              style={{
+                width: "100",
+                textTransform: "none",
+                fontSize: "10px",
+                backgroundColor: "rgba(255, 255, 255, 0.15)",
+                borderRadius: "0%",
+              }}
+              variant="none"
+            >
+              Month
+            </Button>
+            <Button
+              style={{
+                textTransform: "none",
+                fontSize: "10px",
+                backgroundColor: "rgba(255, 255, 255, 0.15)",
+                borderRadius: "0%",
+              }}
+              variant="none"
+            >
+              All Time
+            </Button>
           </div>
           <div className="leaderboard-top"></div>
           <LeaderboardBest user={user[15]} orientation={left} />
