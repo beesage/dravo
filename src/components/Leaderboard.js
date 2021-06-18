@@ -8,6 +8,9 @@ function Leaderboard({ user, loading }) {
   const middle = { divprop: "lb-top-big", pic: "lb-pic-big" };
   const right = { divprop: "lb-top-right", pic: "lb-pic-middle" };
 
+  user.sort((a, b) => parseFloat(b.weightdelta) - parseFloat(a.weightdelta));
+  let lbTop = user.splice(0, 3);
+
   return (
     <>
       {user.length > 0 ? (
@@ -65,15 +68,16 @@ function Leaderboard({ user, loading }) {
               All Time
             </Button>
           </div>
+
           <div className="leaderboard-top"></div>
-          <LeaderboardBest user={user[15]} orientation={left} />
-          <LeaderboardBest user={user[12]} orientation={middle} />
-          <LeaderboardBest user={user[10]} orientation={right} />
+          <LeaderboardBest user={lbTop[1]} orientation={left} rank={2} />
+          <LeaderboardBest user={lbTop[0]} orientation={middle} rank={1} />
+          <LeaderboardBest user={lbTop[2]} orientation={right} rank={3} />
 
           <div className="lb-all">
             {user.map((user, index) => (
               <div key={index}>
-                <LeaderboardCard user={user} />
+                <LeaderboardCard user={user} index={index} />
               </div>
             ))}
           </div>
