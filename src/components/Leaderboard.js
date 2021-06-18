@@ -1,44 +1,79 @@
 import React from "react";
 import LeaderboardCard from "./LeaderboardCard";
-import Avatar from "@material-ui/core/Avatar";
-import { makeStyles } from "@material-ui/core/styles";
+import LeaderboardBest from "./LeaderboardBest";
+import Button from "@material-ui/core/Button";
 
-function Leaderboard({ user }) {
+function Leaderboard({ user, loading }) {
+  const left = { divprop: "lb-top-left", pic: "lb-pic-middle" };
+  const middle = { divprop: "lb-top-big", pic: "lb-pic-big" };
+  const right = { divprop: "lb-top-right", pic: "lb-pic-middle" };
+
   return (
     <>
       {user.length > 0 ? (
         <>
           <div className="lb-button">
-            <button variant="contained" color="primary">
+            <Button
+              style={{
+                textTransform: "none",
+                fontSize: "10px",
+                backgroundColor: "#314e52",
+                borderRadius: "0%",
+              }}
+              variant="containedSecondary"
+            >
               Today
-            </button>
-            <button variant="contained" color="primary">
-              This Week
-            </button>
-            <button variant="contained" color="primary">
-              This Month
-            </button>
+            </Button>
+
+            <Button
+              style={{
+                textTransform: "none",
+                fontSize: "10px",
+                fontColor: "#f2a154",
+                backgroundColor: "rgba(255, 255, 255, 0.15)",
+                borderRadius: "0%",
+              }}
+              variant="none"
+            >
+              Week
+            </Button>
+
+            <Button
+              style={{
+                width: "100",
+                textTransform: "none",
+                fontSize: "10px",
+                backgroundColor: "rgba(255, 255, 255, 0.15)",
+                borderRadius: "0%",
+              }}
+              variant="none"
+            >
+              Month
+            </Button>
+            <Button
+              style={{
+                textTransform: "none",
+                fontSize: "10px",
+                backgroundColor: "rgba(255, 255, 255, 0.15)",
+                borderRadius: "0%",
+              }}
+              variant="none"
+            >
+              All Time
+            </Button>
           </div>
           <div className="leaderboard-top"></div>
-          <img
-            className="lb-top-pic"
-            id="lb-pic-left"
-            alt={user[3].beekeeper}
-            src={user[3].profilepic}
-          />
-          <img
-            className="lb-top-pic"
-            id="lb-pic-big"
-            alt={user[2].beekeeper}
-            src={user[2].profilepic}
-          />
-          <img
-            className="lb-top-pic"
-            id="lb-pic-right"
-            alt={user[4].beekeeper}
-            src={user[4].profilepic}
-          />
-          <LeaderboardCard user={user} />
+          <LeaderboardBest user={user[15]} orientation={left} />
+          <LeaderboardBest user={user[12]} orientation={middle} />
+          <LeaderboardBest user={user[10]} orientation={right} />
+
+          <div className="lb-all">
+            {user.map((user, index) => (
+              <div key={index}>
+                <LeaderboardCard user={user} />
+              </div>
+            ))}
+          </div>
         </>
       ) : (
         loading
