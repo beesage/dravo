@@ -17,14 +17,15 @@ export default function App() {
 
   useEffect(() => {
     /**
-     * Fetch data from the API URL and store the fetched user array in the user state
+     * Fetch data via Axios from the API URL and store the fetched user array in the user state
      * <p>
      * The userAPI function is declared inside an useEffect Hook with an empty array
      * as a second argument, which prevents re-rendering. The setLoading function, with
      * an initial state of "false", changes to "true" after waiting for the asynchronous
      * task of fetching the userAPI to finish. This is regulated through an async / await
-     * operation to fetch data from the stated API through a GET request. Once the asynchronous task
-     * is successfully returned, the data are stored in setUsed, and setLoading is set to "false".
+     * operation to fetch data from the stated API through a GET request with Axios. Once the
+     * asynchronous task is successfully returned, the data are stored in setUsed,
+     * and setLoading is set to "false".
      *
      * @author Alessandra Pettinato
      * @author Lukas Kreibig

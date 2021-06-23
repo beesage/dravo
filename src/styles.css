@@ -139,7 +139,7 @@ body {
 
 #lb-pic-small {
   position: relative;
-  top: 1.5px;
+  top: 1.1px;
   right: 19px;
   border-radius: 50%;
   width: 60px;
@@ -209,11 +209,11 @@ body {
 }
 
 .hexagon:before {
-  transform: perspective(8px) rotateX(3deg);
+  transform: perspective(12px) rotateX(3deg);
 }
 .hexagon:after {
-  top: 34px;
-  transform: perspective(8px) rotateX(-3deg);
+  top: 33px;
+  transform: perspective(12px) rotateX(-3deg);
 }
 
 /* Button Border Style */
@@ -237,5 +237,35 @@ body {
   background: #f2a154;
 }
 .hexagon.border:hover {
-  color: #fff;
+  color: #f7f6e7;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1300px) and (-webkit-min-device-pixel-ratio: 1) {
+  .leaderboard-top {
+    display: none;
+  }
+
+  .lb-button {
+    display: none;
+  }
+
+  .leaderboard-top:before {
+    display: none;
+  }
+
+  .hexagon {
+    width: 600px;
+  }
+
+  .hexagon:before,
+  .hexagon:after {
+    width: 630px;
+  }
+  .hexagon:before {
+    transform: perspective(40px) rotateX(3deg);
+  }
+  .hexagon:after {
+    top: 31px;
+    transform: perspective(40px) rotateX(-3deg);
+  }
 }
