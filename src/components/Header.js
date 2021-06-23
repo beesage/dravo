@@ -24,8 +24,6 @@ export default function Header() {
 	 * @author Alessandra Pettinato
 	 */
 
-	let location = useLocation();
-
 	console.log(location);
 
 	useEffect(() => {
