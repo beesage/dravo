@@ -6,7 +6,7 @@ import { VisibilityOff, Visibility } from "@material-ui/icons";
 import clsx from "clsx";
 
 import { NavLink } from "react-router-dom";
-import useStyles from "../../style";
+import useStyles from "./styles/StyleUserForm";
 import logo from "../../assets/logo-mobile.png";
 
 

@@ -20,7 +20,7 @@ import IconButton from "@material-ui/core/IconButton";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Visibility from "@material-ui/icons/Visibility";
 
-import useStyles from "../../style";
+import useStyles from "./styles/StyleUserForm";
 import logo from "../../assets/logo-mobile.png";
 import { NavLink } from "react-router-dom";
 
