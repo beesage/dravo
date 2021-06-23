@@ -20,9 +20,8 @@ import IconButton from "@material-ui/core/IconButton";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Visibility from "@material-ui/icons/Visibility";
 
-import "../styles.css";
-import useStyles from "../style";
-import logo from "../assets/logo-mobile.png";
+import useStyles from "../../style";
+import logo from "../../assets/logo-mobile.png";
 import { NavLink } from "react-router-dom";
 
 export default function SignUp() {
