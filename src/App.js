@@ -15,6 +15,13 @@ export default function App() {
 	const [user, setUser] = useState([]);
 	const [loading, setLoading] = useState(false);
 
+	// @author Alessandra Pettinato <alessandrapettinato@hotmail.it>
+	// Fetch data from the specified API
+	// @async
+	// @function userAPI
+	// @param {string} "http://202.61.225.240:3000/beewhoyouwant" - The API to fetch data from
+	// @return {object} res.data - The data fetched from the API
+
 	useEffect(() => {
 		const userAPI = async () => {
 			setLoading(true);
