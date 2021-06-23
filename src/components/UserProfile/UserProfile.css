@@ -172,9 +172,59 @@
 		background: #f7f6e7;
 		border-top: none;
 		border-bottom: none;
+		grid-template-rows: 1fr 1fr;
+	}
+
+	.user-info {
+		grid-column: 1;
+		grid-row: 2;
+		flex-flow: column-reverse;
+	}
+
+	.user-location {
+		display: none;
 	}
 
 	.user-profile::before {
 		display: none;
+	}
+
+	.username {
+		display: none;
+	}
+
+	.hex-profile {
+		width: 100px;
+		height: 57.735px;
+		background: #314e52;
+		position: relative;
+		transform: rotate(90deg);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.hex-profile::before {
+		content: "";
+		position: absolute;
+		top: -28.8675px;
+		left: 0;
+		width: 0;
+		height: 0;
+		border-left: 50px solid transparent;
+		border-right: 50px solid transparent;
+		border-bottom: 28.8675px solid #314e52;
+	}
+
+	.hex-profile::after {
+		content: "";
+		position: absolute;
+		bottom: -28.8675px;
+		left: 0;
+		width: 0;
+		height: 0;
+		border-left: 50px solid transparent;
+		border-right: 50px solid transparent;
+		border-top: 28.8675px solid #314e52;
 	}
 }

@@ -37,11 +37,13 @@ export default function UserProfile({ user }) {
 					<div className="user-profile">
 						<FaMedal className="medal" />
 						<div className="user-info">
-							<Avatar
-								classes={{ root: classes.root }}
-								alt=""
-								src={user[0].profilepic}
-							/>
+							<div className="hex-profile">
+								<Avatar
+									classes={{ root: classes.root }}
+									alt=""
+									src={user[0].profilepic}
+								/>
+							</div>
 							<p className="username">{user[0].beekeeper}</p>
 							<p className="user-location">{user[0].location}</p>
 						</div>

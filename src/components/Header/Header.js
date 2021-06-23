@@ -61,10 +61,15 @@ export default function Header() {
 								fontSize: "30px",
 								right: "1rem",
 							}}
+							className="setting"
 						/>
 					) : (
 						false
 					)}
+					<img
+						src="https://res.cloudinary.com/dg5lakmem/image/upload/v1624468065/Dravo/Header-logo.png"
+						className="header-logo"
+					/>
 				</Tool>
 			</NavBar>
 		</div>
