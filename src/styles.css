@@ -253,6 +253,10 @@ body {
     display: none;
   }
 
+  #lb-pic-small {
+    left: 60px;
+  }
+
   .hexagon {
     width: 600px;
   }
@@ -264,6 +268,7 @@ body {
   .hexagon:before {
     transform: perspective(40px) rotateX(3deg);
   }
+
   .hexagon:after {
     top: 31px;
     transform: perspective(40px) rotateX(-3deg);
