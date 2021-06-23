@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import { makeStyles } from "@material-ui/core/styles";
 import { deepOrange } from "@material-ui/core/colors";
@@ -27,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function UserProfile({ user }) {
 	const classes = useStyles();
+
+	const [isTablet, setIsTablet] = useState(false);
+
 	return (
 		<div className="user-container">
 			{user.length > 0 ? (

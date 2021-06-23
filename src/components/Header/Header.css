@@ -24,3 +24,9 @@ a {
 	text-decoration: none;
 	color: inherit;
 }
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1370px) and (-webkit-min-device-pixel-ratio: 1) {
+	.navbar-tablet {
+		background: #f7f6e7;
+	}
+}
