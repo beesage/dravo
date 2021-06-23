@@ -5,7 +5,7 @@ import { deepOrange } from "@material-ui/core/colors";
 import { FaMedal } from "react-icons/fa";
 import { Icons } from "./Icons";
 
-import "../UserProfile-Header.css";
+import "./UserProfile.css";
 
 import Hex from "./Hex";
 import HexData from "./HexData";
