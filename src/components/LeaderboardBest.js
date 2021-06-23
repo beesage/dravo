@@ -5,6 +5,11 @@ function LeaderboardBest({ user, orientation, rank }) {
   return (
     <div className="lb-top-general" id={orientation.divprop}>
       <img
+        className={orientation.lbicon}
+        src={orientation.lbiconlink}
+        alt="Icon"
+      />
+      <img
         className="lb-top-pic"
         id={orientation.pic}
         alt={user.beekeeper}

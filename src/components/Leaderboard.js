@@ -2,12 +2,29 @@ import React from "react";
 import LeaderboardCard from "./LeaderboardCard";
 import LeaderboardBest from "./LeaderboardBest";
 import Button from "@material-ui/core/Button";
-import { useEffect } from "react";
+import lbcrown from "../assets/crown.png";
+import lbbronze from "../assets/bronze.png";
+import lbsilver from "../assets/silver.png";
 
 function Leaderboard({ user, loading }) {
-  const left = { divprop: "lb-top-left", pic: "lb-pic-middle" };
-  const middle = { divprop: "lb-top-big", pic: "lb-pic-big" };
-  const right = { divprop: "lb-top-right", pic: "lb-pic-middle" };
+  const left = {
+    divprop: "lb-top-left",
+    pic: "lb-pic-middle",
+    lbicon: "lb-icon-left",
+    lbiconlink: lbsilver,
+  };
+  const middle = {
+    divprop: "lb-top-big",
+    pic: "lb-pic-big",
+    lbicon: "lb-icon-middle",
+    lbiconlink: lbcrown,
+  };
+  const right = {
+    divprop: "lb-top-right",
+    pic: "lb-pic-middle",
+    lbicon: "lb-icon-right",
+    lbiconlink: lbbronze,
+  };
 
   /**
    * Sorting the passed down array user by their value weight delta
