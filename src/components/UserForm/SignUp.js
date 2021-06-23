@@ -1,6 +1,5 @@
 import React from "react";
-import {
-  Button,
+import {  
   CssBaseline,
   TextField,
   FormControlLabel,
@@ -19,6 +18,9 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Visibility from "@material-ui/icons/Visibility";
+
+import InputField from "./controls/InputField"
+import Button from "./controls/Submit";
 
 import useStyles from "./styles/StyleUserForm";
 import logo from "../../assets/logo-mobile.png";
@@ -43,169 +45,78 @@ export default function SignUp() {
     event.preventDefault();
   };
 
+  const handleSubmit = e => {
+    e.preventDefault();   
+  };
+
   return (
     <div>
       <Container component="main" className={classes.container}>
-        <CssBaseline />
-        <Grid container>
-          <Grid item className={classes.img} xs={12} sm={6} md={6}>
-            <img className={classes.logo} src={logo} />
-          </Grid>
-          <Grid item xs={12} sm={6} md={6} className={classes.breakpoints}>
-            <Typography className={classes.title} variant="h4">
-              Sign Up
-            </Typography>
-            <form className={classes.form} noValidate>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="name"
-                label="Enter your username"
-                name="text"
-                autoComplete="text"
-                autoFocus
-                className={classes.textField}
-                InputLabelProps={{
-                  classes: {
-                    root: classes.cssLabel,
-                    focused: classes.cssFocused,
-                  },
-                }}
-              />
-              <TextField
-                variant="outlined"                
-                required
-                fullWidth
-                id="email"
-                label="Enter your email"
-                name="email"
-                autoComplete="email"
-                autoFocus
-                className={classes.textField}
-                InputLabelProps={{
-                  classes: {
-                    root: classes.cssLabel,
-                    focused: classes.cssFocused,
-                  },
-                }}
-              />
-              <FormControl
-                className={clsx(classes.textField)}
-                fullWidth
-                variant="outlined"
-              >
-                <InputLabel
-                  className={classes.fieldLabel}
-                  htmlFor="outlined-adornment-password"
-                  required
-                >
-                  Enter your password
-                </InputLabel>
-                <OutlinedInput
-                  id="outlined-adornment-password"
-                  type={values.showPassword ? "text" : "password"}
-                  value={values.password}
-                  onChange={handleChange("password")}
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                        edge="end"
-                        className={classes.fieldLabel}
-                      >
-                        {values.showPassword ? (
-                          <Visibility />
-                        ) : (
-                          <VisibilityOff />
-                        )}
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                  labelWidth={70}
-                />
-              </FormControl>
-              <FormControl
-                className={clsx(classes.textField)}
-                fullWidth
-                variant="outlined"
-              >
-                <InputLabel
-                  className={classes.fieldLabel}
-                  htmlFor="confirm-password"
-                  required
-                >
-                  Confirm your password
-                </InputLabel>
-                <OutlinedInput
-                  id="confirm-password"
-                  type={values.showPassword ? "text" : "password"}
-                  value={values.password}
-                  onChange={handleChange("password")}
-                  endAdornment={
-                    <InputAdornment
-                      position="end"
-                      className={classes.fieldLabel}
-                    >
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                        edge="end"
-                        className={classes.fieldLabel}
-                      >
-                        {values.showPassword ? (
-                          <Visibility />
-                        ) : (
-                          <VisibilityOff />
-                        )}
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                  labelWidth={70}
-                />
-              </FormControl>
-              <Box className={classes.formControl}>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      className={classes.fill}
-                      value="remember"
-                      color="default"
-                    />
-                  }
-                  label="Keep me logged in"
-                />
-                <Link
-                  href="#"
-                  variant="body2"
-                  className={classes.forgotPassword}
-                >
-                  Forgot password?
-                </Link>
-              </Box>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                className={classes.submit}
-              >
-                Sign Up
-              </Button>
-            </form>
-            <Box align="center" mt={2}>
-              <Typography variant="body2" className={classes.typographyColor}>
-                Already on Dravo?
-              </Typography>
-              <NavLink to="/" variant="body2" className={classes.link}>
-                {"Log In"}
-              </NavLink>
-            </Box>
-          </Grid>
-        </Grid>
-      </Container>
+            <CssBaseline />
+            <Grid container>
+
+              <Grid item className={classes.img} xs={12} sm={6} md={6}>
+                <img className={classes.logo} src={logo} />
+              </Grid>
+
+              <Grid item xs={12} sm={6} md={6} className={classes.breakpoints}>
+                <Typography className={classes.title} variant="h4">
+                  Sign Up
+                </Typography>
+                
+                <form className={classes.root} noValidate>
+                <InputField
+                    name="username"
+                    label="Enter your username"
+                    value={values.username}
+                    onChange={handleChange}                
+                                  
+                  />
+                  <InputField
+                    name="email"
+                    label="Enter your email"
+                    value={values.email}
+                    onChange={handleChange}                
+                                  
+                  />
+                  
+                  <InputField
+                    name="password"
+                    label="Enter your password"
+                    value={values.password}
+                    onChange={handleChange}              
+                                  
+                  />
+                  <InputField
+                    name="confirmPassword"
+                    label="Confirm your password"
+                    value={values.confirmPassword}
+                    onChange={handleChange}                
+                                  
+                  />
+                  
+                  <Box>
+                    <FormControlLabel control={<Checkbox className={classes.fill} value="remember" color="default" />} label="Keep me logged in" />
+                    <Link href="#" variant="body2" className={classes.forgotPassword} >
+                      Forgot password?
+                    </Link>
+                  </Box>
+                  <Button type="submit" text="Sign Up"/>    
+                </form>
+
+                <Box align="center" mt={2}>
+                  <Typography className={classes.greenColor}>
+                    Already on Dravo?
+                  </Typography>
+
+                  <NavLink to="/" variant="body2" className={classes.link}>
+                    {"Log In"}
+                  </NavLink>
+                </Box>
+
+              </Grid>
+            </Grid>
+          </Container>
     </div>
   );
 }

@@ -1,9 +1,12 @@
 import React from "react";
-import { Button, CssBaseline, TextField, FormControlLabel, Checkbox, Link, Grid, Box, Container, Typography } from "@material-ui/core";
+import { CssBaseline, TextField, FormControlLabel, Checkbox, Link, Grid, Box, Container, Typography } from "@material-ui/core";
 import FormControl from "@material-ui/core/FormControl";
 import { InputLabel, OutlinedInput, InputAdornment, IconButton  } from "@material-ui/core";
 import { VisibilityOff, Visibility } from "@material-ui/icons";
 import clsx from "clsx";
+
+import InputField from "./controls/InputField"
+import Button from "./controls/Submit";
 
 import { NavLink } from "react-router-dom";
 import useStyles from "./styles/StyleUserForm";
@@ -31,9 +34,13 @@ export default function LogIn() {
     event.preventDefault();
   };
 
+  const handleSubmit = e => {
+    e.preventDefault();   
+  };
+
   return (
     <div>
-      <Container component="main" className={classes.container}>
+       <Container component="main" className={classes.container}>
         <CssBaseline />
         <Grid container>
           <Grid item className={classes.img} xs={12} sm={6} md={6}>
@@ -43,43 +50,44 @@ export default function LogIn() {
             <Typography className={classes.title} variant="h4">
               Log In
             </Typography>
-
-            <form className={classes.form} noValidate>
-              
-              <TextField variant="outlined" margin="normal" required fullWidth id="email" label="Enter your email" name="email" autoComplete="email" autoFocus
-                className={classes.textField} 
-                InputLabelProps={{
-                  classes: {
-                    root: classes.cssLabel,
-                    focused: classes.cssFocused,
-                  },}}/>
-
-              <FormControl className={clsx(classes.textField)} fullWidth variant="outlined">
-                <InputLabel className={classes.fieldLabel} htmlFor="outlined-adornment-password" required>
-                  Enter your password
-                </InputLabel>
-                <OutlinedInput id="outlined-adornment-password" type={values.showPassword ? "text" : "password"} value={values.password} onChange={handleChange("password")}
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton aria-label="toggle password visibility" onClick={handleClickShowPassword} onMouseDown={handleMouseDownPassword} edge="end" className={classes.fieldLabel}>
-                        {values.showPassword ? ( <Visibility /> ) : ( <VisibilityOff />)}
-                      </IconButton>
-                    </InputAdornment>}labelWidth={170}/>
-              </FormControl>
-
-              <Box className={classes.formControl}>
-                <FormControlLabel control={<Checkbox  className={classes.fill} value="remember" color="default" />}label="Keep me logged in"/>
-                <Link href="#" variant="body2" className={classes.forgotPassword}>
+            <form className={classes.root} onSubmit={handleSubmit} noValidate>
+            <InputField
+                name="username"
+                label="Enter your username"
+                value={values.username}
+                onChange={handleChange}                
+                              
+              />
+               <InputField
+                name="password"
+                label="Enter your password"
+                value={values.password}
+                onChange={handleChange}                
+                              
+              />
+            
+              <div className={classes.greenColor}>
+                <FormControlLabel
+                  control={
+                    <Checkbox   value="remember" color="default" />
+                  }
+                  label="Keep me logged in"
+                />
+                <Link
+                  href="#"
+                  variant="body2"
+                  className={classes.forgotPassword}
+                >
                   Forgot password?
                 </Link>
-              </Box>
-              <Button type="submit" fullWidth variant="contained" className={classes.submit}>
-                Log In
-              </Button>
+              </div>
+              <Button
+                  type="submit"
+                  text="Log In" 
+              />              
             </form>
-
             <Box align="center" mt={2}>
-              <Typography variant="body2" className={classes.typographyColor}>
+              <Typography className={classes.typographyColor}>
                 New to Dravo?
               </Typography>
               <NavLink to="/signup" variant="body2" className={classes.link}>
