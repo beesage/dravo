@@ -9,7 +9,7 @@ const UseForm = () => {
     showPassword: false,
   });
   
-  console.log(values)
+  //console.log(values)
 
   const handleChange = e => {
     const { name, value } = e.target;

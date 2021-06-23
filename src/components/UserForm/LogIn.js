@@ -1,10 +1,5 @@
 import React from "react";
-import { CssBaseline, TextField, FormControlLabel, Checkbox, Link, Grid, Box, Container, Typography } from "@material-ui/core";
-import FormControl from "@material-ui/core/FormControl";
-import { InputLabel, OutlinedInput, InputAdornment, IconButton  } from "@material-ui/core";
-import { VisibilityOff, Visibility } from "@material-ui/icons";
-import clsx from "clsx";
-
+import { CssBaseline, FormControlLabel, Checkbox, Link, Grid, Box, Container, Typography } from "@material-ui/core";
 import InputField from "./controls/InputField"
 import Button from "./controls/Submit";
 import UseForm from './UseForm';
@@ -30,43 +25,41 @@ export default function LogIn() {
               Log In
             </Typography>
             <form className={classes.root} onSubmit={handleSubmit} noValidate>
-            <InputField
-                name="username"
-                label="Enter your username"
-                value={values.username}
-                onChange={handleChange}                
-                              
-              />
-               <InputField
-                name="password"
-                label="Enter your password"
-                value={values.password}
-                onChange={handleChange}                
-                              
-              />
-            
-              <div className={classes.greenColor}>
-                <FormControlLabel
-                  control={
-                    <Checkbox   value="remember" color="default" />
-                  }
-                  label="Keep me logged in"
-                />
-                <Link
-                  href="#"
-                  variant="body2"
-                  className={classes.forgotPassword}
-                >
-                  Forgot password?
-                </Link>
-              </div>
-              <Button
-                  type="submit"
-                  text="Log In" 
-              />              
+                <InputField
+                    name="username"
+                    label="Enter your username"
+                    value={values.username}
+                    onChange={handleChange}                
+                                  
+                  />
+                  <InputField
+                    name="password"
+                    label="Enter your password"
+                    value={values.password}
+                    onChange={handleChange}                
+                                  
+                  />
+                
+                  <div>
+                    <FormControlLabel
+                      control={
+                        <Checkbox className={classes.greenColor}  value="remember" color="default" />
+                      }
+                      className={classes.greenColor}
+                      label="Keep me logged in"
+                    />
+                    <Link
+                      href="#"
+                      variant="body2"
+                      className={classes.forgotPassword}
+                    >
+                      Forgot password?
+                    </Link>
+                  </div>
+                  <Button type="submit" text="Log In" />              
             </form>
             <Box align="center" mt={2}>
-              <Typography className={classes.typographyColor}>
+              <Typography className={classes.greenColor}>
                 New to Dravo?
               </Typography>
               <NavLink to="/signup" variant="body2" className={classes.link}>
