@@ -10,8 +10,8 @@ function Leaderboard({ user, loading }) {
   const left = {
     divprop: "lb-top-left",
     pic: "lb-pic-middle",
-    lbicon: "lb-icon-left",
-    lbiconlink: lbsilver,
+    lbicon: null,
+    lbiconlink: null,
   };
   const middle = {
     divprop: "lb-top-big",
@@ -22,8 +22,8 @@ function Leaderboard({ user, loading }) {
   const right = {
     divprop: "lb-top-right",
     pic: "lb-pic-middle",
-    lbicon: "lb-icon-right",
-    lbiconlink: lbbronze,
+    lbicon: null,
+    lbiconlink: null,
   };
 
   /**
