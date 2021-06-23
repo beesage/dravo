@@ -9,8 +9,6 @@ function Leaderboard({ user, loading }) {
   const middle = { divprop: "lb-top-big", pic: "lb-pic-big" };
   const right = { divprop: "lb-top-right", pic: "lb-pic-middle" };
 
-  let lbTop = [];
-
   /**
    * Sorting the passed down array user by their value weight delta
    * in descending order.
@@ -28,7 +26,9 @@ function Leaderboard({ user, loading }) {
    */
 
   user.sort((b, a) => parseFloat(a.weightdelta) - parseFloat(b.weightdelta));
-  lbTop = user.splice(0, 3);
+
+  let lbTop = user.slice(0, 3);
+  let lbAll = user.slice(4);
 
   return (
     <>
@@ -90,7 +90,7 @@ function Leaderboard({ user, loading }) {
           <LeaderboardBest user={lbTop[2]} orientation={right} rank={3} />
 
           <div className="lb-all">
-            {user.map((user, index) => (
+            {lbAll.map((user, index) => (
               <div key={index}>
                 <LeaderboardCard user={user} index={index} />
               </div>
