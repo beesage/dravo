@@ -12,7 +12,20 @@ export default function Header() {
 	const [isUserProfile, setIsUserProfile] = useState(false);
 	const [isLoginPage, setIsLoginPage] = useState(true);
 
+	/**
+	 * Display the header component according to the location of the app
+	 * <p>
+	 * useLocation is a React Hook that returns the location object that represents the current URL.
+	 * <p>
+	 * When used inside useEffect, it is possible to conditionally check whether the key "pathname" corresponds to a certain location. If the app is on the url whose endpoint correspond to "/profile", setIsUserProfile state changes to true; if it correponds to "/" or "/signup", setIsUserProfile and setIsLoginPage states both change to false; if it corresponds to "/leaderboard", setIsUserProfile change again to false.
+	 *
+	 * @function useEffect a React Hook used to perform side effect operations in function components.
+	 * @return the location of the app.
+	 */
+
 	let location = useLocation();
+
+	console.log(location);
 
 	useEffect(() => {
 		if (location.pathname == "/profile") {
@@ -23,7 +36,7 @@ export default function Header() {
 		} else if (location.pathname == "/leaderboard") {
 			setIsUserProfile(false);
 		}
-	}, [location.pathname]);
+	}, []);
 
 	const NavBar = withStyles({
 		root: {
