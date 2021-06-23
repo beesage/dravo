@@ -22,13 +22,13 @@ function Leaderboard({ user, loading }) {
    * @param   a  starting point of the elements in an array
    * @param   b  endpoint of the element in an array
    * @return     returns the sorted array "user"
-   * @author    Lukas Kreibig
+   * @author     Lukas Kreibig
    */
 
   user.sort((b, a) => parseFloat(a.weightdelta) - parseFloat(b.weightdelta));
 
   let lbTop = user.slice(0, 3);
-  let lbAll = user.slice(4);
+  let lbAll = user.slice(3);
 
   return (
     <>
