@@ -43,7 +43,7 @@ export default function LogIn() {
                   <div>
                     <FormControlLabel
                       control={
-                        <Checkbox className={classes.greenColor}  value="remember" color="default" />
+                        <Checkbox className={classes.orangeColor}  value="remember" color="default" />
                       }
                       className={classes.greenColor}
                       label="Keep me logged in"

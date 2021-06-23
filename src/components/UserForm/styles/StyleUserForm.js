@@ -35,6 +35,10 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "800",    
     textTransform: "none",
     fontSize: "1.5em",
+    boxShadow: "0 8px 6px -6px rgba(0, 0, 0, 0.5)",  
+    '&:hover': {
+      backgroundColor: "#5A8288",      
+  },
   },
   link: {
     color: "#F2A154",
@@ -42,6 +46,9 @@ const useStyles = makeStyles((theme) => ({
   },
   greenColor: {
     color: "#314E52",
+  },
+  orangeColor: {
+    color: "#F2A154",
   },
   img: {
     display: "flex",
