@@ -25,29 +25,11 @@ import Button from "./controls/Submit";
 import useStyles from "./styles/StyleUserForm";
 import logo from "../../assets/logo-mobile.png";
 import { NavLink } from "react-router-dom";
+import UseForm from './UseForm';
 
 export default function SignUp() {
   const classes = useStyles();
-  const [values, setValues] = React.useState({
-    password: "",
-    showPassword: false,
-  });
-
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
-
-  const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword });
-  };
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
-
-  const handleSubmit = e => {
-    e.preventDefault();   
-  };
+  const { values, handleChange, handleSubmit } = UseForm();
 
   return (
     <div>
