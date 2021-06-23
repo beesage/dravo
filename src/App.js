@@ -17,10 +17,15 @@ export default function App() {
 
 	// @author Alessandra Pettinato <alessandrapettinato@hotmail.it>
 	// Fetch data from the specified API
-	// @async
+	//
 	// @function userAPI
+	// @async
+	// @function setLoading
+	// @param {boolean} true - The value of setLoading is set to true while waiting for the function to execute
+	// @await
 	// @param {string} "http://202.61.225.240:3000/beewhoyouwant" - The API to fetch data from
-	// @return {object} res.data - The data fetched from the API
+	// @returns {Promise object} res.data - The data fetched from the API
+	// @returns {boolean} false - The value of setLoading is set again to false once the Promise has been fulfilled
 
 	useEffect(() => {
 		const userAPI = async () => {
