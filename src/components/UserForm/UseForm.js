@@ -7,8 +7,7 @@ const UseForm = () => {
     password: "",
     confirmPassword: "",
     showPassword: false,
-  });
-  
+  });  
   //console.log(values)
 
   const handleChange = e => {

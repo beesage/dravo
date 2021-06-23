@@ -29,15 +29,13 @@ export default function LogIn() {
                     name="username"
                     label="Enter your username"
                     value={values.username}
-                    onChange={handleChange}                
-                                  
-                  />
+                    onChange={handleChange}               
+                 />
                   <InputField
                     name="password"
                     label="Enter your password"
                     value={values.password}
-                    onChange={handleChange}                
-                                  
+                    onChange={handleChange}            
                   />
                 
                   <div>
