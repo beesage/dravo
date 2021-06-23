@@ -21,6 +21,7 @@ export default function Header() {
 	 *
 	 * @function useEffect a React Hook used to perform side effect operations in function components.
 	 * @return the location of the app.
+	 * @author Alessandra Pettinato
 	 */
 
 	let location = useLocation();
