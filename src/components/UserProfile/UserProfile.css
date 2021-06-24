@@ -179,6 +179,7 @@
 		grid-column: 1;
 		grid-row: 2;
 		flex-flow: column-reverse;
+		justify-self: center;
 	}
 
 	.user-location {
@@ -194,37 +195,31 @@
 	}
 
 	.hex-profile {
-		width: 100px;
-		height: 57.735px;
-		background: #314e52;
 		position: relative;
+		width: 250px;
+		height: 144.34px;
+		background-color: #64c7cc;
+		margin: 72.17px 0;
 		transform: rotate(90deg);
-		display: flex;
-		justify-content: center;
-		align-items: center;
 	}
 
-	.hex-profile::before {
+	.hex-profile:before,
+	.hex-profile:after {
 		content: "";
 		position: absolute;
-		top: -28.8675px;
-		left: 0;
 		width: 0;
-		height: 0;
-		border-left: 50px solid transparent;
-		border-right: 50px solid transparent;
-		border-bottom: 28.8675px solid #314e52;
+		border-left: 125px solid transparent;
+		border-right: 125px solid transparent;
 	}
 
-	.hex-profile::after {
-		content: "";
-		position: absolute;
-		bottom: -28.8675px;
-		left: 0;
+	.hex-profile:before {
+		bottom: 100%;
+		border-bottom: 72.17px solid #64c7cc;
+	}
+
+	.hex-profile:after {
+		top: 100%;
 		width: 0;
-		height: 0;
-		border-left: 50px solid transparent;
-		border-right: 50px solid transparent;
-		border-top: 28.8675px solid #314e52;
+		border-top: 72.17px solid #64c7cc;
 	}
 }
