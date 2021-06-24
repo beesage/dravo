@@ -12,28 +12,16 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "30px",
     textAlign: "center",
     color: "#314E52",
-  },
-  wrapper: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
+  },  
   logo: {
     marginTop: "20%",
     marginBottom: "10%",
-  },
-  form: {
-    maxWidth: "100%",
-    color: "#314E52",
-  },
-  textField: {
-    border: "none",
+  },  
+  textField: {    
     background: "#F2A154",
     marginBottom: "2.5%",
     borderRadius: "4px",
-  },
-  formControl: {
-    color: "#314E52",
-  },
+  }, 
   forgotPassword: {
     color: "#314E52",
     textDecoration: "underline",
@@ -44,26 +32,23 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#314E52",
     color: "#F2A154",    
     marginBottom: "2%",
-    fontWeight: "800",
-    padding: "10px 14px",
+    fontWeight: "800",    
     textTransform: "none",
     fontSize: "1.5em",
+    boxShadow: "0 8px 6px -6px rgba(0, 0, 0, 0.5)",  
+    '&:hover': {
+      backgroundColor: "#5A8288",      
+  },
   },
   link: {
     color: "#F2A154",
     textDecoration: "underline",
   },
-  cssLabel: {
+  greenColor: {
     color: "#314E52",
   },
-  typographyColor: {
-    color: "#314E52",
-  },
-  fieldLabel: {
-    color: "#314E52",
-  },
-  fill: {
-    color: "#314E52",
+  orangeColor: {
+    color: "#F2A154",
   },
   img: {
     display: "flex",

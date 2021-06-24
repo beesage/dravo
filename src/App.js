@@ -7,8 +7,8 @@ import "./styles.css";
 import Header from "./components/Header/Header";
 import Leaderboard from "./components/Leaderboard";
 import UserProfile from "./components/UserProfile/UserProfile";
-import LogIn from "./components/LogIn";
-import SignUp from "./components/SignUp";
+import LogIn from "./components/UserForm/LogIn";
+import SignUp from "./components/UserForm/SignUp";
 import LoadingPage from "./components/Spinner/LoadingPage";
 
 export default function App() {
