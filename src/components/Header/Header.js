@@ -5,12 +5,23 @@ import "./Header.css";
 
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import SettingsIcon from "@material-ui/icons/Settings";
+//import SettingsIcon from "@material-ui/icons/Settings";
+import { MdSettings } from "react-icons/md";
 import { withStyles } from "@material-ui/core/styles";
 
 export default function Header() {
 	const [isUserProfile, setIsUserProfile] = useState(false);
 	const [isLoginPage, setIsLoginPage] = useState(true);
+
+	/**
+	 * Display the header component according to the location of the app
+	 * <p>
+	 * useLocation is a React Hook that returns the location object that represents the current URL.
+	 * <p>
+	 * When used inside useEffect, it is possible to conditionally check whether the key "pathname" corresponds to a certain location. If the app is on the url whose endpoint correspond to "/profile", setIsUserProfile state changes to true; if it correponds to "/" or "/signup", setIsUserProfile and setIsLoginPage states both change to false; if it corresponds to "/leaderboard", setIsUserProfile change again to false.
+	 *
+	 * @author Alessandra Pettinato
+	 */
 
 	let location = useLocation();
 
@@ -23,7 +34,7 @@ export default function Header() {
 		} else if (location.pathname == "/leaderboard") {
 			setIsUserProfile(false);
 		}
-	}, [location.pathname]);
+	}, []);
 
 	const NavBar = withStyles({
 		root: {
@@ -53,19 +64,7 @@ export default function Header() {
 					<Link to="/profile">
 						<p className="menu-item">Profile</p>
 					</Link>
-					{isUserProfile ? (
-						<SettingsIcon
-							style={{
-								color: "#314E52",
-								position: "absolute",
-								fontSize: "30px",
-								right: "1rem",
-							}}
-							className="setting"
-						/>
-					) : (
-						false
-					)}
+					{isUserProfile ? <MdSettings className="setting" /> : false}
 					<img
 						src="https://res.cloudinary.com/dg5lakmem/image/upload/v1624468065/Dravo/Header-logo.png"
 						className="header-logo"

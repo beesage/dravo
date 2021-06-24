@@ -28,8 +28,6 @@ const useStyles = makeStyles((theme) => ({
 export default function UserProfile({ user }) {
 	const classes = useStyles();
 
-	const [isTablet, setIsTablet] = useState(false);
-
 	return (
 		<div className="user-container">
 			{user.length > 0 ? (
