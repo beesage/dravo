@@ -3,8 +3,6 @@ import LeaderboardCard from "./LeaderboardCard";
 import LeaderboardBest from "./LeaderboardBest";
 import Button from "@material-ui/core/Button";
 import lbcrown from "../assets/crown.png";
-import lbbronze from "../assets/bronze.png";
-import lbsilver from "../assets/silver.png";
 
 function Leaderboard({ user, loading }) {
   const left = {
@@ -51,6 +49,19 @@ function Leaderboard({ user, loading }) {
     <>
       {user.length > 0 ? (
         <>
+          <div className="lb-honeycomb" id="lb-honeycomb-left">
+            <span></span>
+          </div>
+          <div className="lb-honeycomb" id="lb-honeycomb-middle">
+            <span></span>
+          </div>
+          <div className="lb-honeycomb" id="lb-honeycomb-right">
+            <span></span>
+          </div>
+          <div className="lb-triangle" id="lb-triangle-left"></div>
+          <div className="lb-triangle" id="lb-triangle-center"></div>
+          <div className="lb-triangle" id="lb-triangle-right"></div>
+
           <div className="lb-button">
             <Button
               style={{
