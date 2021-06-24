@@ -19,8 +19,6 @@ export default function Header() {
 	 * <p>
 	 * When used inside useEffect, it is possible to conditionally check whether the key "pathname" corresponds to a certain location. If the app is on the url whose endpoint correspond to "/profile", setIsUserProfile state changes to true; if it correponds to "/" or "/signup", setIsUserProfile and setIsLoginPage states both change to false; if it corresponds to "/leaderboard", setIsUserProfile change again to false.
 	 *
-	 * @function useEffect a React Hook used to perform side effect operations in function components.
-	 * @return the location of the app.
 	 * @author Alessandra Pettinato
 	 */
 
