@@ -342,6 +342,29 @@ body {
     left: 60px;
   }
 
+  .lb-triangle {
+    grid-column: 4 / 7;
+    justify-self: center;
+    grid-row: 3 / 4;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 90px solid #f2a154;
+  }
+
+  #lb-triangle-left {
+    transform: translateY(220.5px) translateX(60px);
+  }
+
+  #lb-triangle-center {
+    transform: translateY(216px) rotate(180deg);
+  }
+
+  #lb-triangle-right {
+    transform: translateY(220.5px) translateX(-60px);
+  }
+
   .hexagon {
     width: 600px;
   }

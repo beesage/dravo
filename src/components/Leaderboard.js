@@ -58,6 +58,9 @@ function Leaderboard({ user, loading }) {
           <div className="lb-honeycomb" id="lb-honeycomb-right">
             <span></span>
           </div>
+          <div className="lb-triangle" id="lb-triangle-left"></div>
+          <div className="lb-triangle" id="lb-triangle-center"></div>
+          <div className="lb-triangle" id="lb-triangle-right"></div>
 
           <div className="lb-button">
             <Button
