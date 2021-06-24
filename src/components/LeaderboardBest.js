@@ -4,6 +4,7 @@ import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 function LeaderboardBest({ user, orientation, rank }) {
   return (
     <div className="lb-top-general" id={orientation.divprop}>
+      <img className={orientation.lbicon} src={orientation.lbiconlink} />
       <img
         className="lb-top-pic"
         id={orientation.pic}
