@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import "./Header.css";
+import "./styles/Header.css";
+import NavBar from "./styles/StylesNavBar";
+import Tool from "./styles/StylesTool";
 
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-//import SettingsIcon from "@material-ui/icons/Settings";
 import { MdSettings } from "react-icons/md";
-import { withStyles } from "@material-ui/core/styles";
 
 export default function Header() {
 	const [isUserProfile, setIsUserProfile] = useState(false);
@@ -35,24 +33,6 @@ export default function Header() {
 			setIsUserProfile(false);
 		}
 	}, []);
-
-	const NavBar = withStyles({
-		root: {
-			backgroundColor: "#F2A154",
-			padding: "0.5rem",
-			boxShadow: "none",
-		},
-	})(AppBar);
-
-	const Tool = withStyles({
-		root: {
-			height: "4rem",
-			display: "flex",
-			alignItems: "center",
-			justifyContent: "center",
-			gap: "1.5rem",
-		},
-	})(Toolbar);
 
 	return (
 		<div className={!isLoginPage ? "hidden" : "header-container"}>

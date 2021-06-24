@@ -1,29 +1,14 @@
-import React, { useState } from "react";
-import Avatar from "@material-ui/core/Avatar";
-import { makeStyles } from "@material-ui/core/styles";
-import { deepOrange } from "@material-ui/core/colors";
-import { FaMedal } from "react-icons/fa";
-import { Icons } from "./Icons";
+import React from "react";
 
-import "./UserProfile.css";
+import Avatar from "@material-ui/core/Avatar";
+import { FaMedal } from "react-icons/fa";
+import useStyles from "./styles/StylesUserProfile";
+import { Icons } from "./styles/Icons";
+
+import "./styles/UserProfile.css";
 
 import Hex from "./Hex";
 import HexData from "./HexData";
-
-const useStyles = makeStyles((theme) => ({
-	root: {
-		width: "100%",
-		height: "auto",
-		borderRadius: "50%",
-		border: "9px solid #314e52",
-		alignSelf: "center",
-		marginTop: "1rem",
-	},
-	orange: {
-		color: theme.palette.getContrastText(deepOrange[500]),
-		backgroundColor: deepOrange[500],
-	},
-}));
 
 export default function UserProfile({ user }) {
 	const classes = useStyles();
