@@ -191,7 +191,7 @@
 		position: relative;
 		width: 250px;
 		height: 144.34px;
-		background-color: #64c7cc;
+		background-color: #f2a154;
 		margin: 72.17px 0;
 		transform: rotate(90deg);
 	}
@@ -207,12 +207,12 @@
 
 	.hex-profile:before {
 		bottom: 100%;
-		border-bottom: 72.17px solid #64c7cc;
+		border-bottom: 72.17px solid #f2a154;
 	}
 
 	.hex-profile:after {
 		top: 100%;
 		width: 0;
-		border-top: 72.17px solid #64c7cc;
+		border-top: 72.17px solid #f2a154;
 	}
 }

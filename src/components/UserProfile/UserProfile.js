@@ -3,9 +3,9 @@ import React from "react";
 import Avatar from "@material-ui/core/Avatar";
 import { FaMedal } from "react-icons/fa";
 import useStyles from "./styles/StylesUserProfile";
-import { Icons } from "./styles/Icons";
 
 import "./styles/UserProfile.css";
+import { Icons } from "./styles/Icons";
 
 import Hex from "./Hex";
 import HexData from "./HexData";
