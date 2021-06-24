@@ -241,12 +241,30 @@ body {
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1300px) and (-webkit-min-device-pixel-ratio: 1) {
+  #lb-pic-middle {
+    width: 70%;
+  }
+
   #lb-pic-big {
     width: 70%;
   }
 
   .lb-all {
     padding-top: 120px;
+  }
+
+  #lb-top-left {
+    grid-column: 4 / 7;
+    transform: translateX(188px) translateY(100px);
+  }
+
+  #lb-top-big {
+    grid-column: 4 / 7;
+  }
+
+  #lb-top-right {
+    grid-column: 4 / 7;
+    transform: translateX(-188px) translateY(100px);
   }
 
   .lb-honeycomb {
@@ -285,7 +303,7 @@ body {
     transform: scaleY(0.5774) rotate(-45deg);
     background-color: inherit;
     left: 29.2893px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
 
   .lb-honeycomb:before {
