@@ -241,17 +241,22 @@ body {
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1300px) and (-webkit-min-device-pixel-ratio: 1) {
+  #lb-pic-big {
+    width: 70%;
+  }
+
   .honeycomb {
     justify-self: center;
     grid-column: 4 / 7;
     grid-row: 3 / 4;
+    transform: translateY(-8px) rotate(30deg);
+
     position: relative;
-    width: 220px;
-    height: 127.02px;
+    width: 200px;
+    height: 115.47px;
     background-color: #f2a154;
-    margin: 63.51px 0;
+    margin: 57.74px 0;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    transform: translate3d(12px, 50%, 3em);
   }
 
   .honeycomb:before,
@@ -259,22 +264,22 @@ body {
     content: "";
     position: absolute;
     z-index: 1;
-    width: 155.56px;
-    height: 155.56px;
+    width: 141.42px;
+    height: 141.42px;
     -webkit-transform: scaleY(0.5774) rotate(-45deg);
     -ms-transform: scaleY(0.5774) rotate(-45deg);
     transform: scaleY(0.5774) rotate(-45deg);
     background-color: inherit;
-    left: 32.2183px;
+    left: 29.2893px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   }
 
   .honeycomb:before {
-    top: -77.7817px;
+    top: -70.7107px;
   }
 
   .honeycomb:after {
-    bottom: -77.7817px;
+    bottom: -70.7107px;
   }
 
   /*cover up extra shadows*/
@@ -283,8 +288,8 @@ body {
     position: absolute;
     top: 0px;
     left: 0;
-    width: 220px;
-    height: 127.0171px;
+    width: 200px;
+    height: 115.4701px;
     z-index: 2;
     background: inherit;
   }

@@ -3,8 +3,6 @@ import LeaderboardCard from "./LeaderboardCard";
 import LeaderboardBest from "./LeaderboardBest";
 import Button from "@material-ui/core/Button";
 import lbcrown from "../assets/crown.png";
-import lbbronze from "../assets/bronze.png";
-import lbsilver from "../assets/silver.png";
 
 function Leaderboard({ user, loading }) {
   const left = {
