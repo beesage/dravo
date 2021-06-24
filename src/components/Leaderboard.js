@@ -51,6 +51,10 @@ function Leaderboard({ user, loading }) {
     <>
       {user.length > 0 ? (
         <>
+          <div class="honeycomb">
+            <span></span>
+          </div>
+
           <div className="lb-button">
             <Button
               style={{
