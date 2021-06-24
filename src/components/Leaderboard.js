@@ -49,7 +49,13 @@ function Leaderboard({ user, loading }) {
     <>
       {user.length > 0 ? (
         <>
-          <div class="honeycomb">
+          <div className="lb-honeycomb" id="lb-honeycomb-left">
+            <span></span>
+          </div>
+          <div className="lb-honeycomb" id="lb-honeycomb-middle">
+            <span></span>
+          </div>
+          <div className="lb-honeycomb" id="lb-honeycomb-right">
             <span></span>
           </div>
 
