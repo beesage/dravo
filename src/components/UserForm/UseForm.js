@@ -6,8 +6,7 @@ const UseForm = () => {
     email: "",
     password: "",
     confirmPassword: "",    
-  });  
-  //console.log(values)
+  });    
    
   /**
    * handleChange sets a new state based on the input from the user.
