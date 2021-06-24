@@ -1,9 +1,6 @@
 import React from 'react';
 
-
-
-const UseForm = () => {
-  
+const UseForm = () => {  
   const [values, setValues] = React.useState({
     username: "",
     email: "",
