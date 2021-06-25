@@ -36,24 +36,14 @@ export default function LogIn() {
                     label="Enter your password"
                     value={values.password}
                     onChange={handleChange}            
-                  />
-                
-                  <div>
-                    <FormControlLabel
-                      control={
-                        <Checkbox className={classes.orangeColor}  value="remember" color="default" />
-                      }
-                      className={classes.greenColor}
-                      label="Keep me logged in"
-                    />
-                    <Link
-                      href="#"
-                      variant="body2"
-                      className={classes.forgotPassword}
-                    >
+                  />                
+                  <Box>
+                    <FormControlLabel control={<Checkbox className={classes.orangeColor} value="remember" color="default" />}
+                      className={classes.checkbox}label="Keep me logged in"/>
+                    <Link href="#" className={classes.forgotPassword}>
                       Forgot password?
                     </Link>
-                  </div>
+                  </Box>             
                   <Button type="submit" text="Log In" />              
             </form>
             <Box align="center" mt={2}>
