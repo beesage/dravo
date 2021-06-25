@@ -1,30 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Krub:wght@400;500;600&display=swap");
 
-.hidden {
-	display: none;
-}
-
-.header-container {
-	display: grid;
-	grid-column: 1 /10;
-	grid-row: 1/1;
-	margin-bottom: 0;
-}
-
-.menu-item {
-	font-family: "Krub", sans-serif;
-	font-weight: 500;
-	text-transform: uppercase;
-	color: #314e52;
-}
-
-a {
-	font-size: 18px;
-	font-weight: bold;
-	text-decoration: none;
-	color: inherit;
-}
-
 .user-container {
 	display: grid;
 	width: auto;
@@ -77,13 +52,6 @@ a {
 	font-size: 30px;
 	color: #314e52;
 }
-
-/* .profile-pic {
-	align-self: center;
-	width: 100%;
-	border-radius: 50%;
-	border: 9px solid #314e52;
-} */
 
 .username,
 .user-location {
@@ -190,4 +158,61 @@ a {
 	text-align: center;
 	font-weight: 400;
 	font-size: large;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1370px) and (-webkit-min-device-pixel-ratio: 1) {
+	.user-profile {
+		background: #f7f6e7;
+		border-top: none;
+		border-bottom: none;
+		grid-template-rows: 1fr 1fr;
+	}
+
+	.user-info {
+		grid-column: 1;
+		grid-row: 2;
+		flex-flow: column-reverse;
+		justify-self: center;
+	}
+
+	.user-location {
+		display: none;
+	}
+
+	.user-profile::before {
+		display: none;
+	}
+
+	.username {
+		display: none;
+	}
+
+	.hex-profile {
+		position: relative;
+		width: 250px;
+		height: 144.34px;
+		background-color: #f2a154;
+		margin: 72.17px 0;
+		transform: rotate(90deg);
+	}
+
+	.hex-profile:before,
+	.hex-profile:after {
+		content: "";
+		position: absolute;
+		width: 0;
+		border-left: 125px solid transparent;
+		border-right: 125px solid transparent;
+	}
+
+	.hex-profile:before {
+		bottom: 100%;
+		border-bottom: 72.17px solid #f2a154;
+	}
+
+	.hex-profile:after {
+		top: 100%;
+		width: 0;
+		border-top: 72.17px solid #f2a154;
+	}
 }
