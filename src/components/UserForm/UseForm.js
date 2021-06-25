@@ -15,7 +15,7 @@ const UseForm = () => {
    * Name and value are destructured and assigned to e.target.
    * The spread operator contains the current state object.
    * With the current value of username, email, password, 
-   * confirmpassword the entered input is added or to the state variables.
+   * confirmpassword the entered input is added to the state variables.
    * @param e 
    * @returns updated state of values
    * @author Pamela Feijo

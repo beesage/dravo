@@ -57,7 +57,7 @@ export default function SignUp() {
                       
                       <Box>
                         <FormControlLabel control={<Checkbox className={classes.orangeColor} value="remember" color="default" />} className={classes.greenColor} label="Keep me logged in" />
-                        <Link href="#" variant="body2" className={classes.forgotPassword} >
+                        <Link href="#" className={classes.forgotPassword}>
                           Forgot password?
                         </Link>
                       </Box>

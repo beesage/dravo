@@ -1,6 +1,9 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
+  root:{
+    fontFamily: "Krub",
+  },
   container: {
     backgroundColor: "#F7F6E7",
     alignItems: "center",
@@ -12,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "30px",
     textAlign: "center",
     color: "#314E52",
+    fontFamily: "Krub",
   },  
   logo: {
     marginTop: "20%",
@@ -21,12 +25,16 @@ const useStyles = makeStyles((theme) => ({
     background: "#F2A154",
     marginBottom: "2.5%",
     borderRadius: "4px",
+    boxShadow: "0 8px 6px -6px rgba(0, 0, 0, 0.1)",
   }, 
   forgotPassword: {
     color: "#314E52",
     textDecoration: "underline",
     lineHeight: 5.3,
-    fontSize: "1.2em",
+    fontSize: "1.1em",
+    marginLeft: "10px",
+    fontFamily: "Krub",
+    fontWeight: "500",
   },
   submit: {
     backgroundColor: "#314E52",
@@ -49,6 +57,12 @@ const useStyles = makeStyles((theme) => ({
   },
   orangeColor: {
     color: "#F2A154",
+    fontWeight: "500",
+  },
+  checkbox: {
+    color: "#314E52",
+    fontFamily: "Krub",
+    fontWeight: "500",
   },
   img: {
     display: "flex",
@@ -57,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
   },
   breakpoints: {
     [theme.breakpoints.up("sm")]: {
-      marginTop: "20%",
+      marginTop: "30%",
     },
   },
 }));
