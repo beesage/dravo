@@ -1,7 +1,8 @@
-import { makeStyles } from "@material-ui/core/styles";
-import { deepOrange } from "@material-ui/core/colors";
+import { withStyles } from "@material-ui/core/styles";
+//import { deepOrange } from "@material-ui/core/colors";
+import Avatar from "@material-ui/core/Avatar";
 
-const useStyles = makeStyles((theme) => ({
+const Pic = withStyles((theme) => ({
 	root: {
 		width: "100%",
 		height: "auto",
@@ -9,13 +10,12 @@ const useStyles = makeStyles((theme) => ({
 		border: "9px solid #314e52",
 		justifySelf: "center",
 		marginTop: "1rem",
+		[theme.breakpoints.up("md")]: {
+			width: "50%",
+		},
 	},
-	orange: {
-		color: theme.palette.getContrastText(deepOrange[500]),
-		backgroundColor: deepOrange[500],
-	},
-}));
+}))(Avatar);
 
 //CHECK deepOrange on material-ui
 
-export default useStyles;
+export default Pic;

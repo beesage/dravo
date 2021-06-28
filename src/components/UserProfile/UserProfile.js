@@ -1,8 +1,7 @@
 import React from "react";
 
-import Avatar from "@material-ui/core/Avatar";
+import Pic from "./styles/StylesUserProfile";
 import { FaMedal } from "react-icons/fa";
-import useStyles from "./styles/StylesUserProfile";
 
 import "./styles/UserProfile.css";
 import { Icons } from "./styles/Icons";
@@ -11,8 +10,6 @@ import Hex from "./Hex";
 import HexData from "./HexData";
 
 export default function UserProfile({ user }) {
-	const classes = useStyles();
-
 	return (
 		<div className="user-container">
 			{user.length > 0 ? (
@@ -21,11 +18,7 @@ export default function UserProfile({ user }) {
 						<FaMedal className="medal" />
 						<div className="user-info">
 							<div className="hex-profile">
-								<Avatar
-									classes={{ root: classes.root }}
-									alt=""
-									src={user[0].profilepic}
-								/>
+								<Pic alt="" src={user[0].profilepic} />
 							</div>
 							<p className="username">{user[0].beekeeper}</p>
 							<p className="user-location">{user[0].location}</p>

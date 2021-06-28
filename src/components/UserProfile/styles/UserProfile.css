@@ -162,7 +162,7 @@
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1370px) and (-webkit-min-device-pixel-ratio: 1) {
 	.user-container {
-		grid-template-rows: 0.5fr 0.5fr 0.5fr 1fr 1fr;
+		grid-template-rows: 0.2fr 0.5fr 0.5fr 1fr 1fr;
 		grid-template-columns: repeat(6, 1fr);
 	}
 
@@ -224,18 +224,18 @@
 	.all-us-hex {
 		display: flex;
 		grid-column: 2/-1;
-		grid-row: 5;
+		grid-row: 4;
 		gap: 2rem;
-		align-items: initial;
+		align-items: center;
 	}
 
 	.all-us-b-hex {
 		display: flex;
 		grid-column: 2/-1;
-		grid-row: 5;
+		grid-row: 4;
 		gap: 4rem;
 		margin-left: 5.7rem;
-		margin-top: -4rem;
+		margin-bottom: -10rem;
 		align-items: center;
 	}
 
