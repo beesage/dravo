@@ -1,13 +1,13 @@
 import React from "react";
 
 import Pic from "./styles/StylesUserProfile";
-import { FaMedal } from "react-icons/fa";
+import Hex from "./Hex";
+import HexData from "./HexData";
+import HexBio from "./HexBio";
 
 import "./styles/UserProfile.css";
 import { Icons } from "./styles/Icons";
-
-import Hex from "./Hex";
-import HexData from "./HexData";
+import { FaMedal } from "react-icons/fa";
 
 export default function UserProfile({ user }) {
 	return (
@@ -24,6 +24,8 @@ export default function UserProfile({ user }) {
 							<p className="user-location">{user[0].location}</p>
 						</div>
 					</div>
+
+					<HexBio user={user} />
 					<div className="all-us-hex">
 						{Icons.map((icons, index) => (
 							<Hex icons={icons} key={index} />

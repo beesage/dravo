@@ -160,9 +160,21 @@
 	font-size: large;
 }
 
+.tablet-position {
+	display: none;
+}
+
+.hex-bio {
+	display: none;
+}
+
+.greeting-tablet {
+	display: none;
+}
+
 @media only screen and (min-device-width: 768px) and (max-device-width: 1370px) and (-webkit-min-device-pixel-ratio: 1) {
 	.user-container {
-		grid-template-rows: 0.2fr 0.5fr 0.5fr 1fr 1fr;
+		grid-template-rows: 0.5fr 0.5fr 0.2fr 0.2fr 0.2fr;
 		grid-template-columns: repeat(6, 1fr);
 	}
 
@@ -170,8 +182,9 @@
 		background: #f7f6e7;
 		border-top: none;
 		border-bottom: none;
-		grid-column: 2/3;
-		grid-row: 3/4;
+		grid-column: 2;
+		grid-row: 1;
+		align-self: end;
 	}
 
 	.user-info {
@@ -224,22 +237,78 @@
 	.all-us-hex {
 		display: flex;
 		grid-column: 2/-1;
-		grid-row: 4;
-		gap: 2rem;
-		align-items: center;
+		grid-row: 2;
+		gap: 4.5rem;
+		margin-left: 0;
+		align-items: flex-end;
 	}
 
 	.all-us-b-hex {
 		display: flex;
 		grid-column: 2/-1;
-		grid-row: 4;
-		gap: 4rem;
-		margin-left: 5.7rem;
-		margin-bottom: -10rem;
-		align-items: center;
+		grid-row: 3;
+		gap: 4.5rem;
+		margin-left: 5.5rem;
+		margin-top: 1rem;
+		align-items: flex-start;
 	}
 
 	.icons-name {
 		display: none;
+	}
+
+	.tablet-position {
+		display: grid;
+		grid-gap: 1.5rem;
+	}
+
+	.icons-name-tablet {
+		display: block;
+		text-align: center;
+		font-weight: 400;
+		font-size: large;
+		text-transform: uppercase;
+	}
+
+	.hex-bio {
+		display: block;
+		position: relative;
+		width: 250px;
+		height: 350px;
+		background-color: #314e52;
+		margin: 72.17px 0;
+		transform: rotate(90deg);
+		grid-column: 3/5;
+		grid-row: 1;
+		justify-self: center;
+	}
+
+	.hex-bio::before,
+	.hex-bio::after {
+		content: "";
+		position: absolute;
+		width: 0;
+		border-left: 125px solid transparent;
+		border-right: 125px solid transparent;
+	}
+
+	.hex-bio::before {
+		bottom: 100%;
+		border-bottom: 72.17px solid #314e52;
+	}
+
+	.hex-bio::after {
+		top: 100%;
+		width: 0;
+		border-top: 72.17px solid #314e52;
+	}
+
+	.greeting-tablet {
+		display: block;
+		grid-column: 3/5;
+		grid-row: 1;
+		font-size: 25px;
+		text-align: center;
+		margin-top: 4.5rem;
 	}
 }
