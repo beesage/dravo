@@ -27,13 +27,15 @@ export default function LogIn() {
             <form className={classes.root} onSubmit={handleSubmit} noValidate>
                 <InputField
                     name="username"
+                    type="text"
                     label="Enter your username"
                     value={values.username}
                     onChange={handleChange}               
                  />
                   <InputField
                     name="password"
-                    label="Enter your password"
+                    type="password"
+                    label="Enter your password"                    
                     value={values.password}
                     onChange={handleChange}            
                   />                

@@ -27,33 +27,32 @@ export default function SignUp() {
                 <form className={classes.root} onSubmit={handleSubmit} noValidate>
                     <InputField
                         name="username"
+                        type="text"
                         label="Enter your username"
                         value={values.username}
-                        onChange={handleChange}                
-                                      
-                      />
-                      <InputField
+                        onChange={handleChange}              
+                    />
+                    <InputField
                         name="email"
+                        type="email"
                         label="Enter your email"
                         value={values.email}
                         onChange={handleChange}                
-                                      
-                      />
-                      
-                      <InputField
+                   />                      
+                   <InputField
                         name="password"
+                        type="password" 
                         label="Enter your password"
                         value={values.password}
                         onChange={handleChange}              
-                                      
-                      />
-                      <InputField
+                   />
+                   <InputField
                         name="confirmPassword"
+                        type="password"  
                         label="Confirm your password"
                         value={values.confirmPassword}
-                        onChange={handleChange}                
-                                      
-                      />
+                        onChange={handleChange}              
+                   />
                       
                       <Box>
                         <FormControlLabel control={<Checkbox className={classes.orangeColor} value="remember" color="default" />} className={classes.greenColor} label="Keep me logged in" />
