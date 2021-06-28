@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
 		height: "auto",
 		borderRadius: "50%",
 		border: "9px solid #314e52",
-		alignSelf: "center",
+		justifySelf: "center",
 		marginTop: "1rem",
 	},
 	orange: {
@@ -15,5 +15,7 @@ const useStyles = makeStyles((theme) => ({
 		backgroundColor: deepOrange[500],
 	},
 }));
+
+//CHECK deepOrange on material-ui
 
 export default useStyles;
