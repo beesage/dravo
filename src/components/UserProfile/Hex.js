@@ -3,7 +3,6 @@ import React from "react";
 export default function Hex({ icons }) {
 	return (
 		<>
-			{/* <p className="icons-name-tablet">{icons.name}</p> */}
 			<div className="us-hex">
 				<img
 					src={icons.src}

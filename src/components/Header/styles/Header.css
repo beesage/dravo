@@ -47,4 +47,8 @@ a {
 		right: 0;
 		width: 13%;
 	}
+
+	.tablet-navbar {
+		background-color: black;
+	}
 }

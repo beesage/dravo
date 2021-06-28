@@ -36,7 +36,7 @@ export default function Header() {
 
 	return (
 		<div className={!isLoginPage ? "hidden" : "header-container"}>
-			<NavBar position="static">
+			<NavBar position="static" className="tablet-navbar">
 				<Tool>
 					<Link to="/leaderboard">
 						<p className="menu-item">Leaderboard</p>
