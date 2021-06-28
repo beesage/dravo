@@ -24,8 +24,10 @@ export default function UserProfile({ user }) {
 							<p className="user-location">{user[0].location}</p>
 						</div>
 					</div>
-
-					<HexBio user={user} />
+					<p className="greeting-tablet">Welcome, {user[0].beekeeper}!</p>
+					<div className="bio-container">
+						<HexBio user={user} />
+					</div>
 					<div className="all-us-hex">
 						{Icons.map((icons, index) => (
 							<Hex icons={icons} key={index} />
