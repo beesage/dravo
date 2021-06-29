@@ -16,8 +16,7 @@ export default function InputField(props) {
             type={type}
             onChange={onChange}   
             className={classes.textField}
-            fullWidth
-            required                              
+            fullWidth                                         
         />
     )
 }
