@@ -16,6 +16,6 @@ const Pic = withStyles((theme) => ({
 	},
 }))(Avatar);
 
-//CHECK deepOrange on material-ui
+//CHECK fallback on material-ui
 
 export default Pic;

@@ -4,6 +4,7 @@ import Pic from "./styles/StylesUserProfile";
 import Hex from "./Hex";
 import HexData from "./HexData";
 import HexBio from "./HexBio";
+import HexEdit from "./HexEdit";
 
 import "./styles/UserProfile.css";
 import { Icons } from "./styles/Icons";
@@ -17,7 +18,7 @@ export default function UserProfile({ user }) {
 					<div className="user-profile">
 						<FaMedal className="medal" />
 						<div className="user-info">
-							<div className="hex-profile">
+							<div className="hex-profile ribbon-outset border">
 								<Pic alt="" src={user[0].profilepic} />
 							</div>
 							<p className="username">{user[0].beekeeper}</p>
@@ -28,6 +29,7 @@ export default function UserProfile({ user }) {
 					<div className="bio-container">
 						<HexBio user={user} />
 					</div>
+					<HexEdit />
 					<div className="all-us-hex">
 						{Icons.map((icons, index) => (
 							<Hex icons={icons} key={index} />
