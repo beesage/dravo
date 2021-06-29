@@ -25,7 +25,17 @@ export default function UserProfile({ user }) {
 							<p className="user-location">{user[0].location}</p>
 						</div>
 					</div>
-					<p className="greeting-tablet">Welcome, {user[0].beekeeper}!</p>
+					<div
+						style={{
+							display: "flex",
+							justifyContent: "center",
+							gridRow: "1",
+							gridColumn: "4/6",
+							justifySelf: "center",
+						}}
+					>
+						<p className="greeting-tablet">Welcome, {user[0].beekeeper}!</p>
+					</div>
 					<div className="bio-container">
 						<HexBio user={user} />
 					</div>
