@@ -1,12 +1,14 @@
 import React from 'react';
 
-const UseForm = () => {  
+const UseForm = (validate) => {  
   const [values, setValues] = React.useState({
     username: "",
     email: "",
     password: "",
     confirmPassword: "",    
   });    
+
+  const [errors, setErrors] = React.useState({});
    
   /**
    * handleChange sets a new state based on the input from the user.
@@ -29,10 +31,11 @@ const UseForm = () => {
   }; 
 
   const handleSubmit = e => {
-    e.preventDefault();   
+    e.preventDefault(); 
+    setErrors(validate(values))  
   };
  
-    return { values, handleChange, handleSubmit};
+    return { values, handleChange, handleSubmit, errors};
 }
 
 export default UseForm;

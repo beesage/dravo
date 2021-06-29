@@ -6,11 +6,12 @@ import UseForm from './UseForm';
 import { NavLink } from "react-router-dom";
 import useStyles from "./styles/StyleUserForm";
 import logo from "../../assets/logo-mobile.png";
+import validate from './ValidateInfo';
 
 
 export default function LogIn() {
   const classes = useStyles();
-  const { values, handleChange, handleSubmit } = UseForm();
+  const { values, handleChange, handleSubmit, errors } = UseForm(validate);
 
   return (
     <div>
@@ -30,15 +31,17 @@ export default function LogIn() {
                     type="text"
                     label="Enter your username"
                     value={values.username}
-                    onChange={handleChange}               
+                    onChange={handleChange}                                 
                  />
+                 {errors.username && <p>{errors.username}</p>}  
                   <InputField
                     name="password"
                     type="password"
                     label="Enter your password"                    
                     value={values.password}
                     onChange={handleChange}            
-                  />                
+                  />  
+                  {errors.password && <p>{errors.password}</p>}               
                   <Box>
                     <FormControlLabel control={<Checkbox className={classes.orangeColor} value="remember" color="default" />}
                       className={classes.checkbox}label="Keep me logged in"/>
