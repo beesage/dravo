@@ -12,13 +12,13 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     fontWeight: "800",
-    marginBottom: "30px",
+    marginBottom: "25px",
     textAlign: "center",
     color: "#314E52",
     fontFamily: "Krub",
   },  
   logo: {
-    marginTop: "20%",
+    marginTop: "10%",
     marginBottom: "10%",
   },  
   textField: {    
@@ -58,6 +58,9 @@ const useStyles = makeStyles((theme) => ({
   orangeColor: {
     color: "#F2A154",
     fontWeight: "500",
+  },
+ redColor: {
+    color: "red",
   },
   checkbox: {
     color: "#314E52",

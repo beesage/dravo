@@ -34,7 +34,7 @@ export default function LogIn() {
                     value={values.username}
                     onChange={handleChange}                                 
                  />
-                 {errors.username && <p>{errors.username}</p>}  
+                 {errors.username && <div className={classes.redColor}>{errors.username}</div>}  
                   <InputPassword
                     name="password"                    
                     label="Enter your password"                    
@@ -43,7 +43,7 @@ export default function LogIn() {
                     onClick={handleClickShowPassword} 
                     showPassword={showPassword}         
                   />  
-                  {errors.password && <p>{errors.password}</p>}               
+                  {errors.password && <div className={classes.redColor}>{errors.password}</div>}               
                   <Box>
                     <FormControlLabel control={<Checkbox className={classes.orangeColor} value="remember" color="default" />}
                       className={classes.checkbox}label="Keep me logged in"/>

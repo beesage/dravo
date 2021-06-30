@@ -34,7 +34,7 @@ export default function SignUp() {
                         value={values.username}
                         onChange={handleChange}              
                     />
-                    {errors.username && <p>{errors.username}</p>}
+                    {errors.username && <div className={classes.redColor}>{errors.username}</div>}
                     <InputField
                         name="email"
                         type="email"
@@ -42,7 +42,7 @@ export default function SignUp() {
                         value={values.email}
                         onChange={handleChange}                
                    />   
-                   {errors.email && <p>{errors.email}</p>}                   
+                   {errors.email && <div className={classes.redColor}>{errors.email}</div>}                   
                    <InputPassword
                     name="password"                    
                     label="Enter your password"                    
@@ -51,7 +51,7 @@ export default function SignUp() {
                     onClick={handleClickShowPassword} 
                     showPassword={showPassword}              
                    />
-                   {errors.password && <p>{errors.password}</p>}
+                   {errors.password && <div className={classes.redColor}>{errors.password}</div>}
                    <InputPassword
                     name="confirmPassword"                    
                     label="Confirm your password"                    
@@ -60,7 +60,7 @@ export default function SignUp() {
                     onClick={handleClickShowPassword} 
                     showPassword={showPassword}              
                    />
-                  {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
+                  {errors.confirmPassword && <div className={classes.redColor}>{errors.confirmPassword}</div>}
                       <Box>
                         <FormControlLabel control={<Checkbox className={classes.orangeColor} value="remember" color="default" />} className={classes.greenColor} label="Keep me logged in" />
                         <Link href="#" className={classes.forgotPassword}>
