@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Pic from "./styles/StylesUserProfile";
 import Hex from "./Hex";
@@ -40,7 +41,12 @@ export default function UserProfile({ user }) {
 					<div className="bio-container">
 						<HexBio user={user} />
 					</div>
-					<HexEdit />
+					<Link
+						to="/settings"
+						style={{ gridColumn: "2/3", gridRow: "3", textDecoration: "none" }}
+					>
+						<HexEdit />
+					</Link>
 					<div className="all-us-hex">
 						{Icons.map((icons, index) => (
 							<Hex icons={icons} key={index} />

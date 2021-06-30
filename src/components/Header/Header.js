@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 import "./styles/Header.css";
 import NavBar from "./styles/StylesNavBar";
@@ -44,7 +44,16 @@ export default function Header() {
 					<Link to="/profile">
 						<p className="menu-item">Profile</p>
 					</Link>
-					{isUserProfile ? <MdSettings className="setting" /> : false}
+					{isUserProfile ? (
+						<NavLink
+							to="/settings"
+							style={{ position: "absolute", right: "0.8rem" }}
+						>
+							<MdSettings className="setting" />
+						</NavLink>
+					) : (
+						false
+					)}
 					<img
 						src="https://res.cloudinary.com/dg5lakmem/image/upload/v1624468065/Dravo/Header-logo.png"
 						className="header-logo"
