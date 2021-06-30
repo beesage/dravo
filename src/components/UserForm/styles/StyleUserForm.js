@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "underline",
     lineHeight: 5.3,
     fontSize: "1.1em",
-    marginLeft: "10px",
+    // marginLeft: "10px",
     fontFamily: "Krub",
     fontWeight: "500",
   },
@@ -68,6 +68,10 @@ const useStyles = makeStyles((theme) => ({
     color: "#314E52",
     fontFamily: "Krub",
     fontWeight: "500",
+  },
+  box: {
+    display: "flex",
+    justifyContent: "space-between",
   },
   img: {
     display: "flex",

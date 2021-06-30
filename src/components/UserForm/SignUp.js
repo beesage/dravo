@@ -12,7 +12,7 @@ import validate from './ValidateInfo';
 
 export default function SignUp() {
   const classes = useStyles();
-  const {  values, handleChange, handleSubmit,  handleClickShowPassword, errors, showPassword } = UseForm(validate);
+  const {  values, handleChange, handleSubmit, handleClickShowPassword, errors, showPassword } = UseForm(validate);
 
   return (
     <div>
@@ -61,7 +61,7 @@ export default function SignUp() {
                     showPassword={showPassword}              
                    />
                   {errors.confirmPassword && <div className={classes.redColor}>{errors.confirmPassword}</div>}
-                      <Box>
+                      <Box className={classes.box}>
                         <FormControlLabel control={<Checkbox className={classes.orangeColor} value="remember" color="default" />} className={classes.greenColor} label="Keep me logged in" />
                         <Link href="#" className={classes.forgotPassword}>
                           Forgot password?

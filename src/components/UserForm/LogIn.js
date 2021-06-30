@@ -44,7 +44,7 @@ export default function LogIn() {
                     showPassword={showPassword}         
                   />  
                   {errors.password && <div className={classes.redColor}>{errors.password}</div>}               
-                  <Box>
+                  <Box className={classes.box}>
                     <FormControlLabel control={<Checkbox className={classes.orangeColor} value="remember" color="default" />}
                       className={classes.checkbox}label="Keep me logged in"/>
                     <Link href="#" className={classes.forgotPassword}>
