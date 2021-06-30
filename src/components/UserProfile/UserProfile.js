@@ -30,8 +30,9 @@ export default function UserProfile({ user }) {
 							display: "flex",
 							justifyContent: "center",
 							gridRow: "1",
-							gridColumn: "4/6",
+							gridColumn: "3/5",
 							justifySelf: "center",
+							marginBottom: "1rem",
 						}}
 					>
 						<p className="greeting-tablet">Welcome, {user[0].beekeeper}!</p>
