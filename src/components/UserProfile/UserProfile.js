@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import Pic from "./styles/StylesUserProfile";
-import Hex from "./Hex";
-import HexData from "./HexData";
-import HexBio from "./HexBio";
-import HexEdit from "./HexEdit";
+import Hex from "./styles/Hexagons/Hex";
+import HexData from "./styles/Hexagons/HexData";
+import HexBio from "./styles/Hexagons/HexBio";
+import HexEdit from "./styles/Hexagons/HexEdit";
 
 import "./styles/UserProfile.css";
 import { Icons } from "./styles/Icons";
