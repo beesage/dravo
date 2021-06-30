@@ -8,9 +8,11 @@ Under construction :tractor:
 
 #### Built with
 
-. [Webpack](https://webpack.js.org/)
+• [Webpack](https://webpack.js.org/)
+
 • [React](https://reactjs.org/)
-. [materialUI](https://material-ui.com/)
+
+• [materialUI](https://material-ui.com/)
 
 ---
 

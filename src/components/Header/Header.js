@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import "./UserProfile-Header.css";
+import "./styles/Header.css";
+import NavBar from "./styles/StylesNavBar";
+import Tool from "./styles/StylesTool";
 
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import SettingsIcon from "@material-ui/icons/Settings";
-import { withStyles } from "@material-ui/core/styles";
+import { MdSettings } from "react-icons/md";
 
 export default function Header() {
 	const [isUserProfile, setIsUserProfile] = useState(false);
@@ -22,7 +21,7 @@ export default function Header() {
 	 * @author Alessandra Pettinato
 	 */
 
-	console.log(location);
+	let location = useLocation();
 
 	useEffect(() => {
 		if (location.pathname == "/profile") {
@@ -35,27 +34,9 @@ export default function Header() {
 		}
 	}, []);
 
-	const NavBar = withStyles({
-		root: {
-			backgroundColor: "#F2A154",
-			padding: "0.5rem",
-			boxShadow: "none",
-		},
-	})(AppBar);
-
-	const Tool = withStyles({
-		root: {
-			height: "4rem",
-			display: "flex",
-			alignItems: "center",
-			justifyContent: "center",
-			gap: "1.5rem",
-		},
-	})(Toolbar);
-
 	return (
 		<div className={!isLoginPage ? "hidden" : "header-container"}>
-			<NavBar position="static">
+			<NavBar position="static" className="tablet-navbar">
 				<Tool>
 					<Link to="/leaderboard">
 						<p className="menu-item">Leaderboard</p>
@@ -63,18 +44,11 @@ export default function Header() {
 					<Link to="/profile">
 						<p className="menu-item">Profile</p>
 					</Link>
-					{isUserProfile ? (
-						<SettingsIcon
-							style={{
-								color: "#314E52",
-								position: "absolute",
-								fontSize: "30px",
-								right: "1rem",
-							}}
-						/>
-					) : (
-						false
-					)}
+					{isUserProfile ? <MdSettings className="setting" /> : false}
+					<img
+						src="https://res.cloudinary.com/dg5lakmem/image/upload/v1624468065/Dravo/Header-logo.png"
+						className="header-logo"
+					/>
 				</Tool>
 			</NavBar>
 		</div>
