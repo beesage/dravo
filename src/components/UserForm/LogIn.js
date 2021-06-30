@@ -1,16 +1,18 @@
 import React from "react";
 import { CssBaseline, FormControlLabel, Checkbox, Link, Grid, Box, Container, Typography } from "@material-ui/core";
-import InputField from "./controls/InputField"
+import InputField from "./controls/InputField";
+import InputPassword from "./controls/InputPassword";
 import Button from "./controls/Submit";
 import UseForm from './UseForm';
 import { NavLink } from "react-router-dom";
 import useStyles from "./styles/StyleUserForm";
 import logo from "../../assets/logo-mobile.png";
+import validate from './ValidateInfo';
 
 
 export default function LogIn() {
   const classes = useStyles();
-  const { values, handleChange, handleSubmit } = UseForm();
+  const { values, handleChange, handleSubmit, handleClickShowPassword, errors, showPassword } = UseForm(validate);
 
   return (
     <div>
@@ -24,22 +26,27 @@ export default function LogIn() {
             <Typography className={classes.title} variant="h4">
               Log In
             </Typography>
-            <form className={classes.root} onSubmit={handleSubmit} noValidate>
+            <form className={classes.root} onSubmit={handleSubmit} noValidate autoComplete="off">
                 <InputField
                     name="username"
+                    type="text"
                     label="Enter your username"
                     value={values.username}
-                    onChange={handleChange}               
+                    onChange={handleChange}                                 
                  />
-                  <InputField
-                    name="password"
-                    label="Enter your password"
+                 {errors.username && <div className={classes.redColor}>{errors.username}</div>}  
+                  <InputPassword
+                    name="password"                    
+                    label="Enter your password"                    
                     value={values.password}
-                    onChange={handleChange}            
-                  />                
-                  <Box>
+                    onChange={handleChange}  
+                    onClick={handleClickShowPassword} 
+                    showPassword={showPassword}         
+                  />  
+                  {errors.password && <div className={classes.redColor}>{errors.password}</div>}               
+                  <Box className={classes.box}>
                     <FormControlLabel control={<Checkbox className={classes.orangeColor} value="remember" color="default" />}
-                      className={classes.checkbox}label="Keep me logged in"/>
+                      className={classes.checkbox} label="Keep me logged in"/>
                     <Link href="#" className={classes.forgotPassword}>
                       Forgot password?
                     </Link>
@@ -47,7 +54,7 @@ export default function LogIn() {
                   <Button type="submit" text="Log In" />              
             </form>
             <Box align="center" mt={2}>
-              <Typography className={classes.greenColor}>
+              <Typography className={classes.typography}>
                 New to Dravo?
               </Typography>
               <NavLink to="/signup" variant="body2" className={classes.link}>
