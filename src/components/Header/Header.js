@@ -7,10 +7,14 @@ import Tool from "./styles/StylesTool";
 
 import { MdSettings } from "react-icons/md";
 
+import handleHeader from "./Functions/HandleHeader";
+import EditHeader from "./EditHeader";
+
 export default function Header() {
 	const [isUserProfile, setIsUserProfile] = useState(false);
 	const [isLoginPage, setIsLoginPage] = useState(true);
 
+	const [isEditProfile, setIsEditProfile] = useState(false);
 	/**
 	 * Display the header component according to the location of the app
 	 * <p>
@@ -36,30 +40,38 @@ export default function Header() {
 
 	return (
 		<div className={!isLoginPage ? "hidden" : "header-container"}>
-			<NavBar position="static" className="tablet-navbar">
-				<Tool>
-					<Link to="/leaderboard">
-						<p className="menu-item">Leaderboard</p>
-					</Link>
-					<Link to="/profile">
-						<p className="menu-item">Profile</p>
-					</Link>
-					{isUserProfile ? (
-						<NavLink
-							to="/settings"
-							style={{ position: "absolute", right: "0.8rem" }}
-						>
-							<MdSettings className="setting" />
-						</NavLink>
-					) : (
-						false
-					)}
-					<img
-						src="https://res.cloudinary.com/dg5lakmem/image/upload/v1624468065/Dravo/Header-logo.png"
-						className="header-logo"
-					/>
-				</Tool>
-			</NavBar>
+			{!isEditProfile ? (
+				<NavBar position="static" className="tablet-navbar">
+					<Tool>
+						<Link to="/leaderboard">
+							<p className="menu-item">Leaderboard</p>
+						</Link>
+						<Link to="/profile">
+							<p className="menu-item">Profile</p>
+						</Link>
+						{isUserProfile ? (
+							<NavLink
+								to="/settings"
+								style={{ position: "absolute", right: "0.8rem" }}
+								onClick={() => handleHeader(setIsEditProfile(!isEditProfile))}
+							>
+								<MdSettings className="setting" />
+							</NavLink>
+						) : (
+							false
+						)}
+						<img
+							src="https://res.cloudinary.com/dg5lakmem/image/upload/v1624468065/Dravo/Header-logo.png"
+							className="header-logo"
+						/>
+					</Tool>
+				</NavBar>
+			) : (
+				<EditHeader
+					isEditProfile={isEditProfile}
+					setIsEditProfile={setIsEditProfile}
+				/>
+			)}
 		</div>
 	);
 }

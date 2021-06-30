@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 import Pic from "./styles/StylesUserProfile";
 import Hex from "./styles/Hexagons/Hex";
@@ -8,6 +8,7 @@ import HexBio from "./styles/Hexagons/HexBio";
 import HexEdit from "./styles/Hexagons/HexEdit";
 
 import "./styles/UserProfile.css";
+import "./styles/Hexagons/HexStyles.css";
 import { Icons } from "./styles/Icons";
 import { FaMedal } from "react-icons/fa";
 
@@ -41,12 +42,12 @@ export default function UserProfile({ user }) {
 					<div className="bio-container">
 						<HexBio user={user} />
 					</div>
-					<Link
+					<NavLink
 						to="/settings"
 						style={{ gridColumn: "2/3", gridRow: "3", textDecoration: "none" }}
 					>
 						<HexEdit />
-					</Link>
+					</NavLink>
 					<div className="all-us-hex">
 						{Icons.map((icons, index) => (
 							<Hex icons={icons} key={index} />
