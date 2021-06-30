@@ -178,6 +178,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: #314e52;
 }
 
 .lb-card-wrapper {
@@ -385,10 +386,33 @@ body {
 }
 
 .lb-card-rank {
-  font-size: 18px;
-  height: 69px;
-  width: 20px;
   margin-right: 0px;
   transform: translateX(40px);
   z-index: 2;
+}
+
+.lb-top-rank {
+  transform: translateY(-220px);
+  display: flex;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 300;
+  margin-left: 8px;
+}
+
+#lb-top-left {
+  margin-top: 40px;
+}
+
+#lb-top-big {
+  margin-top: -5px;
+}
+
+#lb-top-right {
+  margin-top: 40px;
+}
+
+.lb-icon-middle {
+  transform: translateX(-16px) translateY(-7px) rotate(-37deg);
+  width: 35px;
 }
