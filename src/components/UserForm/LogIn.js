@@ -12,7 +12,7 @@ import validate from './ValidateInfo';
 
 export default function LogIn() {
   const classes = useStyles();
-  const { values, handleChange, handleSubmit,  handleClickShowPassword, errors, showPassword } = UseForm(validate);
+  const { values, handleChange, handleSubmit, handleClickShowPassword, errors, showPassword } = UseForm(validate);
 
   return (
     <div>
@@ -46,7 +46,7 @@ export default function LogIn() {
                   {errors.password && <div className={classes.redColor}>{errors.password}</div>}               
                   <Box className={classes.box}>
                     <FormControlLabel control={<Checkbox className={classes.orangeColor} value="remember" color="default" />}
-                      className={classes.checkbox}label="Keep me logged in"/>
+                      className={classes.checkbox} label="Keep me logged in"/>
                     <Link href="#" className={classes.forgotPassword}>
                       Forgot password?
                     </Link>
@@ -54,7 +54,7 @@ export default function LogIn() {
                   <Button type="submit" text="Log In" />              
             </form>
             <Box align="center" mt={2}>
-              <Typography className={classes.greenColor}>
+              <Typography className={classes.typography}>
                 New to Dravo?
               </Typography>
               <NavLink to="/signup" variant="body2" className={classes.link}>

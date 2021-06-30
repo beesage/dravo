@@ -62,7 +62,7 @@ export default function SignUp() {
                    />
                   {errors.confirmPassword && <div className={classes.redColor}>{errors.confirmPassword}</div>}
                       <Box className={classes.box}>
-                        <FormControlLabel control={<Checkbox className={classes.orangeColor} value="remember" color="default" />} className={classes.greenColor} label="Keep me logged in" />
+                        <FormControlLabel control={<Checkbox className={classes.orangeColor} value="remember" color="default" />}  className={classes.checkbox} label="Keep me logged in" />
                         <Link href="#" className={classes.forgotPassword}>
                           Forgot password?
                         </Link>
@@ -70,7 +70,7 @@ export default function SignUp() {
                       <Button type="submit" text="Sign Up"/>    
                 </form>
                 <Box align="center" mt={2}>
-                  <Typography className={classes.greenColor}>
+                  <Typography className={classes.typography}>
                     Already on Dravo?
                   </Typography>
                   <NavLink to="/" variant="body2" className={classes.link}>

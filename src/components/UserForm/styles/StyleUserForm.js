@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root:{
-    fontFamily: "Krub",
+    fontFamily: "Krub",    
   },
   container: {
     backgroundColor: "#F7F6E7",
@@ -31,8 +31,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#314E52",
     textDecoration: "underline",
     lineHeight: 5.3,
-    fontSize: "1.1em",
-    // marginLeft: "10px",
+    fontSize: "1.1em",    
     fontFamily: "Krub",
     fontWeight: "500",
   },
@@ -55,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "underline",
   },
   greenColor: {
-    color: "#314E52",
+    color: "#314E52",   
   },
   orangeColor: {
     color: "#F2A154",
@@ -77,6 +76,11 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+  },
+  typography: {
+    fontFamily: "Krub",
+    color: "#314E52",
+    fontWeight: "500",
   },
   breakpoints: {
     [theme.breakpoints.up("sm")]: {

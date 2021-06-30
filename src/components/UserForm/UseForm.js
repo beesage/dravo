@@ -5,8 +5,7 @@ const UseForm = (validate) => {
     username: "",
     email: "",
     password: "",
-    confirmPassword: "", 
-    // showPassword: false,   
+    confirmPassword: "",       
   });    
 
   const [errors, setErrors] = useState({});
