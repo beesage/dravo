@@ -43,8 +43,10 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "800",    
     textTransform: "none",
     fontSize: "1.5em",
+    cursor: "pointer",
+    transitionDuration: "0.4s",
     boxShadow: "0 8px 6px -6px rgba(0, 0, 0, 0.5)",  
-    '&:hover': {
+    '&:hover': {     
       backgroundColor: "#5A8288",      
   },
   },
