@@ -5,12 +5,13 @@ import useStyles from "../styles/StyleUserForm";
 
 export default function Submit(props) {
 
-    const { text, onClick } = props
+    const { text, type, onClick } = props
     const classes = useStyles();
 
     return (
         <Button  
-            fullWidth         
+            fullWidth  
+            type={type}       
             onClick={onClick}           
             className={classes.submit}>
             {text}

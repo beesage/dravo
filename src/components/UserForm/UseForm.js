@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const UseForm = () => {  
+const UseForm = (validate) => {  
   const [values, setValues] = React.useState({
     username: "",
     email: "",
     password: "",
-    confirmPassword: "",    
+    confirmPassword: "",       
   });    
-   
+
+  const [errors, setErrors] = useState({});
+  const [showPassword, setPasswordShown] = React.useState(false);
+  
+ 
   /**
    * handleChange sets a new state based on the input from the user.
    * <p>
@@ -28,11 +32,17 @@ const UseForm = () => {
     });
   }; 
 
-  const handleSubmit = e => {
-    e.preventDefault();   
+  const handleClickShowPassword = () => {
+    setPasswordShown({ ...values, showPassword: !values.showPassword });
   };
+
+   const handleSubmit = e => {   
+    e.preventDefault();  
+    setErrors(validate(values)) 
+  };
+  
  
-    return { values, handleChange, handleSubmit};
+    return { values, handleChange, handleSubmit, errors, handleClickShowPassword, showPassword };
 }
 
 export default UseForm;

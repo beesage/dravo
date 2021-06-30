@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root:{
-    fontFamily: "Krub",
+    fontFamily: "Krub",    
   },
   container: {
     backgroundColor: "#F7F6E7",
@@ -12,13 +12,13 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     fontWeight: "800",
-    marginBottom: "30px",
+    marginBottom: "25px",
     textAlign: "center",
     color: "#314E52",
     fontFamily: "Krub",
   },  
   logo: {
-    marginTop: "20%",
+    marginTop: "10%",
     marginBottom: "10%",
   },  
   textField: {    
@@ -31,8 +31,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#314E52",
     textDecoration: "underline",
     lineHeight: 5.3,
-    fontSize: "1.1em",
-    marginLeft: "10px",
+    fontSize: "1.1em",    
     fontFamily: "Krub",
     fontWeight: "500",
   },
@@ -43,8 +42,10 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "800",    
     textTransform: "none",
     fontSize: "1.5em",
+    cursor: "pointer",
+    transitionDuration: "0.4s",
     boxShadow: "0 8px 6px -6px rgba(0, 0, 0, 0.5)",  
-    '&:hover': {
+    '&:hover': {     
       backgroundColor: "#5A8288",      
   },
   },
@@ -53,21 +54,33 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "underline",
   },
   greenColor: {
-    color: "#314E52",
+    color: "#314E52",   
   },
   orangeColor: {
     color: "#F2A154",
     fontWeight: "500",
+  },
+ redColor: {
+    color: "red",
   },
   checkbox: {
     color: "#314E52",
     fontFamily: "Krub",
     fontWeight: "500",
   },
+  box: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
   img: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+  },
+  typography: {
+    fontFamily: "Krub",
+    color: "#314E52",
+    fontWeight: "500",
   },
   breakpoints: {
     [theme.breakpoints.up("sm")]: {
