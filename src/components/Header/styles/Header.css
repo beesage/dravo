@@ -1,59 +1,59 @@
 @import url("https://fonts.googleapis.com/css2?family=Krub:wght@400;500;600&display=swap");
 
 .hidden {
-	display: none;
+  display: none;
 }
 
 .header-container {
-	display: grid;
-	grid-column: 1 /10;
-	grid-row: 1/1;
-	margin-bottom: 0;
+  display: grid;
+  grid-column: 1 /10;
+  grid-row: 1/1;
+  margin-bottom: 0;
 }
 
 .menu-item {
-	font-family: "Krub", sans-serif;
-	font-weight: 500;
-	text-transform: uppercase;
-	color: #314e52;
+  font-family: "Krub", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #314e52;
 }
 
 a {
-	font-size: 18px;
-	font-weight: bold;
-	text-decoration: none;
-	color: inherit;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
 }
 
 .header-logo {
-	display: none;
+  display: none;
 }
 
 .setting {
-	color: #314e52;
-	position: absolute;
-	font-size: 25px;
-	right: 1rem;
+  color: #314e52;
+  position: absolute;
+  font-size: 25px;
+  right: 1rem;
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1370px) and (-webkit-min-device-pixel-ratio: 1) {
-	.setting {
-		display: none;
-	}
+  .setting {
+    display: none;
+  }
 
-	.header-logo {
-		display: block;
-		position: absolute;
-		right: 0;
-		width: 13%;
-	}
+  .header-logo {
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 13%;
+  }
 
-	.menu-item {
-		font-size: 25px;
-		font-weight: 400;
-	}
+  .menu-item {
+    font-size: 25px;
+    font-weight: 400;
+  }
 
-	.menu-item:hover {
-		color: #f2a154;
-	}
+  .menu-item:hover {
+    color: #f2a154;
+  }
 }
