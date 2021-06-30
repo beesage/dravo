@@ -189,6 +189,10 @@ body {
   justify-content: space-between;
 }
 
+.lb-triangle {
+  display: none;
+}
+
 .hexagon {
   margin-bottom: 9px;
   margin-right: 23px;
@@ -351,6 +355,7 @@ body {
   }
 
   .lb-triangle {
+    display: block;
     grid-column: 4 / 7;
     justify-self: center;
     grid-row: 3 / 4;
@@ -447,10 +452,10 @@ body {
   }
 
   #lb-triangle-rotate-text {
-    transform: translateX(-15px) translateY(50px) rotate(180deg);
+    transform: translateX(-12px) translateY(50px) rotate(180deg);
   }
 
   #lb-triangle-transform {
-    transform: translateX(-18.5px) translateY(50px);
+    transform: translateX(-15px) translateY(50px);
   }
 }

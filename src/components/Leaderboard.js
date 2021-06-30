@@ -60,17 +60,17 @@ function Leaderboard({ user, loading }) {
           </div>
           <div className="lb-triangle" id="lb-triangle-left">
             <div className="lb-triangle-text" id="lb-triangle-transform">
-              Day Before
+              This Week
             </div>
           </div>
           <div className="lb-triangle" id="lb-triangle-center">
             <div className="lb-triangle-text" id="lb-triangle-rotate-text">
-              This Week
+              This Month
             </div>
           </div>
           <div className="lb-triangle" id="lb-triangle-right">
             <div className="lb-triangle-text" id="lb-triangle-transform">
-              This Month
+              All Time
             </div>
           </div>
 
