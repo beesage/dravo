@@ -340,6 +340,7 @@ body {
 
   #lb-pic-small {
     left: 60px;
+    top: 0px;
   }
 
   .lb-triangle {
@@ -381,4 +382,13 @@ body {
     top: 31px;
     transform: perspective(40px) rotateX(-3deg);
   }
+}
+
+.lb-card-rank {
+  font-size: 18px;
+  height: 69px;
+  width: 20px;
+  margin-right: 0px;
+  transform: translateX(40px);
+  z-index: 2;
 }
