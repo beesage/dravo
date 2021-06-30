@@ -370,6 +370,8 @@ body {
 
   .hexagon {
     width: 600px;
+    margin-bottom: 9px;
+    margin-right: 53px;
   }
 
   .hexagon:before,
@@ -384,36 +386,36 @@ body {
     top: 31px;
     transform: perspective(40px) rotateX(-3deg);
   }
-}
 
-.lb-card-rank {
-  margin-right: 0px;
-  transform: translateX(40px);
-  z-index: 2;
-}
+  .lb-card-rank {
+    margin-right: 0px;
+    transform: translateX(40px);
+    z-index: 2;
+  }
 
-.lb-top-rank {
-  transform: translateY(-220px);
-  display: flex;
-  font-size: 25px;
-  font-style: normal;
-  font-weight: 300;
-  margin-left: 8px;
-}
+  .lb-top-rank {
+    transform: translateY(-220px);
+    display: flex;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 300;
+    margin-left: 8px;
+  }
 
-#lb-top-left {
-  margin-top: 40px;
-}
+  #lb-top-left {
+    margin-top: 40px;
+  }
 
-#lb-top-big {
-  margin-top: -5px;
-}
+  #lb-top-big {
+    margin-top: -25px;
+  }
 
-#lb-top-right {
-  margin-top: 40px;
-}
+  #lb-top-right {
+    margin-top: 40px;
+  }
 
-.lb-icon-middle {
-  transform: translateX(-16px) translateY(-7px) rotate(-37deg);
-  width: 35px;
+  .lb-icon-middle {
+    transform: translateX(-28px) translateY(4px) rotate(-37deg);
+    width: 55px;
+  }
 }
