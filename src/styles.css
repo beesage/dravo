@@ -164,6 +164,7 @@ body {
 .lb-card-usertext {
   text-align: center;
 }
+
 .lb-card-flex-container {
   display: flex;
   align-items: center;
@@ -243,6 +244,10 @@ body {
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1300px) and (-webkit-min-device-pixel-ratio: 1) {
+  .container {
+    grid-template-rows: 70px 65px 220px 1fr;
+  }
+
   #lb-pic-middle {
     width: 70%;
   }
@@ -357,7 +362,7 @@ body {
   }
 
   #lb-triangle-left {
-    transform: translateY(220.5px) translateX(60px);
+    transform: translateY(220.5px) translateX(-60px);
   }
 
   #lb-triangle-center {
@@ -365,7 +370,7 @@ body {
   }
 
   #lb-triangle-right {
-    transform: translateY(220.5px) translateX(-60px);
+    transform: translateY(220.5px) translateX(60px);
   }
 
   .hexagon {
@@ -407,7 +412,7 @@ body {
   }
 
   #lb-top-big {
-    margin-top: -25px;
+    margin-top: -15px;
   }
 
   #lb-top-right {
@@ -415,7 +420,37 @@ body {
   }
 
   .lb-icon-middle {
-    transform: translateX(-28px) translateY(4px) rotate(-37deg);
-    width: 55px;
+    transform: translateX(-20px) translateY(4px) rotate(-37deg);
+    width: 45px;
+  }
+
+  .lb-card-usertext {
+    text-align: center;
+    transform: translateX();
+  }
+
+  .lb-top-location {
+    font-size: normal;
+    font-weight: 500;
+    font-size: 11px;
+    text-shadow: 0px 1.5px 4px rgba(0, 0, 0, 0.25);
+  }
+  .lb-triangle-text {
+    display: flex;
+    width: 30px;
+    color: #314e52;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    text-shadow: 0px 1.5px 5px rgba(0, 0, 0, 0.25);
+    justify-self: center;
+  }
+
+  #lb-triangle-rotate-text {
+    transform: translateX(-15px) translateY(50px) rotate(180deg);
+  }
+
+  #lb-triangle-transform {
+    transform: translateX(-18.5px) translateY(50px);
   }
 }

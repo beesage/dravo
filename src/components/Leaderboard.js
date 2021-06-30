@@ -58,9 +58,21 @@ function Leaderboard({ user, loading }) {
           <div className="lb-honeycomb" id="lb-honeycomb-right">
             <span></span>
           </div>
-          <div className="lb-triangle" id="lb-triangle-left"></div>
-          <div className="lb-triangle" id="lb-triangle-center"></div>
-          <div className="lb-triangle" id="lb-triangle-right"></div>
+          <div className="lb-triangle" id="lb-triangle-left">
+            <div className="lb-triangle-text" id="lb-triangle-transform">
+              Day Before
+            </div>
+          </div>
+          <div className="lb-triangle" id="lb-triangle-center">
+            <div className="lb-triangle-text" id="lb-triangle-rotate-text">
+              This Week
+            </div>
+          </div>
+          <div className="lb-triangle" id="lb-triangle-right">
+            <div className="lb-triangle-text" id="lb-triangle-transform">
+              This Month
+            </div>
+          </div>
 
           <div className="lb-button">
             <Button
