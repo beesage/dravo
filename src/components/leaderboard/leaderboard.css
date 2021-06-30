@@ -31,13 +31,6 @@
   width: 0;
 }
 
-/* .lb-best {
-    display: flex;
-    justify-content: center;
-    grid-column: 1 / 10;
-    grid-row: 3 / 4;
-  } */
-
 .lb-icon-middle {
   transform: translateX(-1px) rotate(-37deg) translateY(18px);
   width: 25px;

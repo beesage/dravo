@@ -11,10 +11,14 @@ function LeaderboardCard({ user, index }) {
       </div>
       <div className="hexagon ribbon-outset border">
         <div className="lb-card-flex-container">
-          <img id="lb-pic-small" alt={user.beekeeper} src={user.profilepic} />
+          <img
+            id="lb-pic-small"
+            alt={user.beekeeper}
+            src={user.profile_picture}
+          />
           <div className="lb-card-usertext">
-            {user.beekeeper}
-            <div className="lb-top-location"> {user.location} </div>
+            {user.username}
+            <div className="lb-top-location"> {user.city} </div>
           </div>
           <div className="lb-top-wd">{user.weightdelta}</div>
         </div>
