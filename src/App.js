@@ -5,7 +5,7 @@ import axios from "axios";
 import "./styles.css";
 
 import Header from "./components/Header/Header";
-import Leaderboard from "./components/Leaderboard";
+import Leaderboard from "./components/leaderboard/Leaderboard";
 import UserProfile from "./components/UserProfile/UserProfile";
 import LogIn from "./components/UserForm/LogIn";
 import SignUp from "./components/UserForm/SignUp";

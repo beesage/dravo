@@ -2,7 +2,7 @@ import React from "react";
 import LeaderboardCard from "./LeaderboardCard";
 import LeaderboardBest from "./LeaderboardBest";
 import Button from "@material-ui/core/Button";
-import lbcrown from "../assets/crown.png";
+import lbcrown from "../../assets/crown.png";
 
 function Leaderboard({ user, loading }) {
   const left = {
