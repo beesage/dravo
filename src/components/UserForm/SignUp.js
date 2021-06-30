@@ -26,7 +26,7 @@ export default function SignUp() {
                 <Typography className={classes.title} variant="h4">
                   Sign Up
                 </Typography>                
-                <form className={classes.root} onSubmit={handleSubmit} noValidate>
+                <form className={classes.root} onSubmit={handleSubmit} autoComplete="off" noValidate>
                     <InputField
                         name="username"
                         type="text"

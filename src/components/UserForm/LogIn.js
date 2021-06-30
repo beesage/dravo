@@ -26,7 +26,7 @@ export default function LogIn() {
             <Typography className={classes.title} variant="h4">
               Log In
             </Typography>
-            <form className={classes.root} onSubmit={handleSubmit} noValidate>
+            <form className={classes.root} onSubmit={handleSubmit} noValidate autoComplete="off">
                 <InputField
                     name="username"
                     type="text"
