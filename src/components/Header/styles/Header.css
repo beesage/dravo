@@ -47,4 +47,13 @@ a {
 		right: 0;
 		width: 13%;
 	}
+
+	.menu-item {
+		font-size: 25px;
+		font-weight: 400;
+	}
+
+	.menu-item:hover {
+		color: #f2a154;
+	}
 }
