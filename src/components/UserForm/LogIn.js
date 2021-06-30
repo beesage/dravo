@@ -1,6 +1,7 @@
 import React from "react";
 import { CssBaseline, FormControlLabel, Checkbox, Link, Grid, Box, Container, Typography } from "@material-ui/core";
-import InputField from "./controls/InputField"
+import InputField from "./controls/InputField";
+import InputPassword from "./controls/InputPassword";
 import Button from "./controls/Submit";
 import UseForm from './UseForm';
 import { NavLink } from "react-router-dom";
@@ -11,7 +12,7 @@ import validate from './ValidateInfo';
 
 export default function LogIn() {
   const classes = useStyles();
-  const { values, handleChange, handleSubmit, errors } = UseForm(validate);
+  const { values, handleChange, handleSubmit,  handleClickShowPassword, errors, showPassword } = UseForm(validate);
 
   return (
     <div>
@@ -34,12 +35,13 @@ export default function LogIn() {
                     onChange={handleChange}                                 
                  />
                  {errors.username && <p>{errors.username}</p>}  
-                  <InputField
-                    name="password"
-                    type="password"
+                  <InputPassword
+                    name="password"                    
                     label="Enter your password"                    
                     value={values.password}
-                    onChange={handleChange}            
+                    onChange={handleChange}  
+                    onClick={handleClickShowPassword} 
+                    showPassword={showPassword}         
                   />  
                   {errors.password && <p>{errors.password}</p>}               
                   <Box>

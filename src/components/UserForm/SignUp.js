@@ -1,6 +1,7 @@
 import React from "react";
 import { CssBaseline, FormControlLabel, Checkbox, Link, Grid, Box, Container, Typography } from "@material-ui/core";
 import InputField from "./controls/InputField"
+import InputPassword from "./controls/InputPassword";
 import Button from "./controls/Submit";
 import UseForm from './UseForm';
 import { NavLink } from "react-router-dom";
@@ -11,7 +12,7 @@ import validate from './ValidateInfo';
 
 export default function SignUp() {
   const classes = useStyles();
-  const { values, handleChange, handleSubmit, errors } = UseForm(validate);
+  const {  values, handleChange, handleSubmit,  handleClickShowPassword, errors, showPassword } = UseForm(validate);
 
   return (
     <div>
@@ -42,20 +43,22 @@ export default function SignUp() {
                         onChange={handleChange}                
                    />   
                    {errors.email && <p>{errors.email}</p>}                   
-                   <InputField
-                        name="password"
-                        type="password" 
-                        label="Enter your password"
-                        value={values.password}
-                        onChange={handleChange}              
+                   <InputPassword
+                    name="password"                    
+                    label="Enter your password"                    
+                    value={values.password}
+                    onChange={handleChange}  
+                    onClick={handleClickShowPassword} 
+                    showPassword={showPassword}              
                    />
                    {errors.password && <p>{errors.password}</p>}
-                   <InputField
-                        name="confirmPassword"
-                        type="password"  
-                        label="Confirm your password"
-                        value={values.confirmPassword}
-                        onChange={handleChange}              
+                   <InputPassword
+                    name="confirmPassword"                    
+                    label="Confirm your password"                    
+                    value={values.confirmPassword}
+                    onChange={handleChange}  
+                    onClick={handleClickShowPassword} 
+                    showPassword={showPassword}              
                    />
                   {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
                       <Box>
