@@ -8,11 +8,11 @@ function LeaderboardBest({ user, orientation, rank }) {
       <img
         className="lb-top-pic"
         id={orientation.pic}
-        alt={user.beekeeper}
-        src={user.profilepic}
+        alt={user.username}
+        src={user.profile_picture}
       />
-      {user.beekeeper}
-      <div className="lb-top-location">{user.location}</div>
+      {user.username}
+      <div className="lb-top-location">{user.city}</div>
       <div className="lb-top-wd">{user.weightdelta}</div>
       <div className="lb-top-rank">
         {rank} <ArrowDropUpIcon style={{ fill: "green" }} />
