@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import NavBar from "./styles/StylesNavBar";
 import Tool from "./styles/StylesTool";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import ArrowBackIosOutlinedIcon from "@material-ui/icons/ArrowBackIosOutlined";
 
 import handleHeader from "./Functions/HandleHeader";
 
@@ -17,11 +17,16 @@ export default function EditHeader({ isEditProfile, setIsEditProfile }) {
 							to="/profile"
 							onClick={() => handleHeader(setIsEditProfile(!isEditProfile))}
 						>
-							<ArrowBackIcon
-								style={{ color: "#314e52", verticalAlign: "bottom" }}
+							<ArrowBackIosOutlinedIcon
+								style={{
+									color: "#314e52",
+									top: "1.3rem",
+									position: "absolute",
+									left: "0px",
+								}}
 							/>
 						</Link>
-						<p className="menu-item">Settings</p>
+						<p className="menu-item">Account</p>
 					</Tool>
 				</NavBar>
 			) : null}
