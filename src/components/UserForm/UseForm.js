@@ -35,7 +35,8 @@ const UseForm = (validate) => {
    /**
    * handleClickShowPassword sets a new state based on the eye icon click.
    * <p>
-   * This function updates the boolean value of showPassword.   
+   * Each action on the eye icon will produce a counter reaction to the the state of 
+   * showPassword. The function setPasswordShown updates the boolean value of showPassword.   
    * @returns the oposite value of showPassword
    * @author Pamela Feijo
    */
@@ -44,17 +45,12 @@ const UseForm = (validate) => {
   };
 
   /**
-   * handleSubmit  sets a new state based on the input from the user.
-   * <p> 
-   * This function prevents the
-   * preventDefault() is used to avoid refreshing page by adding a preventDefault()
-   * updates the values of useState. 
-   * Name and value are destructured and assigned to e.target.
-   * The spread operator contains the current state object.
-   * With the current value of username, email, password, 
-   * confirmpassword the entered input is added to the state variables.
+   * The e.preventDefault() method stops the default action of the button from happening.
+   * It prevents the submit button from submitting the form so it does not refresh the page.
+   * setErrors receives the validate function and passes the values to check them 
+   * according to conditions set out in ValidateInfo.js.
    * @param e 
-   * @returns 
+   * @returns the default action of the submit will not be triggered
    * @returns updated state of erros
    * @author Pamela Feijo
    */
