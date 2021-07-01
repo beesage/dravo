@@ -28,10 +28,12 @@ export default function EditProfile() {
 					</ListItem>
 				</Link>
 				<Divider />
-				<ListItem button>
-					<ListItemText primary="Profile Information" />
-					<ArrowForwardIosOutlinedIcon />
-				</ListItem>
+				<Link to="/profile-info">
+					<ListItem button>
+						<ListItemText primary="Profile Information" />
+						<ArrowForwardIosOutlinedIcon />
+					</ListItem>
+				</Link>
 				<Divider />
 			</List>
 		</>

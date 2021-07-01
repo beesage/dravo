@@ -12,6 +12,7 @@ import SignUp from "./components/UserForm/SignUp";
 import LoadingPage from "./components/Spinner/LoadingPage";
 import EditProfile from "./components/UserProfile/EditProfile/EditProfile";
 import PersonalInformation from "./components/UserProfile/EditProfile/PersonalInformation";
+import ProfileInformation from "./components/UserProfile/EditProfile/ProfileInformation";
 
 export default function App() {
 	const [user, setUser] = useState([]);
@@ -62,6 +63,7 @@ export default function App() {
 						/>
 						<Route path="/settings" component={EditProfile} />
 						<Route path="/personal-info" component={PersonalInformation} />
+						<Route path="/profile-info" component={ProfileInformation} />
 					</Switch>
 				</Router>
 			) : (
