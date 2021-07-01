@@ -38,10 +38,10 @@ When there is no connection to the server you will see a spinning hexagon. The s
 
 These endpoints allow you to navigate through the website:
 
-`http://localhost:5000/` Log In
-`http://localhost:5000/signup` Sign Up
-`http://localhost:5000/leaderboard` Leaderboard
-`http://localhost:5000/profile` Profile
+`http://localhost:5000/` Log In <br>
+`http://localhost:5000/signup` Sign Up <br>
+`http://localhost:5000/leaderboard` Leaderboard <br>
+`http://localhost:5000/profile` Profile <br>
 
 #### How to run
 
