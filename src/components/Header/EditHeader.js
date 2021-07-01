@@ -5,7 +5,6 @@ import NavBar from "./styles/StylesNavBar";
 import Tool from "./styles/StylesTool";
 
 import handleHeader from "./Functions/HandleHeader";
-import Header from "./Header";
 
 export default function EditHeader({ isEditProfile, setIsEditProfile }) {
 	return (
@@ -21,9 +20,7 @@ export default function EditHeader({ isEditProfile, setIsEditProfile }) {
 						</Link>
 					</Tool>
 				</NavBar>
-			) : (
-				<Header />
-			)}
+			) : null}
 		</>
 	);
 }

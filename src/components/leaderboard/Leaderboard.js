@@ -2,7 +2,8 @@ import React from "react";
 import LeaderboardCard from "./LeaderboardCard";
 import LeaderboardBest from "./LeaderboardBest";
 import Button from "@material-ui/core/Button";
-import lbcrown from "../assets/crown.png";
+import lbcrown from "../../assets/crown.png";
+import "./leaderboard.css";
 
 function Leaderboard({ user, loading }) {
   const left = {
@@ -58,9 +59,21 @@ function Leaderboard({ user, loading }) {
           <div className="lb-honeycomb" id="lb-honeycomb-right">
             <span></span>
           </div>
-          <div className="lb-triangle" id="lb-triangle-left"></div>
-          <div className="lb-triangle" id="lb-triangle-center"></div>
-          <div className="lb-triangle" id="lb-triangle-right"></div>
+          <div className="lb-triangle" id="lb-triangle-left">
+            <div className="lb-triangle-text" id="lb-triangle-transform">
+              This Week
+            </div>
+          </div>
+          <div className="lb-triangle" id="lb-triangle-center">
+            <div className="lb-triangle-text" id="lb-triangle-rotate-text">
+              This Month
+            </div>
+          </div>
+          <div className="lb-triangle" id="lb-triangle-right">
+            <div className="lb-triangle-text" id="lb-triangle-transform">
+              All Time
+            </div>
+          </div>
 
           <div className="lb-button">
             <Button

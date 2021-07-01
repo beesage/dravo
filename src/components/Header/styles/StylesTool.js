@@ -1,5 +1,5 @@
 import { withStyles } from "@material-ui/core/styles";
-
+import json2mq from "json2mq";
 import Toolbar from "@material-ui/core/Toolbar";
 
 const Tool = withStyles((theme) => ({
@@ -9,7 +9,11 @@ const Tool = withStyles((theme) => ({
 		alignItems: "center",
 		justifyContent: "center",
 		gap: "1.5rem",
-		[theme.breakpoints.up("md")]: {
+		[theme.breakpoints.up(
+			json2mq({
+				minWidth: 768,
+			})
+		)]: {
 			gap: "4rem",
 		},
 	},

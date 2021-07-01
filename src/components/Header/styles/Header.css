@@ -30,10 +30,12 @@ a {
 
 .setting {
 	color: #314e52;
+	position: absolute;
 	font-size: 25px;
+	right: 1rem;
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1300px) and (-webkit-min-device-pixel-ratio: 1) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1370px) and (-webkit-min-device-pixel-ratio: 1) {
 	.setting {
 		display: none;
 	}
