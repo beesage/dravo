@@ -9,11 +9,7 @@ const Tool = withStyles((theme) => ({
 		alignItems: "center",
 		justifyContent: "center",
 		gap: "1.5rem",
-		[theme.breakpoints.up(
-			json2mq({
-				minWidth: 768,
-			})
-		)]: {
+		[theme.breakpoints.up("md")]: {
 			gap: "4rem",
 		},
 	},

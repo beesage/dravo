@@ -12,6 +12,7 @@
 }
 
 .menu-item {
+	font-size: 18px;
 	font-weight: 500;
 	text-transform: uppercase;
 	color: #314e52;
@@ -30,7 +31,6 @@ a {
 
 .setting {
 	color: #314e52;
-	position: absolute;
 	font-size: 25px;
 	right: 1rem;
 }

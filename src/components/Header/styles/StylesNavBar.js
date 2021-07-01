@@ -1,4 +1,4 @@
-import { withStyles } from "@material-ui/core/styles/withStyles";
+import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 
 const NavBar = withStyles((theme) => ({

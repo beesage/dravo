@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 
 import Pic from "./styles/StylesUserProfile";
@@ -21,10 +21,10 @@ export default function UserProfile({ user }) {
 						<FaMedal className="medal" />
 						<div className="user-info">
 							<div className="hex-profile ribbon-outset border">
-								<Pic alt="" src={user[0].profilepic} />
+								<Pic alt="" src={user[0].profile_picture} />
 							</div>
-							<p className="username">{user[0].beekeeper}</p>
-							<p className="user-location">{user[0].location}</p>
+							<p className="username">{user[0].username}</p>
+							<p className="user-location">{user[0].city}</p>
 						</div>
 					</div>
 					<div
@@ -37,7 +37,7 @@ export default function UserProfile({ user }) {
 							marginBottom: "1rem",
 						}}
 					>
-						<p className="greeting-tablet">Welcome, {user[0].beekeeper}!</p>
+						<p className="greeting-tablet">Welcome, {user[0].username}!</p>
 					</div>
 					<div className="bio-container">
 						<HexBio user={user} />
