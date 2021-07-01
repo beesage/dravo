@@ -1,6 +1,6 @@
 import React from "react";
 import { CssBaseline, FormControlLabel, Checkbox, Link, Grid, Box, Container, Typography } from "@material-ui/core";
-import InputField from "./controls/InputField";
+import InputField from "./controls/InputField"
 import InputPassword from "./controls/InputPassword";
 import Button from "./controls/Submit";
 import UseForm from './UseForm';
