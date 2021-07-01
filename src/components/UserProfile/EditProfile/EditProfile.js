@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -23,14 +23,22 @@ export default function EditProfile() {
 			>
 				<Link to="/personal-info">
 					<ListItem button>
-						<ListItemText primary="Personal Information" />
+						<ListItemText>
+							<p style={{ fontSize: "1.1rem", fontFamily: "Krub" }}>
+								Personal Information
+							</p>
+						</ListItemText>
 						<ArrowForwardIosOutlinedIcon />
 					</ListItem>
 				</Link>
 				<Divider />
 				<Link to="/profile-info">
 					<ListItem button>
-						<ListItemText primary="Profile Information" />
+						<ListItemText>
+							<p style={{ fontSize: "1.1rem", fontFamily: "Krub" }}>
+								Profile Information
+							</p>
+						</ListItemText>
 						<ArrowForwardIosOutlinedIcon />
 					</ListItem>
 				</Link>

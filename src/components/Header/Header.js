@@ -8,13 +8,14 @@ import Tool from "./styles/StylesTool";
 import { MdSettings } from "react-icons/md";
 
 import handleHeader from "./Functions/HandleHeader";
-import EditHeader from "./EditHeader";
+import SettingsHeader from "./SettingsHeader";
 
 export default function Header() {
 	const [isUserProfile, setIsUserProfile] = useState(false);
 	const [isLoginPage, setIsLoginPage] = useState(true);
 
 	const [isEditProfile, setIsEditProfile] = useState(false);
+
 	/**
 	 * Display the header component according to the location of the app
 	 * <p>
@@ -67,7 +68,7 @@ export default function Header() {
 					</Tool>
 				</NavBar>
 			) : (
-				<EditHeader
+				<SettingsHeader
 					isEditProfile={isEditProfile}
 					setIsEditProfile={setIsEditProfile}
 				/>
