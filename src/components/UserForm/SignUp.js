@@ -16,7 +16,7 @@ export default function SignUp() {
 
   return (
     <div>
-      <Container component="main" className={classes.container}>
+      <Container component="main" maxWidth={false} className={classes.container}>
             <CssBaseline />
             <Grid container>
               <Grid item className={classes.img} xs={12} sm={6} md={6}>

@@ -30,6 +30,13 @@ This command installs a package and any packages that it depends on.
 
 By default, this command will install all modules listed as dependencies in package.json.
 
+#### Endpoints
+
+`http://localhost:5000/` Log In
+`http://localhost:5000/signup` Sign Up
+`http://localhost:5000/leaderboard` Leaderboard
+`http://localhost:5000/profile` Profile
+
 #### How to run
 
 To enter development mode:
