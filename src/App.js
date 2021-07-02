@@ -57,12 +57,12 @@ export default function App() {
 							path="/leaderboard"
 							render={(props) => <Leaderboard user={user} />}
 						/>
-						<Route
-							path="/profile"
-							render={() => <UserProfile user={user} loading={loading} />}
-						/>
+						<Route path="/profile" render={() => <UserProfile user={user} />} />
 						<Route path="/settings" component={EditProfile} />
-						<Route path="/personal-info" component={PersonalInformation} />
+						<Route
+							path="/personal-info"
+							render={() => <PersonalInformation user={user} />}
+						/>
 						<Route path="/profile-info" component={ProfileInformation} />
 					</Switch>
 				</Router>
