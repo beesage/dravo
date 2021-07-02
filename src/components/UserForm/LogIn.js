@@ -3,17 +3,23 @@ import { CssBaseline, FormControlLabel, Checkbox, Link, Grid, Box, Container, Ty
 import InputField from "./controls/InputField"
 import InputPassword from "./controls/InputPassword";
 import Button from "./controls/Submit";
-import UseForm from './UseForm';
+import UseForm from "./UseForm";
 import { NavLink } from "react-router-dom";
 import useStyles from "./styles/StyleUserForm";
 import logo from "../../assets/logo-mobile.png";
-import validate from './ValidateInfo';
-
+import validate from "./ValidateInfo";
 
 export default function LogIn() {
-  const classes = useStyles();
-  const { values, handleChange, handleSubmit, handleClickShowPassword, errors, showPassword } = UseForm(validate);
-
+	const classes = useStyles();
+	const {
+		values,
+		handleChange,
+		handleSubmit,
+		handleClickShowPassword,
+		errors,
+		showPassword,
+	} = UseForm(validate);
+  
   return (
     <div>
        <Container component="main" maxWidth={false} className={classes.container}>
