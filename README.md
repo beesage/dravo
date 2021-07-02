@@ -30,6 +30,19 @@ This command installs a package and any packages that it depends on.
 
 By default, this command will install all modules listed as dependencies in package.json.
 
+#### Spinner
+
+When there is no connection to the server you will see a spinning hexagon. The server is currently only available during working hours.
+
+#### Endpoints
+
+These endpoints allow you to navigate through the website:
+
+`http://localhost:5000/` Log In <br>
+`http://localhost:5000/signup` Sign Up <br>
+`http://localhost:5000/leaderboard` Leaderboard <br>
+`http://localhost:5000/profile` Profile <br>
+
 #### How to run
 
 To enter development mode:
