@@ -1,6 +1,6 @@
 import React from "react";
 import { CssBaseline, FormControlLabel, Checkbox, Link, Grid, Box, Container, Typography } from "@material-ui/core";
-import InputField from "./controls/InputField";
+import InputField from "./controls/InputField"
 import InputPassword from "./controls/InputPassword";
 import Button from "./controls/Submit";
 import UseForm from './UseForm';
@@ -16,7 +16,7 @@ export default function LogIn() {
 
   return (
     <div>
-       <Container component="main" className={classes.container}>
+       <Container component="main" maxWidth={false} className={classes.container}>
         <CssBaseline />
         <Grid container>
           <Grid item className={classes.img} xs={12} sm={6} md={6}>
