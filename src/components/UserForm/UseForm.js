@@ -32,10 +32,28 @@ const UseForm = (validate) => {
     });
   }; 
 
+   /**
+   * handleClickShowPassword sets a new state based on the eye icon click.
+   * <p>
+   * Each action on the eye icon will produce a counter reaction to the the state of 
+   * showPassword. The function setPasswordShown updates the boolean value of showPassword.   
+   * @returns the oposite value of showPassword
+   * @author Pamela Feijo
+   */
   const handleClickShowPassword = () => {
-    setPasswordShown({ ...values, showPassword: !values.showPassword });
+    setPasswordShown( !showPassword );
   };
 
+  /**
+   * The e.preventDefault() method stops the default action of the button from happening.
+   * It prevents the submit button from submitting the form so it does not refresh the page.
+   * setErrors receives the validate function and passes the values to check them 
+   * according to conditions set out in ValidateInfo.js.
+   * @param e 
+   * @returns the default action of the submit will not be triggered
+   * @returns updated state of erros
+   * @author Pamela Feijo
+   */
    const handleSubmit = e => {   
     e.preventDefault();  
     setErrors(validate(values)) 

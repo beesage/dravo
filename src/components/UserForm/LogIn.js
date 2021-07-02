@@ -1,22 +1,28 @@
 import React from "react";
 import { CssBaseline, FormControlLabel, Checkbox, Link, Grid, Box, Container, Typography } from "@material-ui/core";
-import InputField from "./controls/InputField";
+import InputField from "./controls/InputField"
 import InputPassword from "./controls/InputPassword";
 import Button from "./controls/Submit";
-import UseForm from './UseForm';
+import UseForm from "./UseForm";
 import { NavLink } from "react-router-dom";
 import useStyles from "./styles/StyleUserForm";
 import logo from "../../assets/logo-mobile.png";
-import validate from './ValidateInfo';
-
+import validate from "./ValidateInfo";
 
 export default function LogIn() {
-  const classes = useStyles();
-  const { values, handleChange, handleSubmit, handleClickShowPassword, errors, showPassword } = UseForm(validate);
-
+	const classes = useStyles();
+	const {
+		values,
+		handleChange,
+		handleSubmit,
+		handleClickShowPassword,
+		errors,
+		showPassword,
+	} = UseForm(validate);
+  
   return (
     <div>
-       <Container component="main" className={classes.container}>
+       <Container component="main" maxWidth={false} className={classes.container}>
         <CssBaseline />
         <Grid container>
           <Grid item className={classes.img} xs={12} sm={6} md={6}>

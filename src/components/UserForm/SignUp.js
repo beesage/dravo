@@ -12,11 +12,11 @@ import validate from './ValidateInfo';
 
 export default function SignUp() {
   const classes = useStyles();
-  const {  values, handleChange, handleSubmit, handleClickShowPassword, errors, showPassword } = UseForm(validate);
+  const {  values, handleChange, handleSubmit,errors, showPassword, setPasswordShown } = UseForm(validate);
 
   return (
     <div>
-      <Container component="main" className={classes.container}>
+      <Container component="main" maxWidth={false} className={classes.container}>
             <CssBaseline />
             <Grid container>
               <Grid item className={classes.img} xs={12} sm={6} md={6}>
@@ -47,18 +47,19 @@ export default function SignUp() {
                     name="password"                    
                     label="Enter your password"                    
                     value={values.password}
-                    onChange={handleChange}  
-                    onClick={handleClickShowPassword} 
-                    showPassword={showPassword}              
+                    onChange={handleChange}                                        
+                    showPassword={showPassword}
+                    setPasswordShown={setPasswordShown}              
                    />
                    {errors.password && <div className={classes.redColor}>{errors.password}</div>}
                    <InputPassword
                     name="confirmPassword"                    
                     label="Confirm your password"                    
                     value={values.confirmPassword}
-                    onChange={handleChange}  
-                    onClick={handleClickShowPassword} 
-                    showPassword={showPassword}              
+                    onChange={handleChange}                                            
+                    showPassword={showPassword}
+                    setPasswordShown={setPasswordShown} 
+                    onClick={() => setPasswordShown(!showPassword)}              
                    />
                   {errors.confirmPassword && <div className={classes.redColor}>{errors.confirmPassword}</div>}
                       <Box className={classes.box}>

@@ -1,12 +1,14 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 import Pic from "./styles/StylesUserProfile";
-import Hex from "./Hex";
-import HexData from "./HexData";
-import HexBio from "./HexBio";
-import HexEdit from "./HexEdit";
+import Hex from "./styles/Hexagons/Hex";
+import HexData from "./styles/Hexagons/HexData";
+import HexBio from "./styles/Hexagons/HexBio";
+import HexEdit from "./styles/Hexagons/HexEdit";
 
 import "./styles/UserProfile.css";
+import "./styles/Hexagons/HexStyles.css";
 import { Icons } from "./styles/Icons";
 import { FaMedal } from "react-icons/fa";
 
@@ -19,10 +21,10 @@ export default function UserProfile({ user }) {
 						<FaMedal className="medal" />
 						<div className="user-info">
 							<div className="hex-profile ribbon-outset border">
-								<Pic alt="" src={user[0].profilepic} />
+								<Pic alt="" src={user[0].profile_picture} />
 							</div>
-							<p className="username">{user[0].beekeeper}</p>
-							<p className="user-location">{user[0].location}</p>
+							<p className="username">{user[0].username}</p>
+							<p className="user-location">{user[0].city}</p>
 						</div>
 					</div>
 					<div
@@ -35,12 +37,17 @@ export default function UserProfile({ user }) {
 							marginBottom: "1rem",
 						}}
 					>
-						<p className="greeting-tablet">Welcome, {user[0].beekeeper}!</p>
+						<p className="greeting-tablet">Welcome, {user[0].username}!</p>
 					</div>
 					<div className="bio-container">
 						<HexBio user={user} />
 					</div>
-					<HexEdit />
+					<NavLink
+						to="/settings"
+						style={{ gridColumn: "2/3", gridRow: "3", textDecoration: "none" }}
+					>
+						<HexEdit />
+					</NavLink>
 					<div className="all-us-hex">
 						{Icons.map((icons, index) => (
 							<Hex icons={icons} key={index} />
