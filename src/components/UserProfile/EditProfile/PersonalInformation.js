@@ -5,6 +5,8 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
 
+import "../styles/EditProfile.css";
+
 import { Link } from "react-router-dom";
 
 export default function PersonalInformation({ user }) {
@@ -25,14 +27,10 @@ export default function PersonalInformation({ user }) {
 					<Link to="/personal-info">
 						<ListItem button>
 							<ListItemText>
-								<p style={{ fontSize: "0.9rem", fontFamily: "Krub" }}>
-									Username
-								</p>
+								<p className="edit-caption">Username</p>
 							</ListItemText>
 							<ListItemText>
-								<p style={{ fontSize: "0.9rem", fontFamily: "Krub" }}>
-									{user[0].username}
-								</p>
+								<p className="api-caption">{user[0].username}</p>
 							</ListItemText>
 						</ListItem>
 					</Link>
@@ -40,12 +38,10 @@ export default function PersonalInformation({ user }) {
 					<Link to="/profile-info">
 						<ListItem button>
 							<ListItemText>
-								<p style={{ fontSize: "0.9em", fontFamily: "Krub" }}>Email</p>
+								<p className="edit-caption">Email</p>
 							</ListItemText>
 							<ListItemText>
-								<p style={{ fontSize: "0.9em", fontFamily: "Krub" }}>
-									{user[0].email}
-								</p>
+								<p className="api-caption">{user[0].email}</p>
 							</ListItemText>
 						</ListItem>
 					</Link>
@@ -53,14 +49,10 @@ export default function PersonalInformation({ user }) {
 					<Link to="/profile-info">
 						<ListItem button>
 							<ListItemText>
-								<p style={{ fontSize: "0.9rem", fontFamily: "Krub" }}>
-									Password
-								</p>
+								<p className="edit-caption">Password</p>
 							</ListItemText>
 							<ListItemText>
-								<p style={{ fontSize: "0.9rem", fontFamily: "Krub" }}>
-									{user[0].password}
-								</p>
+								<p className="api-caption">{user[0].password}</p>
 							</ListItemText>
 						</ListItem>
 					</Link>

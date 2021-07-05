@@ -1,0 +1,11 @@
+.edit-caption,
+.api-caption {
+	font-size: 0.9rem;
+	font-family: Krub;
+	text-transform: uppercase;
+}
+
+.api-caption {
+	text-transform: none;
+	text-align: end;
+}

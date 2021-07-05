@@ -37,7 +37,7 @@ export default function Header() {
 		} else if (location.pathname == "/leaderboard") {
 			setIsUserProfile(false);
 		}
-	}, []);
+	}, [location.pathname]);
 
 	return (
 		<div className={!isLoginPage ? "hidden" : "header-container"}>
@@ -56,7 +56,7 @@ export default function Header() {
 								style={{ position: "absolute", right: "0.8rem" }}
 								onClick={() => handleHeader(setIsEditProfile(!isEditProfile))}
 							>
-								<MdSettings className="setting" />
+								<MdSettings className={isUserProfile ? "setting" : "hidden"} />
 							</NavLink>
 						) : (
 							false

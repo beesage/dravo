@@ -63,7 +63,10 @@ export default function App() {
 							path="/personal-info"
 							render={() => <PersonalInformation user={user} />}
 						/>
-						<Route path="/profile-info" component={ProfileInformation} />
+						<Route
+							path="/profile-info"
+							render={() => <ProfileInformation user={user} />}
+						/>
 					</Switch>
 				</Router>
 			) : (
