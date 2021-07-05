@@ -24,7 +24,7 @@ export default function PersonalInformation({ user }) {
 						flexDirection: "column",
 					}}
 				>
-					<Link to="/personal-info">
+					<Link to="/username">
 						<ListItem button>
 							<ListItemText>
 								<p className="edit-caption">Username</p>
@@ -35,7 +35,7 @@ export default function PersonalInformation({ user }) {
 						</ListItem>
 					</Link>
 					<Divider />
-					<Link to="/profile-info">
+					<Link to="/email">
 						<ListItem button>
 							<ListItemText>
 								<p className="edit-caption">Email</p>
@@ -46,7 +46,7 @@ export default function PersonalInformation({ user }) {
 						</ListItem>
 					</Link>
 					<Divider />
-					<Link to="/profile-info">
+					<Link to="/password">
 						<ListItem button>
 							<ListItemText>
 								<p className="edit-caption">Password</p>
