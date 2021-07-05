@@ -4,7 +4,8 @@ import { Link, useLocation } from "react-router-dom";
 import NavBar from "./styles/StylesNavBar";
 import Tool from "./styles/StylesTool";
 import ArrowBackIosOutlinedIcon from "@material-ui/icons/ArrowBackIosOutlined";
-import Header from "./Header";
+import PersonalHeader from "./PersonalHeader";
+import ProfileHeader from "./ProfileHeader";
 
 import handleHeader from "./Functions/HandleHeader";
 
@@ -16,12 +17,12 @@ export default function SettingsHeader({ isEditProfile, setIsEditProfile }) {
 	let location = useLocation();
 
 	useEffect(() => {
-		if (
-			location.pathname == "/personal-info" ||
-			location.pathname == "/profile-info"
-		) {
-			setIsPersonalInfo(!isPersonalInfo);
-			setIsProfileInfo(!isProfileInfo);
+		if (location.pathname == "/personal-info") {
+			setIsPersonalInfo(true);
+			setIsProfileInfo(false);
+		} else if (location.pathname == "/profile-info") {
+			setIsPersonalInfo(false);
+			setIsProfileInfo(true);
 		}
 	}, [location.pathname]);
 
@@ -64,15 +65,26 @@ export default function SettingsHeader({ isEditProfile, setIsEditProfile }) {
 										}}
 									/>
 								</Link>
+								{/* {isPersonalInfo ? (
+									<p className="menu-item">Personal Info</p>
+								) : (
+									<p className="menu-item">Profile Info</p>
+								)} */}
 								<p className="menu-item">
-									{!isProfileInfo ? "Profile Info" : "Personal Info"}
+									{isPersonalInfo ? "Personal Info" : "Profile Info"}
 								</p>
 							</>
 						)}
 					</Tool>
 				</NavBar>
 			) : (
-				<Header />
+				<>
+					{!isEditProfile ? (
+						<ProfileHeader isProfileInfo={isProfileInfo} />
+					) : (
+						<PersonalHeader isPersonalInfo={isPersonalInfo} />
+					)}
+				</>
 			)}
 		</>
 	);

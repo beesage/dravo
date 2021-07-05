@@ -11,11 +11,11 @@ import LogIn from "./components/UserForm/LogIn";
 import SignUp from "./components/UserForm/SignUp";
 import LoadingPage from "./components/Spinner/LoadingPage";
 import EditProfile from "./components/UserProfile/EditProfile/EditProfile";
-import PersonalInformation from "./components/UserProfile/EditProfile/PersonalInformation";
-import ProfileInformation from "./components/UserProfile/EditProfile/ProfileInformation";
-import Username from "./components/UserProfile/EditProfile/Username";
-import Email from "./components/UserProfile/EditProfile/Email";
-import Password from "./components/UserProfile/EditProfile/Password";
+import PersonalInformation from "./components/UserProfile/EditProfile/PersonalInfo/PersonalInformation";
+import ProfileInformation from "./components/UserProfile/EditProfile/ProfileInfo/ProfileInformation";
+import Username from "./components/UserProfile/EditProfile/PersonalInfo/Username";
+import Email from "./components/UserProfile/EditProfile/PersonalInfo/Email";
+import Password from "./components/UserProfile/EditProfile/PersonalInfo/Password";
 
 export default function App() {
 	const [user, setUser] = useState([]);
