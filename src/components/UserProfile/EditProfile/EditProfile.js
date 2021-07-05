@@ -28,7 +28,11 @@ export default function EditProfile() {
 								Personal Information
 							</p>
 						</ListItemText>
-						<ArrowForwardIosOutlinedIcon />
+						<ArrowForwardIosOutlinedIcon
+							style={{
+								fontSize: "1.1rem",
+							}}
+						/>
 					</ListItem>
 				</Link>
 				<Divider />
@@ -39,7 +43,11 @@ export default function EditProfile() {
 								Profile Information
 							</p>
 						</ListItemText>
-						<ArrowForwardIosOutlinedIcon />
+						<ArrowForwardIosOutlinedIcon
+							style={{
+								fontSize: "1.1rem",
+							}}
+						/>
 					</ListItem>
 				</Link>
 				<Divider />

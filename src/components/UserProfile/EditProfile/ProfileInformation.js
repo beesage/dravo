@@ -4,6 +4,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
+import ArrowForwardIosOutlinedIcon from "@material-ui/icons/ArrowForwardIosOutlined";
 
 import "../styles/EditProfile.css";
 
@@ -28,9 +29,11 @@ export default function ProfileInformation({ user }) {
 							<ListItemText>
 								<p className="edit-caption">Profile Picture</p>
 							</ListItemText>
-							<ListItemText>
-								<p className="api-caption">{user[0].profile_picture}</p>
-							</ListItemText>
+							<ArrowForwardIosOutlinedIcon
+								style={{
+									fontSize: "1.1rem",
+								}}
+							/>
 						</ListItem>
 					</Link>
 					<Divider />
@@ -52,9 +55,11 @@ export default function ProfileInformation({ user }) {
 							<ListItemText>
 								<p className="edit-caption">Bio</p>
 							</ListItemText>
-							<ListItemText>
-								<p className="api-caption">bio here</p>
-							</ListItemText>
+							<ArrowForwardIosOutlinedIcon
+								style={{
+									fontSize: "1.1rem",
+								}}
+							/>
 						</ListItem>
 					</Link>
 					<Divider />
@@ -63,9 +68,11 @@ export default function ProfileInformation({ user }) {
 							<ListItemText>
 								<p className="edit-caption">Experience</p>
 							</ListItemText>
-							<ListItemText>
-								<p className="api-caption">experience here</p>
-							</ListItemText>
+							<ArrowForwardIosOutlinedIcon
+								style={{
+									fontSize: "1.1rem",
+								}}
+							/>
 						</ListItem>
 					</Link>
 					<Divider />
