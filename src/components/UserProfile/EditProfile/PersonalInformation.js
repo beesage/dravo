@@ -10,7 +10,6 @@ import "../styles/EditProfile.css";
 import { Link } from "react-router-dom";
 
 export default function PersonalInformation({ user }) {
-	console.log(user);
 	return (
 		<>
 			{user.length > 0 ? (

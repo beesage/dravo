@@ -13,6 +13,9 @@ import LoadingPage from "./components/Spinner/LoadingPage";
 import EditProfile from "./components/UserProfile/EditProfile/EditProfile";
 import PersonalInformation from "./components/UserProfile/EditProfile/PersonalInformation";
 import ProfileInformation from "./components/UserProfile/EditProfile/ProfileInformation";
+import Username from "./components/UserProfile/EditProfile/Username";
+import Email from "./components/UserProfile/EditProfile/Email";
+import Password from "./components/UserProfile/EditProfile/Password";
 
 export default function App() {
 	const [user, setUser] = useState([]);
@@ -67,6 +70,9 @@ export default function App() {
 							path="/profile-info"
 							render={() => <ProfileInformation user={user} />}
 						/>
+						<Route path="/username" render={() => <Username user={user} />} />
+						<Route path="/email" render={() => <Email user={user} />} />
+						<Route path="/password" render={() => <Password user={user} />} />
 					</Switch>
 				</Router>
 			) : (

@@ -64,14 +64,11 @@ export default function SettingsHeader({ isEditProfile, setIsEditProfile }) {
 										}}
 									/>
 								</Link>
-								<p className="menu-item">Personal Info</p>
+								<p className="menu-item">
+									{!isProfileInfo ? "Profile Info" : "Personal Info"}
+								</p>
 							</>
 						)}
-						{/* {isPersonalInfo ? (
-							<p className="menu-item">Account</p>
-						) : (
-							<p className="menu-item">Personal Info</p>
-						)} */}
 					</Tool>
 				</NavBar>
 			) : (
