@@ -7,7 +7,7 @@ import ArrowBackIosOutlinedIcon from "@material-ui/icons/ArrowBackIosOutlined";
 
 import handleHeader from "./Functions/HandleHeader";
 
-export default function PersonalHeader({ isPersonalInfo }) {
+export default function PersonalHeader({ isSettings, setIsSettings }) {
 	const [isUsername, setIsUsername] = useState(false);
 	const [isEmail, setIsEmail] = useState(false);
 	const [isPassword, setIsPassword] = useState(false);
@@ -22,31 +22,27 @@ export default function PersonalHeader({ isPersonalInfo }) {
 		} else if (location.pathname == "/password") {
 			setIsPassword(true);
 		}
-	});
+	}, [location.pathname]);
 	return (
 		<div>
-			{!isPersonalInfo ? (
-				<NavBar position="static" className="tablet-navbar">
-					<Tool style={{ gap: "0.5rem" }}>
-						<Link
-							to="/settings"
-							onClick={() => handleHeader(setIsEditProfile(!isEditProfile))}
-						>
-							<ArrowBackIosOutlinedIcon
-								style={{
-									color: "#314e52",
-									top: "1.3rem",
-									position: "absolute",
-									left: "0px",
-								}}
-							/>
-						</Link>
-						<p className="menu-item">{isUsername ? "Username" : ""}</p>
-					</Tool>
-				</NavBar>
-			) : (
-				"HELP"
-			)}
+			<NavBar position="static" className="tablet-navbar">
+				<Tool style={{ gap: "0.5rem" }}>
+					<Link
+						to="/settings"
+						onClick={() => handleHeader(setIsSettings(!isSettings))}
+					>
+						<ArrowBackIosOutlinedIcon
+							style={{
+								color: "#314e52",
+								top: "1.3rem",
+								position: "absolute",
+								left: "-100px",
+							}}
+						/>
+					</Link>
+					<p className="menu-item">Personal Info</p>
+				</Tool>
+			</NavBar>
 		</div>
 	);
 }

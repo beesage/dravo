@@ -7,22 +7,24 @@ import ArrowBackIosOutlinedIcon from "@material-ui/icons/ArrowBackIosOutlined";
 import PersonalHeader from "./PersonalHeader";
 import ProfileHeader from "./ProfileHeader";
 
+import "./styles/Header.css";
+
 import handleHeader from "./Functions/HandleHeader";
 
 export default function SettingsHeader({ isEditProfile, setIsEditProfile }) {
-	const [isPersonalInfo, setIsPersonalInfo] = useState(true);
+	const [isSettings, setIsSettings] = useState(false);
 
-	const [isProfileInfo, setIsProfileInfo] = useState(false);
+	const [isPersonalInfo, setIsPersonalInfo] = useState(false);
 
 	let location = useLocation();
 
 	useEffect(() => {
 		if (location.pathname == "/personal-info") {
+			setIsSettings(true);
 			setIsPersonalInfo(true);
-			setIsProfileInfo(false);
 		} else if (location.pathname == "/profile-info") {
+			setIsSettings(true);
 			setIsPersonalInfo(false);
-			setIsProfileInfo(true);
 		}
 	}, [location.pathname]);
 
@@ -31,7 +33,7 @@ export default function SettingsHeader({ isEditProfile, setIsEditProfile }) {
 			{isEditProfile ? (
 				<NavBar position="static" className="tablet-navbar">
 					<Tool style={{ gap: "0.5rem" }}>
-						{isPersonalInfo ? (
+						{!isSettings ? (
 							<>
 								<Link
 									to="/profile"
@@ -42,7 +44,7 @@ export default function SettingsHeader({ isEditProfile, setIsEditProfile }) {
 											color: "#314e52",
 											top: "1.3rem",
 											position: "absolute",
-											left: "0px",
+											left: "1.1px",
 										}}
 									/>
 								</Link>
@@ -50,41 +52,23 @@ export default function SettingsHeader({ isEditProfile, setIsEditProfile }) {
 							</>
 						) : (
 							<>
-								<Link
-									to="/settings"
-									onClick={() =>
-										handleHeader(setIsPersonalInfo(!isPersonalInfo))
-									}
-								>
-									<ArrowBackIosOutlinedIcon
-										style={{
-											color: "#314e52",
-											top: "1.3rem",
-											position: "absolute",
-											left: "0px",
-										}}
+								{isPersonalInfo ? (
+									<PersonalHeader
+										isSettings={isSettings}
+										setIsSettings={setIsSettings}
 									/>
-								</Link>
-								{/* {isPersonalInfo ? (
-									<p className="menu-item">Personal Info</p>
 								) : (
-									<p className="menu-item">Profile Info</p>
-								)} */}
-								<p className="menu-item">
-									{isPersonalInfo ? "Personal Info" : "Profile Info"}
-								</p>
+									<ProfileHeader
+										isSettings={isSettings}
+										setIsSettings={setIsSettings}
+									/>
+								)}
 							</>
 						)}
 					</Tool>
 				</NavBar>
 			) : (
-				<>
-					{!isEditProfile ? (
-						<ProfileHeader isProfileInfo={isProfileInfo} />
-					) : (
-						<PersonalHeader isPersonalInfo={isPersonalInfo} />
-					)}
-				</>
+				""
 			)}
 		</>
 	);

@@ -8,6 +8,27 @@ import SettingsHeader from "./SettingsHeader";
 
 import handleHeader from "./Functions/HandleHeader";
 
-export default function PersonalHeader() {
-	return <div>Profile heeere</div>;
+export default function PersonalHeader({ isSettings, setIsSettings }) {
+	return (
+		<div>
+			<NavBar position="static" className="tablet-navbar">
+				<Tool style={{ gap: "0.5rem" }}>
+					<Link
+						to="/settings"
+						onClick={() => handleHeader(setIsSettings(!isSettings))}
+					>
+						<ArrowBackIosOutlinedIcon
+							style={{
+								color: "#314e52",
+								top: "1.3rem",
+								position: "absolute",
+								left: "-100px",
+							}}
+						/>
+					</Link>
+					<p className="menu-item">Profile Info</p>
+				</Tool>
+			</NavBar>
+		</div>
+	);
 }
