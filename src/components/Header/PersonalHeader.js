@@ -17,9 +17,15 @@ export default function PersonalHeader({ isSettings, setIsSettings }) {
 	useEffect(() => {
 		if (location.pathname == "/username") {
 			setIsUsername(true);
+			setIsEmail(false);
+			setIsPassword(false);
 		} else if (location.pathname == "/email") {
+			setIsUsername(false);
 			setIsEmail(true);
+			setIsPassword(false);
 		} else if (location.pathname == "/password") {
+			setIsUsername(false);
+			setIsEmail(false);
 			setIsPassword(true);
 		}
 	}, [location.pathname]);

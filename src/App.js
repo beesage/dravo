@@ -74,7 +74,10 @@ export default function App() {
 							path="/username"
 							render={() => <Username user={user} setUser={setUser} />}
 						/>
-						<Route path="/email" render={() => <Email user={user} />} />
+						<Route
+							path="/email"
+							render={() => <Email user={user} setUser={setUser} />}
+						/>
 						<Route path="/password" render={() => <Password user={user} />} />
 					</Switch>
 				</Router>

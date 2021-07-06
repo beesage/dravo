@@ -15,6 +15,10 @@ export default function Username({ user, setUser }) {
 
 	const [isEditMode] = useState(false);
 
+	const [edited, setEdited] = useState({
+		username: user[0].username,
+	});
+
 	const handleEdited = (editedUser) => {
 		const editedArray = user.map((edited) => {
 			if (edited.beekeeper_id === editedUser.beekeeper_id) {
@@ -26,11 +30,21 @@ export default function Username({ user, setUser }) {
 		setUser(editedArray);
 	};
 
+	const handleChange = (e) => {
+		setEdited((prevState) => {
+			return { ...prevState, [e.target.name]: [e.target.value] };
+		});
+	};
+
+	const handleClick = () => {
+		handleEdited({ ...edited, beekeeper_id });
+	};
+
 	return (
 		<>
 			{user.length > 0 ? (
 				<>
-					{isEditMode ? (
+					{!isEditMode ? (
 						<div className="u-edit-container">
 							<Container
 								component="main"
@@ -41,13 +55,16 @@ export default function Username({ user, setUser }) {
 									<InputField
 										name="username"
 										type="text"
-										value={user[0].name}
+										id="formUsername"
+										onChange={handleChange}
+										value={edited.username}
 									/>
 									<Button
-										type="update"
+										type="submit"
 										value="Update"
 										text="Update"
 										style={{ fontSize: "1em" }}
+										onClick={handleClick}
 									/>
 								</form>
 							</Container>
