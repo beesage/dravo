@@ -6,7 +6,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
 import ArrowForwardIosOutlinedIcon from "@material-ui/icons/ArrowForwardIosOutlined";
 
-import "../../styles/EditProfile.css";
+import "../styles/EditProfile.css";
 
 import { Link } from "react-router-dom";
 

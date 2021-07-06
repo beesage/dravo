@@ -9,3 +9,9 @@
 	text-transform: none;
 	text-align: end;
 }
+
+.u-edit-container {
+	display: grid;
+	grid-column: 2/9;
+	grid-row: 3;
+}

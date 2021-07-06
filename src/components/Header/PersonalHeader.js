@@ -23,6 +23,7 @@ export default function PersonalHeader({ isSettings, setIsSettings }) {
 			setIsPassword(true);
 		}
 	}, [location.pathname]);
+
 	return (
 		<div>
 			<NavBar position="static" className="tablet-navbar">

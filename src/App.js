@@ -70,7 +70,10 @@ export default function App() {
 							path="/profile-info"
 							render={() => <ProfileInformation user={user} />}
 						/>
-						<Route path="/username" render={() => <Username user={user} />} />
+						<Route
+							path="/username"
+							render={() => <Username user={user} setUser={setUser} />}
+						/>
 						<Route path="/email" render={() => <Email user={user} />} />
 						<Route path="/password" render={() => <Password user={user} />} />
 					</Switch>
