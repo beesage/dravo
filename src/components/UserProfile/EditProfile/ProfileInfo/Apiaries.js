@@ -51,8 +51,8 @@ export default function Apiaries({ user, setUser }) {
 							>
 								<form className={classes.root}>
 									<InputField
-										name="email"
-										type="text"
+										name="aparies"
+										type="number"
 										id="formUsername"
 										onChange={handleChange}
 										value={edited.apiaries}

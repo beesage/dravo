@@ -68,11 +68,9 @@ export default function ProfileInformation({ user }) {
 							<ListItemText>
 								<p className="edit-caption">Experience</p>
 							</ListItemText>
-							<ArrowForwardIosOutlinedIcon
-								style={{
-									fontSize: "1.1rem",
-								}}
-							/>
+							<ListItemText>
+								<p className="api-caption">{user[0].experience}</p>
+							</ListItemText>
 						</ListItem>
 					</Link>
 					<Divider />
