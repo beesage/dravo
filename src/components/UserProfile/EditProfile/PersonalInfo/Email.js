@@ -16,27 +16,23 @@ export default function Email({ user, setUser }) {
 
 	const [edited, setEdited] = useState({
 		email: user[0].email,
+		id: user[0].beekeeper_id,
 	});
 
-	const handleEdited = (editedEmail) => {
-		const editedArray = user.map((edited) => {
-			if (edited.beekeeper_id === editedEmail.beekeeper_id) {
-				return editedEmail;
-			} else {
-				return edited;
-			}
-		});
-		setUser(editedArray);
-	};
-
 	const handleChange = (e) => {
-		setEdited((prevState) => {
-			return { ...prevState, [e.target.name]: [e.target.value] };
-		});
+		setEdited({ email: e.target.value, id: user[0].beekeeper_id });
 	};
 
 	const handleClick = () => {
-		handleEdited({ ...edited, beekeeper_id });
+		const editedArray = user.map((updated) => {
+			console.log(updated.beekeeper_id, edited);
+			if (updated.beekeeper_id === edited.id) {
+				return edited;
+			} else {
+				return updated;
+			}
+		});
+		setUser(editedArray);
 	};
 
 	return (
@@ -59,7 +55,6 @@ export default function Email({ user, setUser }) {
 										value={edited.email}
 									/>
 									<Button
-										type="submit"
 										value="Update"
 										text="Update"
 										style={{ fontSize: "1em" }}

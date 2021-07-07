@@ -61,9 +61,10 @@ export default function App() {
 							render={(props) => <Leaderboard user={user} />}
 						/>
 						<Route path="/profile" render={() => <UserProfile user={user} />} />
-						<Route path="/settings" component={EditProfile} />
+						<Route exact path="/settings" component={EditProfile} />
 						<Route
-							path="/personal-info"
+							exact
+							path="/settings/personal-info"
 							render={() => <PersonalInformation user={user} />}
 						/>
 						<Route
@@ -71,14 +72,20 @@ export default function App() {
 							render={() => <ProfileInformation user={user} />}
 						/>
 						<Route
-							path="/username"
+							exact
+							path="/settings/personal-info/username"
 							render={() => <Username user={user} setUser={setUser} />}
 						/>
 						<Route
-							path="/email"
+							exact
+							path="/settings/personal-info/email"
 							render={() => <Email user={user} setUser={setUser} />}
 						/>
-						<Route path="/password" render={() => <Password user={user} />} />
+						<Route
+							exact
+							path="/settings/personal-info/password"
+							render={() => <Password user={user} />}
+						/>
 					</Switch>
 				</Router>
 			) : (

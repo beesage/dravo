@@ -9,26 +9,28 @@ import handleHeader from "./Functions/HandleHeader";
 
 export default function PersonalHeader({ isSettings, setIsSettings }) {
 	const [isUsername, setIsUsername] = useState(false);
-	const [isEmail, setIsEmail] = useState(false);
-	const [isPassword, setIsPassword] = useState(false);
+	// const [isEmail, setIsEmail] = useState(false);
+	// const [isPassword, setIsPassword] = useState(false);
 
-	let location = useLocation();
+	// let location = useLocation();
 
-	useEffect(() => {
-		if (location.pathname == "/username") {
-			setIsUsername(true);
-			setIsEmail(false);
-			setIsPassword(false);
-		} else if (location.pathname == "/email") {
-			setIsUsername(false);
-			setIsEmail(true);
-			setIsPassword(false);
-		} else if (location.pathname == "/password") {
-			setIsUsername(false);
-			setIsEmail(false);
-			setIsPassword(true);
-		}
-	}, [location.pathname]);
+	// useEffect(() => {
+	// 	if (location.pathname == "/username") {
+	// 		setIsSettings(false);
+	// 		// setIsEmail(false);
+	// 		// setIsPassword(false);
+	// 	} else if (location.pathname == "/email") {
+	// 		setIsSettings(false);
+	// 		// setIsUsername(false);
+	// 		// setIsEmail(true);
+	// 		// setIsPassword(false);
+	// 	} else if (location.pathname == "/password") {
+	// 		setIsSettings(false);
+	// 		// setIsUsername(false);
+	// 		// setIsEmail(false);
+	// 		// setIsPassword(true);
+	// 	}
+	// }, [location.pathname]);
 
 	return (
 		<div>

@@ -21,7 +21,7 @@ export default function EditProfile() {
 					flexDirection: "column",
 				}}
 			>
-				<Link to="/personal-info">
+				<Link to="/settings/personal-info">
 					<ListItem button>
 						<ListItemText>
 							<p style={{ fontSize: "1.1rem", fontFamily: "Krub" }}>
@@ -36,7 +36,7 @@ export default function EditProfile() {
 					</ListItem>
 				</Link>
 				<Divider />
-				<Link to="/profile-info">
+				<Link to="/settings/profile-info">
 					<ListItem button>
 						<ListItemText>
 							<p style={{ fontSize: "1.1rem", fontFamily: "Krub" }}>
