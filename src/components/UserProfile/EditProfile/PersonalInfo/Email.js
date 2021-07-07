@@ -20,7 +20,7 @@ export default function Email({ user, setUser }) {
 	});
 
 	const handleChange = (e) => {
-		setEdited({ email: e.target.value, id: user[0].beekeeper_id });
+		setEdited({ ...user[0], email: e.target.value, id: user[0].beekeeper_id });
 	};
 
 	const handleClick = () => {
