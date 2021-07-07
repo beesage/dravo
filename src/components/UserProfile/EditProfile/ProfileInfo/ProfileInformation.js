@@ -24,7 +24,7 @@ export default function ProfileInformation({ user }) {
 						flexDirection: "column",
 					}}
 				>
-					<Link to="/profile-pic">
+					<Link to="/settings/profile-info/profile-pic">
 						<ListItem button>
 							<ListItemText>
 								<p className="edit-caption">Profile Picture</p>
@@ -37,7 +37,7 @@ export default function ProfileInformation({ user }) {
 						</ListItem>
 					</Link>
 					<Divider />
-					<Link to="/location">
+					<Link to="/settings/profile-info/location">
 						<ListItem button>
 							<ListItemText>
 								<p className="edit-caption">Location</p>
@@ -50,7 +50,7 @@ export default function ProfileInformation({ user }) {
 						</ListItem>
 					</Link>
 					<Divider />
-					<Link to="/bio">
+					<Link to="/settings/profile-info/bio">
 						<ListItem button>
 							<ListItemText>
 								<p className="edit-caption">Bio</p>
@@ -63,7 +63,7 @@ export default function ProfileInformation({ user }) {
 						</ListItem>
 					</Link>
 					<Divider />
-					<Link to="/experience">
+					<Link to="/settings/profile-info/experience">
 						<ListItem button>
 							<ListItemText>
 								<p className="edit-caption">Experience</p>
@@ -76,7 +76,7 @@ export default function ProfileInformation({ user }) {
 						</ListItem>
 					</Link>
 					<Divider />
-					<Link to="/apiaries">
+					<Link to="/settings/profile-info/apiaries">
 						<ListItem button>
 							<ListItemText>
 								<p className="edit-caption">Apiaries</p>
@@ -87,7 +87,7 @@ export default function ProfileInformation({ user }) {
 						</ListItem>
 					</Link>
 					<Divider />
-					<Link to="/beehives">
+					<Link to="/settings/profile-info/beehives">
 						<ListItem button>
 							<ListItemText>
 								<p className="edit-caption">Beehives</p>
