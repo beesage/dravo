@@ -9,8 +9,8 @@ import handleHeader from "./Functions/HandleHeader";
 
 export default function PersonalHeader({ isSettings, setIsSettings }) {
 	const [isUsername, setIsUsername] = useState(false);
-	// const [isEmail, setIsEmail] = useState(false);
-	// const [isPassword, setIsPassword] = useState(false);
+	const [isEmail, setIsEmail] = useState(false);
+	const [isPassword, setIsPassword] = useState(false);
 
 	let location = useLocation();
 
@@ -18,18 +18,23 @@ export default function PersonalHeader({ isSettings, setIsSettings }) {
 		if (location.pathname == "/settings/profile-info/username") {
 			setIsSettings(false);
 			setIsUsername(true);
-			// setIsEmail(false);
-			// setIsPassword(false);
+			setIsEmail(false);
+			setIsPassword(false);
 		} else if (location.pathname == "/settings/profile-info/email") {
 			setIsSettings(false);
-			// setIsUsername(false);
-			// setIsEmail(true);
-			// setIsPassword(false);
+			setIsUsername(false);
+			setIsEmail(true);
+			setIsPassword(false);
 		} else if (location.pathname == "/settings/profile-info/password") {
 			setIsSettings(false);
-			// setIsUsername(false);
-			// setIsEmail(false);
-			// setIsPassword(true);
+			setIsUsername(false);
+			setIsEmail(false);
+			setIsPassword(true);
+		} else if (location.pathname == "/settings/profile-info") {
+			setIsSettings(false);
+			setIsUsername(false);
+			setIsEmail(false);
+			setIsPassword(false);
 		}
 	}, [location.pathname]);
 
@@ -37,19 +42,39 @@ export default function PersonalHeader({ isSettings, setIsSettings }) {
 		<div>
 			<NavBar position="static" className="tablet-navbar">
 				<Tool style={{ gap: "0.5rem" }}>
-					<Link
-						to="/settings"
-						onClick={() => handleHeader(setIsSettings(!isSettings))}
-					>
-						<ArrowBackIosOutlinedIcon
-							style={{
-								color: "#314e52",
-								top: "1.3rem",
-								position: "absolute",
-								left: "-100px",
-							}}
-						/>
-					</Link>
+					{!isUsername || !isEmail || !isPassword ? (
+						<>
+							<Link
+								to="/settings/personal-info"
+								onClick={() => handleHeader(setIsSettings(!isSettings))}
+							>
+								<ArrowBackIosOutlinedIcon
+									style={{
+										color: "#314e52",
+										top: "1.3rem",
+										position: "absolute",
+										left: "-100px",
+									}}
+								/>
+							</Link>
+						</>
+					) : (
+						<>
+							<Link
+								to="/settings"
+								onClick={() => handleHeader(setIsSettings(!isSettings))}
+							>
+								<ArrowBackIosOutlinedIcon
+									style={{
+										color: "#314e52",
+										top: "1.3rem",
+										position: "absolute",
+										left: "-100px",
+									}}
+								/>
+							</Link>
+						</>
+					)}
 					<p className="menu-item">Personal Info</p>
 				</Tool>
 			</NavBar>

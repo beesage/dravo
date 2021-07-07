@@ -68,7 +68,8 @@ export default function App() {
 							render={() => <PersonalInformation user={user} />}
 						/>
 						<Route
-							path="/profile-info"
+							exact
+							path="/settings/profile-info"
 							render={() => <ProfileInformation user={user} />}
 						/>
 						<Route
@@ -84,7 +85,7 @@ export default function App() {
 						<Route
 							exact
 							path="/settings/personal-info/password"
-							render={() => <Password user={user} />}
+							render={() => <Password user={user} setUser={setUser} />}
 						/>
 					</Switch>
 				</Router>
