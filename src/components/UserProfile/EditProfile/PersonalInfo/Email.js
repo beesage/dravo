@@ -25,7 +25,6 @@ export default function Email({ user, setUser }) {
 
 	const handleClick = () => {
 		const editedArray = user.map((updated) => {
-			console.log(updated.beekeeper_id, edited);
 			if (updated.beekeeper_id === edited.id) {
 				return edited;
 			} else {

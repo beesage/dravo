@@ -23,12 +23,10 @@ export default function Username({ user, setUser }) {
 			username: e.target.value,
 			id: user[0].beekeeper_id,
 		});
-		console.log(edited);
 	};
 
 	const handleClick = () => {
 		const editedArray = user.map((updated) => {
-			console.log(updated.beekeeper_id, edited);
 			if (updated.beekeeper_id === edited.id) {
 				return edited;
 			} else {
