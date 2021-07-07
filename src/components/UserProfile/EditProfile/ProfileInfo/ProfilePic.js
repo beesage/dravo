@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import $ from "jquery";
 
-import Button from "../../../UserForm/controls/Submit";
+// import Button from "../../../UserForm/controls/Submit";
 
 export default function ProfilePic() {
 	const [update, setUpdate] = useState(false);
@@ -45,10 +45,11 @@ export default function ProfilePic() {
 		<div>
 			<p className="edit-caption">Upload your picture</p>
 
-			<input type="file" text="Submit" onChange={handlePicture} />
 			<br />
-			<div>{preview()}</div>
 			<hr />
+			<input type="file" text="Submit" onChange={handlePicture} />
+			<div>{preview()}</div>
+
 			{/* <button onClick={this.upload.bind(this)}>Upload</button> */}
 		</div>
 	);

@@ -50,6 +50,7 @@ export default function Apiaries({ user, setUser }) {
 								className={classes.container}
 							>
 								<form className={classes.root}>
+									<p className="edit-caption">Apiaries</p>
 									<InputField
 										name="aparies"
 										type="number"

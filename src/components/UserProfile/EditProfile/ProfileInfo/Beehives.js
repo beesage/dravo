@@ -50,6 +50,7 @@ export default function Beehives({ user, setUser }) {
 								className={classes.container}
 							>
 								<form className={classes.root}>
+									<p className="edit-caption">Beehives</p>
 									<InputField
 										name="beehives"
 										type="number"

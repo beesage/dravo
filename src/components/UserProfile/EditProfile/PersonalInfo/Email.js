@@ -45,6 +45,7 @@ export default function Email({ user, setUser }) {
 								maxWidth={false}
 								className={classes.container}
 							>
+								<p className="edit-caption">Email</p>
 								<form className={classes.root}>
 									<InputField
 										name="email"

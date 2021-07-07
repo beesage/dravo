@@ -46,6 +46,7 @@ export default function Username({ user, setUser }) {
 						className={classes.container}
 					>
 						<form className={classes.root}>
+							<p className="edit-caption">Username</p>
 							<InputField
 								name="username"
 								type="text"

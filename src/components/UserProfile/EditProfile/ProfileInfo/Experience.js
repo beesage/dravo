@@ -50,6 +50,7 @@ export default function Experience({ user, setUser }) {
 								className={classes.container}
 							>
 								<form className={classes.root}>
+									<p className="edit-caption">Experience</p>
 									<InputField
 										name="experience"
 										type="number"
