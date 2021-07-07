@@ -12,25 +12,26 @@ export default function PersonalHeader({ isSettings, setIsSettings }) {
 	// const [isEmail, setIsEmail] = useState(false);
 	// const [isPassword, setIsPassword] = useState(false);
 
-	// let location = useLocation();
+	let location = useLocation();
 
-	// useEffect(() => {
-	// 	if (location.pathname == "/username") {
-	// 		setIsSettings(false);
-	// 		// setIsEmail(false);
-	// 		// setIsPassword(false);
-	// 	} else if (location.pathname == "/email") {
-	// 		setIsSettings(false);
-	// 		// setIsUsername(false);
-	// 		// setIsEmail(true);
-	// 		// setIsPassword(false);
-	// 	} else if (location.pathname == "/password") {
-	// 		setIsSettings(false);
-	// 		// setIsUsername(false);
-	// 		// setIsEmail(false);
-	// 		// setIsPassword(true);
-	// 	}
-	// }, [location.pathname]);
+	useEffect(() => {
+		if (location.pathname == "/settings/profile-info/username") {
+			setIsSettings(false);
+			setIsUsername(true);
+			// setIsEmail(false);
+			// setIsPassword(false);
+		} else if (location.pathname == "/settings/profile-info/email") {
+			setIsSettings(false);
+			// setIsUsername(false);
+			// setIsEmail(true);
+			// setIsPassword(false);
+		} else if (location.pathname == "/settings/profile-info/password") {
+			setIsSettings(false);
+			// setIsUsername(false);
+			// setIsEmail(false);
+			// setIsPassword(true);
+		}
+	}, [location.pathname]);
 
 	return (
 		<div>

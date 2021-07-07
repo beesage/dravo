@@ -19,10 +19,10 @@ export default function SettingsHeader({ isEditProfile, setIsEditProfile }) {
 	let location = useLocation();
 
 	useEffect(() => {
-		if (location.pathname == "/personal-info") {
+		if (location.pathname == "/settings/personal-info") {
 			setIsSettings(true);
 			setIsPersonalInfo(true);
-		} else if (location.pathname == "/profile-info") {
+		} else if (location.pathname == "/settings/profile-info") {
 			setIsSettings(true);
 			setIsPersonalInfo(false);
 		}

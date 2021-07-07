@@ -36,6 +36,8 @@ export default function Header() {
 			setIsLoginPage(false);
 		} else if (location.pathname == "/leaderboard") {
 			setIsUserProfile(false);
+		} else if (location.pathname == "/settings") {
+			setIsUserProfile(false);
 		}
 	}, [location.pathname]);
 
