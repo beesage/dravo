@@ -6,6 +6,10 @@ import useStyles from "../../../UserForm/styles/StyleUserForm";
 import { Container } from "@material-ui/core";
 import InputField from "../../../UserForm/controls/InputField";
 import Button from "../../../UserForm/controls/Submit";
+import InputPassword from "../../../UserForm/controls/InputPassword";
+
+import VisibilityIcon from "@material-ui/icons/Visibility";
+import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
 
 import "../styles/EditProfile.css";
 
@@ -18,7 +22,6 @@ export default function Password({ user, setUser }) {
 		oldPassword: "",
 		password: "",
 		confirmPassword: "",
-		id: user[0].beekeeper_id,
 	});
 
 	const handleChange = (e) => {
@@ -61,6 +64,26 @@ export default function Password({ user, setUser }) {
 								<form className={classes.root}>
 									<p className="edit-caption">Old password</p>
 									<InputField
+										id="formOldPassword"
+										name="oldPassword"
+										value={fields.oldPassword}
+										onChange={handleChange}
+									/>
+									<p className="edit-caption">New password</p>
+									<InputPassword
+										id="formNewPassword"
+										name="password"
+										value={fields.password}
+										onChange={handleChange}
+									/>
+									<p className="edit-caption">Confirm new password</p>
+									<InputPassword
+										id="formConfirmPassword"
+										name="password"
+										value={fields.password}
+										onChange={handleChange}
+									/>
+									{/* <InputField
 										// type="password"
 										id="formUsername"
 										name="oldPassword"
@@ -82,7 +105,7 @@ export default function Password({ user, setUser }) {
 										name="confirmPassword"
 										value={fields.confirmPassword}
 										onChange={handleChange}
-									/>
+									/> */}
 									<Button
 										value="Update"
 										text="Update"

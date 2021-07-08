@@ -54,7 +54,7 @@ export default function Beehives({ user, setUser }) {
 									<InputField
 										name="beehives"
 										type="number"
-										id="formUsername"
+										id="formBeehives"
 										onChange={handleChange}
 										value={edited.beehives}
 									/>

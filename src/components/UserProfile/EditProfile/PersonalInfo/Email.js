@@ -50,7 +50,7 @@ export default function Email({ user, setUser }) {
 									<InputField
 										name="email"
 										type="text"
-										id="formUsername"
+										id="formEmail"
 										onChange={handleChange}
 										value={edited.email}
 									/>

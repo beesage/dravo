@@ -54,7 +54,7 @@ export default function Experience({ user, setUser }) {
 									<InputField
 										name="experience"
 										type="number"
-										id="formUsername"
+										id="formExperience"
 										onChange={handleChange}
 										value={edited.experience}
 									/>

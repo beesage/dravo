@@ -4,6 +4,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
+import ArrowForwardIosOutlinedIcon from "@material-ui/icons/ArrowForwardIosOutlined";
 
 import "../styles/EditProfile.css";
 
@@ -51,8 +52,13 @@ export default function PersonalInformation({ user }) {
 								<p className="edit-caption">Password</p>
 							</ListItemText>
 							<ListItemText>
-								<p className="api-caption">{user[0].password}</p>
+								<p className="api-caption" />
 							</ListItemText>
+							<ArrowForwardIosOutlinedIcon
+								style={{
+									fontSize: "1.1rem",
+								}}
+							/>
 						</ListItem>
 					</Link>
 					<Divider />
