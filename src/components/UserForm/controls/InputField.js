@@ -10,7 +10,7 @@ export default function InputField({ InputProps, ...props }) {
     {
       disableUnderline: true,
     },
-    InputProps
+  InputProps
   );
 
   return (
@@ -24,7 +24,7 @@ export default function InputField({ InputProps, ...props }) {
       className={classes.textField}
       fullWidth
       InputProps={iprops}
-      {...props}
+     {...props}
     />
   );
 }

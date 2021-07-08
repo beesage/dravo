@@ -220,7 +220,8 @@
   color: #f7f6e7;
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1300px) and (-webkit-min-device-pixel-ratio: 1) {
+@media only screen and (min-device-width: 960px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
+  /* developer note 768 - 1300 */
   .container {
     grid-template-rows: 70px 65px 220px 1fr;
   }
