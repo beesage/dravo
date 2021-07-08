@@ -40,7 +40,7 @@ export default function LogIn() {
           <Grid item className={classes.img} xs={12} sm={6} md={6}>
             <img className={classes.logo} src={logo} />
           </Grid>
-          <Grid item xs={12} sm={6} md={6} className={classes.breakpoints}>
+          <Grid item xs={12} sm={6} md={6} className={classes.breakpoints} >
             <Typography className={classes.title} variant="h4">
               Log In
             </Typography>
