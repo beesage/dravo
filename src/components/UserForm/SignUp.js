@@ -59,16 +59,14 @@ export default function SignUp() {
                         name="password"                    
                         label="Enter your password"                    
                         value={values.password}
-                        onChange={handleChange}
-                        disableUnderline                                 
+                        onChange={handleChange}                                                        
                   />
                    {errors.password && <div className={classes.redColor}>{errors.password}</div>}
                    <InputPassword
                         name="confirmPassword"                    
                         label="Confirm your password"                    
                         value={values.confirmPassword}
-                        onChange={handleChange} 
-                        disableUnderline                                        
+                        onChange={handleChange}                                                              
                   />
                   {errors.confirmPassword && <div className={classes.redColor}>{errors.confirmPassword}</div>}
                       <Box className={classes.box}>

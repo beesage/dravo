@@ -8,11 +8,11 @@ import useStyles from "../styles/StyleUserForm";
 export default function InputPassword(props) {
   
   const classes = useStyles();
-
   const [showPassword, setPasswordShown] = React.useState(false);
   
   return (
     <InputField
+    {...props}
       type={showPassword ? 'text' : 'password'}
       InputProps={{
         endAdornment: (
@@ -24,9 +24,10 @@ export default function InputPassword(props) {
               {showPassword ? <Visibility /> : <VisibilityOff />}
             </IconButton>
           </InputAdornment>
-        )
+        ),
+        ...props.InputProps
       }}
-      {...props}
+     
     />
   );
 }
