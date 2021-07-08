@@ -9,7 +9,6 @@ const UseForm = (validate) => {
   });    
 
   const [errors, setErrors] = useState({});
-  //const [showPassword, setPasswordShown] = React.useState(false);
   
  
   /**

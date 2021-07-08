@@ -14,7 +14,8 @@ export default function LogIn() {
 
   const classes = useStyles();
 	const { values, handleChange, handleSubmit, errors } = UseForm(validate);
-
+  
+  
   const login = () => {
      Axios.post("http://localhost:3000/auth/login", {
       username: values.username,
@@ -51,8 +52,6 @@ export default function LogIn() {
                     value={values.password}
                     onChange={handleChange}  
                     disableUnderline
-                    // onClick={handleClickShowPassword} 
-                    // showPassword={showPassword}         
                   />  
                   {errors.password && <div className={classes.redColor}>{errors.password}</div>}               
                   <Box className={classes.box}>

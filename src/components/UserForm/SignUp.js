@@ -13,7 +13,7 @@ import Axios from 'axios';
 
 export default function SignUp() {
   const classes = useStyles();
-  const {  values, handleChange, handleSubmit, errors } = UseForm(validate);
+  const { values, handleChange, handleSubmit, errors } = UseForm(validate);
 
   const signup = () => {
     Axios.post("http://localhost:3000/auth/signup", {
@@ -56,25 +56,20 @@ export default function SignUp() {
                    />   
                    {errors.email && <div className={classes.redColor}>{errors.email}</div>}                   
                    <InputPassword
-                    name="password"                    
-                    label="Enter your password"                    
-                    value={values.password}
-                    onChange={handleChange}
-                    disableUnderline                                     
-                    // showPassword={showPassword}
-                    // setPasswordShown={setPasswordShown}              
-                   />
+                        name="password"                    
+                        label="Enter your password"                    
+                        value={values.password}
+                        onChange={handleChange}
+                        disableUnderline                                 
+                  />
                    {errors.password && <div className={classes.redColor}>{errors.password}</div>}
                    <InputPassword
-                    name="confirmPassword"                    
-                    label="Confirm your password"                    
-                    value={values.confirmPassword}
-                    onChange={handleChange} 
-                    disableUnderline                                         
-                    // showPassword={showPassword}
-                    // setPasswordShown={setPasswordShown} 
-                    // onClick={() => setPasswordShown(!showPassword)}              
-                   />
+                        name="confirmPassword"                    
+                        label="Confirm your password"                    
+                        value={values.confirmPassword}
+                        onChange={handleChange} 
+                        disableUnderline                                        
+                  />
                   {errors.confirmPassword && <div className={classes.redColor}>{errors.confirmPassword}</div>}
                       <Box className={classes.box}>
                         <FormControlLabel control={<Checkbox className={classes.orangeColor} value="remember" color="default" />}  className={classes.checkbox} label="Keep me logged in" />
