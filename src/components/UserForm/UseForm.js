@@ -9,7 +9,7 @@ const UseForm = (validate) => {
   });    
 
   const [errors, setErrors] = useState({});
-  const [showPassword, setPasswordShown] = React.useState(false);
+  //const [showPassword, setPasswordShown] = React.useState(false);
   
  
   /**
@@ -60,7 +60,7 @@ const UseForm = (validate) => {
   };
   
  
-    return { values, handleChange, handleSubmit, errors, handleClickShowPassword, showPassword };
+    return { values, handleChange, handleSubmit, errors, handleClickShowPassword };
 }
 
 export default UseForm;

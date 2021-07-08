@@ -6,7 +6,7 @@ import InputField from "./InputField";
 import useStyles from "../styles/StyleUserForm";
 
 export default function InputPassword(props) {
-  //const {  } = props;
+  
   const classes = useStyles();
 
   const [showPassword, setPasswordShown] = React.useState(false);

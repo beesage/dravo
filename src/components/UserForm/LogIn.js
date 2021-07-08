@@ -8,18 +8,22 @@ import { NavLink } from "react-router-dom";
 import useStyles from "./styles/StyleUserForm";
 import logo from "../../assets/logo-mobile.png";
 import validate from "./ValidateInfo";
+import Axios from 'axios';
 
 export default function LogIn() {
-	const classes = useStyles();
-	const {
-		values,
-		handleChange,
-		handleSubmit,
-		handleClickShowPassword,
-		errors,
-		showPassword,
-	} = UseForm(validate);
-  
+
+  const classes = useStyles();
+	const { values, handleChange, handleSubmit, errors } = UseForm(validate);
+
+  const login = () => {
+     Axios.post("http://localhost:3000/auth/login", {
+      username: values.username,
+      password: values.password,    
+     }).then((response) => {
+       console.log(response)
+     })
+  }
+	  
   return (
     <div>
        <Container component="main" maxWidth={false} className={classes.container}>
@@ -46,8 +50,9 @@ export default function LogIn() {
                     label="Enter your password"                    
                     value={values.password}
                     onChange={handleChange}  
-                    onClick={handleClickShowPassword} 
-                    showPassword={showPassword}         
+                    disableUnderline
+                    // onClick={handleClickShowPassword} 
+                    // showPassword={showPassword}         
                   />  
                   {errors.password && <div className={classes.redColor}>{errors.password}</div>}               
                   <Box className={classes.box}>
@@ -57,7 +62,7 @@ export default function LogIn() {
                       Forgot password?
                     </Link>
                   </Box>             
-                  <Button type="submit" text="Log In" />              
+                  <Button type="submit" text="Log In" onClick={login} />              
             </form>
             <Box align="center" mt={2}>
               <Typography className={classes.typography}>

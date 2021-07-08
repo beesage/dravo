@@ -86,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       marginTop: "30%",
     },
-  },
+  },  
 }));
 
 export default useStyles;
