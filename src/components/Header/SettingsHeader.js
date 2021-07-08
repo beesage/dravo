@@ -68,7 +68,7 @@ export default function SettingsHeader({ isEditProfile, setIsEditProfile }) {
 					</Tool>
 				</NavBar>
 			) : (
-				""
+				<SettingsHeader />
 			)}
 		</>
 	);

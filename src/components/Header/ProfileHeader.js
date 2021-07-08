@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import NavBar from "./styles/StylesNavBar";
@@ -8,24 +8,47 @@ import ArrowBackIosOutlinedIcon from "@material-ui/icons/ArrowBackIosOutlined";
 import handleHeader from "./Functions/HandleHeader";
 
 export default function PersonalHeader({ isSettings, setIsSettings }) {
+	const [backToSettings, setBackToSettings] = useState(false);
+
 	return (
 		<div>
 			<NavBar position="static" className="tablet-navbar">
 				<Tool style={{ gap: "0.5rem" }}>
-					<Link
-						to="/settings/profile-info"
-						onClick={() => handleHeader(setIsSettings(!isSettings))}
-					>
-						<ArrowBackIosOutlinedIcon
-							style={{
-								color: "#314e52",
-								top: "1.3rem",
-								position: "absolute",
-								left: "-100px",
-							}}
-						/>
-					</Link>
-					<p className="menu-item">Profile Info</p>
+					{!backToSettings ? (
+						<>
+							<Link
+								to="/settings/profile-info"
+								onClick={() => handleHeader(setBackToSettings(!backToSettings))}
+							>
+								<ArrowBackIosOutlinedIcon
+									style={{
+										color: "#314e52",
+										top: "1.3rem",
+										position: "absolute",
+										left: "-100px",
+									}}
+								/>
+							</Link>
+							<p className="menu-item">Profile Info</p>
+						</>
+					) : (
+						<>
+							<Link
+								to="/settings"
+								onClick={() => handleHeader(setIsSettings(!isSettings))}
+							>
+								<ArrowBackIosOutlinedIcon
+									style={{
+										color: "#314e52",
+										top: "1.3rem",
+										position: "absolute",
+										left: "-100px",
+									}}
+								/>
+							</Link>
+							<p className="menu-item">Profile Info</p>
+						</>
+					)}
 				</Tool>
 			</NavBar>
 		</div>

@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router";
+import React, { useState, useEffect } from "react";
 
 import LoadingPage from "../../../Spinner/LoadingPage";
 
@@ -15,42 +14,38 @@ export default function Password({ user, setUser }) {
 
 	const [isEditMode] = useState(false);
 
-	const history = useHistory();
-	const [fields, handleFieldChange] = useState({
-		password: "",
+	const [fields, setFields] = useState({
 		oldPassword: "",
+		password: "",
 		confirmPassword: "",
+		id: user[0].beekeeper_id,
 	});
 
-	const [isChanging, setIsChanging] = useState(false);
+	const handleChange = (e) => {
+		setFields({
+			...user[0],
+			[e.target.name]: e.target.value,
+			id: user[0].beekeeper_id,
+		});
+	};
 
-	function validateForm() {
-		return (
-			fields.oldPassword.length > 0 &&
-			fields.password.length > 0 &&
-			fields.password === fields.confirmPassword
-		);
-	}
-
-	async function handleChangeClick(event) {
-		event.preventDefault();
-
-		setIsChanging(true);
-
-		try {
-			const currentUser = await Auth.currentAuthenticatedUser();
-			await Auth.changePassword(
-				currentUser,
-				fields.oldPassword,
-				fields.password
-			);
-
-			history.push("/settings/personal-info/password");
-		} catch (error) {
-			onError(error);
-			setIsChanging(false);
-		}
-	}
+	const handleClick = () => {
+		const editedArray = user.map((updated) => {
+			if (
+				fields.oldPassword === user[0].password &&
+				fields.password.length > 0 &&
+				fields.confirmPassword.length > 0 &&
+				fields.password === fields.confirmPassword &&
+				updated.beekeeper_id === fields.id
+			) {
+				return fields;
+			} else {
+				return updated;
+			}
+		});
+		setUser(editedArray);
+		console.log(editedArray);
+	};
 
 	return (
 		<>
@@ -63,34 +58,36 @@ export default function Password({ user, setUser }) {
 								maxWidth={false}
 								className={classes.container}
 							>
-								<form className={classes.root} onSubmit={handleChangeClick}>
+								<form className={classes.root}>
 									<p className="edit-caption">Old password</p>
 									<InputField
-										type="password"
+										// type="password"
 										id="formUsername"
-										onChange={handleFieldChange}
+										name="oldPassword"
 										value={fields.oldPassword}
+										onChange={handleChange}
 									/>
 									<p className="edit-caption">New password</p>
 									<InputField
-										type="password"
+										// type="password"
 										id="formUsername"
-										onChange={handleFieldChange}
-										value={fields.password}
+										name="password"
+										defaultvalue={fields.password}
+										onChange={handleChange}
 									/>
 									<p className="edit-caption">Confirm new password</p>
 									<InputField
-										type="password"
+										// type="password"
 										id="formUsername"
-										onChange={handleFieldChange}
+										name="confirmPassword"
 										value={fields.confirmPassword}
+										onChange={handleChange}
 									/>
 									<Button
-										value="Submit"
-										text="Submit"
+										value="Update"
+										text="Update"
 										style={{ fontSize: "1em" }}
-										disabled={!validateForm()}
-										isLoading={isChanging}
+										onClick={handleClick}
 									/>
 								</form>
 							</Container>
