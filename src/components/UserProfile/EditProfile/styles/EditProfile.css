@@ -15,3 +15,13 @@
 	grid-column: 2/9;
 	grid-row: 3;
 }
+
+.picture-container {
+	display: grid;
+	grid-column: 2/9;
+	grid-row: 3;
+}
+
+.submit-pic {
+	grid-row: 2;
+}
