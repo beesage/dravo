@@ -14,21 +14,23 @@ export default function PersonalHeader({ isSettings, setIsSettings }) {
 
 	useEffect(() => {
 		if (
-			location.pathname == "/settings/personal-info" &&
+			location.pathname == "/settings/profile-info" &&
 			backToSettings == false
 		) {
 			setBackToSettings(true);
 		} else if (
-			location.pathname == "/settings/personal-info/profile-pic" ||
-			location.pathname == "/settings/personal-info/location" ||
-			location.pathname == "/settings/personal-info/bio" ||
-			location.pathname == "/settings/personal-info/experience" ||
-			location.pathname == "/settings/personal-info/apiaries" ||
-			location.pathname == "/settings/personal-info/beehives"
+			location.pathname == "/settings/profile-info/profile-pic" ||
+			location.pathname == "/settings/profile-info/location" ||
+			location.pathname == "/settings/profile-info/bio" ||
+			location.pathname == "/settings/profile-info/experience" ||
+			location.pathname == "/settings/profile-info/apiaries" ||
+			location.pathname == "/settings/profile-info/beehives"
 		) {
 			setBackToSettings(false);
 		}
 	});
+
+	console.log(handleHeader);
 
 	return (
 		<>
@@ -38,16 +40,9 @@ export default function PersonalHeader({ isSettings, setIsSettings }) {
 						<>
 							<Link
 								to="/settings/profile-info"
-								onClick={() => handleHeader(setBackToSettings(!backToSettings))}
+								onClick={() => handleHeader(setBackToSettings(false))}
 							>
-								<ArrowBackIosOutlinedIcon
-									style={{
-										color: "#314e52",
-										top: "1.3rem",
-										position: "absolute",
-										left: "1px",
-									}}
-								/>
+								<ArrowBackIosOutlinedIcon className="back-to" />
 							</Link>
 							<p className="menu-item">Profile Info</p>
 						</>
@@ -57,14 +52,7 @@ export default function PersonalHeader({ isSettings, setIsSettings }) {
 								to="/settings"
 								onClick={() => handleHeader(setIsSettings(!isSettings))}
 							>
-								<ArrowBackIosOutlinedIcon
-									style={{
-										color: "#314e52",
-										top: "1.3rem",
-										position: "absolute",
-										left: "1px",
-									}}
-								/>
+								<ArrowBackIosOutlinedIcon className="back-to" />
 							</Link>
 							<p className="menu-item">Profile Info</p>
 						</>

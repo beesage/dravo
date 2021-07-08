@@ -43,14 +43,7 @@ export default function SettingsHeader({ isEditProfile, setIsEditProfile }) {
 									to="/profile"
 									onClick={() => handleHeader(setIsEditProfile(!isEditProfile))}
 								>
-									<ArrowBackIosOutlinedIcon
-										style={{
-											color: "#314e52",
-											top: "1.3rem",
-											position: "absolute",
-											left: "1px",
-										}}
-									/>
+									<ArrowBackIosOutlinedIcon className="back-to" />
 								</Link>
 								<p className="menu-item">Account</p>
 							</>

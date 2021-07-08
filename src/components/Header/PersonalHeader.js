@@ -35,16 +35,9 @@ export default function PersonalHeader({ isSettings, setIsSettings }) {
 						<>
 							<Link
 								to="/settings/personal-info"
-								onClick={() => handleHeader(setBackToSettings(!backToSettings))}
+								onClick={() => handleHeader(setBackToSettings(false))}
 							>
-								<ArrowBackIosOutlinedIcon
-									style={{
-										color: "#314e52",
-										top: "1.3rem",
-										position: "absolute",
-										left: "1px",
-									}}
-								/>
+								<ArrowBackIosOutlinedIcon className="back-to" />
 							</Link>
 							<p className="menu-item">Personal Info</p>
 						</>
@@ -54,14 +47,7 @@ export default function PersonalHeader({ isSettings, setIsSettings }) {
 								to="/settings"
 								onClick={() => handleHeader(setIsSettings(!isSettings))}
 							>
-								<ArrowBackIosOutlinedIcon
-									style={{
-										color: "#314e52",
-										top: "1.3rem",
-										position: "absolute",
-										left: "1px",
-									}}
-								/>
+								<ArrowBackIosOutlinedIcon className="back-to" />
 							</Link>
 							<p className="menu-item">Personal Info</p>
 						</>
