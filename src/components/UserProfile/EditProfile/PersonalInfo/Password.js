@@ -8,9 +8,6 @@ import InputField from "../../../UserForm/controls/InputField";
 import Button from "../../../UserForm/controls/Submit";
 import InputPassword from "../../../UserForm/controls/InputPassword";
 
-import VisibilityIcon from "@material-ui/icons/Visibility";
-import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
-
 import "../styles/EditProfile.css";
 
 export default function Password({ user, setUser }) {
@@ -22,34 +19,29 @@ export default function Password({ user, setUser }) {
 		oldPassword: "",
 		password: "",
 		confirmPassword: "",
+		id: user[0].beekeeper_id,
 	});
 
 	const handleChange = (e) => {
-		setFields({
-			...user[0],
-			[e.target.name]: e.target.value,
-			id: user[0].beekeeper_id,
+		setFields((prevState) => {
+			return { ...prevState, [e.target.name]: e.target.value };
 		});
 	};
 
-	const handleClick = () => {
+	const handleEdited = () => {
 		const editedArray = user.map((updated) => {
-			if (
-				// fields.oldPassword.length > 0 &&
-				// fields.password.length > 0 &&
-				// fields.confirmPassword.length > 0 &&
-				// fields.password === fields.confirmPassword &&
-				updated.beekeeper_id === fields.id
-			) {
+			if (updated.beekeeper_id === fields.id) {
 				return fields;
 			} else {
 				return editedArray;
 			}
 		});
 		setUser(editedArray);
-		console.log(editedArray);
 	};
 
+	const handleClick = () => {
+		handleEdited({ ...fields });
+	};
 	return (
 		<>
 			{user.length > 0 ? (
@@ -79,33 +71,10 @@ export default function Password({ user, setUser }) {
 									<p className="edit-caption">Confirm new password</p>
 									<InputPassword
 										id="formConfirmPassword"
-										name="password"
-										value={fields.password}
-										onChange={handleChange}
-									/>
-									{/* <InputField
-										// type="password"
-										id="formUsername"
-										name="oldPassword"
-										value={fields.oldPassword}
-										onChange={handleChange}
-									/>
-									<p className="edit-caption">New password</p>
-									<InputField
-										// type="password"
-										id="formUsername"
-										name="password"
-										value={fields.password}
-										onChange={handleChange}
-									/>
-									<p className="edit-caption">Confirm new password</p>
-									<InputField
-										// type="password"
-										id="formUsername"
 										name="confirmPassword"
 										value={fields.confirmPassword}
 										onChange={handleChange}
-									/> */}
+									/>
 									<Button
 										value="Update"
 										text="Update"

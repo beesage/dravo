@@ -23,23 +23,23 @@ export default function ProfilePic() {
 		}
 	};
 
-	const upload = () => {
-		var formData = new FormData();
+	// const upload = () => {
+	// 	var formData = new FormData();
 
-		formData.append("file", update.src);
+	// 	formData.append("file", update.src);
 
-		$.ajax({
-			url: "/202.61.225.240:3000/beewhoyouwant/user",
-			method: "POST",
-			data: formData,
-			cache: false,
-			contentType: false,
-			processData: false,
-			success: function (response) {
-				// Code to handle a succesful upload
-			},
-		});
-	};
+	// 	$.ajax({
+	// 		url: "/202.61.225.240:3000/beewhoyouwant/user",
+	// 		method: "POST",
+	// 		data: formData,
+	// 		cache: false,
+	// 		contentType: false,
+	// 		processData: false,
+	// 		success: function (response) {
+	// 			// Code to handle a succesful upload
+	// 		},
+	// 	});
+	// };
 
 	return (
 		<div className="picture-container">
@@ -51,7 +51,7 @@ export default function ProfilePic() {
 				className="submit-pic"
 			/>
 			<div className="preview">{preview()}</div>
-			<Button onClick={upload} text="Upload"></Button>
+			<Button text="Upload"></Button>
 		</div>
 	);
 }
