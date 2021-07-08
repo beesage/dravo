@@ -16,15 +16,19 @@ export default function SettingsHeader({ isEditProfile, setIsEditProfile }) {
 
 	const [isPersonalInfo, setIsPersonalInfo] = useState(false);
 
+	const [isProfileInfo, setIsProfileInfo] = useState(false);
+
 	let location = useLocation();
 
 	useEffect(() => {
 		if (location.pathname == "/settings/personal-info") {
 			setIsSettings(true);
 			setIsPersonalInfo(true);
+			setIsProfileInfo(false);
 		} else if (location.pathname == "/settings/profile-info") {
 			setIsSettings(true);
 			setIsPersonalInfo(false);
+			setIsProfileInfo(true);
 		}
 	}, [location.pathname]);
 
@@ -52,7 +56,7 @@ export default function SettingsHeader({ isEditProfile, setIsEditProfile }) {
 							</>
 						) : (
 							<>
-								{isPersonalInfo ? (
+								{isPersonalInfo && !isProfileInfo ? (
 									<PersonalHeader
 										isSettings={isSettings}
 										setIsSettings={setIsSettings}

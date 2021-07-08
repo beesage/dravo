@@ -15,14 +15,14 @@ export default function Location({ user, setUser }) {
 	const [isEditMode] = useState(false);
 
 	const [edited, setEdited] = useState({
-		city: user[0].city,
-		country: user[0].country,
+		city: "",
+		country: "",
 		id: user[0].beekeeper_id,
 	});
 
 	const handleChange = (e) => {
-		setEdited(() => {
-			return { ...user, [e.target.name]: e.target.value };
+		setEdited((prevState) => {
+			return { ...prevState, [e.target.name]: e.target.value };
 		});
 	};
 
@@ -31,7 +31,7 @@ export default function Location({ user, setUser }) {
 			if (updated.beekeeper_id === edited.id) {
 				return edited;
 			} else {
-				return updated;
+				return updated, user[0];
 			}
 		});
 		setUser(editedArray);

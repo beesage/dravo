@@ -32,15 +32,15 @@ export default function Password({ user, setUser }) {
 	const handleClick = () => {
 		const editedArray = user.map((updated) => {
 			if (
-				fields.oldPassword === user[0].password &&
-				fields.password.length > 0 &&
-				fields.confirmPassword.length > 0 &&
-				fields.password === fields.confirmPassword &&
+				// fields.oldPassword.length > 0 &&
+				// fields.password.length > 0 &&
+				// fields.confirmPassword.length > 0 &&
+				// fields.password === fields.confirmPassword &&
 				updated.beekeeper_id === fields.id
 			) {
 				return fields;
 			} else {
-				return updated;
+				return editedArray;
 			}
 		});
 		setUser(editedArray);
@@ -72,7 +72,7 @@ export default function Password({ user, setUser }) {
 										// type="password"
 										id="formUsername"
 										name="password"
-										defaultvalue={fields.password}
+										value={fields.password}
 										onChange={handleChange}
 									/>
 									<p className="edit-caption">Confirm new password</p>
