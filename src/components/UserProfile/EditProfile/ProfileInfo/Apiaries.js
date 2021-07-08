@@ -54,7 +54,7 @@ export default function Apiaries({ user, setUser }) {
 									<InputField
 										name="aparies"
 										type="number"
-										id="formUsername"
+										id="formApiaries"
 										onChange={handleChange}
 										value={edited.apiaries}
 									/>

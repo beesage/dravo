@@ -48,7 +48,7 @@ export default function SettingsHeader({ isEditProfile, setIsEditProfile }) {
 											color: "#314e52",
 											top: "1.3rem",
 											position: "absolute",
-											left: "1.1px",
+											left: "1px",
 										}}
 									/>
 								</Link>
@@ -72,7 +72,7 @@ export default function SettingsHeader({ isEditProfile, setIsEditProfile }) {
 					</Tool>
 				</NavBar>
 			) : (
-				<SettingsHeader />
+				""
 			)}
 		</>
 	);
