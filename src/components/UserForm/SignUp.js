@@ -8,11 +8,23 @@ import { NavLink } from "react-router-dom";
 import useStyles from "./styles/StyleUserForm";
 import logo from "../../assets/logo-mobile.png";
 import validate from './ValidateInfo';
+import Axios from 'axios';
 
 
 export default function SignUp() {
   const classes = useStyles();
-  const {  values, handleChange, handleSubmit,errors, showPassword, setPasswordShown } = UseForm(validate);
+  const { values, handleChange, handleSubmit, errors } = UseForm(validate);
+
+  const signup = () => {
+    Axios.post("http://localhost:3000/auth/signup", {
+     username: values.username,
+     email: values.email,
+     password: values.password,
+     confirmPassword: values.confirmPassword,
+    }).then((response) => {
+      console.log(response)     
+    })
+ }  
 
   return (
     <div>
@@ -44,23 +56,20 @@ export default function SignUp() {
                    />   
                    {errors.email && <div className={classes.redColor}>{errors.email}</div>}                   
                    <InputPassword
-                    name="password"                    
-                    label="Enter your password"                    
-                    value={values.password}
-                    onChange={handleChange}                                        
-                    showPassword={showPassword}
-                    setPasswordShown={setPasswordShown}              
-                   />
+                        name="password"                    
+                        label="Enter your password"                    
+                        value={values.password}
+                        onChange={handleChange}
+                        disableUnderline                                 
+                  />
                    {errors.password && <div className={classes.redColor}>{errors.password}</div>}
                    <InputPassword
-                    name="confirmPassword"                    
-                    label="Confirm your password"                    
-                    value={values.confirmPassword}
-                    onChange={handleChange}                                            
-                    showPassword={showPassword}
-                    setPasswordShown={setPasswordShown} 
-                    onClick={() => setPasswordShown(!showPassword)}              
-                   />
+                        name="confirmPassword"                    
+                        label="Confirm your password"                    
+                        value={values.confirmPassword}
+                        onChange={handleChange} 
+                        disableUnderline                                        
+                  />
                   {errors.confirmPassword && <div className={classes.redColor}>{errors.confirmPassword}</div>}
                       <Box className={classes.box}>
                         <FormControlLabel control={<Checkbox className={classes.orangeColor} value="remember" color="default" />}  className={classes.checkbox} label="Keep me logged in" />
@@ -68,7 +77,7 @@ export default function SignUp() {
                           Forgot password?
                         </Link>
                       </Box>
-                      <Button type="submit" text="Sign Up"/>    
+                      <Button type="submit" text="Sign Up" onClick={signup} />    
                 </form>
                 <Box align="center" mt={2}>
                   <Typography className={classes.typography}>

@@ -11,9 +11,9 @@ export default function Submit(props) {
     return (
         <Button  
             fullWidth  
-            type={type}       
-            onClick={onClick}           
-            className={classes.submit}>
+            type={type} 
+            className={classes.submit}
+            onClick={onClick}>
             {text}
         </Button>
     )
