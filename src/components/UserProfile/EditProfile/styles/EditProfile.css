@@ -12,13 +12,13 @@
 
 .u-edit-container {
 	display: grid;
-	grid-column: 2/9;
+	grid-column: 3/8;
 	grid-row: 3;
 }
 
 .picture-container {
 	display: grid;
-	grid-column: 2/9;
+	grid-column: 3/8;
 	grid-row: 3;
 }
 
