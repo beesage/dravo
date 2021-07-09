@@ -11,8 +11,17 @@ import LogIn from "./components/UserForm/LogIn";
 import SignUp from "./components/UserForm/SignUp";
 import LoadingPage from "./components/Spinner/LoadingPage";
 import EditProfile from "./components/UserProfile/EditProfile/EditProfile";
-import PersonalInformation from "./components/UserProfile/EditProfile/PersonalInformation";
-import ProfileInformation from "./components/UserProfile/EditProfile/ProfileInformation";
+import PersonalInformation from "./components/UserProfile/EditProfile/PersonalInfo/PersonalInformation";
+import Username from "./components/UserProfile/EditProfile/PersonalInfo/Username";
+import Email from "./components/UserProfile/EditProfile/PersonalInfo/Email";
+import Password from "./components/UserProfile/EditProfile/PersonalInfo/Password";
+import ProfileInformation from "./components/UserProfile/EditProfile/ProfileInfo/ProfileInformation";
+import ProfilePic from "./components/UserProfile/EditProfile/ProfileInfo/ProfilePic";
+import Location from "./components/UserProfile/EditProfile/ProfileInfo/Location";
+import Bio from "./components/UserProfile/EditProfile/ProfileInfo/Bio";
+import Experience from "./components/UserProfile/EditProfile/ProfileInfo/Experience";
+import Apiaries from "./components/UserProfile/EditProfile/ProfileInfo/Apiaries";
+import Beehives from "./components/UserProfile/EditProfile/ProfileInfo/Beehives";
 
 export default function App() {
 	const [user, setUser] = useState([]);
@@ -58,12 +67,62 @@ export default function App() {
 							render={(props) => <Leaderboard user={user} />}
 						/>
 						<Route path="/profile" render={() => <UserProfile user={user} />} />
-						<Route path="/settings" component={EditProfile} />
+						<Route exact path="/settings" component={EditProfile} />
 						<Route
-							path="/personal-info"
+							exact
+							path="/settings/personal-info"
 							render={() => <PersonalInformation user={user} />}
 						/>
-						<Route path="/profile-info" component={ProfileInformation} />
+						<Route
+							exact
+							path="/settings/personal-info/username"
+							render={() => <Username user={user} setUser={setUser} />}
+						/>
+						<Route
+							exact
+							path="/settings/personal-info/email"
+							render={() => <Email user={user} setUser={setUser} />}
+						/>
+						<Route
+							exact
+							path="/settings/personal-info/password"
+							render={() => <Password user={user} setUser={setUser} />}
+						/>
+						<Route
+							exact
+							path="/settings/profile-info"
+							render={() => <ProfileInformation user={user} />}
+						/>
+						<Route
+							exact
+							path="/settings/profile-info/profile-pic"
+							render={() => <ProfilePic user={user} setUser={setUser} />}
+						/>
+						<Route
+							exact
+							path="/settings/profile-info/location"
+							render={() => <Location user={user} setUser={setUser} />}
+						/>
+						<Route
+							exact
+							path="/settings/profile-info/bio"
+							render={() => <Bio user={user} setUser={setUser} />}
+						/>
+						<Route
+							exact
+							path="/settings/profile-info/experience"
+							render={() => <Experience user={user} setUser={setUser} />}
+						/>
+						<Route
+							exact
+							path="/settings/profile-info/apiaries"
+							render={() => <Apiaries user={user} setUser={setUser} />}
+						/>
+						<Route
+							exact
+							path="/settings/profile-info/beehives"
+							render={() => <Beehives user={user} setUser={setUser} />}
+						/>
 					</Switch>
 				</Router>
 			) : (
