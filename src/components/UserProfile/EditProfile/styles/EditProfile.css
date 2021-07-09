@@ -1,0 +1,27 @@
+.edit-caption,
+.api-caption {
+	font-size: 1rem;
+	font-family: Krub;
+	text-transform: uppercase;
+}
+
+.api-caption {
+	text-transform: none;
+	text-align: end;
+}
+
+.u-edit-container {
+	display: grid;
+	grid-column: 3/8;
+	grid-row: 3;
+}
+
+.picture-container {
+	display: grid;
+	grid-column: 3/8;
+	grid-row: 3;
+}
+
+.submit-pic {
+	grid-row: 2;
+}

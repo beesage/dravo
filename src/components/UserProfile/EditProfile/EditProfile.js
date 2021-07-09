@@ -21,25 +21,33 @@ export default function EditProfile() {
 					flexDirection: "column",
 				}}
 			>
-				<Link to="/personal-info">
+				<Link to="/settings/personal-info">
 					<ListItem button>
 						<ListItemText>
 							<p style={{ fontSize: "1.1rem", fontFamily: "Krub" }}>
 								Personal Information
 							</p>
 						</ListItemText>
-						<ArrowForwardIosOutlinedIcon />
+						<ArrowForwardIosOutlinedIcon
+							style={{
+								fontSize: "1.1rem",
+							}}
+						/>
 					</ListItem>
 				</Link>
 				<Divider />
-				<Link to="/profile-info">
+				<Link to="/settings/profile-info">
 					<ListItem button>
 						<ListItemText>
 							<p style={{ fontSize: "1.1rem", fontFamily: "Krub" }}>
 								Profile Information
 							</p>
 						</ListItemText>
-						<ArrowForwardIosOutlinedIcon />
+						<ArrowForwardIosOutlinedIcon
+							style={{
+								fontSize: "1.1rem",
+							}}
+						/>
 					</ListItem>
 				</Link>
 				<Divider />
