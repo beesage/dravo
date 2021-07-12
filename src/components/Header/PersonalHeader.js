@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import NavBar from "./styles/StylesNavBar";
@@ -21,11 +21,7 @@ export default function PersonalHeader() {
 	useEffect(() => {
 		if (location.pathname == "/settings/personal-info") {
 			setBackToSettings(true);
-		} else if (
-			location.pathname == "/settings/personal-info/username" ||
-			location.pathname == "/settings/personal-info/email" ||
-			location.pathname == "/settings/personal-info/password"
-		) {
+		} else {
 			setBackToSettings(false);
 			setIsSettings(false);
 		}

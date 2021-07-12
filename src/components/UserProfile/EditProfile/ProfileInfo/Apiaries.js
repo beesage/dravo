@@ -23,13 +23,12 @@ export default function Apiaries({ user, setUser }) {
 		setEdited({
 			...user[0],
 			apiaries: +e.target.value,
-			id: user[0].beekeeper_id,
 		});
 	};
 
 	const handleClick = () => {
 		const editedArray = user.map((updated) => {
-			if (updated.beekeeper_id === edited.id) {
+			if (updated.beekeeper_id === edited.beekeeper_id) {
 				return edited;
 			} else {
 				return updated;

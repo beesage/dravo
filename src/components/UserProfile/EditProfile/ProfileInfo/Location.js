@@ -24,16 +24,15 @@ export default function Location({ user, setUser }) {
 		setEdited({
 			...user[0],
 			[e.target.name]: e.target.value,
-			id: user[0].beekeeper_id,
 		});
 	};
 
 	const handleClick = () => {
 		const editedArray = user.map((updated) => {
-			if (updated.beekeeper_id === edited.id) {
+			if (updated.beekeeper_id === edited.beekeeper_id) {
 				return edited;
 			} else {
-				return updated, user[0];
+				return updated;
 			}
 		});
 		setUser(editedArray);

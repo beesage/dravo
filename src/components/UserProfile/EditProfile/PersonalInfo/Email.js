@@ -20,12 +20,12 @@ export default function Email({ user, setUser }) {
 	});
 
 	const handleChange = (e) => {
-		setEdited({ ...user[0], email: e.target.value, id: user[0].beekeeper_id });
+		setEdited({ ...user[0], email: e.target.value });
 	};
 
 	const handleClick = () => {
 		const editedArray = user.map((updated) => {
-			if (updated.beekeeper_id === edited.id) {
+			if (updated.beekeeper_id === edited.beekeeper_id) {
 				return edited;
 			} else {
 				return updated;

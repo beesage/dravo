@@ -30,7 +30,7 @@ export default function Password({ user, setUser }) {
 
 	const handleEdited = () => {
 		const editedArray = user.map((updated) => {
-			if (updated.beekeeper_id === fields.id) {
+			if (updated.beekeeper_id === fields.beekeeper_id) {
 				return fields;
 			} else {
 				return editedArray;

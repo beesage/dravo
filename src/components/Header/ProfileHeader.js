@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import NavBar from "./styles/StylesNavBar";
@@ -24,18 +24,11 @@ export default function PersonalHeader() {
 			backToSettings == false
 		) {
 			setBackToSettings(true);
-		} else if (
-			location.pathname == "/settings/profile-info/profile-pic" ||
-			location.pathname == "/settings/profile-info/location" ||
-			location.pathname == "/settings/profile-info/bio" ||
-			location.pathname == "/settings/profile-info/experience" ||
-			location.pathname == "/settings/profile-info/apiaries" ||
-			location.pathname == "/settings/profile-info/beehives"
-		) {
+		} else {
 			setBackToSettings(false);
 			setIsSettings(false);
 		}
-	});
+	}, [location.pathname]);
 
 	return (
 		<>
