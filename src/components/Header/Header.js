@@ -22,11 +22,11 @@ export default function Header() {
 	} = handleHeader();
 
 	/**
-	 * Display the header component according to the location of the app
+	 * Display the header component according to the location of the app.
 	 * <p>
 	 * useLocation is a React Hook that returns the location object that represents the current URL.
 	 * <p>
-	 * When used inside useEffect, it is possible to conditionally check whether the key "pathname" corresponds to a certain location. If the app is on the url whose endpoint correspond to "/profile", setIsUserProfile state changes to true; if it correponds to "/" or "/signup", setIsUserProfile and setIsLoginPage states both change to false; if it corresponds to "/leaderboard", setIsUserProfile changes again to false.
+	 * When used inside useEffect, it is possible to conditionally check whether the key "pathname" corresponds to a certain location. If the app is on the URL whose pathname correspond to "/profile", setIsUserProfile state changes to true, while setIsEditProfile state changes to false; if it correponds to "/" or "/signup", setIsUserProfile state change to false, and setIsLoginPage state changes to false; if it corresponds to "/leaderboard", setIsUserProfile changes again to false; if it corresponds to "/settings" both setIsUserProfile and setIsLoginPage change to false.
 	 *
 	 * @author Alessandra Pettinato
 	 */

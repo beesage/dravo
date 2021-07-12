@@ -16,13 +16,20 @@ export default function PersonalHeader() {
 		setIsSettings,
 	} = handleHeader();
 
+	/**
+	 * Display the ProfileHeader component according to the location of the app.
+	 * <p>
+	 * useLocation is a React Hook that returns the location object that represents the current URL.
+	 * <p>
+	 * When used inside useEffect, it is possible to conditionally check whether the key "pathname" corresponds to a certain location. If the app is on the URL whose pathname correspond to "/settings/profile-info", setBackToSettings states changes to true, else setBackToSettings remains false and so is setIsSettings.
+	 *
+	 * @author Alessandra Pettinato
+	 */
+
 	let location = useLocation();
 
 	useEffect(() => {
-		if (
-			location.pathname == "/settings/profile-info" &&
-			backToSettings == false
-		) {
+		if (location.pathname == "/settings/profile-info") {
 			setBackToSettings(true);
 		} else {
 			setBackToSettings(false);
