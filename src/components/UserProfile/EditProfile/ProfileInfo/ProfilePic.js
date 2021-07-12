@@ -1,45 +1,13 @@
-import React, { useState } from "react";
-import $ from "jquery";
+import React from "react";
+
+import UpdateInfo from "../Functions/UpdateInfo";
 
 import Button from "../../../UserForm/controls/Submit";
 
 import "../styles/EditProfile.css";
 
 export default function ProfilePic() {
-	const [update, setUpdate] = useState(false);
-
-	const handlePicture = (e) => {
-		let pic = e.target.files[0];
-		let src = URL.createObjectURL(pic);
-		setUpdate({
-			pic,
-			src,
-		});
-	};
-
-	const preview = () => {
-		if (update.src) {
-			return <img src={update.src} />;
-		}
-	};
-
-	// const upload = () => {
-	// 	var formData = new FormData();
-
-	// 	formData.append("file", update.src);
-
-	// 	$.ajax({
-	// 		url: "/202.61.225.240:3000/beewhoyouwant/user",
-	// 		method: "POST",
-	// 		data: formData,
-	// 		cache: false,
-	// 		contentType: false,
-	// 		processData: false,
-	// 		success: function (response) {
-	// 			// Code to handle a succesful upload
-	// 		},
-	// 	});
-	// };
+	const { handlePicture, preview } = UpdateInfo();
 
 	return (
 		<div className="picture-container">

@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
+
+import APIContext from "../../../../Context/APIContext";
 
 import LoadingPage from "../../../Spinner/LoadingPage";
 
@@ -10,10 +12,10 @@ import InputPassword from "../../../UserForm/controls/InputPassword";
 
 import "../styles/EditProfile.css";
 
-export default function Password({ user, setUser }) {
+export default function Password() {
 	const classes = useStyles();
 
-	const [isEditMode] = useState(false);
+	const { user, setUser } = useContext(APIContext);
 
 	const [fields, setFields] = useState({
 		oldPassword: "",
@@ -46,47 +48,43 @@ export default function Password({ user, setUser }) {
 		<>
 			{user.length > 0 ? (
 				<>
-					{!isEditMode ? (
-						<div className="u-edit-container">
-							<Container
-								component="main"
-								maxWidth={false}
-								className={classes.container}
-							>
-								<form className={classes.root}>
-									<p className="edit-caption">Old password</p>
-									<InputField
-										id="formOldPassword"
-										name="oldPassword"
-										value={fields.oldPassword}
-										onChange={handleChange}
-									/>
-									<p className="edit-caption">New password</p>
-									<InputPassword
-										id="formNewPassword"
-										name="password"
-										value={fields.password}
-										onChange={handleChange}
-									/>
-									<p className="edit-caption">Confirm new password</p>
-									<InputPassword
-										id="formConfirmPassword"
-										name="confirmPassword"
-										value={fields.confirmPassword}
-										onChange={handleChange}
-									/>
-									<Button
-										value="Update"
-										text="Update"
-										style={{ fontSize: "1em" }}
-										onClick={handleClick}
-									/>
-								</form>
-							</Container>
-						</div>
-					) : (
-						""
-					)}
+					<div className="u-edit-container">
+						<Container
+							component="main"
+							maxWidth={false}
+							className={classes.container}
+						>
+							<form className={classes.root}>
+								<p className="edit-caption">Old password</p>
+								<InputField
+									id="formOldPassword"
+									name="oldPassword"
+									value={fields.oldPassword}
+									onChange={handleChange}
+								/>
+								<p className="edit-caption">New password</p>
+								<InputPassword
+									id="formNewPassword"
+									name="password"
+									value={fields.password}
+									onChange={handleChange}
+								/>
+								<p className="edit-caption">Confirm new password</p>
+								<InputPassword
+									id="formConfirmPassword"
+									name="confirmPassword"
+									value={fields.confirmPassword}
+									onChange={handleChange}
+								/>
+								<Button
+									value="Update"
+									text="Update"
+									style={{ fontSize: "1em" }}
+									onClick={handleClick}
+								/>
+							</form>
+						</Container>
+					</div>
 				</>
 			) : (
 				<LoadingPage />

@@ -22,6 +22,7 @@ import Bio from "./components/UserProfile/EditProfile/ProfileInfo/Bio";
 import Experience from "./components/UserProfile/EditProfile/ProfileInfo/Experience";
 import Apiaries from "./components/UserProfile/EditProfile/ProfileInfo/Apiaries";
 import Beehives from "./components/UserProfile/EditProfile/ProfileInfo/Beehives";
+import APIContext from "./Context/APIContext";
 
 export default function App() {
 	const [user, setUser] = useState([]);
@@ -56,78 +57,76 @@ export default function App() {
 
 	return (
 		<div className="container">
-			{!loading ? (
-				<Router>
-					<Header />
-					<Switch>
-						<Route exact path="/" component={LogIn} />
-						<Route path="/signup" component={SignUp} />
-						<Route
-							path="/leaderboard"
-							render={(props) => <Leaderboard user={user} />}
-						/>
-						<Route path="/profile" render={() => <UserProfile user={user} />} />
-						<Route exact path="/settings" component={EditProfile} />
-						<Route
-							exact
-							path="/settings/personal-info"
-							render={() => <PersonalInformation user={user} />}
-						/>
-						<Route
-							exact
-							path="/settings/personal-info/username"
-							render={() => <Username user={user} setUser={setUser} />}
-						/>
-						<Route
-							exact
-							path="/settings/personal-info/email"
-							render={() => <Email user={user} setUser={setUser} />}
-						/>
-						<Route
-							exact
-							path="/settings/personal-info/password"
-							render={() => <Password user={user} setUser={setUser} />}
-						/>
-						<Route
-							exact
-							path="/settings/profile-info"
-							render={() => <ProfileInformation user={user} />}
-						/>
-						<Route
-							exact
-							path="/settings/profile-info/profile-pic"
-							render={() => <ProfilePic user={user} setUser={setUser} />}
-						/>
-						<Route
-							exact
-							path="/settings/profile-info/location"
-							render={() => <Location user={user} setUser={setUser} />}
-						/>
-						<Route
-							exact
-							path="/settings/profile-info/bio"
-							render={() => <Bio user={user} setUser={setUser} />}
-						/>
-						<Route
-							exact
-							path="/settings/profile-info/experience"
-							render={() => <Experience user={user} setUser={setUser} />}
-						/>
-						<Route
-							exact
-							path="/settings/profile-info/apiaries"
-							render={() => <Apiaries user={user} setUser={setUser} />}
-						/>
-						<Route
-							exact
-							path="/settings/profile-info/beehives"
-							render={() => <Beehives user={user} setUser={setUser} />}
-						/>
-					</Switch>
-				</Router>
-			) : (
-				<LoadingPage />
-			)}
+			<APIContext.Provider value={{ user: user, setUser: setUser }}>
+				{!loading ? (
+					<Router>
+						<Header />
+						<Switch>
+							<Route exact path="/" component={LogIn} />
+							<Route path="/signup" component={SignUp} />
+							<Route
+								path="/leaderboard"
+								render={(props) => <Leaderboard user={user} />}
+							/>
+							<Route path="/profile" component={UserProfile} />
+							<Route exact path="/settings" component={EditProfile} />
+							<Route
+								exact
+								path="/settings/personal-info"
+								component={PersonalInformation}
+							/>
+							<Route
+								exact
+								path="/settings/personal-info/username"
+								component={Username}
+							/>
+							<Route
+								exact
+								path="/settings/personal-info/email"
+								component={Email}
+							/>
+							<Route
+								exact
+								path="/settings/personal-info/password"
+								component={Password}
+							/>
+							<Route
+								exact
+								path="/settings/profile-info"
+								component={ProfileInformation}
+							/>
+							<Route
+								exact
+								path="/settings/profile-info/profile-pic"
+								component={ProfilePic}
+							/>
+							<Route
+								exact
+								path="/settings/profile-info/location"
+								component={Location}
+							/>
+							<Route exact path="/settings/profile-info/bio" component={Bio} />
+							<Route
+								exact
+								path="/settings/profile-info/experience"
+								component={Experience}
+							/>
+							<Route
+								exact
+								path="/settings/profile-info/apiaries"
+								component={Apiaries}
+							/>
+							<Route
+								exact
+								path="/settings/profile-info/beehives"
+								component={Beehives}
+							/>
+						</Switch>
+					</Router>
+				) : (
+					<LoadingPage />
+				)}
+			</APIContext.Provider>
 		</div>
 	);
 }
