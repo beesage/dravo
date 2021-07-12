@@ -7,8 +7,14 @@ import ArrowBackIosOutlinedIcon from "@material-ui/icons/ArrowBackIosOutlined";
 
 import handleHeader from "./Functions/HandleHeader";
 
-export default function PersonalHeader({ isSettings, setIsSettings }) {
-	const [backToSettings, setBackToSettings] = useState(false);
+export default function PersonalHeader() {
+	const {
+		backToSettings,
+		setBackToSettings,
+		handleBackTo,
+		handleIsSettings,
+		setIsSettings,
+	} = handleHeader();
 
 	let location = useLocation();
 
@@ -27,34 +33,27 @@ export default function PersonalHeader({ isSettings, setIsSettings }) {
 			location.pathname == "/settings/profile-info/beehives"
 		) {
 			setBackToSettings(false);
+			setIsSettings(false);
 		}
 	});
-
-	console.log(handleHeader);
 
 	return (
 		<>
 			<NavBar position="static" className="tablet-navbar">
 				<Tool style={{ gap: "0.5rem" }}>
-					{!backToSettings ? (
+					{backToSettings ? (
 						<>
-							<Link
-								to="/settings/profile-info"
-								onClick={() => handleHeader(setBackToSettings(false))}
-							>
+							<Link to="/settings" onClick={handleBackTo}>
 								<ArrowBackIosOutlinedIcon className="back-to" />
 							</Link>
-							<p className="menu-item">Profile Info</p>
+							<p className="menu-item">Profile Information</p>
 						</>
 					) : (
 						<>
-							<Link
-								to="/settings"
-								onClick={() => handleHeader(setIsSettings(!isSettings))}
-							>
+							<Link to="/settings/profile-info" onClick={handleIsSettings}>
 								<ArrowBackIosOutlinedIcon className="back-to" />
 							</Link>
-							<p className="menu-item">Profile Info</p>
+							<p className="menu-item">Profile Information</p>
 						</>
 					)}
 				</Tool>

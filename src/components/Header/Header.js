@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
 import "./styles/Header.css";
@@ -11,10 +11,15 @@ import handleHeader from "./Functions/HandleHeader";
 import SettingsHeader from "./SettingsHeader";
 
 export default function Header() {
-	const [isUserProfile, setIsUserProfile] = useState(false);
-	const [isLoginPage, setIsLoginPage] = useState(true);
-
-	const [isEditProfile, setIsEditProfile] = useState(false);
+	const {
+		isUserProfile,
+		setIsUserProfile,
+		isLoginPage,
+		setIsLoginPage,
+		isEditProfile,
+		setIsEditProfile,
+		handleEditProfile,
+	} = handleHeader();
 
 	/**
 	 * Display the header component according to the location of the app
@@ -31,18 +36,20 @@ export default function Header() {
 	useEffect(() => {
 		if (location.pathname == "/profile") {
 			setIsUserProfile(true);
+			setIsEditProfile(false);
 		} else if (location.pathname == "/" || location.pathname == "/signup") {
 			setIsUserProfile(false);
-			setIsLoginPage(false);
+			setIsLoginPage(true);
 		} else if (location.pathname == "/leaderboard") {
 			setIsUserProfile(false);
 		} else if (location.pathname == "/settings") {
 			setIsUserProfile(false);
+			setIsLoginPage(false);
 		}
 	}, [location.pathname]);
 
 	return (
-		<div className={!isLoginPage ? "hidden" : "header-container"}>
+		<div className={isLoginPage ? "hidden" : "header-container"}>
 			{!isEditProfile ? (
 				<NavBar position="static" className="tablet-navbar">
 					<Tool>
@@ -56,7 +63,7 @@ export default function Header() {
 							<NavLink
 								to="/settings"
 								style={{ position: "absolute", right: "0.8rem" }}
-								onClick={() => handleHeader(setIsEditProfile(!isEditProfile))}
+								onClick={handleEditProfile}
 							>
 								<MdSettings className={isUserProfile ? "setting" : "hidden"} />
 							</NavLink>
@@ -70,10 +77,7 @@ export default function Header() {
 					</Tool>
 				</NavBar>
 			) : (
-				<SettingsHeader
-					isEditProfile={isEditProfile}
-					setIsEditProfile={setIsEditProfile}
-				/>
+				<SettingsHeader />
 			)}
 		</div>
 	);

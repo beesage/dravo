@@ -7,16 +7,19 @@ import ArrowBackIosOutlinedIcon from "@material-ui/icons/ArrowBackIosOutlined";
 
 import handleHeader from "./Functions/HandleHeader";
 
-export default function PersonalHeader({ isSettings, setIsSettings }) {
-	const [backToSettings, setBackToSettings] = useState(false);
+export default function PersonalHeader() {
+	const {
+		backToSettings,
+		setBackToSettings,
+		handleBackTo,
+		handleIsSettings,
+		setIsSettings,
+	} = handleHeader();
 
 	let location = useLocation();
 
 	useEffect(() => {
-		if (
-			location.pathname == "/settings/personal-info" &&
-			backToSettings == false
-		) {
+		if (location.pathname == "/settings/personal-info") {
 			setBackToSettings(true);
 		} else if (
 			location.pathname == "/settings/personal-info/username" ||
@@ -24,6 +27,7 @@ export default function PersonalHeader({ isSettings, setIsSettings }) {
 			location.pathname == "/settings/personal-info/password"
 		) {
 			setBackToSettings(false);
+			setIsSettings(false);
 		}
 	});
 
@@ -31,25 +35,19 @@ export default function PersonalHeader({ isSettings, setIsSettings }) {
 		<>
 			<NavBar position="static" className="tablet-navbar">
 				<Tool style={{ gap: "0.5rem" }}>
-					{!backToSettings ? (
+					{backToSettings ? (
 						<>
-							<Link
-								to="/settings/personal-info"
-								onClick={() => handleHeader(setBackToSettings(false))}
-							>
+							<Link to="/settings" onClick={handleBackTo}>
 								<ArrowBackIosOutlinedIcon className="back-to" />
 							</Link>
-							<p className="menu-item">Personal Info</p>
+							<p className="menu-item">Personal Information</p>
 						</>
 					) : (
 						<>
-							<Link
-								to="/settings"
-								onClick={() => handleHeader(setIsSettings(!isSettings))}
-							>
+							<Link to="/settings/personal-info" onClick={handleIsSettings}>
 								<ArrowBackIosOutlinedIcon className="back-to" />
 							</Link>
-							<p className="menu-item">Personal Info</p>
+							<p className="menu-item">Personal Information</p>
 						</>
 					)}
 				</Tool>

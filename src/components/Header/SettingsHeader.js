@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import NavBar from "./styles/StylesNavBar";
@@ -11,12 +11,18 @@ import "./styles/Header.css";
 
 import handleHeader from "./Functions/HandleHeader";
 
-export default function SettingsHeader({ isEditProfile, setIsEditProfile }) {
-	const [isSettings, setIsSettings] = useState(false);
-
-	const [isPersonalInfo, setIsPersonalInfo] = useState(false);
-
-	const [isProfileInfo, setIsProfileInfo] = useState(false);
+export default function SettingsHeader() {
+	const {
+		isSettings,
+		setIsSettings,
+		isEditProfile,
+		handleEditProfile,
+		isPersonalInfo,
+		isProfileInfo,
+		setIsProfileInfo,
+		setIsPersonalInfo,
+		setBackToSettings,
+	} = handleHeader();
 
 	let location = useLocation();
 
@@ -29,20 +35,20 @@ export default function SettingsHeader({ isEditProfile, setIsEditProfile }) {
 			setIsSettings(true);
 			setIsPersonalInfo(false);
 			setIsProfileInfo(true);
+		} else if (location.pathname == "/settings") {
+			setBackToSettings(false);
+			setIsSettings(false);
 		}
 	}, [location.pathname]);
 
 	return (
 		<>
-			{isEditProfile ? (
+			{!isEditProfile ? (
 				<NavBar position="static" className="tablet-navbar">
 					<Tool style={{ gap: "0.5rem" }}>
 						{!isSettings ? (
 							<>
-								<Link
-									to="/profile"
-									onClick={() => handleHeader(setIsEditProfile(!isEditProfile))}
-								>
+								<Link to="/profile" onClick={handleEditProfile}>
 									<ArrowBackIosOutlinedIcon className="back-to" />
 								</Link>
 								<p className="menu-item">Account</p>
@@ -50,15 +56,9 @@ export default function SettingsHeader({ isEditProfile, setIsEditProfile }) {
 						) : (
 							<>
 								{isPersonalInfo && !isProfileInfo ? (
-									<PersonalHeader
-										isSettings={isSettings}
-										setIsSettings={setIsSettings}
-									/>
+									<PersonalHeader />
 								) : (
-									<ProfileHeader
-										isSettings={isSettings}
-										setIsSettings={setIsSettings}
-									/>
+									<ProfileHeader />
 								)}
 							</>
 						)}

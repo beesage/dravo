@@ -15,14 +15,16 @@ export default function Location({ user, setUser }) {
 	const [isEditMode] = useState(false);
 
 	const [edited, setEdited] = useState({
-		city: "",
-		country: "",
+		city: user[0].city,
+		country: user[0].country,
 		id: user[0].beekeeper_id,
 	});
 
 	const handleChange = (e) => {
-		setEdited((prevState) => {
-			return { ...prevState, [e.target.name]: e.target.value };
+		setEdited({
+			...user[0],
+			[e.target.name]: e.target.value,
+			id: user[0].beekeeper_id,
 		});
 	};
 
