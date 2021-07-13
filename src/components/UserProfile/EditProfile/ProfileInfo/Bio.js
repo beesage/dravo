@@ -8,10 +8,12 @@ import TextBio from "../styles/TextBio";
 import Button from "../../../UserForm/controls/Submit";
 
 import "../styles/EditProfile.css";
+import UpdateInfo from "../Functions/UpdateInfo";
 
 export default function Bio() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
+	const { edited, handleChange, updateBio } = UpdateInfo();
 
 	return (
 		<>
@@ -26,6 +28,8 @@ export default function Bio() {
 							<form className={classes.root}>
 								<p className="edit-caption">Bio</p>
 								<TextBio
+									value={edited.bio}
+									onChange={handleChange}
 									name="bio"
 									type="text"
 									id="formBio"
@@ -34,6 +38,7 @@ export default function Bio() {
 								<Button
 									value="Update"
 									text="Update"
+									onClick={updateBio}
 									style={{ fontSize: "1em" }}
 								/>
 							</form>

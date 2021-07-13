@@ -111,6 +111,16 @@ export default function UpdateInfo() {
 			});
 	};
 
+	const updateBio = () => {
+		axios
+			.put("http://localhost:3000/update/1", {
+				bio: edited.bio,
+			})
+			.then((res) => {
+				console.log(res);
+			});
+	};
+
 	const [updatePic, setUpdatePic] = useState(false);
 
 	const handlePicture = (e) => {
@@ -198,5 +208,6 @@ export default function UpdateInfo() {
 		updateBeehives,
 		updateExperience,
 		updateProfilePic,
+		updateBio,
 	};
 }
