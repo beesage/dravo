@@ -8,38 +8,38 @@ import lbcrown from "../../assets/crown.png";
 import "./leaderboard.css";
 
 function Leaderboard({ user, loading }) {
-  const [wd, setWd] = useState([]);
-  const [wdWeek, setWdWeek] = useState([]);
-  const [wdMonth, setWdMonth] = useState([]);
-  const [wdAll, setWdAll] = useState([]);
-  const [days, setDays] = useState(30);
+  // const [wd, setWd] = useState([]);
+  // const [wdWeek, setWdWeek] = useState([]);
+  // const [wdMonth, setWdMonth] = useState([]);
+  // const [wdAll, setWdAll] = useState([]);
+  // const [days, setDays] = useState(30);
 
   // let state = setWd(fetch.data);
 
-  useEffect(() => {
-    /**
-     * Fetch data via Axios from the API URL and store the fetched user array in the user state
-     * <p>
-     * The userAPI function is declared inside an useEffect Hook with an empty array
-     * as a second argument, which prevents re-rendering. The setLoading function, with
-     * an initial state of "false", changes to "true" after waiting for the asynchronous
-     * task of fetching the userAPI to finish. This is regulated through an async / await
-     * operation to fetch data from the stated API through a GET request with Axios. Once the
-     * asynchronous task is successfully returned, the data are stored in setUsed,
-     * and setLoading is set to "false".
-     *
-     * @author Lukas Kreibig
-     */
+  // useEffect(() => {
+  //   /**
+  //    * Fetch data via Axios from the API URL and store the fetched user array in the user state
+  //    * <p>
+  //    * The userAPI function is declared inside an useEffect Hook with an empty array
+  //    * as a second argument, which prevents re-rendering. The setLoading function, with
+  //    * an initial state of "false", changes to "true" after waiting for the asynchronous
+  //    * task of fetching the userAPI to finish. This is regulated through an async / await
+  //    * operation to fetch data from the stated API through a GET request with Axios. Once the
+  //    * asynchronous task is successfully returned, the data are stored in setUsed,
+  //    * and setLoading is set to "false".
+  //    *
+  //    * @author Lukas Kreibig
+  //    */
 
-    const weightDeltaApi = async (days) => {
-      // setLoading(true);
-      const fetch = await axios.get(`http://202.61.225.240:3000/lb/${days}`);
-      setWd(fetch.data);
-      // setLoading(false);
-    };
-    weightDeltaApi();
-  }, []);
-  console.log(wd);
+  //   const weightDeltaApi = async (days) => {
+  //     // setLoading(true);
+  //     const fetch = await axios.get(`http://202.61.225.240:3000/lb/${days}`);
+  //     setWd(fetch.data);
+  //     // setLoading(false);
+  //   };
+  //   weightDeltaApi();
+  // }, []);
+  // console.log(wd);
 
   const left = {
     divprop: "lb-top-left",
