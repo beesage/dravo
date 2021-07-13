@@ -7,11 +7,11 @@ import Button from "../../../UserForm/controls/Submit";
 import "../styles/EditProfile.css";
 
 export default function ProfilePic() {
-	const { handlePicture, preview } = UpdateInfo();
+	const { handlePicture, preview, updateProfilePic } = UpdateInfo();
 
 	return (
 		<div className="picture-container">
-			<p className="edit-caption">Upload your picture</p>
+			<p className="edit-caption">updateProfile</p>
 			<input
 				type="file"
 				text="Submit"
@@ -19,7 +19,7 @@ export default function ProfilePic() {
 				className="submit-pic"
 			/>
 			<div className="preview">{preview()}</div>
-			<Button text="Upload"></Button>
+			<Button onClick={updateProfilePic} text="Upload"></Button>
 		</div>
 	);
 }

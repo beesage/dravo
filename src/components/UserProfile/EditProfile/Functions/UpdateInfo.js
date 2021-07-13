@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import APIContext from "../../../../Context/APIContext";
 import axios from "axios";
+import $ from "jquery";
 
 export default function UpdateInfo() {
 	const { user, setUser } = useContext(APIContext);
@@ -93,7 +94,7 @@ export default function UpdateInfo() {
 	const updateBeehives = () => {
 		axios
 			.put("http://localhost:3000/update/1", {
-				beehives: edited.beehives,
+				behives: edited.beehives,
 			})
 			.then((res) => {
 				console.log(res);
@@ -109,18 +110,6 @@ export default function UpdateInfo() {
 				console.log(res);
 			});
 	};
-
-	// const updateCountryRegion = () => {
-	// 	const newLocationArray = user.map((updated) => {
-	// 		if (updated.country === edited.country) {
-	// 			return edited;
-	// 		} else {
-	// 			console.log(updated);
-	// 			return updated;
-	// 		}
-	// 	});
-	// 	setUser(newLocationArray);
-	// };
 
 	const [updatePic, setUpdatePic] = useState(false);
 
@@ -139,13 +128,37 @@ export default function UpdateInfo() {
 		}
 	};
 
+	const updateProfilePic = () => {
+		var formData = new FormData();
+		formData.append("file", updatePic.src);
+		axios
+			.out("http://localhost:3000/update/1", {
+				profile_pic: updatePic,
+			})
+			.then((res) => {
+				console.log(res);
+			});
+	};
+
+	// const updateCountryRegion = () => {
+	// 	const newLocationArray = user.map((updated) => {
+	// 		if (updated.country === edited.country) {
+	// 			return edited;
+	// 		} else {
+	// 			console.log(updated);
+	// 			return updated;
+	// 		}
+	// 	});
+	// 	setUser(newLocationArray);
+	// };
+
 	// const upload = () => {
 	// 	var formData = new FormData();
 
-	// 	formData.append("file", update.src);
+	// 	formData.append("file", updatePic.src);
 
 	// 	$.ajax({
-	// 		url: "/202.61.225.240:3000/beewhoyouwant/user",
+	// 		url: "/http://localhost:3000/update/1",
 	// 		method: "POST",
 	// 		data: formData,
 	// 		cache: false,
@@ -184,5 +197,6 @@ export default function UpdateInfo() {
 		updateApiaries,
 		updateBeehives,
 		updateExperience,
+		updateProfilePic,
 	};
 }
