@@ -12,61 +12,61 @@ import "./styles/Header.css";
 import handleHeader from "./Functions/HandleHeader";
 
 export default function SettingsHeader({ isEditProfile, setIsEditProfile }) {
-	const [isSettings, setIsSettings] = useState(false);
+  const [isSettings, setIsSettings] = useState(false);
 
-	const [isPersonalInfo, setIsPersonalInfo] = useState(false);
+  const [isPersonalInfo, setIsPersonalInfo] = useState(false);
 
-	const [isProfileInfo, setIsProfileInfo] = useState(false);
+  const [isProfileInfo, setIsProfileInfo] = useState(false);
 
-	let location = useLocation();
+  let location = useLocation();
 
-	useEffect(() => {
-		if (location.pathname == "/settings/personal-info") {
-			setIsSettings(true);
-			setIsPersonalInfo(true);
-			setIsProfileInfo(false);
-		} else if (location.pathname == "/settings/profile-info") {
-			setIsSettings(true);
-			setIsPersonalInfo(false);
-			setIsProfileInfo(true);
-		}
-	}, [location.pathname]);
+  useEffect(() => {
+    if (location.pathname == "/settings/personal-info") {
+      setIsSettings(true);
+      setIsPersonalInfo(true);
+      setIsProfileInfo(false);
+    } else if (location.pathname == "/settings/profile-info") {
+      setIsSettings(true);
+      setIsPersonalInfo(false);
+      setIsProfileInfo(true);
+    }
+  }, [location.pathname]);
 
-	return (
-		<>
-			{isEditProfile ? (
-				<NavBar position="static" className="tablet-navbar">
-					<Tool style={{ gap: "0.5rem" }}>
-						{!isSettings ? (
-							<>
-								<Link
-									to="/profile"
-									onClick={() => handleHeader(setIsEditProfile(!isEditProfile))}
-								>
-									<ArrowBackIosOutlinedIcon className="back-to" />
-								</Link>
-								<p className="menu-item">Account</p>
-							</>
-						) : (
-							<>
-								{isPersonalInfo && !isProfileInfo ? (
-									<PersonalHeader
-										isSettings={isSettings}
-										setIsSettings={setIsSettings}
-									/>
-								) : (
-									<ProfileHeader
-										isSettings={isSettings}
-										setIsSettings={setIsSettings}
-									/>
-								)}
-							</>
-						)}
-					</Tool>
-				</NavBar>
-			) : (
-				""
-			)}
-		</>
-	);
+  return (
+    <>
+      {isEditProfile ? (
+        <NavBar position="static" className="tablet-navbar">
+          <Tool style={{ gap: "0.5rem" }}>
+            {!isSettings ? (
+              <>
+                <Link
+                  to="/profile"
+                  onClick={() => handleHeader(setIsEditProfile(!isEditProfile))}
+                >
+                  <ArrowBackIosOutlinedIcon className="back-to" />
+                </Link>
+                <p className="menu-item">Account</p>
+              </>
+            ) : (
+              <>
+                {isPersonalInfo && !isProfileInfo ? (
+                  <PersonalHeader
+                    isSettings={isSettings}
+                    setIsSettings={setIsSettings}
+                  />
+                ) : (
+                  <ProfileHeader
+                    isSettings={isSettings}
+                    setIsSettings={setIsSettings}
+                  />
+                )}
+              </>
+            )}
+          </Tool>
+        </NavBar>
+      ) : (
+        ""
+      )}
+    </>
+  );
 }
