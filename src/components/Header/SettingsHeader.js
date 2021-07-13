@@ -18,9 +18,9 @@ export default function SettingsHeader() {
 		isEditProfile,
 		handleEditProfile,
 		isPersonalInfo,
+		setIsPersonalInfo,
 		isProfileInfo,
 		setIsProfileInfo,
-		setIsPersonalInfo,
 		setBackToSettings,
 	} = handleHeader();
 

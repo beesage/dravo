@@ -15,7 +15,7 @@ import "../styles/EditProfile.css";
 export default function Beehives() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { beehives, handleChangeParse, handleClick } = UpdateInfo();
+	const { edited, handleChangeParse, handleClick } = UpdateInfo();
 
 	return (
 		<>
@@ -34,7 +34,7 @@ export default function Beehives() {
 									type="number"
 									id="formBeehives"
 									onChange={handleChangeParse}
-									value={beehives}
+									value={edited.beehives}
 								/>
 								<Button
 									value="Update"

@@ -15,7 +15,7 @@ import "../styles/EditProfile.css";
 export default function Username() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { username, handleChange, handleClick } = UpdateInfo();
+	const { edited, handleChange, handleClick } = UpdateInfo();
 
 	return (
 		<>
@@ -33,7 +33,7 @@ export default function Username() {
 								type="text"
 								id="formUsername"
 								onChange={handleChange}
-								value={username}
+								value={edited.username}
 							/>
 							<Button
 								value="Update"

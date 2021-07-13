@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from "axios";
 
+import APIContext from "./Context/APIContext";
+
 import "./styles.css";
 
 import Header from "./components/Header/Header";
@@ -22,7 +24,6 @@ import Bio from "./components/UserProfile/EditProfile/ProfileInfo/Bio";
 import Experience from "./components/UserProfile/EditProfile/ProfileInfo/Experience";
 import Apiaries from "./components/UserProfile/EditProfile/ProfileInfo/Apiaries";
 import Beehives from "./components/UserProfile/EditProfile/ProfileInfo/Beehives";
-import APIContext from "./Context/APIContext";
 
 export default function App() {
 	const [user, setUser] = useState([]);

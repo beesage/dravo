@@ -15,7 +15,7 @@ import "../styles/EditProfile.css";
 export default function Email() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { email, handleChange, handleClick } = UpdateInfo();
+	const { edited, handleChange, handleClick } = UpdateInfo();
 
 	return (
 		<>
@@ -34,7 +34,7 @@ export default function Email() {
 									type="text"
 									id="formEmail"
 									onChange={handleChange}
-									value={email}
+									value={edited.email}
 								/>
 								<Button
 									value="Update"

@@ -27,7 +27,7 @@ export default function UserProfile() {
 								<Pic alt="" src={user[0].profile_picture} />
 							</div>
 							<p className="username">{user[0].username}</p>
-							<p className="user-location">{user[0].city}</p>
+							<p className="user-location">{user[0].region}</p>
 						</div>
 					</div>
 					<div

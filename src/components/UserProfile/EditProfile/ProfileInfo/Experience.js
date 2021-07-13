@@ -15,7 +15,7 @@ import "../styles/EditProfile.css";
 export default function Experience() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { experience, handleChangeParse, handleClick } = UpdateInfo();
+	const { edited, handleChangeParse, handleClick } = UpdateInfo();
 
 	return (
 		<>
@@ -34,7 +34,7 @@ export default function Experience() {
 									type="number"
 									id="formExperience"
 									onChange={handleChangeParse}
-									value={experience}
+									value={edited.experience}
 								/>
 								<Button
 									value="Update"

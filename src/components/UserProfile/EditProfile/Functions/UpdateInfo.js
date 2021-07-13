@@ -1,19 +1,19 @@
 import React, { useState, useContext } from "react";
 import APIContext from "../../../../Context/APIContext";
 
-import $ from "jquery";
-
 export default function UpdateInfo() {
 	const { user, setUser } = useContext(APIContext);
 	const [edited, setEdited] = useState({
 		username: user[0].username,
 		email: user[0].email,
-		city: user[0].city,
-		country: user[0].country,
 		apiaries: user[0].apiaries,
 		beehives: user[0].beehives,
 		experience: user[0].experience,
+		password: user[0].password,
 		id: user[0].beekeeper_id,
+		country: "",
+		region: "",
+		bio: "",
 	});
 
 	const handleChange = (e) => {
@@ -24,7 +24,10 @@ export default function UpdateInfo() {
 	};
 
 	const handleChangeParse = (e) => {
-		setEdited({ ...user[0], [e.target.name]: +e.target.value });
+		setEdited({
+			...user[0],
+			[e.target.name]: +e.target.value,
+		});
 	};
 
 	const handleClick = () => {
@@ -37,6 +40,37 @@ export default function UpdateInfo() {
 		});
 		setUser(editedArray);
 	};
+
+	// const [newCountry, setNewCountry] = useState({
+	// 	country: user[0].country,
+	// 	id: user[0].beekeeper_id,
+	// });
+
+	const selectCountry = (val) => {
+		setEdited({
+			country: val,
+		});
+	};
+
+	// const [newRegion, setNewRegion] = useState({
+	// 	region: user[0].region,
+	// });
+
+	const selectRegion = (val) => {
+		setEdited({ region: val });
+	};
+
+	// const updateCountryRegion = () => {
+	// 	const newLocationArray = user.map((updated) => {
+	// 		if (updated.country === edited.country) {
+	// 			return edited;
+	// 		} else {
+	// 			console.log(updated);
+	// 			return updated;
+	// 		}
+	// 	});
+	// 	setUser(newLocationArray);
+	// };
 
 	const [updatePic, setUpdatePic] = useState(false);
 
@@ -73,6 +107,16 @@ export default function UpdateInfo() {
 	// 	});
 	// };
 
+	// const [country, setCountry] = useState({
+	// 	country: "",
+	// 	id: user[0].beekeeper_id,
+	// });
+
+	// const [region, setRegion] = useState({
+	// 	region: "",
+	// 	id: user[0].beekeeper_id,
+	// });
+
 	return {
 		edited,
 		setEdited,
@@ -81,5 +125,12 @@ export default function UpdateInfo() {
 		handleClick,
 		handlePicture,
 		preview,
+		// newCountry,
+		// setNewCountry,
+		// newRegion,
+		// setNewRegion,
+		selectCountry,
+		selectRegion,
+		// updateCountryRegion,
 	};
 }

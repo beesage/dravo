@@ -47,7 +47,7 @@ export default function ProfileInformation() {
 							</ListItemText>
 							<ListItemText>
 								<p className="api-caption">
-									{user[0].city}, {user[0].country}
+									{user[0].region}, {user[0].country}
 								</p>
 							</ListItemText>
 						</ListItem>

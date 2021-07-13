@@ -14,7 +14,7 @@ import UpdateInfo from "../Functions/UpdateInfo";
 export default function Apiaries() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { apiaries, handleChangeParse, handleClick } = UpdateInfo();
+	const { edited, handleChangeParse, handleClick } = UpdateInfo();
 
 	return (
 		<>
@@ -33,7 +33,7 @@ export default function Apiaries() {
 									type="number"
 									id="formApiaries"
 									onChange={handleChangeParse}
-									value={apiaries}
+									value={edited.apiaries}
 								/>
 								<Button
 									value="Update"
