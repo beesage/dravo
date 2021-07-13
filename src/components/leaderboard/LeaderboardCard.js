@@ -18,9 +18,11 @@ function LeaderboardCard({ user, index }) {
           />
           <div className="lb-card-usertext">
             {user.username}
-            <div className="lb-top-location"> {user.city} </div>
+            <div className="lb-top-location">
+              {user.region}, {user.country}
+            </div>
           </div>
-          <div className="lb-top-wd">{user.weightdelta}</div>
+          <div className="lb-top-wd">{user.weight_delta}</div>
         </div>
       </div>
     </div>

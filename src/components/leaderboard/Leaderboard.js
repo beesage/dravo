@@ -41,7 +41,7 @@ function Leaderboard({ user, loading }) {
    * @author     Lukas Kreibig
    */
 
-  user.sort((b, a) => parseFloat(a.weightdelta) - parseFloat(b.weightdelta));
+  user.sort((b, a) => parseFloat(a.weight_delta) - parseFloat(b.weight_delta));
 
   let lbTop = user.slice(0, 3);
   let lbAll = user.slice(3);
