@@ -28,6 +28,7 @@ import Beehives from "./components/UserProfile/EditProfile/ProfileInfo/Beehives"
 export default function App() {
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [days, setDays] = useState(30);
 
   useEffect(() => {
     /**
@@ -47,7 +48,7 @@ export default function App() {
 
     const userAPI = async () => {
       setLoading(true);
-      const res = await axios.get("http://202.61.225.240:3000/lb");
+      const res = await axios.get(`http://202.61.225.240:3000/${days}`);
       setUser(res.data);
       setLoading(false);
     };
