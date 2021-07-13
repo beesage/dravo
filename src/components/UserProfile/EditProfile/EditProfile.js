@@ -1,12 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
 import ArrowForwardIosOutlinedIcon from "@material-ui/icons/ArrowForwardIosOutlined";
-
-import { Link } from "react-router-dom";
 
 export default function EditProfile() {
 	return (

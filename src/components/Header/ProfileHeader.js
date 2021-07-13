@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import NavBar from "./styles/StylesNavBar";
@@ -7,54 +7,53 @@ import ArrowBackIosOutlinedIcon from "@material-ui/icons/ArrowBackIosOutlined";
 
 import handleHeader from "./Functions/HandleHeader";
 
-export default function PersonalHeader({ isSettings, setIsSettings }) {
-	const [backToSettings, setBackToSettings] = useState(false);
+export default function PersonalHeader() {
+	const {
+		backToSettings,
+		setBackToSettings,
+		handleBackTo,
+		handleIsSettings,
+		setIsSettings,
+	} = handleHeader();
+
+	/**
+	 * Display the ProfileHeader component according to the location of the app.
+	 * <p>
+	 * useLocation is a React Hook that returns the location object that represents the current URL.
+	 * <p>
+	 * When used inside useEffect, it is possible to conditionally check whether the key "pathname" corresponds to a certain location. If the app is on the URL whose pathname correspond to "/settings/profile-info", setBackToSettings states changes to true, else setBackToSettings remains false and so is setIsSettings.
+	 *
+	 * @author Alessandra Pettinato
+	 */
 
 	let location = useLocation();
 
 	useEffect(() => {
-		if (
-			location.pathname == "/settings/profile-info" &&
-			backToSettings == false
-		) {
+		if (location.pathname == "/settings/profile-info") {
 			setBackToSettings(true);
-		} else if (
-			location.pathname == "/settings/profile-info/profile-pic" ||
-			location.pathname == "/settings/profile-info/location" ||
-			location.pathname == "/settings/profile-info/bio" ||
-			location.pathname == "/settings/profile-info/experience" ||
-			location.pathname == "/settings/profile-info/apiaries" ||
-			location.pathname == "/settings/profile-info/beehives"
-		) {
+		} else {
 			setBackToSettings(false);
+			setIsSettings(false);
 		}
-	});
-
-	console.log(handleHeader);
+	}, [location.pathname]);
 
 	return (
 		<>
 			<NavBar position="static" className="tablet-navbar">
 				<Tool style={{ gap: "0.5rem" }}>
-					{!backToSettings ? (
+					{backToSettings ? (
 						<>
-							<Link
-								to="/settings/profile-info"
-								onClick={() => handleHeader(setBackToSettings(false))}
-							>
+							<Link to="/settings" onClick={handleBackTo}>
 								<ArrowBackIosOutlinedIcon className="back-to" />
 							</Link>
-							<p className="menu-item">Profile Info</p>
+							<p className="menu-item">Profile Information</p>
 						</>
 					) : (
 						<>
-							<Link
-								to="/settings"
-								onClick={() => handleHeader(setIsSettings(!isSettings))}
-							>
+							<Link to="/settings/profile-info" onClick={handleIsSettings}>
 								<ArrowBackIosOutlinedIcon className="back-to" />
 							</Link>
-							<p className="menu-item">Profile Info</p>
+							<p className="menu-item">Profile Information</p>
 						</>
 					)}
 				</Tool>
