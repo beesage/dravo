@@ -14,6 +14,7 @@ function LeaderboardBest({ user, orientation, rank }) {
       {user.username}
       <div className="lb-top-location">{user.region}</div>
       <div className="lb-top-location">{user.country}</div>
+      {console.log(user)}
       <div className="lb-top-wd">{user.weight_delta}</div>
       <div className="lb-top-rank">
         {rank} <ArrowDropUpIcon style={{ fill: "green" }} />
