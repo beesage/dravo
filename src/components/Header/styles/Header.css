@@ -12,8 +12,8 @@
 }
 
 .menu-item {
-	font-size: 18px;
-	font-weight: 500;
+	font-size: 17px;
+	font-weight: 400;
 	text-transform: uppercase;
 	color: #314e52;
 }
@@ -33,6 +33,13 @@ a {
 	color: #314e52;
 	font-size: 25px;
 	right: 1rem;
+}
+
+.back-to {
+	color: #314e52;
+	top: 1.3rem;
+	position: absolute;
+	left: 1px;
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1370px) and (-webkit-min-device-pixel-ratio: 1) {

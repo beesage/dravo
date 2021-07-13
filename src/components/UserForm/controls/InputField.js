@@ -2,16 +2,9 @@ import React from "react";
 import { TextField } from "@material-ui/core";
 import useStyles from "../styles/StyleUserForm";
 
-export default function InputField({ InputProps, ...props }) {
+export default function InputField({ ...props }) {
   const { name, label, value, onChange, type } = props;
   const classes = useStyles();
-
-  const iprops = Object.assign(
-    {
-      disableUnderline: true,
-    },
-    InputProps
-  );
 
   return (
     <TextField
@@ -22,8 +15,7 @@ export default function InputField({ InputProps, ...props }) {
       type={type}
       onChange={onChange}
       className={classes.textField}
-      fullWidth
-      InputProps={iprops}
+      fullWidth      
       {...props}
     />
   );

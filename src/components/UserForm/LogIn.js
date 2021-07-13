@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { CssBaseline, FormControlLabel, Checkbox, Link, Grid, Box, Container, Typography } from "@material-ui/core";
 import InputField from "./controls/InputField"
 import InputPassword from "./controls/InputPassword";
@@ -8,18 +8,30 @@ import { NavLink } from "react-router-dom";
 import useStyles from "./styles/StyleUserForm";
 import logo from "../../assets/logo-mobile.png";
 import validate from "./ValidateInfo";
+import Axios from 'axios';
 
 export default function LogIn() {
-	const classes = useStyles();
-	const {
-		values,
-		handleChange,
-		handleSubmit,
-		handleClickShowPassword,
-		errors,
-		showPassword,
-	} = UseForm(validate);
+
+  const classes = useStyles();
+	const { values, handleChange, handleSubmit, errors } = UseForm(validate);
+  const [error, setError] = useState({});
   
+  
+  const login = () => {
+     Axios.post("http://localhost:3000/auth/login", {
+      username: values.username,
+      password: values.password,    
+     }).then((response) => {
+      console.log(response)
+     })
+     .catch((e) => {
+      if (e.response && e.response.data) {
+        // Dispatch an action here
+       console.log(e.response.data.message) 
+      }
+    });
+  }
+	  // console.log(error.data)
   return (
     <div>
        <Container component="main" maxWidth={false} className={classes.container}>
@@ -28,7 +40,7 @@ export default function LogIn() {
           <Grid item className={classes.img} xs={12} sm={6} md={6}>
             <img className={classes.logo} src={logo} />
           </Grid>
-          <Grid item xs={12} sm={6} md={6} className={classes.breakpoints}>
+          <Grid item xs={12} sm={6} md={6} className={classes.breakpoints} >
             <Typography className={classes.title} variant="h4">
               Log In
             </Typography>
@@ -45,9 +57,7 @@ export default function LogIn() {
                     name="password"                    
                     label="Enter your password"                    
                     value={values.password}
-                    onChange={handleChange}  
-                    onClick={handleClickShowPassword} 
-                    showPassword={showPassword}         
+                    onChange={handleChange}                      
                   />  
                   {errors.password && <div className={classes.redColor}>{errors.password}</div>}               
                   <Box className={classes.box}>
@@ -57,7 +67,7 @@ export default function LogIn() {
                       Forgot password?
                     </Link>
                   </Box>             
-                  <Button type="submit" text="Log In" />              
+                  <Button type="submit" text="Log In" onClick={login} />              
             </form>
             <Box align="center" mt={2}>
               <Typography className={classes.typography}>
