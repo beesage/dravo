@@ -28,8 +28,9 @@ import Beehives from "./components/UserProfile/EditProfile/ProfileInfo/Beehives"
 export default function App() {
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [days, setDays] = useState(30);
+  const [days, setDays] = useState("30");
 
+  console.log();
   useEffect(() => {
     /**
      * Fetch data via Axios from the API URL and store the fetched user array in the user state
@@ -48,12 +49,12 @@ export default function App() {
 
     const userAPI = async () => {
       setLoading(true);
-      const res = await axios.get(`http://202.61.225.240:3000/${days}`);
+      const res = await axios.get(`http://202.61.225.240:3000/lb/${days}`);
       setUser(res.data);
       setLoading(false);
     };
-    userAPI();
-  }, []);
+    userAPI(days);
+  }, [days]);
 
   console.log(user);
 

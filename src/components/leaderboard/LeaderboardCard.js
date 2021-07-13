@@ -22,7 +22,7 @@ function LeaderboardCard({ user, index }) {
               {user.region}, {user.country}
             </div>
           </div>
-          <div className="lb-top-wd">{user.weight_delta}</div>
+          <div className="lb-top-wd">{user.average_wd}</div>
         </div>
       </div>
     </div>
