@@ -15,7 +15,7 @@ import "../styles/EditProfile.css";
 export default function Email() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { edited, handleChange, handleClick } = UpdateInfo();
+	const { edited, handleChange, updateEmail } = UpdateInfo();
 
 	return (
 		<>
@@ -40,7 +40,7 @@ export default function Email() {
 									value="Update"
 									text="Update"
 									style={{ fontSize: "1em" }}
-									onClick={handleClick}
+									onClick={updateEmail}
 								/>
 							</form>
 						</Container>

@@ -14,7 +14,7 @@ import UpdateInfo from "../Functions/UpdateInfo";
 export default function Apiaries() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { edited, handleChangeParse, handleClick } = UpdateInfo();
+	const { edited, handleChangeParse, updateApiaries } = UpdateInfo();
 
 	return (
 		<>
@@ -39,7 +39,7 @@ export default function Apiaries() {
 									value="Update"
 									text="Update"
 									style={{ fontSize: "1em" }}
-									onClick={handleClick}
+									onClick={updateApiaries}
 								/>
 							</form>
 						</Container>

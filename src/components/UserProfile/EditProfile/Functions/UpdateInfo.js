@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import APIContext from "../../../../Context/APIContext";
+import axios from "axios";
 
 export default function UpdateInfo() {
 	const { user, setUser } = useContext(APIContext);
@@ -30,6 +31,24 @@ export default function UpdateInfo() {
 		});
 	};
 
+	const [newCountry, setNewCountry] = useState({
+		country: "",
+	});
+
+	const selectCountry = (val) => {
+		setEdited({
+			country: val,
+		});
+	};
+
+	const [newRegion, setNewRegion] = useState({
+		region: "",
+	});
+
+	const selectRegion = (val) => {
+		setEdited({ region: val });
+	};
+
 	const handleClick = () => {
 		const editedArray = user.map((updated) => {
 			if (updated.beekeeper_id === edited.beekeeper_id) {
@@ -41,23 +60,54 @@ export default function UpdateInfo() {
 		setUser(editedArray);
 	};
 
-	// const [newCountry, setNewCountry] = useState({
-	// 	country: user[0].country,
-	// 	id: user[0].beekeeper_id,
-	// });
-
-	const selectCountry = (val) => {
-		setEdited({
-			country: val,
-		});
+	const updateUsername = () => {
+		axios
+			.put("http://localhost:3000/update/1", {
+				username: edited.username,
+			})
+			.then((res) => {
+				console.log(res);
+			});
 	};
 
-	// const [newRegion, setNewRegion] = useState({
-	// 	region: user[0].region,
-	// });
+	const updateEmail = () => {
+		axios
+			.put("http://localhost:3000/update/1", {
+				email: edited.email,
+			})
+			.then((res) => {
+				console.log(res);
+			});
+	};
 
-	const selectRegion = (val) => {
-		setEdited({ region: val });
+	const updateApiaries = () => {
+		axios
+			.put("http://localhost:3000/update/1", {
+				apiaries: edited.apiaries,
+			})
+			.then((res) => {
+				console.log(res);
+			});
+	};
+
+	const updateBeehives = () => {
+		axios
+			.put("http://localhost:3000/update/1", {
+				beehives: edited.beehives,
+			})
+			.then((res) => {
+				console.log(res);
+			});
+	};
+
+	const updateExperience = () => {
+		axios
+			.put("http://localhost:3000/update/1", {
+				experience: edited.experience,
+			})
+			.then((res) => {
+				console.log(res);
+			});
 	};
 
 	// const updateCountryRegion = () => {
@@ -119,18 +169,20 @@ export default function UpdateInfo() {
 
 	return {
 		edited,
+		newCountry,
+		newRegion,
 		setEdited,
 		handleChange,
 		handleChangeParse,
 		handleClick,
 		handlePicture,
 		preview,
-		// newCountry,
-		// setNewCountry,
-		// newRegion,
-		// setNewRegion,
 		selectCountry,
 		selectRegion,
-		// updateCountryRegion,
+		updateUsername,
+		updateEmail,
+		updateApiaries,
+		updateBeehives,
+		updateExperience,
 	};
 }

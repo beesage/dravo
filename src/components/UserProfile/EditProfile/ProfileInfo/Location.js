@@ -39,8 +39,8 @@ export default function Location() {
 									country={edited.country}
 									value={edited.region}
 									onChange={selectRegion}
+									style={{ marginBottom: "1rem" }}
 								/>
-
 								<Button
 									value="Update"
 									text="Update"

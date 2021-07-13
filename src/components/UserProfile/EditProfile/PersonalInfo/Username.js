@@ -15,7 +15,7 @@ import "../styles/EditProfile.css";
 export default function Username() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { edited, handleChange, handleClick } = UpdateInfo();
+	const { edited, handleChange, updateUsername } = UpdateInfo();
 
 	return (
 		<>
@@ -39,7 +39,7 @@ export default function Username() {
 								value="Update"
 								text="Update"
 								style={{ fontSize: "1em" }}
-								onClick={handleClick}
+								onClick={updateUsername}
 								style={{ width: "100%" }}
 							/>
 						</form>

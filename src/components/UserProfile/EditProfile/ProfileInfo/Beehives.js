@@ -15,7 +15,7 @@ import "../styles/EditProfile.css";
 export default function Beehives() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { edited, handleChangeParse, handleClick } = UpdateInfo();
+	const { edited, handleChangeParse, updateBeehives } = UpdateInfo();
 
 	return (
 		<>
@@ -40,7 +40,7 @@ export default function Beehives() {
 									value="Update"
 									text="Update"
 									style={{ fontSize: "1em" }}
-									onClick={handleClick}
+									onClick={updateBeehives}
 								/>
 							</form>
 						</Container>
