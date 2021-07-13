@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -9,8 +9,11 @@ import ArrowForwardIosOutlinedIcon from "@material-ui/icons/ArrowForwardIosOutli
 import "../styles/EditProfile.css";
 
 import { Link } from "react-router-dom";
+import APIContext from "../../../../Context/APIContext";
 
-export default function ProfileInformation({ user }) {
+export default function ProfileInformation() {
+	const { user } = useContext(APIContext);
+
 	return (
 		<>
 			{user.length > 0 ? (
@@ -44,7 +47,7 @@ export default function ProfileInformation({ user }) {
 							</ListItemText>
 							<ListItemText>
 								<p className="api-caption">
-									{user[0].city}, {user[0].country}
+									{user[0].region}, {user[0].country}
 								</p>
 							</ListItemText>
 						</ListItem>
