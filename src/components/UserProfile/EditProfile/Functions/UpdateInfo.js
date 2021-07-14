@@ -11,7 +11,9 @@ export default function UpdateInfo() {
 		apiaries: user[0].apiaries,
 		beehives: user[0].beehives,
 		experience: user[0].experience,
-		password: user[0].password,
+		password: "",
+		oldPassword: "",
+		confirmPassword: "",
 		id: user[0].beekeeper_id,
 		bio: "",
 	});
@@ -128,6 +130,16 @@ export default function UpdateInfo() {
 			});
 	};
 
+	const updatePassword = () => {
+		axios
+			.put("http://localhost:3000/update/1", {
+				password: edited.confirmPassword,
+			})
+			.then((res) => {
+				console.log(res);
+			});
+	};
+
 	const [updatePic, setUpdatePic] = useState(false);
 
 	const handlePicture = (e) => {
@@ -146,11 +158,11 @@ export default function UpdateInfo() {
 	};
 
 	const updateProfilePic = () => {
-		// var formData = new FormData();
-		// formData.append("file", updatePic.src);
+		var formData = new FormData();
+		formData.append("file", updatePic.src);
 		axios
 			.put("http://localhost:3000/update/1", {
-				profile_pic: updatePic,
+				profile_pic: updatePic.src,
 			})
 			.then((res) => {
 				console.log(res);
@@ -177,5 +189,6 @@ export default function UpdateInfo() {
 		updateProfilePic,
 		updateBio,
 		updateLocation,
+		updatePassword,
 	};
 }

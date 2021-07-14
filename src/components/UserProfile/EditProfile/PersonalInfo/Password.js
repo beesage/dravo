@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 
 import APIContext from "../../../../Context/APIContext";
+import UpdateInfo from "../Functions/UpdateInfo";
 
 import LoadingPage from "../../../Spinner/LoadingPage";
 
@@ -14,36 +15,36 @@ import "../styles/EditProfile.css";
 
 export default function Password() {
 	const classes = useStyles();
+	const { user } = useContext(APIContext);
+	const { edited, handleChange, updatePassword } = UpdateInfo();
 
-	const { user, setUser } = useContext(APIContext);
+	// const [fields, setFields] = useState({
+	// 	oldPassword: "",
+	// 	password: "",
+	// 	confirmPassword: "",
+	// 	id: user[0].beekeeper_id,
+	// });
 
-	const [fields, setFields] = useState({
-		oldPassword: "",
-		password: "",
-		confirmPassword: "",
-		id: user[0].beekeeper_id,
-	});
+	// const handleChange = (e) => {
+	// 	setFields((prevState) => {
+	// 		return { ...prevState, [e.target.name]: e.target.value };
+	// 	});
+	// };
 
-	const handleChange = (e) => {
-		setFields((prevState) => {
-			return { ...prevState, [e.target.name]: e.target.value };
-		});
-	};
+	// const handleEdited = () => {
+	// 	const editedArray = user.map((updated) => {
+	// 		if (updated.beekeeper_id === fields.beekeeper_id) {
+	// 			return fields;
+	// 		} else {
+	// 			return editedArray;
+	// 		}
+	// 	});
+	// 	setUser(editedArray);
+	// };
 
-	const handleEdited = () => {
-		const editedArray = user.map((updated) => {
-			if (updated.beekeeper_id === fields.beekeeper_id) {
-				return fields;
-			} else {
-				return editedArray;
-			}
-		});
-		setUser(editedArray);
-	};
-
-	const handleClick = () => {
-		handleEdited({ ...fields });
-	};
+	// const handleClick = () => {
+	// 	handleEdited({ ...fields });
+	// };
 	return (
 		<>
 			{user.length > 0 ? (
@@ -59,28 +60,28 @@ export default function Password() {
 								<InputField
 									id="formOldPassword"
 									name="oldPassword"
-									value={fields.oldPassword}
+									value={edited.oldPassword}
 									onChange={handleChange}
 								/>
 								<p className="edit-caption">New password</p>
 								<InputPassword
 									id="formNewPassword"
 									name="password"
-									value={fields.password}
+									value={edited.password}
 									onChange={handleChange}
 								/>
 								<p className="edit-caption">Confirm new password</p>
 								<InputPassword
 									id="formConfirmPassword"
 									name="confirmPassword"
-									value={fields.confirmPassword}
+									value={edited.confirmPassword}
 									onChange={handleChange}
 								/>
 								<Button
 									value="Update"
 									text="Update"
 									style={{ fontSize: "1em" }}
-									onClick={handleClick}
+									onClick={updatePassword}
 								/>
 							</form>
 						</Container>
