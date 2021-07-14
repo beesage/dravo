@@ -14,24 +14,28 @@ export default function LogIn() {
 
   const classes = useStyles();
 	const { values, handleChange, handleSubmit, errors } = UseForm(validate);
-  const [error, setError] = useState({});
+ // const [error, setError] = useState("");
+ const [usernameError, setusernameError] = useState("");  
+  const [passwordError, setpasswordError] = useState(""); 
+  const [responseh, setResponse] = useState("");  
+   
   
   
-  const login = () => {
-     Axios.post("http://localhost:3000/auth/login", {
-      username: values.username,
-      password: values.password,    
-     }).then((response) => {
-      console.log(response)
-     })
-     .catch((e) => {
-      if (e.response && e.response.data) {
-        // Dispatch an action here
-       console.log(e.response.data.message) 
-      }
-    });
-  }
-	  // console.log(error.data)
+ const login = () => {
+  Axios.post("http://localhost:3000/auth/login", {
+   username: values.username,
+   password: values.password,    
+  }).then((response) => {
+    setResponse(response.data.message)   
+      console.log(responseh)
+  })
+  .catch((e) => {
+    const usernameError = e.response.data.err.details[0].message      
+      const passwordError = e.response.data.err.details[1].message
+      setusernameError(usernameError)   
+      setpasswordError(passwordError)    
+ });
+}
   return (
     <div>
        <Container component="main" maxWidth={false} className={classes.container}>
@@ -52,6 +56,7 @@ export default function LogIn() {
                     value={values.username}
                     onChange={handleChange}                                 
                  />
+                  {errors.username&& <div className={classes.redColor}>{usernameError}</div>}  
                  {errors.username && <div className={classes.redColor}>{errors.username}</div>}  
                   <InputPassword
                     name="password"                    
@@ -59,7 +64,10 @@ export default function LogIn() {
                     value={values.password}
                     onChange={handleChange}                      
                   />  
-                  {errors.password && <div className={classes.redColor}>{errors.password}</div>}               
+                   {errors.password &&<div className={classes.redColor}>{passwordError}</div>}
+                  {errors.password && <div className={classes.redColor}>{errors.password}</div>}  
+                  {/* {error ? <div className={classes.redColor}>{error}</div> : null}                */}
+                  { <div className={classes.redColor}>{responseh}</div>}
                   <Box className={classes.box}>
                     <FormControlLabel control={<Checkbox className={classes.orangeColor} value="remember" color="default" />}
                       className={classes.checkbox} label="Keep me logged in"/>

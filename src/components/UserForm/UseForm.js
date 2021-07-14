@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const UseForm = (validate) => {  
   const [values, setValues] = React.useState({
@@ -8,8 +8,8 @@ const UseForm = (validate) => {
     confirmPassword: "",       
   });    
 
-  const [errors, setErrors] = useState({});
-  
+  const [errors, setErrors] = useState({});  
+ // const [isSubmitting, setIsSubmitting] = useState(false);
  
   /**
    * handleChange sets a new state based on the input from the user.
@@ -55,8 +55,19 @@ const UseForm = (validate) => {
    */
    const handleSubmit = e => {   
     e.preventDefault();  
-    setErrors(validate(values)) 
+    setErrors(validate(values));
+
+    //setIsSubmitting(true);
   };
+
+ /*  useEffect(
+    () => {
+      if (Object.keys(errors).length === 0 && isSubmitting) {
+        callback();
+      }
+    },
+    [errors]
+  ); */
   
  
     return { values, handleChange, handleSubmit, errors, handleClickShowPassword };
