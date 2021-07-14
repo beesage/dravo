@@ -12,8 +12,9 @@ function LeaderboardBest({ user, orientation, rank }) {
         src={user.profile_picture}
       />
       {user.username}
-      <div className="lb-top-location">{user.city}</div>
-      <div className="lb-top-wd">{user.weightdelta}</div>
+      <div className="lb-top-location">{user.region}</div>
+      <div className="lb-top-location">{user.country}</div>
+      <div className="lb-top-wd">{user.average_wd}</div>
       <div className="lb-top-rank">
         {rank} <ArrowDropUpIcon style={{ fill: "green" }} />
       </div>

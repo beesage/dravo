@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+
+import APIContext from "../../../../Context/APIContext";
+import UpdateInfo from "../Functions/UpdateInfo";
 
 import LoadingPage from "../../../Spinner/LoadingPage";
 
@@ -9,32 +12,10 @@ import Button from "../../../UserForm/controls/Submit";
 
 import "../styles/EditProfile.css";
 
-export default function Username({ user, setUser }) {
+export default function Username() {
 	const classes = useStyles();
-
-	const [edited, setEdited] = useState({
-		username: user[0].username,
-		id: user[0].beekeeper_id,
-	});
-
-	const handleChange = (e) => {
-		setEdited({
-			...user[0],
-			username: e.target.value,
-			id: user[0].beekeeper_id,
-		});
-	};
-
-	const handleClick = () => {
-		const editedArray = user.map((updated) => {
-			if (updated.beekeeper_id === edited.id) {
-				return edited;
-			} else {
-				return updated;
-			}
-		});
-		setUser(editedArray);
-	};
+	const { user } = useContext(APIContext);
+	const { edited, handleChange, updateUsername } = UpdateInfo();
 
 	return (
 		<>
@@ -58,7 +39,7 @@ export default function Username({ user, setUser }) {
 								value="Update"
 								text="Update"
 								style={{ fontSize: "1em" }}
-								onClick={handleClick}
+								onClick={updateUsername}
 								style={{ width: "100%" }}
 							/>
 						</form>

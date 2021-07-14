@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+
+import APIContext from "../../Context/APIContext";
 
 import Pic from "./styles/StylesUserProfile";
 import Hex from "./styles/Hexagons/Hex";
@@ -12,7 +14,8 @@ import "./styles/Hexagons/HexStyles.css";
 import { Icons } from "./styles/Icons";
 import { FaMedal } from "react-icons/fa";
 
-export default function UserProfile({ user }) {
+export default function UserProfile() {
+	const { user } = useContext(APIContext);
 	return (
 		<div className="user-container">
 			{user.length > 0 ? (
@@ -24,7 +27,7 @@ export default function UserProfile({ user }) {
 								<Pic alt="" src={user[0].profile_picture} />
 							</div>
 							<p className="username">{user[0].username}</p>
-							<p className="user-location">{user[0].city}</p>
+							<p className="user-location">{user[0].region}</p>
 						</div>
 					</div>
 					<div
