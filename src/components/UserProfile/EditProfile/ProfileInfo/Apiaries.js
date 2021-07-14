@@ -14,7 +14,7 @@ import UpdateInfo from "../Functions/UpdateInfo";
 export default function Apiaries() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { edited, handleChangeParse, updateApiaries } = UpdateInfo();
+	const { edited, handleChangeParse, updateApiaries, err } = UpdateInfo();
 
 	return (
 		<>
@@ -35,6 +35,11 @@ export default function Apiaries() {
 									onChange={handleChangeParse}
 									value={edited.apiaries}
 								/>
+								{err && (
+									<p className="err-message">
+										{err.validationErrors[0].message}
+									</p>
+								)}
 								<Button
 									value="Update"
 									text="Update"

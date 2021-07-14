@@ -15,7 +15,7 @@ import "../styles/EditProfile.css";
 export default function Experience() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { edited, handleChangeParse, updateExperience } = UpdateInfo();
+	const { edited, handleChangeParse, updateExperience, err } = UpdateInfo();
 
 	return (
 		<>
@@ -36,6 +36,11 @@ export default function Experience() {
 									onChange={handleChangeParse}
 									value={edited.experience}
 								/>
+								{err && (
+									<p className="err-message">
+										{err.validationErrors[0].message}
+									</p>
+								)}
 								<Button
 									value="Update"
 									text="Update"

@@ -25,3 +25,7 @@
 .submit-pic {
 	grid-row: 2;
 }
+
+.err-message {
+	color: red;
+}

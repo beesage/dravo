@@ -69,6 +69,8 @@ export default function UpdateInfo() {
 		setUser(editedArray);
 	};
 
+	const [err, setErr] = useState("");
+
 	const updateUsername = () => {
 		axios
 			.put("http://localhost:3000/update/1", {
@@ -79,7 +81,7 @@ export default function UpdateInfo() {
 			})
 			.catch((err) => {
 				if (err.response) {
-					console.log(error.response.data);
+					setErr(err.response.data);
 				}
 			});
 	};
@@ -94,7 +96,7 @@ export default function UpdateInfo() {
 			})
 			.catch((err) => {
 				if (err.response) {
-					console.log(error.response.data);
+					setErr(err.response.data);
 				}
 			});
 	};
@@ -109,7 +111,7 @@ export default function UpdateInfo() {
 			})
 			.catch((err) => {
 				if (err.response) {
-					console.log(error.response.data);
+					setErr(err.response.data);
 				}
 			});
 	};
@@ -124,7 +126,7 @@ export default function UpdateInfo() {
 			})
 			.catch((err) => {
 				if (err.response) {
-					console.log(error.response.data);
+					setErr(err.response.data);
 				}
 			});
 	};
@@ -139,7 +141,7 @@ export default function UpdateInfo() {
 			})
 			.catch((err) => {
 				if (err.response) {
-					console.log(error.response.data);
+					setErr(err.response.data);
 				}
 			});
 	};
@@ -154,7 +156,7 @@ export default function UpdateInfo() {
 			})
 			.catch((err) => {
 				if (err.response) {
-					console.log(error.response.data);
+					setErr(err.response.data);
 				}
 			});
 	};
@@ -169,7 +171,7 @@ export default function UpdateInfo() {
 			})
 			.catch((err) => {
 				if (err.response) {
-					console.log(error.response.data);
+					setErr(err.response.data);
 				}
 			});
 	};
@@ -203,7 +205,7 @@ export default function UpdateInfo() {
 			})
 			.catch((err) => {
 				if (err.response) {
-					console.log(error.response.data);
+					setErr(err.response.data);
 				}
 			});
 	};
@@ -229,5 +231,6 @@ export default function UpdateInfo() {
 		updateBio,
 		updateLocation,
 		updatePassword,
+		err,
 	};
 }

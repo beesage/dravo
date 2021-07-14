@@ -16,7 +16,7 @@ import "../styles/EditProfile.css";
 export default function Password() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { edited, handleChange, updatePassword } = UpdateInfo();
+	const { edited, handleChange, updatePassword, err } = UpdateInfo();
 
 	return (
 		<>
@@ -36,6 +36,11 @@ export default function Password() {
 									value={edited.oldPassword}
 									onChange={handleChange}
 								/>
+								{err && (
+									<p className="err-message">
+										{err.validationErrors[0].message}
+									</p>
+								)}
 								<p className="edit-caption">New password</p>
 								<InputPassword
 									id="formNewPassword"
@@ -43,6 +48,11 @@ export default function Password() {
 									value={edited.password}
 									onChange={handleChange}
 								/>
+								{err && (
+									<p className="err-message">
+										{err.validationErrors[0].message}
+									</p>
+								)}
 								<p className="edit-caption">Confirm new password</p>
 								<InputPassword
 									id="formConfirmPassword"
@@ -50,6 +60,11 @@ export default function Password() {
 									value={edited.confirmPassword}
 									onChange={handleChange}
 								/>
+								{err && (
+									<p className="err-message">
+										{err.validationErrors[0].message}
+									</p>
+								)}
 								<Button
 									value="Update"
 									text="Update"

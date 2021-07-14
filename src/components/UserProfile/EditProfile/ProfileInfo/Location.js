@@ -15,8 +15,14 @@ import "../styles/EditProfile.css";
 export default function Location() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { locationC, locationR, selectCountry, selectRegion, updateLocation } =
-		UpdateInfo();
+	const {
+		locationC,
+		locationR,
+		selectCountry,
+		selectRegion,
+		updateLocation,
+		err,
+	} = UpdateInfo();
 
 	return (
 		<>
@@ -34,6 +40,11 @@ export default function Location() {
 									value={locationC.locationC}
 									onChange={selectCountry}
 								/>
+								{err && (
+									<p className="err-message">
+										{err.validationErrors[0].message}
+									</p>
+								)}
 								<p className="edit-caption">Region</p>
 								<RegionDropdown
 									disableWhenEmpty={true}
@@ -42,6 +53,11 @@ export default function Location() {
 									onChange={selectRegion}
 									style={{ marginBottom: "1rem" }}
 								/>
+								{err && (
+									<p className="err-message">
+										{err.validationErrors[0].message}
+									</p>
+								)}
 								<Button
 									value="Update"
 									text="Update"

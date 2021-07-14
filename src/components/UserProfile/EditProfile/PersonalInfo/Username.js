@@ -15,7 +15,7 @@ import "../styles/EditProfile.css";
 export default function Username() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { edited, handleChange, updateUsername } = UpdateInfo();
+	const { edited, handleChange, updateUsername, err } = UpdateInfo();
 
 	return (
 		<>
@@ -35,6 +35,9 @@ export default function Username() {
 								onChange={handleChange}
 								value={edited.username}
 							/>
+							{err && (
+								<p className="err-message">{err.validationErrors[0].message}</p>
+							)}
 							<Button
 								value="Update"
 								text="Update"

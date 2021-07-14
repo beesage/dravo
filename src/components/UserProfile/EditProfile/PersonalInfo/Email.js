@@ -15,7 +15,7 @@ import "../styles/EditProfile.css";
 export default function Email() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { edited, handleChange, updateEmail } = UpdateInfo();
+	const { edited, handleChange, updateEmail, err } = UpdateInfo();
 
 	return (
 		<>
@@ -36,6 +36,11 @@ export default function Email() {
 									onChange={handleChange}
 									value={edited.email}
 								/>
+								{err && (
+									<p className="err-message">
+										{err.validationErrors[0].message}
+									</p>
+								)}
 								<Button
 									value="Update"
 									text="Update"

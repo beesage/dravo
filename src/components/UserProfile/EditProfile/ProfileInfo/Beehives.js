@@ -15,7 +15,7 @@ import "../styles/EditProfile.css";
 export default function Beehives() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { edited, handleChangeParse, updateBeehives } = UpdateInfo();
+	const { edited, handleChangeParse, updateBeehives, err } = UpdateInfo();
 
 	return (
 		<>
@@ -36,6 +36,11 @@ export default function Beehives() {
 									onChange={handleChangeParse}
 									value={edited.beehives}
 								/>
+								{err && (
+									<p className="err-message">
+										{err.validationErrors[0].message}
+									</p>
+								)}
 								<Button
 									value="Update"
 									text="Update"

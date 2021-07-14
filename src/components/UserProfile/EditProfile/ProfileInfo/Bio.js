@@ -13,7 +13,7 @@ import UpdateInfo from "../Functions/UpdateInfo";
 export default function Bio() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { edited, handleChange, updateBio } = UpdateInfo();
+	const { edited, handleChange, updateBio, err } = UpdateInfo();
 
 	return (
 		<>
@@ -35,6 +35,11 @@ export default function Bio() {
 									id="formBio"
 									variant="outlined"
 								/>
+								{err && (
+									<p className="err-message">
+										{err.validationErrors[0].message}
+									</p>
+								)}
 								<Button
 									value="Update"
 									text="Update"
