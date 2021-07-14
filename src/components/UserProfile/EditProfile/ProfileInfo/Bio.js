@@ -13,7 +13,7 @@ import UpdateInfo from "../Functions/UpdateInfo";
 export default function Bio() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { edited, handleChange, updateBio, err } = UpdateInfo();
+	const { edited, handleChange, updateBio, err, res } = UpdateInfo();
 
 	return (
 		<>
@@ -46,6 +46,7 @@ export default function Bio() {
 									onClick={updateBio}
 									style={{ fontSize: "1em" }}
 								/>
+								{res && <p className="err-message">{res}</p>}
 							</form>
 						</Container>
 					</div>

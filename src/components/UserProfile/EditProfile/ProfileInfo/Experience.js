@@ -15,7 +15,8 @@ import "../styles/EditProfile.css";
 export default function Experience() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { edited, handleChangeParse, updateExperience, err } = UpdateInfo();
+	const { edited, handleChangeParse, updateExperience, err, res } =
+		UpdateInfo();
 
 	return (
 		<>
@@ -47,6 +48,7 @@ export default function Experience() {
 									style={{ fontSize: "1em" }}
 									onClick={updateExperience}
 								/>
+								{res && <p className="err-message">{res}</p>}
 							</form>
 						</Container>
 					</div>

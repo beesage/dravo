@@ -15,7 +15,7 @@ import "../styles/EditProfile.css";
 export default function Username() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { edited, handleChange, updateUsername, err } = UpdateInfo();
+	const { edited, handleChange, updateUsername, err, res } = UpdateInfo();
 
 	return (
 		<>
@@ -45,6 +45,7 @@ export default function Username() {
 								onClick={updateUsername}
 								style={{ width: "100%" }}
 							/>
+							{res && <p className="err-message">{res}</p>}
 						</form>
 					</Container>
 				</div>

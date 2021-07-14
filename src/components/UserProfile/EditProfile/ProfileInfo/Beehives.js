@@ -15,7 +15,7 @@ import "../styles/EditProfile.css";
 export default function Beehives() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { edited, handleChangeParse, updateBeehives, err } = UpdateInfo();
+	const { edited, handleChangeParse, updateBeehives, err, res } = UpdateInfo();
 
 	return (
 		<>
@@ -47,6 +47,7 @@ export default function Beehives() {
 									style={{ fontSize: "1em" }}
 									onClick={updateBeehives}
 								/>
+								{res && <p className="err-message">{res}</p>}
 							</form>
 						</Container>
 					</div>

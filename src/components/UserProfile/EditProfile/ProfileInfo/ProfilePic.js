@@ -7,7 +7,7 @@ import Button from "../../../UserForm/controls/Submit";
 import "../styles/EditProfile.css";
 
 export default function ProfilePic() {
-	const { handlePicture, preview, updateProfilePic, err } = UpdateInfo();
+	const { handlePicture, preview, updateProfilePic, err, res } = UpdateInfo();
 
 	return (
 		<div className="picture-container">
@@ -21,6 +21,7 @@ export default function ProfilePic() {
 			<div className="preview">{preview()}</div>
 			{err && <p className="err-message">{err.validationErrors[0].message}</p>}
 			<Button onClick={updateProfilePic} text="Upload" />
+			{res && <p className="err-message">{res}</p>}
 		</div>
 	);
 }

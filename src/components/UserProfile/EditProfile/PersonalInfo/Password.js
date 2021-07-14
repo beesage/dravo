@@ -16,7 +16,7 @@ import "../styles/EditProfile.css";
 export default function Password() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { edited, handleChange, updatePassword, err } = UpdateInfo();
+	const { edited, handleChange, updatePassword, err, res } = UpdateInfo();
 
 	return (
 		<>
@@ -71,6 +71,7 @@ export default function Password() {
 									style={{ fontSize: "1em" }}
 									onClick={updatePassword}
 								/>
+								{res && <p className="err-message">{res}</p>}
 							</form>
 						</Container>
 					</div>

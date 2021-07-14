@@ -22,6 +22,7 @@ export default function Location() {
 		selectRegion,
 		updateLocation,
 		err,
+		res,
 	} = UpdateInfo();
 
 	return (
@@ -64,6 +65,7 @@ export default function Location() {
 									style={{ fontSize: "1em" }}
 									onClick={updateLocation}
 								/>
+								{res && <p className="err-message">{res}</p>}
 							</form>
 						</Container>
 					</div>

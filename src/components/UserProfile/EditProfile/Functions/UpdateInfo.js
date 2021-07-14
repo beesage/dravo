@@ -55,21 +55,30 @@ export default function UpdateInfo() {
 				country: locationC.locationC,
 				region: locationR.locationR,
 			})
-			.then((res) => console.log(res));
+			.then((res) => {
+				console.log(res);
+			})
+			.catch((err) => {
+				if (err.response) {
+					setErr(err.response.data);
+				}
+			});
 	};
 
-	const handleClick = () => {
-		const editedArray = user.map((updated) => {
-			if (updated.beekeeper_id === edited.beekeeper_id) {
-				return edited;
-			} else {
-				return updated;
-			}
-		});
-		setUser(editedArray);
-	};
+	// const handleClick = () => {
+	// 	const editedArray = user.map((updated) => {
+	// 		if (updated.beekeeper_id === edited.beekeeper_id) {
+	// 			return edited;
+	// 		} else {
+	// 			return updated;
+	// 		}
+	// 	});
+	// 	setUser(editedArray);
+	// };
 
 	const [err, setErr] = useState("");
+
+	const [res, setRes] = useState("");
 
 	const updateUsername = () => {
 		axios
@@ -78,6 +87,7 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
+				setRes("All good :)");
 			})
 			.catch((err) => {
 				if (err.response) {
@@ -93,6 +103,7 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
+				setRes("All good :)");
 			})
 			.catch((err) => {
 				if (err.response) {
@@ -108,6 +119,7 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
+				setRes("All good :)");
 			})
 			.catch((err) => {
 				if (err.response) {
@@ -123,6 +135,7 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
+				setRes("All good :)");
 			})
 			.catch((err) => {
 				if (err.response) {
@@ -138,6 +151,7 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
+				setRes("All good :)");
 			})
 			.catch((err) => {
 				if (err.response) {
@@ -153,6 +167,7 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
+				setRes("All good :)");
 			})
 			.catch((err) => {
 				if (err.response) {
@@ -161,19 +176,26 @@ export default function UpdateInfo() {
 			});
 	};
 
+	// const [errPass, setErrPass] = useState("");
+
 	const updatePassword = () => {
+		// if (edited.confirmPassword != edited.password) {
+		// 	setErrPass("The password should match!");
+		// } else {
 		axios
-			.put("http://localhost:3000/update/1", {
+			.put("http://localhost:3000/updatePass/1", {
 				password: edited.confirmPassword,
 			})
 			.then((res) => {
 				console.log(res);
+				setRes("All good :)");
 			})
 			.catch((err) => {
 				if (err.response) {
 					setErr(err.response.data);
 				}
 			});
+		// }
 	};
 
 	const [updatePic, setUpdatePic] = useState(false);
@@ -202,6 +224,7 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
+				setRes("All good :)");
 			})
 			.catch((err) => {
 				if (err.response) {
@@ -217,7 +240,7 @@ export default function UpdateInfo() {
 		setEdited,
 		handleChange,
 		handleChangeParse,
-		handleClick,
+		// handleClick,
 		handlePicture,
 		preview,
 		selectCountry,
@@ -232,5 +255,7 @@ export default function UpdateInfo() {
 		updateLocation,
 		updatePassword,
 		err,
+		res,
+		// errPass,
 	};
 }

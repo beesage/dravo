@@ -15,7 +15,7 @@ import "../styles/EditProfile.css";
 export default function Email() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { edited, handleChange, updateEmail, err } = UpdateInfo();
+	const { edited, handleChange, updateEmail, err, res } = UpdateInfo();
 
 	return (
 		<>
@@ -47,6 +47,7 @@ export default function Email() {
 									style={{ fontSize: "1em" }}
 									onClick={updateEmail}
 								/>
+								{res && <p className="err-message">{res}</p>}
 							</form>
 						</Container>
 					</div>

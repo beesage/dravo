@@ -14,7 +14,7 @@ import UpdateInfo from "../Functions/UpdateInfo";
 export default function Apiaries() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { edited, handleChangeParse, updateApiaries, err } = UpdateInfo();
+	const { edited, handleChangeParse, updateApiaries, err, res } = UpdateInfo();
 
 	return (
 		<>
@@ -46,6 +46,7 @@ export default function Apiaries() {
 									style={{ fontSize: "1em" }}
 									onClick={updateApiaries}
 								/>
+								{res && <p className="err-message">{res}</p>}
 							</form>
 						</Container>
 					</div>
