@@ -11,6 +11,7 @@ import Leaderboard from "./components/leaderboard/Leaderboard";
 import UserProfile from "./components/UserProfile/UserProfile";
 import LogIn from "./components/UserForm/LogIn";
 import SignUp from "./components/UserForm/SignUp";
+import ForgotPassword from "./components/UserForm/ForgotPassword";
 import LoadingPage from "./components/Spinner/LoadingPage";
 import EditProfile from "./components/UserProfile/EditProfile/EditProfile";
 import PersonalInformation from "./components/UserProfile/EditProfile/PersonalInfo/PersonalInformation";
@@ -67,6 +68,7 @@ export default function App() {
             <Switch>
               <Route exact path="/" component={LogIn} />
               <Route path="/signup" component={SignUp} />
+              <Route path="/forgot" component={ForgotPassword} />
               <Route
                 path="/leaderboard"
                 render={(props) => <Leaderboard user={user} />}

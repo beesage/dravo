@@ -90,9 +90,7 @@ export default function SignUp() {
                   {<div className={classes.redColor}>{response}</div>}
                       <Box className={classes.box}>
                         <FormControlLabel control={<Checkbox className={classes.orangeColor} value="remember" color="default" />}  className={classes.checkbox} label="Keep me logged in" />
-                        <Link href="#" className={classes.forgotPassword}>
-                          Forgot password?
-                        </Link>
+                        <NavLink  to="/forgot" className={classes.forgotPassword}>Forgot password?</NavLink > 
                       </Box>
                       <Button type="submit" text="Sign Up" onClick={signup} />    
                 </form>
