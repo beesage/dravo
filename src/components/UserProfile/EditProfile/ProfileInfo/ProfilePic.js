@@ -11,7 +11,7 @@ export default function ProfilePic() {
 
 	return (
 		<div className="picture-container">
-			<p className="edit-caption">updateProfile</p>
+			<p className="edit-caption">Upload your pic</p>
 			<input
 				type="file"
 				text="Submit"

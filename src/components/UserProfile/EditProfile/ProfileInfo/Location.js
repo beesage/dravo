@@ -15,7 +15,8 @@ import "../styles/EditProfile.css";
 export default function Location() {
 	const classes = useStyles();
 	const { user } = useContext(APIContext);
-	const { edited, selectCountry, selectRegion, handleClick } = UpdateInfo();
+	const { locationC, locationR, selectCountry, selectRegion, updateLocation } =
+		UpdateInfo();
 
 	return (
 		<>
@@ -30,14 +31,14 @@ export default function Location() {
 							<form className={classes.root}>
 								<p className="edit-caption">Country</p>
 								<CountryDropdown
-									value={edited.country}
+									value={locationC.locationC}
 									onChange={selectCountry}
 								/>
 								<p className="edit-caption">Region</p>
 								<RegionDropdown
 									disableWhenEmpty={true}
-									country={edited.country}
-									value={edited.region}
+									country={locationC.locationC}
+									value={locationR.locationR}
 									onChange={selectRegion}
 									style={{ marginBottom: "1rem" }}
 								/>
@@ -45,7 +46,7 @@ export default function Location() {
 									value="Update"
 									text="Update"
 									style={{ fontSize: "1em" }}
-									onClick={handleClick}
+									onClick={updateLocation}
 								/>
 							</form>
 						</Container>

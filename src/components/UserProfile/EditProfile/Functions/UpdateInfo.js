@@ -13,8 +13,6 @@ export default function UpdateInfo() {
 		experience: user[0].experience,
 		password: user[0].password,
 		id: user[0].beekeeper_id,
-		country: "",
-		region: "",
 		bio: "",
 	});
 
@@ -32,22 +30,31 @@ export default function UpdateInfo() {
 		});
 	};
 
-	const [newCountry, setNewCountry] = useState({
-		country: "",
+	const [locationC, setLocationC] = useState({
+		locationC: "",
 	});
 
 	const selectCountry = (val) => {
-		setEdited({
-			country: val,
+		setLocationC({
+			locationC: val,
 		});
 	};
 
-	const [newRegion, setNewRegion] = useState({
-		region: "",
+	const [locationR, setLocationR] = useState({
+		locationR: "",
 	});
 
 	const selectRegion = (val) => {
-		setEdited({ region: val });
+		setLocationR({ region: val });
+	};
+
+	const updateLocation = () => {
+		axios
+			.put("http://localhost:3000/update/1", {
+				country: locationC.locationC,
+				region: locationR.locationR,
+			})
+			.then((res) => console.log(res));
 	};
 
 	const handleClick = () => {
@@ -192,8 +199,8 @@ export default function UpdateInfo() {
 
 	return {
 		edited,
-		newCountry,
-		newRegion,
+		locationC,
+		locationR,
 		setEdited,
 		handleChange,
 		handleChangeParse,
@@ -209,5 +216,6 @@ export default function UpdateInfo() {
 		updateExperience,
 		updateProfilePic,
 		updateBio,
+		updateLocation,
 	};
 }
