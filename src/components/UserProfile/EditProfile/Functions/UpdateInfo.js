@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import APIContext from "../../../../Context/APIContext";
 import axios from "axios";
-import $ from "jquery";
 
 export default function UpdateInfo() {
 	const { user, setUser } = useContext(APIContext);

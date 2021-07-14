@@ -18,33 +18,6 @@ export default function Password() {
 	const { user } = useContext(APIContext);
 	const { edited, handleChange, updatePassword } = UpdateInfo();
 
-	// const [fields, setFields] = useState({
-	// 	oldPassword: "",
-	// 	password: "",
-	// 	confirmPassword: "",
-	// 	id: user[0].beekeeper_id,
-	// });
-
-	// const handleChange = (e) => {
-	// 	setFields((prevState) => {
-	// 		return { ...prevState, [e.target.name]: e.target.value };
-	// 	});
-	// };
-
-	// const handleEdited = () => {
-	// 	const editedArray = user.map((updated) => {
-	// 		if (updated.beekeeper_id === fields.beekeeper_id) {
-	// 			return fields;
-	// 		} else {
-	// 			return editedArray;
-	// 		}
-	// 	});
-	// 	setUser(editedArray);
-	// };
-
-	// const handleClick = () => {
-	// 	handleEdited({ ...fields });
-	// };
 	return (
 		<>
 			{user.length > 0 ? (
