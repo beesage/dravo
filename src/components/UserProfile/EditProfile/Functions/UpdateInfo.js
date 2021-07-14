@@ -45,7 +45,7 @@ export default function UpdateInfo() {
 	});
 
 	const selectRegion = (val) => {
-		setLocationR({ region: val });
+		setLocationR({ locationR: val });
 	};
 
 	const updateLocation = () => {
