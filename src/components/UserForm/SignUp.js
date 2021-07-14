@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CssBaseline, FormControlLabel, Checkbox, Link, Grid, Box, Container, Typography } from "@material-ui/core";
+import { CssBaseline, FormControlLabel, Checkbox, Grid, Box, Container, Typography } from "@material-ui/core";
 import InputField from "./controls/InputField"
 import InputPassword from "./controls/InputPassword";
 import Button from "./controls/Submit";
@@ -90,7 +90,7 @@ export default function SignUp() {
                   {<div className={classes.redColor}>{response}</div>}
                       <Box className={classes.box}>
                         <FormControlLabel control={<Checkbox className={classes.orangeColor} value="remember" color="default" />}  className={classes.checkbox} label="Keep me logged in" />
-                        <NavLink  to="/forgot" className={classes.forgotPassword}>Forgot password?</NavLink > 
+                        <NavLink  to="/forgotpassword" className={classes.forgotPassword}>Forgot password?</NavLink > 
                       </Box>
                       <Button type="submit" text="Sign Up" onClick={signup} />    
                 </form>

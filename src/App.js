@@ -68,7 +68,7 @@ export default function App() {
             <Switch>
               <Route exact path="/" component={LogIn} />
               <Route path="/signup" component={SignUp} />
-              <Route path="/forgot" component={ForgotPassword} />
+              <Route path="/forgotpassword" component={ForgotPassword} />
               <Route
                 path="/leaderboard"
                 render={(props) => <Leaderboard user={user} />}

@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import InputField from "./controls/InputField";
+import Button from "./controls/Submit";
+import UseForm from "./UseForm";
+import useStyles from "./styles/StyleUserForm";
 //import axios from "axios";
 // import Form from "../../components/Form";
 // import Row from "../../components/Row";
@@ -6,6 +10,8 @@ import React, { useState } from "react";
 // import Button from "../../components/Button";
 
 const ForgotPassword = () => {
+    const classes = useStyles();
+    const { values, handleChange, handleSubmit, errors } = UseForm();
 
     // const [email, setEmail] = useState("");
     // const [emailSent, setEmailSent] = useState(false);
@@ -49,7 +55,18 @@ const ForgotPassword = () => {
     // }
 
     return (
-        <h1>Forgot Password</h1>
+        <>
+         <form className={classes.root} onSubmit={handleSubmit} noValidate autoComplete="off">
+         <h1>Forgot Password</h1>
+            <InputField
+            name="email"
+            type="email"
+            label="Enter your email"
+            value={values.email}
+            onChange={handleChange} />
+             <Button type="submit" text="Submit" />   
+         </form>            
+        </>              
     );
 };
 
