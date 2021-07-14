@@ -76,6 +76,11 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
+			})
+			.catch((err) => {
+				if (err.response) {
+					console.log(error.response.data);
+				}
 			});
 	};
 
@@ -86,6 +91,11 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
+			})
+			.catch((err) => {
+				if (err.response) {
+					console.log(error.response.data);
+				}
 			});
 	};
 
@@ -96,16 +106,26 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
+			})
+			.catch((err) => {
+				if (err.response) {
+					console.log(error.response.data);
+				}
 			});
 	};
 
 	const updateBeehives = () => {
 		axios
 			.put("http://localhost:3000/update/1", {
-				behives: edited.beehives,
+				beehives: edited.beehives,
 			})
 			.then((res) => {
 				console.log(res);
+			})
+			.catch((err) => {
+				if (err.response) {
+					console.log(error.response.data);
+				}
 			});
 	};
 
@@ -116,6 +136,11 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
+			})
+			.catch((err) => {
+				if (err.response) {
+					console.log(error.response.data);
+				}
 			});
 	};
 
@@ -126,6 +151,11 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
+			})
+			.catch((err) => {
+				if (err.response) {
+					console.log(error.response.data);
+				}
 			});
 	};
 
@@ -136,6 +166,11 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
+			})
+			.catch((err) => {
+				if (err.response) {
+					console.log(error.response.data);
+				}
 			});
 	};
 
@@ -165,6 +200,11 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
+			})
+			.catch((err) => {
+				if (err.response) {
+					console.log(error.response.data);
+				}
 			});
 	};
 
