@@ -17,8 +17,7 @@ export default function LogIn() {
  // const [error, setError] = useState("");
  const [usernameError, setusernameError] = useState("");  
   const [passwordError, setpasswordError] = useState(""); 
-  const [responseh, setResponse] = useState("");  
-   
+  const [responseh, setResponse] = useState("");     
   
   
  const login = () => {
@@ -28,6 +27,7 @@ export default function LogIn() {
   }).then((response) => {
     setResponse(response.data.message)   
       console.log(responseh)
+      console.log(response)
   })
   .catch((e) => {
     const usernameError = e.response.data.err.details[0].message      
@@ -56,16 +56,16 @@ export default function LogIn() {
                     value={values.username}
                     onChange={handleChange}                                 
                  />
-                  {errors.username&& <div className={classes.redColor}>{usernameError}</div>}  
-                 {errors.username && <div className={classes.redColor}>{errors.username}</div>}  
+                 {errors.username && <div className={classes.redColor}>{usernameError}</div>}  
+                 {/* {errors.username && <div className={classes.redColor}>{errors.username}</div>}   */}
                   <InputPassword
                     name="password"                    
                     label="Enter your password"                    
                     value={values.password}
                     onChange={handleChange}                      
                   />  
-                   {errors.password &&<div className={classes.redColor}>{passwordError}</div>}
-                  {errors.password && <div className={classes.redColor}>{errors.password}</div>}  
+                  {errors.password &&<div className={classes.redColor}>{passwordError}</div>}
+                  {/* {errors.password && <div className={classes.redColor}>{errors.password}</div>}   */}
                   {/* {error ? <div className={classes.redColor}>{error}</div> : null}                */}
                   { <div className={classes.redColor}>{responseh}</div>}
                   <Box className={classes.box}>
