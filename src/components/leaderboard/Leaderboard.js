@@ -1,13 +1,12 @@
 import React from "react";
 import LeaderboardCard from "./LeaderboardCard";
 import LeaderboardBest from "./LeaderboardBest";
-import Button from "@material-ui/core/Button";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import lbcrown from "../../assets/crown.png";
 import "./leaderboard.css";
 
-function Leaderboard({ user, loading }) {
+function Leaderboard({ user, loading, handleDays }) {
   // const [wd, setWd] = useState([]);
   // const [wdWeek, setWdWeek] = useState([]);
   // const [wdMonth, setWdMonth] = useState([]);
@@ -60,23 +59,23 @@ function Leaderboard({ user, loading }) {
     lbiconlink: null,
   };
 
-  /**
-   * Sorting the passed down array user by their value weight delta
-   * in descending order.
-   * <p>
-   * This function recieves the array "user" and uses the sort() method
-   * to sort the array. The default sort order is ascending, built upon
-   * converting the elements into strings, then comparing their sequences
-   * of UTF-16 code units values. This function recieves b as a first argument
-   * and a as a second argument to change the sort oder to descending.
-   *
-   * @param   a  starting point of the elements in an array
-   * @param   b  endpoint of the element in an array
-   * @return     returns the sorted array "user"
-   * @author     Lukas Kreibig
-   */
+  // /**
+  //  * Sorting the passed down array user by their value weight delta
+  //  * in descending order.
+  //  * <p>
+  //  * This function recieves the array "user" and uses the sort() method
+  //  * to sort the array. The default sort order is ascending, built upon
+  //  * converting the elements into strings, then comparing their sequences
+  //  * of UTF-16 code units values. This function recieves b as a first argument
+  //  * and a as a second argument to change the sort oder to descending.
+  //  *
+  //  * @param   a  starting point of the elements in an array
+  //  * @param   b  endpoint of the element in an array
+  //  * @return     returns the sorted array "user"
+  //  * @author     Lukas Kreibig
+  //  */
 
-  user.sort((b, a) => parseFloat(a.weight_delta) - parseFloat(b.weight_delta));
+  // user.sort((b, a) => parseFloat(a.weight_delta) - parseFloat(b.weight_delta));
 
   let lbTop = user.slice(0, 3);
   let lbAll = user.slice(3);
@@ -95,69 +94,43 @@ function Leaderboard({ user, loading }) {
             <span></span>
           </div>
           <div className="lb-triangle" id="lb-triangle-left">
-            <div className="lb-triangle-text" id="lb-triangle-transform">
+            <div
+              onClick={() => handleDays("7")}
+              className="lb-triangle-text"
+              id="lb-triangle-transform"
+            >
               This Week
             </div>
           </div>
-          <div className="lb-triangle" id="lb-triangle-center">
+          <div
+            onClick={() => handleDays("30")}
+            className="lb-triangle"
+            id="lb-triangle-center"
+          >
             <div className="lb-triangle-text" id="lb-triangle-rotate-text">
               This Month
             </div>
           </div>
-          <div className="lb-triangle" id="lb-triangle-right">
+          <div
+            onClick={() => handleDays("5000")}
+            className="lb-triangle"
+            id="lb-triangle-right"
+          >
             <div className="lb-triangle-text" id="lb-triangle-transform">
               All Time
             </div>
           </div>
 
+          <div>
+            <button onClick={() => handleDays("5000")}>All-Time</button>
+            <button onClick={() => handleDays("30")}>Month</button>
+          </div>
+
           <div className="lb-button">
-            <Button
-              style={{
-                textTransform: "none",
-                fontSize: "10px",
-                backgroundColor: "#314e52",
-                color: "#f2a154",
-                borderRadius: "0%",
-              }}
-            >
-              Today
-            </Button>
-
-            <Button
-              style={{
-                textTransform: "none",
-                fontSize: "10px",
-                color: "#314e52",
-                backgroundColor: "rgba(255, 255, 255, 0.15)",
-                borderRadius: "0%",
-              }}
-            >
-              Week
-            </Button>
-
-            <Button
-              style={{
-                width: "100",
-                textTransform: "none",
-                fontSize: "10px",
-                color: "#314e52",
-                backgroundColor: "rgba(255, 255, 255, 0.15)",
-                borderRadius: "0%",
-              }}
-            >
-              Month
-            </Button>
-            <Button
-              style={{
-                textTransform: "none",
-                fontSize: "10px",
-                color: "#314e52",
-                backgroundColor: "rgba(255, 255, 255, 0.15)",
-                borderRadius: "0%",
-              }}
-            >
-              All Time
-            </Button>
+            <button onClick={() => handleDays("1")}>Today</button>
+            <button onClick={() => handleDays("7")}>Week</button>
+            <button onClick={() => handleDays("30")}>Month</button>
+            <button onClick={() => handleDays("5000")}>All-Time</button>
           </div>
 
           <div className="leaderboard-top"></div>
