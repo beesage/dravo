@@ -146,56 +146,16 @@ export default function UpdateInfo() {
 	};
 
 	const updateProfilePic = () => {
-		var formData = new FormData();
-		formData.append("file", updatePic.src);
+		// var formData = new FormData();
+		// formData.append("file", updatePic.src);
 		axios
-			.out("http://localhost:3000/update/1", {
+			.put("http://localhost:3000/update/1", {
 				profile_pic: updatePic,
 			})
 			.then((res) => {
 				console.log(res);
 			});
 	};
-
-	// const updateCountryRegion = () => {
-	// 	const newLocationArray = user.map((updated) => {
-	// 		if (updated.country === edited.country) {
-	// 			return edited;
-	// 		} else {
-	// 			console.log(updated);
-	// 			return updated;
-	// 		}
-	// 	});
-	// 	setUser(newLocationArray);
-	// };
-
-	// const upload = () => {
-	// 	var formData = new FormData();
-
-	// 	formData.append("file", updatePic.src);
-
-	// 	$.ajax({
-	// 		url: "/http://localhost:3000/update/1",
-	// 		method: "POST",
-	// 		data: formData,
-	// 		cache: false,
-	// 		contentType: false,
-	// 		processData: false,
-	// 		success: function (response) {
-	// 			// Code to handle a succesful upload
-	// 		},
-	// 	});
-	// };
-
-	// const [country, setCountry] = useState({
-	// 	country: "",
-	// 	id: user[0].beekeeper_id,
-	// });
-
-	// const [region, setRegion] = useState({
-	// 	region: "",
-	// 	id: user[0].beekeeper_id,
-	// });
 
 	return {
 		edited,

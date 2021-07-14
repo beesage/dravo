@@ -19,7 +19,7 @@ export default function ProfilePic() {
 				className="submit-pic"
 			/>
 			<div className="preview">{preview()}</div>
-			<Button onClick={updateProfilePic} text="Upload"></Button>
+			<Button onClick={updateProfilePic} text="Upload" />
 		</div>
 	);
 }
