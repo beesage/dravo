@@ -27,7 +27,7 @@ const useStylesEdit = makeStyles((theme) => ({
 		justifyContent: "space-evenly",
 		backgroundColor: "#F7F6E7",
 		height: "0",
-		paddingTop: "100px",
+		paddingTop: "50px",
 	},
 	textField: {
 		background: "#FFFFFF",
@@ -42,7 +42,7 @@ const useStylesEdit = makeStyles((theme) => ({
 		background: "#314E52",
 		padding: "8px 80px",
 		color: "#F2A154",
-		marginBottom: "2%",
+		marginTop: "3%",
 		boxShadow: "0 8px 6px -6px rgba(0, 0, 0, 0.5)",
 		"&:hover": {
 			backgroundColor: "#5A8288",
