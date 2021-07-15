@@ -7,7 +7,7 @@ function LeaderboardCard({ user, index }) {
     <div className="lb-card-wrapper">
       <div className="lb-card-rank">
         {user.avg_wd === user.avg_before_wd ? (
-          "equal"
+          <DragHandle style={{ fill: "black" }} />
         ) : user.avg_wd > user.avg_before_wd ? (
           <ArrowDropUpIcon style={{ fill: "green" }} />
         ) : (
