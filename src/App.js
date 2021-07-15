@@ -24,6 +24,7 @@ import Bio from "./components/UserProfile/EditProfile/ProfileInfo/Bio";
 import Experience from "./components/UserProfile/EditProfile/ProfileInfo/Experience";
 import Apiaries from "./components/UserProfile/EditProfile/ProfileInfo/Apiaries";
 import Beehives from "./components/UserProfile/EditProfile/ProfileInfo/Beehives";
+import Footer from "./components/Footer/Footer";
 
 export default function App() {
 	const [user, setUser] = useState([]);
@@ -131,6 +132,7 @@ export default function App() {
 								component={Beehives}
 							/>
 						</Switch>
+						<Footer />
 					</Router>
 				) : (
 					<LoadingPage />
