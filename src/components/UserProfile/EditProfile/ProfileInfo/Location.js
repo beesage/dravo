@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 
-import UpdateInfo from "../Functions/UpdateInfo";
 import APIContext from "../../../../Context/APIContext";
+import UpdateInfo from "../Functions/UpdateInfo";
 
 import LoadingPage from "../../../Spinner/LoadingPage";
 

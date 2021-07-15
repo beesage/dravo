@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 
 import APIContext from "../../Context/APIContext";
 
-import Pic from "./styles/StylesUserProfile";
 import Hex from "./styles/Hexagons/Hex";
 import HexData from "./styles/Hexagons/HexData";
 import HexBio from "./styles/Hexagons/HexBio";
@@ -24,7 +23,7 @@ export default function UserProfile() {
 						<FaMedal className="medal" />
 						<div className="user-info">
 							<div className="hex-profile ribbon-outset border">
-								<Pic alt="" src={user[0].profile_picture} />
+								<img alt="" src={user[0].profile_picture} className="avatar" />
 							</div>
 							<p className="username">{user[0].username}</p>
 							<p className="user-location">{user[0].region}</p>

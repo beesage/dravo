@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+
+import APIContext from "../../../../Context/APIContext";
 
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
-import ArrowForwardIosOutlinedIcon from "@material-ui/icons/ArrowForwardIosOutlined";
+import { IoIosArrowForward } from "react-icons/io";
 
 import "../styles/EditProfile.css";
-
-import { Link } from "react-router-dom";
-import APIContext from "../../../../Context/APIContext";
 
 export default function ProfileInformation() {
 	const { user } = useContext(APIContext);
@@ -32,7 +32,7 @@ export default function ProfileInformation() {
 							<ListItemText>
 								<p className="edit-caption">Profile Picture</p>
 							</ListItemText>
-							<ArrowForwardIosOutlinedIcon
+							<IoIosArrowForward
 								style={{
 									fontSize: "1.1rem",
 								}}
@@ -58,7 +58,7 @@ export default function ProfileInformation() {
 							<ListItemText>
 								<p className="edit-caption">Bio</p>
 							</ListItemText>
-							<ArrowForwardIosOutlinedIcon
+							<IoIosArrowForward
 								style={{
 									fontSize: "1.1rem",
 								}}

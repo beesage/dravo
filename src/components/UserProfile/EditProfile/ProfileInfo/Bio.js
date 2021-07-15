@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 
 import APIContext from "../../../../Context/APIContext";
+import UpdateInfo from "../Functions/UpdateInfo";
 
 import { Container } from "@material-ui/core";
 import useStyles from "../../../UserForm/styles/StyleUserForm";
@@ -8,7 +9,6 @@ import TextBio from "../styles/TextBio";
 import Button from "../../../UserForm/controls/Submit";
 
 import "../styles/EditProfile.css";
-import UpdateInfo from "../Functions/UpdateInfo";
 
 export default function Bio() {
 	const classes = useStyles();

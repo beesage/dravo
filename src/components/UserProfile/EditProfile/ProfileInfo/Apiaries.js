@@ -1,5 +1,8 @@
 import React, { useContext } from "react";
 
+import APIContext from "../../../../Context/APIContext";
+import UpdateInfo from "../Functions/UpdateInfo";
+
 import LoadingPage from "../../../Spinner/LoadingPage";
 
 import useStyles from "../../../UserForm/styles/StyleUserForm";
@@ -8,8 +11,6 @@ import InputField from "../../../UserForm/controls/InputField";
 import Button from "../../../UserForm/controls/Submit";
 
 import "../styles/EditProfile.css";
-import APIContext from "../../../../Context/APIContext";
-import UpdateInfo from "../Functions/UpdateInfo";
 
 export default function Apiaries() {
 	const classes = useStyles();

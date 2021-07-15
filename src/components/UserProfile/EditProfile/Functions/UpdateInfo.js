@@ -65,17 +65,6 @@ export default function UpdateInfo() {
 			});
 	};
 
-	// const handleClick = () => {
-	// 	const editedArray = user.map((updated) => {
-	// 		if (updated.beekeeper_id === edited.beekeeper_id) {
-	// 			return edited;
-	// 		} else {
-	// 			return updated;
-	// 		}
-	// 	});
-	// 	setUser(editedArray);
-	// };
-
 	const [err, setErr] = useState("");
 
 	const [res, setRes] = useState("");
@@ -240,7 +229,6 @@ export default function UpdateInfo() {
 		setEdited,
 		handleChange,
 		handleChangeParse,
-		// handleClick,
 		handlePicture,
 		preview,
 		selectCountry,

@@ -1,3 +1,8 @@
+.mobile-editprofile {
+	display: block;
+	grid-column: 1/10;
+}
+
 .edit-caption,
 .api-caption {
 	font-size: 1rem;
@@ -28,4 +33,18 @@
 
 .err-message {
 	color: red;
+}
+
+.tablet-editprofile {
+	display: none;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1300px) and (-webkit-min-device-pixel-ratio: 1) {
+	.mobile-editprofile {
+		display: none;
+	}
+
+	.tablet-editprofile {
+		display: block;
+	}
 }

@@ -1,15 +1,16 @@
 import React, { useContext } from "react";
 
+import { Link } from "react-router-dom";
+
+import APIContext from "../../../../Context/APIContext";
+
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
-import ArrowForwardIosOutlinedIcon from "@material-ui/icons/ArrowForwardIosOutlined";
+import { IoIosArrowForward } from "react-icons/io";
 
 import "../styles/EditProfile.css";
-
-import { Link } from "react-router-dom";
-import APIContext from "../../../../Context/APIContext";
 
 export default function PersonalInformation() {
 	const { user } = useContext(APIContext);
@@ -56,7 +57,7 @@ export default function PersonalInformation() {
 							<ListItemText>
 								<p className="api-caption" />
 							</ListItemText>
-							<ArrowForwardIosOutlinedIcon
+							<IoIosArrowForward
 								style={{
 									fontSize: "1.1rem",
 								}}
