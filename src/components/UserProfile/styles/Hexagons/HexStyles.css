@@ -85,6 +85,7 @@
 		margin: 51.96px 0;
 		transform: rotate(90deg);
 		box-shadow: inset 20px 20px 0px 20px #f2a154;
+		display: inline-flex;
 	}
 
 	.hex-profile:before,
