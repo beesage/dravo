@@ -62,7 +62,7 @@ export default function Apiaries() {
 					<Container
 						component="main"
 						maxWidth={false}
-						className={classesEdit.containerTabletEmail}
+						className={classesEdit.containerTablet}
 					>
 						<form className={classesEdit.root}>
 							<p className="edit-caption">Apiaries</p>

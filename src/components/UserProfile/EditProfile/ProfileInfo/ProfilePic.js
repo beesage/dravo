@@ -54,7 +54,7 @@ export default function ProfilePic() {
 					<Container
 						component="main"
 						maxWidth={false}
-						className={classesEdit.containerTabletEmail}
+						className={classesEdit.containerTablet}
 					>
 						<p className="edit-caption">Upload your pic</p>
 						<input

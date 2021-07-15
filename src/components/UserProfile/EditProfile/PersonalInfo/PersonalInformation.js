@@ -84,11 +84,13 @@ export default function PersonalInformation() {
 								</ListItem>
 							</Link>
 							<Divider />
-							<ListItem>
-								<ListItemText>
-									<p className="menu-item-tablet">Password</p>
-								</ListItemText>
-							</ListItem>
+							<Link to="/settings/personal-info/password">
+								<ListItem>
+									<ListItemText>
+										<p className="menu-item-tablet">Password</p>
+									</ListItemText>
+								</ListItem>
+							</Link>
 							<Divider />
 							<Link to="/settings/profile-info">
 								<ListItem>

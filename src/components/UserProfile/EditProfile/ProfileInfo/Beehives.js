@@ -64,7 +64,7 @@ export default function Beehives() {
 					<Container
 						component="main"
 						maxWidth={false}
-						className={classesEdit.containerTabletEmail}
+						className={classesEdit.containerTablet}
 					>
 						<form className={classesEdit.root}>
 							<p className="edit-caption">Beehives</p>

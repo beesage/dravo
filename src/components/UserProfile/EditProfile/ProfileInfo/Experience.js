@@ -65,7 +65,7 @@ export default function Experience() {
 					<Container
 						component="main"
 						maxWidth={false}
-						className={classesEdit.containerTabletEmail}
+						className={classesEdit.containerTablet}
 					>
 						<form className={classesEdit.root}>
 							<p className="edit-caption">Experience</p>

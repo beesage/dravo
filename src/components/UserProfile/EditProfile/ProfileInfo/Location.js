@@ -76,6 +76,49 @@ export default function Location() {
 			) : (
 				<LoadingPage />
 			)}
+			{user.length > 0 ? (
+				<div className="u-edit-container-tablet">
+					<Container
+						component="main"
+						maxWidth={false}
+						className={classesEdit.containerTablet}
+					>
+						<form className={classesEdit.root}>
+							<p className="edit-caption">Country</p>
+							<CountryDropdown
+								value={locationC.locationC}
+								onChange={selectCountry}
+							/>
+							{err && (
+								<p className="err-message">{err.validationErrors[0].message}</p>
+							)}
+							<p className="edit-caption">Region</p>
+							<RegionDropdown
+								disableWhenEmpty={true}
+								country={locationC.locationC}
+								value={locationR.locationR}
+								onChange={selectRegion}
+								style={{ marginBottom: "1rem" }}
+							/>
+							{err && (
+								<p className="err-message">{err.validationErrors[0].message}</p>
+							)}
+							<Button
+								value="Update"
+								text="Update"
+								style={{ fontSize: "1em" }}
+								onClick={updateLocation}
+								className={classesEdit.buttonEdit}
+							>
+								Update
+							</Button>
+							{res && <p className="err-message">{res}</p>}
+						</form>
+					</Container>
+				</div>
+			) : (
+				<LoadingPage />
+			)}
 		</>
 	);
 }

@@ -61,7 +61,7 @@ export default function Bio() {
 					<Container
 						component="main"
 						maxWidth={false}
-						className={classesEdit.root}
+						className={classesEdit.containerTablet}
 					>
 						<form className={classesEdit.root}>
 							<p className="edit-caption">Bio</p>
