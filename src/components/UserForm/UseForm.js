@@ -8,8 +8,8 @@ const UseForm = (validate) => {
     confirmPassword: "",       
   });    
 
-  const [errors, setErrors] = useState({});
-  
+  const [errors, setErrors] = useState({});  
+ // const [isSubmitting, setIsSubmitting] = useState(false);
  
   /**
    * handleChange sets a new state based on the input from the user.
@@ -55,11 +55,12 @@ const UseForm = (validate) => {
    */
    const handleSubmit = e => {   
     e.preventDefault();  
-    setErrors(validate(values)) 
+    setErrors(validate(values));   
   };
-  
+
+
  
-    return { values, handleChange, handleSubmit, errors, handleClickShowPassword };
+  return { values, handleChange, handleSubmit, errors, handleClickShowPassword };
 }
 
 export default UseForm;
