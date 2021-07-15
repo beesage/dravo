@@ -56,25 +56,25 @@ export default function ProfilePic() {
 						maxWidth={false}
 						className={classesEdit.containerTablet}
 					>
-						<p className="edit-caption">Upload your pic</p>
-						<input
-							type="file"
-							text="Submit"
-							onChange={handlePicture}
-							className="submit-pic"
-						/>
-						<div className="preview">{preview()}</div>
-						{err && (
-							<p className="err-message">{err.validationErrors[0].message}</p>
-						)}
-						<Button
-							onClick={updateProfilePic}
-							text="Upload"
-							className={classesEdit.buttonEdit}
-						>
-							Upload
-						</Button>
-						{res && <p className="err-message">{res}</p>}
+						<form>
+							<input
+								type="file"
+								text="Submit"
+								onChange={handlePicture}
+								className="submit-pic"
+							/>
+							{err && (
+								<p className="err-message">{err.validationErrors[0].message}</p>
+							)}
+							<Button
+								onClick={updateProfilePic}
+								text="Upload"
+								className={classesEdit.buttonTabletPic}
+							>
+								Upload pic
+							</Button>
+							{res && <p className="err-message">{res}</p>}
+						</form>
 					</Container>
 				</div>
 			) : (

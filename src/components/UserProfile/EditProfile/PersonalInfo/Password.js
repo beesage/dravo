@@ -13,14 +13,26 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
+// import { InputAdornment, IconButton } from "@material-ui/core";
+// import Visibility from "@material-ui/icons/Visibility";
+// import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
 import "../styles/EditProfile.css";
 import useStylesEdit from "../styles/EditStyle";
 
-export default function Password() {
+export default function Password(props) {
 	const classesEdit = useStylesEdit();
 	const { user } = useContext(APIContext);
-	const { edited, handleChange, updatePassword, err, res } = UpdateInfo();
+	const {
+		edited,
+		handleChange,
+		showPassword,
+		setShowPassword,
+		inputPassword,
+		updatePassword,
+		err,
+		res,
+	} = UpdateInfo();
 
 	return (
 		<>

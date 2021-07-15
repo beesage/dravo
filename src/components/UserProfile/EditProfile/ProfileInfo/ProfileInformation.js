@@ -144,9 +144,9 @@ export default function ProfileInformation() {
 						<ProfilePic />
 						<Location />
 						<Bio />
-						<Experience />
+						{/* <Experience />
 						<Apiaries />
-						<Beehives />
+						<Beehives /> */}
 					</div>
 				</div>
 			</div>

@@ -31,6 +31,12 @@ export default function UpdateInfo() {
 		});
 	};
 
+	const [showPassword, setShowPassword] = useState(false);
+
+	const inputPassword = (e) => {
+		setShowPassword(!showPassword);
+	};
+
 	const [locationC, setLocationC] = useState({
 		locationC: "",
 	});
@@ -245,6 +251,7 @@ export default function UpdateInfo() {
 		setEdited,
 		handleChange,
 		handleChangeParse,
+		inputPassword,
 		handlePicture,
 		preview,
 		selectCountry,

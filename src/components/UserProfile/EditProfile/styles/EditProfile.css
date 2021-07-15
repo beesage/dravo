@@ -55,6 +55,10 @@
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1300px) and (-webkit-min-device-pixel-ratio: 1) {
+	* {
+		box-sizing: border-box;
+	}
+
 	.mobile-editprofile {
 		display: none;
 	}
@@ -73,14 +77,10 @@
 		display: block;
 	}
 
-	* {
-		box-sizing: border-box;
-	}
-
 	.column {
 		float: left;
 		padding: 10px;
-		height: 400px;
+		height: 550px;
 		border: 1px solid black;
 	}
 

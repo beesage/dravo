@@ -63,9 +63,10 @@ export default function Bio() {
 						maxWidth={false}
 						className={classesEdit.containerTablet}
 					>
-						<form className={classesEdit.root}>
+						<form>
 							<p className="edit-caption">Bio</p>
 							<textarea
+								className="bio-textarea"
 								value={edited.bio}
 								onChange={handleChange}
 								name="bio"
@@ -79,7 +80,7 @@ export default function Bio() {
 								value="Update"
 								text="Update"
 								onClick={updateBio}
-								style={{ fontSize: "1em" }}
+								className={classesEdit.buttonTablet}
 							>
 								Update
 							</Button>

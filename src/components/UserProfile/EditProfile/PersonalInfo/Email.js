@@ -80,6 +80,7 @@ export default function Email() {
 							)}
 							<Button
 								value="Update"
+								name="email"
 								onClick={updateEmail}
 								className={classesEdit.buttonEdit}
 							>

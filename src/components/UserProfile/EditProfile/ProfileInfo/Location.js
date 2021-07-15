@@ -81,13 +81,14 @@ export default function Location() {
 					<Container
 						component="main"
 						maxWidth={false}
-						className={classesEdit.containerTablet}
+						className={classesEdit.containerLocationTablet}
 					>
-						<form className={classesEdit.root}>
+						<form>
 							<p className="edit-caption">Country</p>
 							<CountryDropdown
 								value={locationC.locationC}
 								onChange={selectCountry}
+								style={{ width: "250px" }}
 							/>
 							{err && (
 								<p className="err-message">{err.validationErrors[0].message}</p>
@@ -98,7 +99,7 @@ export default function Location() {
 								country={locationC.locationC}
 								value={locationR.locationR}
 								onChange={selectRegion}
-								style={{ marginBottom: "1rem" }}
+								style={{ marginBottom: "1rem", width: "250px" }}
 							/>
 							{err && (
 								<p className="err-message">{err.validationErrors[0].message}</p>
@@ -106,9 +107,8 @@ export default function Location() {
 							<Button
 								value="Update"
 								text="Update"
-								style={{ fontSize: "1em" }}
 								onClick={updateLocation}
-								className={classesEdit.buttonEdit}
+								className={classesEdit.buttonTablet}
 							>
 								Update
 							</Button>
