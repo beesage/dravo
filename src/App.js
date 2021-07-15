@@ -11,6 +11,7 @@ import Leaderboard from "./components/leaderboard/Leaderboard";
 import UserProfile from "./components/UserProfile/UserProfile";
 import LogIn from "./components/UserForm/LogIn";
 import SignUp from "./components/UserForm/SignUp";
+import ForgotPassword from "./components/UserForm/ForgotPassword";
 import LoadingPage from "./components/Spinner/LoadingPage";
 import EditProfile from "./components/UserProfile/EditProfile/EditProfile";
 import PersonalInformation from "./components/UserProfile/EditProfile/PersonalInfo/PersonalInformation";
@@ -25,6 +26,7 @@ import Experience from "./components/UserProfile/EditProfile/ProfileInfo/Experie
 import Apiaries from "./components/UserProfile/EditProfile/ProfileInfo/Apiaries";
 import Beehives from "./components/UserProfile/EditProfile/ProfileInfo/Beehives";
 import Footer from "./components/Footer/Footer";
+
 
 export default function App() {
 	const [user, setUser] = useState([]);
@@ -59,6 +61,83 @@ export default function App() {
 
 	console.log(user);
 
+<<<<<<< HEAD
+  return (
+    <div className="container">
+      <APIContext.Provider value={{ user: user, setUser: setUser }}>
+        {!loading ? (
+          <Router>
+            <Header />
+            <Switch>
+              <Route exact path="/" component={LogIn} />
+              <Route path="/signup" component={SignUp} />
+              <Route path="/forgotpassword" component={ForgotPassword} />
+              <Route
+                path="/leaderboard"
+                render={(props) => <Leaderboard user={user} />}
+              />
+              <Route path="/profile" component={UserProfile} />
+              <Route exact path="/settings" component={EditProfile} />
+              <Route
+                exact
+                path="/settings/personal-info"
+                component={PersonalInformation}
+              />
+              <Route
+                exact
+                path="/settings/personal-info/username"
+                component={Username}
+              />
+              <Route
+                exact
+                path="/settings/personal-info/email"
+                component={Email}
+              />
+              <Route
+                exact
+                path="/settings/personal-info/password"
+                component={Password}
+              />
+              <Route
+                exact
+                path="/settings/profile-info"
+                component={ProfileInformation}
+              />
+              <Route
+                exact
+                path="/settings/profile-info/profile-pic"
+                component={ProfilePic}
+              />
+              <Route
+                exact
+                path="/settings/profile-info/location"
+                component={Location}
+              />
+              <Route exact path="/settings/profile-info/bio" component={Bio} />
+              <Route
+                exact
+                path="/settings/profile-info/experience"
+                component={Experience}
+              />
+              <Route
+                exact
+                path="/settings/profile-info/apiaries"
+                component={Apiaries}
+              />
+              <Route
+                exact
+                path="/settings/profile-info/beehives"
+                component={Beehives}
+              />
+            </Switch>
+          </Router>
+        ) : (
+          <LoadingPage />
+        )}
+      </APIContext.Provider>
+    </div>
+  );
+=======
 	const handleDays = (changeDays) => {
 		setDays(changeDays);
 	};
@@ -140,4 +219,5 @@ export default function App() {
 			</APIContext.Provider>
 		</div>
 	);
+>>>>>>> 7830b1b26919888b74f44c4bca93ad2603190e62
 }
