@@ -1,45 +1,10 @@
 import React from "react";
 import LeaderboardCard from "./LeaderboardCard";
 import LeaderboardBest from "./LeaderboardBest";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import lbcrown from "../../assets/crown.png";
 import "./leaderboard.css";
 
 function Leaderboard({ user, loading, handleDays }) {
-  // const [wd, setWd] = useState([]);
-  // const [wdWeek, setWdWeek] = useState([]);
-  // const [wdMonth, setWdMonth] = useState([]);
-  // const [wdAll, setWdAll] = useState([]);
-  // const [days, setDays] = useState(30);
-
-  // let state = setWd(fetch.data);
-
-  // useEffect(() => {
-  //   /**
-  //    * Fetch data via Axios from the API URL and store the fetched user array in the user state
-  //    * <p>
-  //    * The userAPI function is declared inside an useEffect Hook with an empty array
-  //    * as a second argument, which prevents re-rendering. The setLoading function, with
-  //    * an initial state of "false", changes to "true" after waiting for the asynchronous
-  //    * task of fetching the userAPI to finish. This is regulated through an async / await
-  //    * operation to fetch data from the stated API through a GET request with Axios. Once the
-  //    * asynchronous task is successfully returned, the data are stored in setUsed,
-  //    * and setLoading is set to "false".
-  //    *
-  //    * @author Lukas Kreibig
-  //    */
-
-  //   const weightDeltaApi = async (days) => {
-  //     // setLoading(true);
-  //     const fetch = await axios.get(`http://202.61.225.240:3000/lb/${days}`);
-  //     setWd(fetch.data);
-  //     // setLoading(false);
-  //   };
-  //   weightDeltaApi();
-  // }, []);
-  // console.log(wd);
-
   const left = {
     divprop: "lb-top-left",
     pic: "lb-pic-middle",
@@ -58,24 +23,6 @@ function Leaderboard({ user, loading, handleDays }) {
     lbicon: null,
     lbiconlink: null,
   };
-
-  // /**
-  //  * Sorting the passed down array user by their value weight delta
-  //  * in descending order.
-  //  * <p>
-  //  * This function recieves the array "user" and uses the sort() method
-  //  * to sort the array. The default sort order is ascending, built upon
-  //  * converting the elements into strings, then comparing their sequences
-  //  * of UTF-16 code units values. This function recieves b as a first argument
-  //  * and a as a second argument to change the sort oder to descending.
-  //  *
-  //  * @param   a  starting point of the elements in an array
-  //  * @param   b  endpoint of the element in an array
-  //  * @return     returns the sorted array "user"
-  //  * @author     Lukas Kreibig
-  //  */
-
-  // user.sort((b, a) => parseFloat(a.weight_delta) - parseFloat(b.weight_delta));
 
   let lbTop = user.slice(0, 3);
   let lbAll = user.slice(3);

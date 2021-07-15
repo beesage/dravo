@@ -52,10 +52,11 @@ export default function App() {
       const res = await axios.get(`http://202.61.225.240:3000/lb/${days}`);
       setUser(res.data);
       setLoading(false);
-      console.log(user);
     };
     userAPI(days);
   }, [days]);
+
+  console.log(user);
 
   const handleDays = (changeDays) => {
     setDays(changeDays);
