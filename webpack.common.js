@@ -29,7 +29,7 @@ module.exports = {
 
       {
         //when we find file which match js/jsx extension, use the babel loader to load it into webpack
-        test: /.(js|jsx)$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -37,7 +37,7 @@ module.exports = {
       },
       {
         //when we find file which match css extension, use style-loader to create a style tag, css-loader to load css to convert it into css
-        test: /.css$/,
+        test: /\.css$/,
         use: ["style-loader", "css-loader"],
       },
     ],

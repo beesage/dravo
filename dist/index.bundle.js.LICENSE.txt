@@ -4,6 +4,7 @@ object-assign
 @license MIT
 */
 
+<<<<<<< HEAD
 /*!
  * Sizzle CSS Selector Engine v2.3.6
  * https://sizzlejs.com/
@@ -29,6 +30,8 @@ object-assign
  * Date: 2021-03-02T17:08Z
  */
 
+=======
+>>>>>>> main
 /**
  * A better abstraction over CSS.
  *

@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import APIContext from "../../../../Context/APIContext";
 import axios from "axios";
-import $ from "jquery";
 
 export default function UpdateInfo() {
 	const { user, setUser } = useContext(APIContext);
@@ -11,10 +10,10 @@ export default function UpdateInfo() {
 		apiaries: user[0].apiaries,
 		beehives: user[0].beehives,
 		experience: user[0].experience,
-		password: user[0].password,
+		password: "",
+		oldPassword: "",
+		confirmPassword: "",
 		id: user[0].beekeeper_id,
-		country: "",
-		region: "",
 		bio: "",
 	});
 
@@ -32,34 +31,65 @@ export default function UpdateInfo() {
 		});
 	};
 
-	const [newCountry, setNewCountry] = useState({
-		country: "",
+	const [showPassword, setShowPassword] = useState(false);
+
+	const inputPassword = (e) => {
+		setShowPassword(!showPassword);
+	};
+
+	const [locationC, setLocationC] = useState({
+		locationC: "",
 	});
 
 	const selectCountry = (val) => {
-		setEdited({
-			country: val,
+		setLocationC({
+			locationC: val,
 		});
 	};
 
-	const [newRegion, setNewRegion] = useState({
-		region: "",
+	// const selectCountry = (val) => {
+	// 	setLocationC({
+	// 		locationC: val,
+	// 	});
+	// 	setEdited((prevState) => {
+	// 		return { ...prevState, country: locationC.locationC };
+	// 	});
+	// };
+
+	const [locationR, setLocationR] = useState({
+		locationR: "",
 	});
 
 	const selectRegion = (val) => {
-		setEdited({ region: val });
+		setLocationR({ locationR: val });
 	};
 
-	const handleClick = () => {
-		const editedArray = user.map((updated) => {
-			if (updated.beekeeper_id === edited.beekeeper_id) {
-				return edited;
-			} else {
-				return updated;
-			}
-		});
-		setUser(editedArray);
+	// const selectRegion = (val) => {
+	// 	setLocationR({ locationR: val });
+	// 	setEdited((prevState) => {
+	// 		return { ...prevState, region: locationR.locationR };
+	// 	});
+	// };
+
+	const updateLocation = () => {
+		axios
+			.put("http://localhost:3000/update/1", {
+				country: locationC.locationC,
+				region: locationR.locationR,
+			})
+			.then((res) => {
+				console.log(res);
+			})
+			.catch((err) => {
+				if (err.response) {
+					setErr(err.response.data);
+				}
+			});
 	};
+
+	const [err, setErr] = useState("");
+
+	const [res, setRes] = useState("");
 
 	const updateUsername = () => {
 		axios
@@ -68,6 +98,12 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
+				setRes("All good :)");
+			})
+			.catch((err) => {
+				if (err.response) {
+					setErr(err.response.data);
+				}
 			});
 	};
 
@@ -78,6 +114,12 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
+				setRes("All good :)");
+			})
+			.catch((err) => {
+				if (err.response) {
+					setErr(err.response.data);
+				}
 			});
 	};
 
@@ -88,16 +130,28 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
+				setRes("All good :)");
+			})
+			.catch((err) => {
+				if (err.response) {
+					setErr(err.response.data);
+				}
 			});
 	};
 
 	const updateBeehives = () => {
 		axios
 			.put("http://localhost:3000/update/1", {
-				behives: edited.beehives,
+				beehives: edited.beehives,
 			})
 			.then((res) => {
 				console.log(res);
+				setRes("All good :)");
+			})
+			.catch((err) => {
+				if (err.response) {
+					setErr(err.response.data);
+				}
 			});
 	};
 
@@ -108,7 +162,51 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
+				setRes("All good :)");
+			})
+			.catch((err) => {
+				if (err.response) {
+					setErr(err.response.data);
+				}
 			});
+	};
+
+	const updateBio = () => {
+		axios
+			.put("http://localhost:3000/update/1", {
+				bio: edited.bio,
+			})
+			.then((res) => {
+				console.log(res);
+				setRes("All good :)");
+			})
+			.catch((err) => {
+				if (err.response) {
+					setErr(err.response.data);
+				}
+			});
+	};
+
+	// const [errPass, setErrPass] = useState("");
+
+	const updatePassword = () => {
+		// if (edited.confirmPassword != edited.password) {
+		// 	setErrPass("The password should match!");
+		// } else {
+		axios
+			.put("http://localhost:3000/updatePass/1", {
+				password: edited.confirmPassword,
+			})
+			.then((res) => {
+				console.log(res);
+				setRes("All good :)");
+			})
+			.catch((err) => {
+				if (err.response) {
+					setErr(err.response.data);
+				}
+			});
+		// }
 	};
 
 	const [updatePic, setUpdatePic] = useState(false);
@@ -132,62 +230,28 @@ export default function UpdateInfo() {
 		var formData = new FormData();
 		formData.append("file", updatePic.src);
 		axios
-			.out("http://localhost:3000/update/1", {
-				profile_pic: updatePic,
+			.put("http://localhost:3000/update/1", {
+				profile_pic: updatePic.src,
 			})
 			.then((res) => {
 				console.log(res);
+				setRes("All good :)");
+			})
+			.catch((err) => {
+				if (err.response) {
+					setErr(err.response.data);
+				}
 			});
 	};
 
-	// const updateCountryRegion = () => {
-	// 	const newLocationArray = user.map((updated) => {
-	// 		if (updated.country === edited.country) {
-	// 			return edited;
-	// 		} else {
-	// 			console.log(updated);
-	// 			return updated;
-	// 		}
-	// 	});
-	// 	setUser(newLocationArray);
-	// };
-
-	// const upload = () => {
-	// 	var formData = new FormData();
-
-	// 	formData.append("file", updatePic.src);
-
-	// 	$.ajax({
-	// 		url: "/http://localhost:3000/update/1",
-	// 		method: "POST",
-	// 		data: formData,
-	// 		cache: false,
-	// 		contentType: false,
-	// 		processData: false,
-	// 		success: function (response) {
-	// 			// Code to handle a succesful upload
-	// 		},
-	// 	});
-	// };
-
-	// const [country, setCountry] = useState({
-	// 	country: "",
-	// 	id: user[0].beekeeper_id,
-	// });
-
-	// const [region, setRegion] = useState({
-	// 	region: "",
-	// 	id: user[0].beekeeper_id,
-	// });
-
 	return {
 		edited,
-		newCountry,
-		newRegion,
+		locationC,
+		locationR,
 		setEdited,
 		handleChange,
 		handleChangeParse,
-		handleClick,
+		inputPassword,
 		handlePicture,
 		preview,
 		selectCountry,
@@ -198,5 +262,11 @@ export default function UpdateInfo() {
 		updateBeehives,
 		updateExperience,
 		updateProfilePic,
+		updateBio,
+		updateLocation,
+		updatePassword,
+		err,
+		res,
+		// errPass,
 	};
 }
