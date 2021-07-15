@@ -45,7 +45,6 @@ export default function Email() {
 								<Button
 									value="Update"
 									text="Update"
-									style={{ fontSize: "1em" }}
 									onClick={updateEmail}
 									className={classesEdit.buttonEdit}
 								>

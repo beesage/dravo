@@ -45,8 +45,6 @@ const useStylesEdit = makeStyles((theme) => ({
 		padding: "10px 80px",
 		color: "#F2A154",
 		marginBottom: "2%",
-		fontSize: "1em",
-		fontWeight: "500",
 		boxShadow: "0 8px 6px -6px rgba(0, 0, 0, 0.5)",
 		"&:hover": {
 			backgroundColor: "#5A8288",

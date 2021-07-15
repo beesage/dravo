@@ -44,8 +44,6 @@ export default function Apiaries() {
 								)}
 								<Button
 									value="Update"
-									text="Update"
-									style={{ fontSize: "1em" }}
 									onClick={updateApiaries}
 									className={classesEdit.buttonEdit}
 								>
