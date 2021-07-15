@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 
 import APIContext from "../../../../Context/APIContext";
@@ -8,6 +9,10 @@ import LoadingPage from "../../../Spinner/LoadingPage";
 
 import { Container } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import Divider from "@material-ui/core/Divider";
 
 import "../styles/EditProfile.css";
 import useStylesEdit from "../styles/EditStyle";
@@ -59,17 +64,17 @@ export default function Location() {
 										{err.validationErrors[0].message}
 									</p>
 								)}
-								<Button
-									value="Update"
-									text="Update"
-									style={{ fontSize: "1em" }}
-									onClick={updateLocation}
-									className={classesEdit.buttonEdit}
-								>
-									Update
-								</Button>
-								{res && <p className="err-message">{res}</p>}
 							</form>
+							<Button
+								value="Update"
+								text="Update"
+								style={{ fontSize: "1em" }}
+								onClick={updateLocation}
+								className={classesEdit.buttonEdit}
+							>
+								Update
+							</Button>
+							{res && <p className="err-message">{res}</p>}
 						</Container>
 					</div>
 				</>
@@ -77,44 +82,82 @@ export default function Location() {
 				<LoadingPage />
 			)}
 			{user.length > 0 ? (
-				<div className="u-edit-container-tablet">
-					<Container
-						component="main"
-						maxWidth={false}
-						className={classesEdit.containerLocationTablet}
-					>
-						<form>
-							<p className="edit-caption">Country</p>
-							<CountryDropdown
-								value={locationC.locationC}
-								onChange={selectCountry}
-								style={{ width: "250px" }}
-							/>
-							{err && (
-								<p className="err-message">{err.validationErrors[0].message}</p>
-							)}
-							<p className="edit-caption">Region</p>
-							<RegionDropdown
-								disableWhenEmpty={true}
-								country={locationC.locationC}
-								value={locationR.locationR}
-								onChange={selectRegion}
-								style={{ marginBottom: "1rem", width: "250px" }}
-							/>
-							{err && (
-								<p className="err-message">{err.validationErrors[0].message}</p>
-							)}
-							<Button
-								value="Update"
-								text="Update"
-								onClick={updateLocation}
-								className={classesEdit.buttonTablet}
-							>
-								Update
-							</Button>
-							{res && <p className="err-message">{res}</p>}
-						</form>
-					</Container>
+				<div className="tablet-editprofile">
+					<div className="row">
+						<div className="column left">
+							<List>
+								<Link to="/settings/personal-info">
+									<ListItem>
+										<ListItemText>
+											<p className="menu-item-tablet">Personal Information</p>
+										</ListItemText>
+									</ListItem>
+								</Link>
+								<Divider />
+								<Link to="/settings/personal-info/password">
+									<ListItem>
+										<ListItemText>
+											<p className="menu-item-tablet">Password</p>
+										</ListItemText>
+									</ListItem>
+								</Link>
+								<Divider />
+								<Link to="/settings/profile-info">
+									<ListItem>
+										<ListItemText>
+											<p className="menu-item-tablet">Profile Information</p>
+										</ListItemText>
+									</ListItem>
+								</Link>
+								<Divider />
+							</List>
+						</div>
+						<div className="column right">
+							<div className="u-edit-container-tablet">
+								<Container
+									component="main"
+									maxWidth={false}
+									className={classesEdit.containerLocationTablet}
+								>
+									<form className={classesEdit.root}>
+										<p className="edit-caption">Country</p>
+										<CountryDropdown
+											value={locationC.locationC}
+											onChange={selectCountry}
+											style={{ width: "250px" }}
+										/>
+										{err && (
+											<p className="err-message">
+												{err.validationErrors[0].message}
+											</p>
+										)}
+										<p className="edit-caption">Region</p>
+										<RegionDropdown
+											disableWhenEmpty={true}
+											country={locationC.locationC}
+											value={locationR.locationR}
+											onChange={selectRegion}
+											style={{ marginBottom: "1rem", width: "250px" }}
+										/>
+										{err && (
+											<p className="err-message">
+												{err.validationErrors[0].message}
+											</p>
+										)}
+										<Button
+											value="Update"
+											text="Update"
+											onClick={updateLocation}
+											className={classesEdit.buttonTablet}
+										>
+											Update
+										</Button>
+										{res && <p className="err-message">{res}</p>}
+									</form>
+								</Container>
+							</div>
+						</div>
+					</div>
 				</div>
 			) : (
 				<LoadingPage />

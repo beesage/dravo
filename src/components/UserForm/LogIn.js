@@ -1,37 +1,47 @@
 import React, { useState } from "react";
-import { CssBaseline, FormControlLabel, Checkbox, Link, Grid, Box, Container, Typography } from "@material-ui/core";
+import { CssBaseline, FormControlLabel, Checkbox, Grid, Box, Container, Typography } from "@material-ui/core";
 import InputField from "./controls/InputField"
 import InputPassword from "./controls/InputPassword";
 import Button from "./controls/Submit";
 import UseForm from "./UseForm";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import useStyles from "./styles/StyleUserForm";
 import logo from "../../assets/logo-mobile.png";
 import validate from "./ValidateInfo";
 import Axios from 'axios';
 
+
 export default function LogIn() {
 
   const classes = useStyles();
 	const { values, handleChange, handleSubmit, errors } = UseForm(validate);
-  const [error, setError] = useState({});
+  const [usernameError, setusernameError] = useState("");  
+  const [passwordError, setpasswordError] = useState(""); 
+  const [responseError, setResponseError] = useState("");    
+  const [selectedUser, setSelectedUser] = useState("");  
+  const [isLoginCorrect, setIsLoginCorrect] = useState(true);  
+  let history  = useHistory();
   
   
-  const login = () => {
-     Axios.post("http://localhost:3000/auth/login", {
-      username: values.username,
-      password: values.password,    
-     }).then((response) => {
-      console.log(response)
-     })
-     .catch((e) => {
-      if (e.response && e.response.data) {
-        // Dispatch an action here
-       console.log(e.response.data.message) 
-      }
-    });
-  }
-	  // console.log(error.data)
+ const login = () => {
+  Axios.post("http://localhost:3000/auth/login", {
+   username: values.username,
+   password: values.password,    
+  })  
+  .then((data) => {
+    console.log(data.data[0])
+    history.push("/leaderboard")
+    return setSelectedUser(data.data[0])         
+  })
+  .catch((e) => {
+      const usernameError = e.response.data.err.details[0].message      
+      const passwordError = e.response.data.err.details[1].message
+      setusernameError(usernameError)   
+      setpasswordError(passwordError) 
+      setIsLoginCorrect(false)   
+ });
+    
+}
   return (
     <div>
        <Container component="main" maxWidth={false} className={classes.container}>
@@ -52,20 +62,19 @@ export default function LogIn() {
                     value={values.username}
                     onChange={handleChange}                                 
                  />
-                 {errors.username && <div className={classes.redColor}>{errors.username}</div>}  
+                 {errors.username && <div className={classes.redColor}>{usernameError}</div>}                  
                   <InputPassword
                     name="password"                    
                     label="Enter your password"                    
                     value={values.password}
                     onChange={handleChange}                      
                   />  
-                  {errors.password && <div className={classes.redColor}>{errors.password}</div>}               
+                  {errors.password &&<div className={classes.redColor}>{passwordError}</div>}                  
+                  { <div className={classes.redColor}>{responseError}</div>}
                   <Box className={classes.box}>
                     <FormControlLabel control={<Checkbox className={classes.orangeColor} value="remember" color="default" />}
                       className={classes.checkbox} label="Keep me logged in"/>
-                    <Link href="#" className={classes.forgotPassword}>
-                      Forgot password?
-                    </Link>
+                    <NavLink  to="/forgotpassword" className={classes.forgotPassword}>Forgot password?</NavLink >                  
                   </Box>             
                   <Button type="submit" text="Log In" onClick={login} />              
             </form>
