@@ -13,7 +13,6 @@ import LogIn from "./components/UserForm/LogIn";
 import SignUp from "./components/UserForm/SignUp";
 import LoadingPage from "./components/Spinner/LoadingPage";
 import EditProfile from "./components/UserProfile/EditProfile/EditProfile";
-import EditTablet from "./components/UserProfile/EditProfile/EditTablet";
 import PersonalInformation from "./components/UserProfile/EditProfile/PersonalInfo/PersonalInformation";
 import Username from "./components/UserProfile/EditProfile/PersonalInfo/Username";
 import Email from "./components/UserProfile/EditProfile/PersonalInfo/Email";

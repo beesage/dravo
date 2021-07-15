@@ -10,12 +10,10 @@ import Input from "@material-ui/core/Input";
 import Button from "@material-ui/core/Button";
 
 import "../styles/EditProfile.css";
-import useStyles from "../../../UserForm/styles/StyleUserForm";
-import useStylesTablet from "../styles/TabletStyle";
+import useStylesEdit from "../styles/EditStyle";
 
 export default function Username() {
-	const classes = useStyles();
-	const classesTablet = useStylesTablet();
+	const classesEdit = useStylesEdit();
 	const { user } = useContext(APIContext);
 	const { edited, handleChange, updateUsername, err, res } = UpdateInfo();
 
@@ -26,9 +24,9 @@ export default function Username() {
 					<Container
 						component="main"
 						maxWidth={false}
-						className={classes.container}
+						className={classesEdit.container}
 					>
-						<form className={classes.root}>
+						<form className={classesEdit.root}>
 							<p className="edit-caption">Username</p>
 							<Input
 								name="username"
@@ -36,6 +34,7 @@ export default function Username() {
 								id="formUsername"
 								onChange={handleChange}
 								value={edited.username}
+								className={classesEdit.textField}
 							/>
 							{err && (
 								<p className="err-message">{err.validationErrors[0].message}</p>
@@ -46,7 +45,10 @@ export default function Username() {
 								style={{ fontSize: "1em" }}
 								onClick={updateUsername}
 								style={{ width: "100%" }}
-							/>
+								className={classesEdit.buttonEdit}
+							>
+								Update
+							</Button>
 							{res && <p className="err-message">{res}</p>}
 						</form>
 					</Container>
@@ -59,9 +61,9 @@ export default function Username() {
 					<Container
 						component="main"
 						maxWidth={false}
-						className={classesTablet.containerTablet}
+						className={classesEdit.containerTablet}
 					>
-						<form className={classesTablet.root}>
+						<form className={classesEdit.root}>
 							<p className="edit-caption">Username</p>
 							<Input
 								name="username"
@@ -69,7 +71,7 @@ export default function Username() {
 								id="formUsername"
 								onChange={handleChange}
 								value={edited.username}
-								className={classesTablet.textField}
+								className={classesEdit.textField}
 							/>
 							{err && (
 								<p className="err-message">{err.validationErrors[0].message}</p>
@@ -78,7 +80,7 @@ export default function Username() {
 								value="Update"
 								variant="text"
 								onClick={updateUsername}
-								className={classesTablet.buttonTablet}
+								className={classesEdit.buttonEdit}
 							>
 								Update
 							</Button>

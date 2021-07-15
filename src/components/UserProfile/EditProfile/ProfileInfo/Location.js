@@ -6,14 +6,14 @@ import UpdateInfo from "../Functions/UpdateInfo";
 
 import LoadingPage from "../../../Spinner/LoadingPage";
 
-import useStyles from "../../../UserForm/styles/StyleUserForm";
 import { Container } from "@material-ui/core";
-import Button from "../../../UserForm/controls/Submit";
+import Button from "@material-ui/core/Button";
 
 import "../styles/EditProfile.css";
+import useStylesEdit from "../styles/EditStyle";
 
 export default function Location() {
-	const classes = useStyles();
+	const classesEdit = useStylesEdit();
 	const { user } = useContext(APIContext);
 	const {
 		locationC,
@@ -33,9 +33,9 @@ export default function Location() {
 						<Container
 							component="main"
 							maxWidth={false}
-							className={classes.container}
+							className={classesEdit.root}
 						>
-							<form className={classes.root}>
+							<form className={classesEdit.root}>
 								<p className="edit-caption">Country</p>
 								<CountryDropdown
 									value={locationC.locationC}
@@ -64,7 +64,10 @@ export default function Location() {
 									text="Update"
 									style={{ fontSize: "1em" }}
 									onClick={updateLocation}
-								/>
+									className={classesEdit.buttonEdit}
+								>
+									Update
+								</Button>
 								{res && <p className="err-message">{res}</p>}
 							</form>
 						</Container>

@@ -10,12 +10,10 @@ import Input from "@material-ui/core/Input";
 import Button from "@material-ui/core/Button";
 
 import "../styles/EditProfile.css";
-import useStyles from "../../../UserForm/styles/StyleUserForm";
-import useStylesTablet from "../styles/TabletStyle";
+import useStylesEdit from "../styles/EditStyle";
 
 export default function Email() {
-	const classes = useStyles();
-	const classesTablet = useStylesTablet();
+	const classesEdit = useStylesEdit();
 	const { user } = useContext(APIContext);
 	const { edited, handleChange, updateEmail, err, res } = UpdateInfo();
 
@@ -27,16 +25,17 @@ export default function Email() {
 						<Container
 							component="main"
 							maxWidth={false}
-							className={classes.container}
+							className={classesEdit.root}
 						>
 							<p className="edit-caption">Email</p>
-							<form className={classes.root}>
+							<form className={classesEdit.root}>
 								<Input
 									name="email"
 									type="text"
 									id="formEmail"
 									onChange={handleChange}
 									value={edited.email}
+									className={classesEdit.textField}
 								/>
 								{err && (
 									<p className="err-message">
@@ -48,7 +47,10 @@ export default function Email() {
 									text="Update"
 									style={{ fontSize: "1em" }}
 									onClick={updateEmail}
-								/>
+									className={classesEdit.buttonEdit}
+								>
+									Update
+								</Button>
 								{res && <p className="err-message">{res}</p>}
 							</form>
 						</Container>
@@ -62,9 +64,9 @@ export default function Email() {
 					<Container
 						component="main"
 						maxWidth={false}
-						className={classesTablet.containerTabletEmail}
+						className={classesEdit.containerTabletEmail}
 					>
-						<form className={classesTablet.root}>
+						<form className={classesEdit.root}>
 							<p className="edit-caption">Email</p>
 							<Input
 								name="email"
@@ -72,7 +74,7 @@ export default function Email() {
 								id="formEmail"
 								onChange={handleChange}
 								value={edited.email}
-								className={classesTablet.textField}
+								className={classesEdit.textField}
 							/>
 							{err && (
 								<p className="err-message">{err.validationErrors[0].message}</p>
@@ -80,7 +82,7 @@ export default function Email() {
 							<Button
 								value="Update"
 								onClick={updateEmail}
-								className={classesTablet.buttonTablet}
+								className={classesEdit.buttonEdit}
 							>
 								Update
 							</Button>

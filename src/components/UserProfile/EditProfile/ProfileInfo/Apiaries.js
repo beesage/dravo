@@ -6,16 +6,14 @@ import UpdateInfo from "../Functions/UpdateInfo";
 import LoadingPage from "../../../Spinner/LoadingPage";
 
 import { Container } from "@material-ui/core";
-import InputField from "../../../UserForm/controls/InputField";
-import Button from "../../../UserForm/controls/Submit";
+import Input from "@material-ui/core/Input";
+import Button from "@material-ui/core/Button";
 
 import "../styles/EditProfile.css";
-import useStyles from "../../../UserForm/styles/StyleUserForm";
-import useStylesTablet from "../styles/TabletStyle";
+import useStylesEdit from "../styles/EditStyle";
 
 export default function Apiaries() {
-	const classes = useStyles();
-	const classesTablet = useStylesTablet();
+	const classesEdit = useStylesEdit();
 	const { user } = useContext(APIContext);
 	const { edited, handleChangeParse, updateApiaries, err, res } = UpdateInfo();
 
@@ -27,16 +25,17 @@ export default function Apiaries() {
 						<Container
 							component="main"
 							maxWidth={false}
-							className={classes.container}
+							className={classesEdit.root}
 						>
-							<form className={classes.root}>
+							<form className={classesEdit.root}>
 								<p className="edit-caption">Apiaries</p>
-								<InputField
+								<Input
 									name="apiaries"
 									type="number"
 									id="formApiaries"
 									onChange={handleChangeParse}
 									value={edited.apiaries}
+									className={classesEdit.textField}
 								/>
 								{err && (
 									<p className="err-message">
@@ -48,7 +47,10 @@ export default function Apiaries() {
 									text="Update"
 									style={{ fontSize: "1em" }}
 									onClick={updateApiaries}
-								/>
+									className={classesEdit.buttonEdit}
+								>
+									Update
+								</Button>
 								{res && <p className="err-message">{res}</p>}
 							</form>
 						</Container>
@@ -62,17 +64,17 @@ export default function Apiaries() {
 					<Container
 						component="main"
 						maxWidth={false}
-						className={classesTablet.containerTabletEmail}
+						className={classesEdit.containerTabletEmail}
 					>
-						<form className={classes.root}>
+						<form className={classesEdit.root}>
 							<p className="edit-caption">Apiaries</p>
-							<InputField
+							<Input
 								name="apiaries"
 								type="number"
 								id="formApiaries"
 								onChange={handleChangeParse}
 								value={edited.apiaries}
-								className={classesTablet.textField}
+								className={classesEdit.textField}
 							/>
 							{err && (
 								<p className="err-message">{err.validationErrors[0].message}</p>
@@ -82,8 +84,10 @@ export default function Apiaries() {
 								text="Update"
 								style={{ fontSize: "1em" }}
 								onClick={updateApiaries}
-								className={classesTablet.button}
-							/>
+								className={classesEdit.buttonEdit}
+							>
+								Button
+							</Button>
 							{res && <p className="err-message">{res}</p>}
 						</form>
 					</Container>

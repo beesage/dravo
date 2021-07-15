@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStylesTablet = makeStyles((theme) => ({
+const useStylesEdit = makeStyles((theme) => ({
 	root: {
 		display: "flex",
 		flexDirection: "column",
@@ -40,7 +40,7 @@ const useStylesTablet = makeStyles((theme) => ({
 		marginBottom: "2.5%",
 		boxShadow: "0 8px 6px -6px rgba(0, 0, 0, 0.1)",
 	},
-	buttonTablet: {
+	buttonEdit: {
 		background: "#314E52",
 		padding: "10px 80px",
 		color: "#F2A154",
@@ -54,4 +54,4 @@ const useStylesTablet = makeStyles((theme) => ({
 	},
 }));
 
-export default useStylesTablet;
+export default useStylesEdit;
