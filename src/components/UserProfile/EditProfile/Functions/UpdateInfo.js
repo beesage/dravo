@@ -41,6 +41,15 @@ export default function UpdateInfo() {
 		});
 	};
 
+	// const selectCountry = (val) => {
+	// 	setLocationC({
+	// 		locationC: val,
+	// 	});
+	// 	setEdited((prevState) => {
+	// 		return { ...prevState, country: locationC.locationC };
+	// 	});
+	// };
+
 	const [locationR, setLocationR] = useState({
 		locationR: "",
 	});
@@ -48,6 +57,13 @@ export default function UpdateInfo() {
 	const selectRegion = (val) => {
 		setLocationR({ locationR: val });
 	};
+
+	// const selectRegion = (val) => {
+	// 	setLocationR({ locationR: val });
+	// 	setEdited((prevState) => {
+	// 		return { ...prevState, region: locationR.locationR };
+	// 	});
+	// };
 
 	const updateLocation = () => {
 		axios

@@ -1,41 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import PersonalHeader from "../../Header/PersonalHeader";
-import ProfileHeader from "../../Header/ProfileHeader";
-
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
 import ArrowForwardIosOutlinedIcon from "@material-ui/icons/ArrowForwardIosOutlined";
 
-import { makeStyles } from "@material-ui/core/styles";
-import Drawer from "@material-ui/core/Drawer";
-
-const drawerWidth = 240;
-
-const useStyles = makeStyles((theme) => ({
-	root: {
-		display: "flex",
-	},
-	drawer: {
-		width: drawerWidth,
-		flexShrink: 0,
-	},
-	drawerPaper: {
-		width: drawerWidth,
-		background: "#F7F6E7",
-		paddingTop: "80px",
-		borderRight: "1px solid black",
-	},
-}));
-
 export default function EditProfile() {
-	const classes = useStyles();
-
 	return (
-		<div style={{ background: "#f7f6e7", gridColumn: "1/10" }}>
+		<>
 			<div className="mobile-editprofile">
 				<List
 					component="nav"
@@ -48,7 +22,7 @@ export default function EditProfile() {
 					}}
 				>
 					<Link to="/settings/personal-info">
-						<ListItem button>
+						<ListItem>
 							<ListItemText>
 								<p style={{ fontSize: "1.1rem", fontFamily: "Krub" }}>
 									Personal Information
@@ -63,7 +37,7 @@ export default function EditProfile() {
 					</Link>
 					<Divider />
 					<Link to="/settings/profile-info">
-						<ListItem button>
+						<ListItem>
 							<ListItemText>
 								<p style={{ fontSize: "1.1rem", fontFamily: "Krub" }}>
 									Profile Information
@@ -80,31 +54,39 @@ export default function EditProfile() {
 				</List>
 			</div>
 			<div className="tablet-editprofile">
-				<Drawer
-					className={classes.drawer}
-					variant="permanent"
-					classes={{
-						paper: classes.drawerPaper,
-					}}
-				>
-					<div className={classes.drawerContainer}>
-						<Divider />
+				<div className="row">
+					<div className="column left">
 						<List>
 							<Link to="/settings/personal-info">
 								<ListItem>
-									<PersonalHeader />
+									<ListItemText>
+										<p className="menu-item-tablet">Personal Information</p>
+									</ListItemText>
 								</ListItem>
 							</Link>
+							<Divider />
+							<ListItem>
+								<ListItemText>
+									<p className="menu-item-tablet">Password</p>
+								</ListItemText>
+							</ListItem>
+							<Divider />
 							<Link to="/settings/profile-info">
 								<ListItem>
-									<ProfileHeader />
+									<ListItemText>
+										<p className="menu-item-tablet">Profile Information</p>
+									</ListItemText>
 								</ListItem>
 							</Link>
+							<Divider />
 						</List>
 					</div>
-				</Drawer>
-				<main className={classes.content}></main>
+					<div className="column right">
+						<h2></h2>
+						<p></p>
+					</div>
+				</div>
 			</div>
-		</div>
+		</>
 	);
 }

@@ -5,22 +5,24 @@ import UpdateInfo from "../Functions/UpdateInfo";
 
 import LoadingPage from "../../../Spinner/LoadingPage";
 
-import useStyles from "../../../UserForm/styles/StyleUserForm";
 import { Container } from "@material-ui/core";
-import InputField from "../../../UserForm/controls/InputField";
-import Button from "../../../UserForm/controls/Submit";
+import Input from "@material-ui/core/Input";
+import Button from "@material-ui/core/Button";
 
 import "../styles/EditProfile.css";
+import useStyles from "../../../UserForm/styles/StyleUserForm";
+import useStylesTablet from "../styles/TabletStyle";
 
 export default function Username() {
 	const classes = useStyles();
+	const classesTablet = useStylesTablet();
 	const { user } = useContext(APIContext);
 	const { edited, handleChange, updateUsername, err, res } = UpdateInfo();
 
 	return (
 		<>
 			{user.length > 0 ? (
-				<div className="u-edit-container">
+				<div className="u-edit-container-mobile">
 					<Container
 						component="main"
 						maxWidth={false}
@@ -28,7 +30,7 @@ export default function Username() {
 					>
 						<form className={classes.root}>
 							<p className="edit-caption">Username</p>
-							<InputField
+							<Input
 								name="username"
 								type="text"
 								id="formUsername"
@@ -45,6 +47,41 @@ export default function Username() {
 								onClick={updateUsername}
 								style={{ width: "100%" }}
 							/>
+							{res && <p className="err-message">{res}</p>}
+						</form>
+					</Container>
+				</div>
+			) : (
+				<LoadingPage />
+			)}
+			{user.length > 0 ? (
+				<div className="u-edit-container-tablet">
+					<Container
+						component="main"
+						maxWidth={false}
+						className={classesTablet.containerTablet}
+					>
+						<form className={classesTablet.root}>
+							<p className="edit-caption">Username</p>
+							<Input
+								name="username"
+								type="text"
+								id="formUsername"
+								onChange={handleChange}
+								value={edited.username}
+								className={classesTablet.textField}
+							/>
+							{err && (
+								<p className="err-message">{err.validationErrors[0].message}</p>
+							)}
+							<Button
+								value="Update"
+								variant="text"
+								onClick={updateUsername}
+								className={classesTablet.buttonTablet}
+							>
+								Update
+							</Button>
 							{res && <p className="err-message">{res}</p>}
 						</form>
 					</Container>
