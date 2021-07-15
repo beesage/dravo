@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 const UseForm = (validate) => {  
   const [values, setValues] = React.useState({
@@ -55,22 +55,12 @@ const UseForm = (validate) => {
    */
    const handleSubmit = e => {   
     e.preventDefault();  
-    setErrors(validate(values));
-
-    //setIsSubmitting(true);
+    setErrors(validate(values));   
   };
 
- /*  useEffect(
-    () => {
-      if (Object.keys(errors).length === 0 && isSubmitting) {
-        callback();
-      }
-    },
-    [errors]
-  ); */
-  
+
  
-    return { values, handleChange, handleSubmit, errors, handleClickShowPassword };
+  return { values, handleChange, handleSubmit, errors, handleClickShowPassword };
 }
 
 export default UseForm;

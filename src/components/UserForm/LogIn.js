@@ -4,38 +4,43 @@ import InputField from "./controls/InputField"
 import InputPassword from "./controls/InputPassword";
 import Button from "./controls/Submit";
 import UseForm from "./UseForm";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import useStyles from "./styles/StyleUserForm";
 import logo from "../../assets/logo-mobile.png";
 import validate from "./ValidateInfo";
 import Axios from 'axios';
 
+
 export default function LogIn() {
 
   const classes = useStyles();
 	const { values, handleChange, handleSubmit, errors } = UseForm(validate);
- // const [error, setError] = useState("");
   const [usernameError, setusernameError] = useState("");  
   const [passwordError, setpasswordError] = useState(""); 
-  const [responseh, setResponse] = useState("");     
+  const [responseError, setResponseError] = useState("");    
+  const [selectedUser, setSelectedUser] = useState("");  
+  const [isLoginCorrect, setIsLoginCorrect] = useState(true);  
+  let history  = useHistory();
   
   
  const login = () => {
   Axios.post("http://localhost:3000/auth/login", {
    username: values.username,
    password: values.password,    
-  }).then((response) => {   
-    // window.location.href="/leaderboard?" + response.data.id;
-      setResponse(response.data.message)   
-      console.log(responseh)
-      console.log(response)
+  })  
+  .then((data) => {
+    console.log(data.data[0])
+    history.push("/leaderboard")
+    return setSelectedUser(data.data[0])         
   })
   .catch((e) => {
       const usernameError = e.response.data.err.details[0].message      
       const passwordError = e.response.data.err.details[1].message
       setusernameError(usernameError)   
-      setpasswordError(passwordError)    
+      setpasswordError(passwordError) 
+      setIsLoginCorrect(false)   
  });
+    
 }
   return (
     <div>
@@ -57,18 +62,15 @@ export default function LogIn() {
                     value={values.username}
                     onChange={handleChange}                                 
                  />
-                 {errors.username && <div className={classes.redColor}>{usernameError}</div>}  
-                 {/* {errors.username && <div className={classes.redColor}>{errors.username}</div>}   */}
+                 {errors.username && <div className={classes.redColor}>{usernameError}</div>}                  
                   <InputPassword
                     name="password"                    
                     label="Enter your password"                    
                     value={values.password}
                     onChange={handleChange}                      
                   />  
-                  {errors.password &&<div className={classes.redColor}>{passwordError}</div>}
-                  {/* {errors.password && <div className={classes.redColor}>{errors.password}</div>}   */}
-                  {/* {error ? <div className={classes.redColor}>{error}</div> : null}                */}
-                  { <div className={classes.redColor}>{responseh}</div>}
+                  {errors.password &&<div className={classes.redColor}>{passwordError}</div>}                  
+                  { <div className={classes.redColor}>{responseError}</div>}
                   <Box className={classes.box}>
                     <FormControlLabel control={<Checkbox className={classes.orangeColor} value="remember" color="default" />}
                       className={classes.checkbox} label="Keep me logged in"/>
