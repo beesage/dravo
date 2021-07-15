@@ -58,14 +58,13 @@ export default function App() {
 
 	console.log(user);
 
+	const handleDays = (changeDays) => {
+		setDays(changeDays);
+	};
+
 	return (
 		<div className="container">
-			<APIContext.Provider
-				value={{
-					user: user,
-					setUser: setUser,
-				}}
-			>
+			<APIContext.Provider value={{ user: user, setUser: setUser }}>
 				{!loading ? (
 					<Router>
 						<Header />
@@ -74,7 +73,9 @@ export default function App() {
 							<Route path="/signup" component={SignUp} />
 							<Route
 								path="/leaderboard"
-								render={(props) => <Leaderboard user={user} />}
+								render={(props) => (
+									<Leaderboard user={user} handleDays={handleDays} />
+								)}
 							/>
 							<Route path="/profile" component={UserProfile} />
 							<Route exact path="/settings" component={EditProfile} />

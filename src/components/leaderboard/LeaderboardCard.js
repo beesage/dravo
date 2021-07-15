@@ -6,8 +6,13 @@ function LeaderboardCard({ user, index }) {
   return (
     <div className="lb-card-wrapper">
       <div className="lb-card-rank">
-        {index + 4}
-        <ArrowDropUpIcon style={{ fill: "green" }} />
+        {user.avg_wd === user.avg_before_wd ? (
+          "equal"
+        ) : user.avg_wd > user.avg_before_wd ? (
+          <ArrowDropUpIcon style={{ fill: "green" }} />
+        ) : (
+          <ArrowDropDownIcon style={{ fill: "red" }} />
+        )}
       </div>
       <div className="hexagon ribbon-outset border">
         <div className="lb-card-flex-container">
@@ -22,7 +27,7 @@ function LeaderboardCard({ user, index }) {
               {user.region}, {user.country}
             </div>
           </div>
-          <div className="lb-top-wd">{user.average_wd}</div>
+          <div className="lb-top-wd">{user.avg_wd}</div>
         </div>
       </div>
     </div>
