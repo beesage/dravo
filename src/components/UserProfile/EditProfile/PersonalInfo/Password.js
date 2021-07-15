@@ -1,87 +1,98 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 
 import APIContext from "../../../../Context/APIContext";
+import UpdateInfo from "../Functions/UpdateInfo";
 
 import LoadingPage from "../../../Spinner/LoadingPage";
 
-import useStyles from "../../../UserForm/styles/StyleUserForm";
 import { Container } from "@material-ui/core";
-import InputField from "../../../UserForm/controls/InputField";
-import Button from "../../../UserForm/controls/Submit";
-import InputPassword from "../../../UserForm/controls/InputPassword";
+import Input from "@material-ui/core/Input";
+import Button from "@material-ui/core/Button";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import Divider from "@material-ui/core/Divider";
+// import { InputAdornment, IconButton } from "@material-ui/core";
+// import Visibility from "@material-ui/icons/Visibility";
+// import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
 import "../styles/EditProfile.css";
+import useStylesEdit from "../styles/EditStyle";
 
-export default function Password() {
-	const classes = useStyles();
+export default function Password(props) {
+	const classesEdit = useStylesEdit();
+	const { user } = useContext(APIContext);
+	const {
+		edited,
+		handleChange,
+		showPassword,
+		setShowPassword,
+		inputPassword,
+		updatePassword,
+		err,
+		res,
+	} = UpdateInfo();
 
-	const { user, setUser } = useContext(APIContext);
-
-	const [fields, setFields] = useState({
-		oldPassword: "",
-		password: "",
-		confirmPassword: "",
-		id: user[0].beekeeper_id,
-	});
-
-	const handleChange = (e) => {
-		setFields((prevState) => {
-			return { ...prevState, [e.target.name]: e.target.value };
-		});
-	};
-
-	const handleEdited = () => {
-		const editedArray = user.map((updated) => {
-			if (updated.beekeeper_id === fields.beekeeper_id) {
-				return fields;
-			} else {
-				return editedArray;
-			}
-		});
-		setUser(editedArray);
-	};
-
-	const handleClick = () => {
-		handleEdited({ ...fields });
-	};
 	return (
 		<>
 			{user.length > 0 ? (
 				<>
-					<div className="u-edit-container">
+					<div className="u-edit-container-mobile">
 						<Container
 							component="main"
 							maxWidth={false}
-							className={classes.container}
+							className={classesEdit.container}
 						>
-							<form className={classes.root}>
+							<form className={classesEdit.root}>
 								<p className="edit-caption">Old password</p>
-								<InputField
+								<Input
 									id="formOldPassword"
 									name="oldPassword"
-									value={fields.oldPassword}
+									value={edited.oldPassword}
 									onChange={handleChange}
+									className={classesEdit.textField}
 								/>
+								{err && (
+									<p className="err-message">
+										{err.validationErrors[0].message}
+									</p>
+								)}
 								<p className="edit-caption">New password</p>
-								<InputPassword
+								<Input
 									id="formNewPassword"
 									name="password"
-									value={fields.password}
+									value={edited.password}
 									onChange={handleChange}
+									className={classesEdit.textField}
 								/>
+								{err && (
+									<p className="err-message">
+										{err.validationErrors[0].message}
+									</p>
+								)}
 								<p className="edit-caption">Confirm new password</p>
-								<InputPassword
+								<Input
 									id="formConfirmPassword"
 									name="confirmPassword"
-									value={fields.confirmPassword}
+									value={edited.confirmPassword}
 									onChange={handleChange}
+									className={classesEdit.textField}
 								/>
+								{err && (
+									<p className="err-message">
+										{err.validationErrors[0].message}
+									</p>
+								)}
 								<Button
 									value="Update"
 									text="Update"
-									style={{ fontSize: "1em" }}
-									onClick={handleClick}
-								/>
+									onClick={updatePassword}
+									className={classesEdit.buttonEdit}
+								>
+									Update{" "}
+								</Button>
+								{res && <p className="err-message">{res}</p>}
 							</form>
 						</Container>
 					</div>
@@ -89,6 +100,96 @@ export default function Password() {
 			) : (
 				<LoadingPage />
 			)}
+			<div className="tablet-editprofile">
+				<div className="row">
+					<div className="column left">
+						<List>
+							<Link to="/settings/personal-info">
+								<ListItem>
+									<ListItemText>
+										<p className="menu-item-tablet">Personal Information</p>
+									</ListItemText>
+								</ListItem>
+							</Link>
+							<Divider />
+							<Link to="/settings/personal-info/password">
+								<ListItem>
+									<ListItemText>
+										<p className="menu-item-tablet">Password</p>
+									</ListItemText>
+								</ListItem>
+							</Link>
+							<Divider />
+							<Link to="/settings/profile-info">
+								<ListItem>
+									<ListItemText>
+										<p className="menu-item-tablet">Profile Information</p>
+									</ListItemText>
+								</ListItem>
+							</Link>
+							<Divider />
+						</List>
+					</div>
+					<div className="column right">
+						<Container
+							component="main"
+							maxWidth={false}
+							className={classesEdit.containerTablet}
+						>
+							<form className={classesEdit.root}>
+								<p className="edit-caption">Old password</p>
+								<Input
+									id="formOldPassword"
+									name="oldPassword"
+									value={edited.oldPassword}
+									onChange={handleChange}
+									className={classesEdit.textField}
+								/>
+								{err && (
+									<p className="err-message">
+										{err.validationErrors[0].message}
+									</p>
+								)}
+								<p className="edit-caption">New password</p>
+								<Input
+									id="formNewPassword"
+									name="password"
+									value={edited.password}
+									onChange={handleChange}
+									className={classesEdit.textField}
+								/>
+								{err && (
+									<p className="err-message">
+										{err.validationErrors[0].message}
+									</p>
+								)}
+								<p className="edit-caption">Confirm new password</p>
+								<Input
+									id="formConfirmPassword"
+									name="confirmPassword"
+									value={edited.confirmPassword}
+									onChange={handleChange}
+									className={classesEdit.textField}
+								/>
+								{err && (
+									<p className="err-message">
+										{err.validationErrors[0].message}
+									</p>
+								)}
+								<Button
+									value="Update"
+									text="Update"
+									onClick={updatePassword}
+									className={classesEdit.buttonEdit}
+								>
+									Update{" "}
+								</Button>
+								{res && <p className="err-message">{res}</p>}
+							</form>
+						</Container>
+					</div>
+				</div>
+			</div>
 		</>
 	);
 }

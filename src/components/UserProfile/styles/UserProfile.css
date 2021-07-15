@@ -22,6 +22,12 @@
 	margin: 0;
 }
 
+.avatar {
+	display: block;
+	border-radius: 50%;
+	border: 6px solid #314e52;
+}
+
 .user-profile:before {
 	border-top: 35px solid #f2a154;
 	border-left: 50vw solid transparent;
@@ -40,7 +46,6 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	margin: 0;
 }
 
 .medal {
@@ -133,6 +138,12 @@
 
 	.username {
 		display: none;
+	}
+
+	.avatar {
+		width: 50%;
+		align-self: center;
+		margin-left: 2.3rem;
 	}
 
 	.all-us-hex {
