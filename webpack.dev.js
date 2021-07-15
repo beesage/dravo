@@ -7,7 +7,6 @@ module.exports = merge(common, {
 		port: 5000,
 		contentBase: "./dist",
 		historyApiFallback: true,
-		mode: "development",
 	},
 	resolve: {
 		extensions: [".ts", ".tsx", ".js", ".jsx"],
