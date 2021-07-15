@@ -21,14 +21,13 @@ const useStylesEdit = makeStyles((theme) => ({
 		justifyContent: "space-evenly",
 		alignItems: "center",
 		backgroundColor: "#F7F6E7",
-		height: "0",
 	},
 	containerTabletEmail: {
 		display: "flex",
 		justifyContent: "space-evenly",
 		backgroundColor: "#F7F6E7",
 		height: "0",
-		paddingTop: "200px",
+		paddingTop: "100px",
 	},
 	textField: {
 		background: "#FFFFFF",
