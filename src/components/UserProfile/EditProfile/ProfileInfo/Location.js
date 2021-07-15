@@ -29,7 +29,7 @@ export default function Location() {
 		<>
 			{user.length > 0 ? (
 				<>
-					<div className="u-edit-container">
+					<div className="u-edit-container-mobile">
 						<Container
 							component="main"
 							maxWidth={false}

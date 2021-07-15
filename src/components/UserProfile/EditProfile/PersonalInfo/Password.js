@@ -5,16 +5,15 @@ import UpdateInfo from "../Functions/UpdateInfo";
 
 import LoadingPage from "../../../Spinner/LoadingPage";
 
-import useStyles from "../../../UserForm/styles/StyleUserForm";
 import { Container } from "@material-ui/core";
-import InputField from "../../../UserForm/controls/InputField";
-import Button from "../../../UserForm/controls/Submit";
-import InputPassword from "../../../UserForm/controls/InputPassword";
+import Input from "@material-ui/core/Input";
+import Button from "@material-ui/core/Button";
 
 import "../styles/EditProfile.css";
+import useStylesEdit from "../styles/EditStyle";
 
 export default function Password() {
-	const classes = useStyles();
+	const classesEdit = useStylesEdit();
 	const { user } = useContext(APIContext);
 	const { edited, handleChange, updatePassword, err, res } = UpdateInfo();
 
@@ -22,19 +21,20 @@ export default function Password() {
 		<>
 			{user.length > 0 ? (
 				<>
-					<div className="u-edit-container">
+					<div className="u-edit-container-mobile">
 						<Container
 							component="main"
 							maxWidth={false}
-							className={classes.container}
+							className={classesEdit.container}
 						>
-							<form className={classes.root}>
+							<form className={classesEdit.root}>
 								<p className="edit-caption">Old password</p>
-								<InputField
+								<Input
 									id="formOldPassword"
 									name="oldPassword"
 									value={edited.oldPassword}
 									onChange={handleChange}
+									className={classesEdit.textField}
 								/>
 								{err && (
 									<p className="err-message">
@@ -42,11 +42,12 @@ export default function Password() {
 									</p>
 								)}
 								<p className="edit-caption">New password</p>
-								<InputPassword
+								<Input
 									id="formNewPassword"
 									name="password"
 									value={edited.password}
 									onChange={handleChange}
+									className={classesEdit.textField}
 								/>
 								{err && (
 									<p className="err-message">
@@ -54,11 +55,12 @@ export default function Password() {
 									</p>
 								)}
 								<p className="edit-caption">Confirm new password</p>
-								<InputPassword
+								<Input
 									id="formConfirmPassword"
 									name="confirmPassword"
 									value={edited.confirmPassword}
 									onChange={handleChange}
+									className={classesEdit.textField}
 								/>
 								{err && (
 									<p className="err-message">
@@ -68,9 +70,11 @@ export default function Password() {
 								<Button
 									value="Update"
 									text="Update"
-									style={{ fontSize: "1em" }}
 									onClick={updatePassword}
-								/>
+									className={classesEdit.buttonEdit}
+								>
+									Update{" "}
+								</Button>
 								{res && <p className="err-message">{res}</p>}
 							</form>
 						</Container>

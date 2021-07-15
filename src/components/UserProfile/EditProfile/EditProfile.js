@@ -5,7 +5,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
-import ArrowForwardIosOutlinedIcon from "@material-ui/icons/ArrowForwardIosOutlined";
+import { IoIosArrowForward } from "react-icons/io";
 
 export default function EditProfile() {
 	return (
@@ -28,11 +28,7 @@ export default function EditProfile() {
 									Personal Information
 								</p>
 							</ListItemText>
-							<ArrowForwardIosOutlinedIcon
-								style={{
-									fontSize: "1.1rem",
-								}}
-							/>
+							<IoIosArrowForward className="go-to" />
 						</ListItem>
 					</Link>
 					<Divider />
@@ -43,11 +39,7 @@ export default function EditProfile() {
 									Profile Information
 								</p>
 							</ListItemText>
-							<ArrowForwardIosOutlinedIcon
-								style={{
-									fontSize: "1.1rem",
-								}}
-							/>
+							<IoIosArrowForward className="go-to" />
 						</ListItem>
 					</Link>
 					<Divider />

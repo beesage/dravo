@@ -42,9 +42,7 @@ export default function Username() {
 							<Button
 								value="Update"
 								text="Update"
-								style={{ fontSize: "1em" }}
 								onClick={updateUsername}
-								style={{ width: "100%" }}
 								className={classesEdit.buttonEdit}
 							>
 								Update

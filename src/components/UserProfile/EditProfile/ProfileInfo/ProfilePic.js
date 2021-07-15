@@ -12,7 +12,7 @@ export default function ProfilePic() {
 	const { handlePicture, preview, updateProfilePic, err, res } = UpdateInfo();
 
 	return (
-		<div className="picture-container">
+		<div className="u-edit-container-mobile">
 			<p className="edit-caption">Upload your pic</p>
 			<input
 				type="file"
