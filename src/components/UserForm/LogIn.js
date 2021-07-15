@@ -15,7 +15,7 @@ export default function LogIn() {
   const classes = useStyles();
 	const { values, handleChange, handleSubmit, errors } = UseForm(validate);
  // const [error, setError] = useState("");
- const [usernameError, setusernameError] = useState("");  
+  const [usernameError, setusernameError] = useState("");  
   const [passwordError, setpasswordError] = useState(""); 
   const [responseh, setResponse] = useState("");     
   
@@ -24,13 +24,14 @@ export default function LogIn() {
   Axios.post("http://localhost:3000/auth/login", {
    username: values.username,
    password: values.password,    
-  }).then((response) => {
-    setResponse(response.data.message)   
+  }).then((response) => {   
+    // window.location.href="/leaderboard?" + response.data.id;
+      setResponse(response.data.message)   
       console.log(responseh)
       console.log(response)
   })
   .catch((e) => {
-    const usernameError = e.response.data.err.details[0].message      
+      const usernameError = e.response.data.err.details[0].message      
       const passwordError = e.response.data.err.details[1].message
       setusernameError(usernameError)   
       setpasswordError(passwordError)    

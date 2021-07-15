@@ -62,7 +62,7 @@ export default function SignUp() {
                         onChange={handleChange}              
                     />      
                     {errors.username&& <div className={classes.redColor}>{usernameError}</div>}             
-                    {errors.username && <div className={classes.redColor}>{errors.username}</div>} 
+                    {/* {errors.username && <div className={classes.redColor}>{errors.username}</div>}  */}
                     <InputField
                         name="email"
                         type="email"
@@ -71,15 +71,15 @@ export default function SignUp() {
                         onChange={handleChange}                
                    />   
                    {errors.email &&<div className={classes.redColor}>{emailError}</div>}
-                   {errors.email && <div className={classes.redColor}>{errors.email}</div>}                   
+                   {/* {errors.email && <div className={classes.redColor}>{errors.email}</div>}                    */}
                    <InputPassword
                         name="password"                    
                         label="Enter your password"                    
                         value={values.password}
                         onChange={handleChange}                                                        
                   />
-                   {<div className={classes.redColor}>{passwordError}</div>}
-                   {errors.password && <div className={classes.redColor}>{errors.password}</div>} 
+                   {errors.password && <div className={classes.redColor}>{passwordError}</div>}
+                   {/* {errors.password && <div className={classes.redColor}>{errors.password}</div>}  */}
                    <InputPassword
                         name="confirmPassword"                    
                         label="Confirm your password"                    
