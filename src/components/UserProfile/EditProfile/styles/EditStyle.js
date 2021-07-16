@@ -10,12 +10,6 @@ const useStylesEdit = makeStyles((theme) => ({
 		paddingRight: "0",
 		justifyContent: "center",
 	},
-	toolbar: theme.mixins.toolbar,
-	content: {
-		flexGrow: 1,
-		backgroundColor: theme.palette.background.default,
-		height: "0",
-	},
 	containerTablet: {
 		display: "flex",
 		justifyContent: "space-evenly",
