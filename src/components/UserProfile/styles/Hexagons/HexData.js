@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 
-export default function HexData({ user }) {
+import APIContext from "../../../../Context/APIContext";
+
+export default function HexData() {
+	const { user } = useContext(APIContext);
 	return (
 		<>
-			<div className="us-b-hex ribbon-outset border" />
+			<div className="us-b-hex ribbon-outset border">
+				<p style={{ transform: "rotate(275deg)" }}>{user[0].experience}</p>
+			</div>
 		</>
 	);
 }

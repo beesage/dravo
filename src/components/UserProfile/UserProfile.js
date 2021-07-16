@@ -56,9 +56,13 @@ export default function UserProfile() {
 						))}
 					</div>
 					<div className="all-us-b-hex">
-						{Icons.map((icons, index) => (
+						{/* {Icons.map((icons, index) => (
 							<HexData key={index} user={user} />
-						))}
+						))} */}
+						<HexData></HexData>
+						<HexData>{user[0].apiaries}</HexData>
+						<HexData>{user[0].beehives}</HexData>
+						<HexData>{user[0].location}</HexData>
 					</div>
 				</>
 			) : (
