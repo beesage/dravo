@@ -1,6 +1,7 @@
 import React from "react";
 import LeaderboardCard from "./LeaderboardCard";
 import LeaderboardBest from "./LeaderboardBest";
+import Button from "@material-ui/core/Button";
 import lbcrown from "../../assets/crown.png";
 import "./leaderboard.css";
 
@@ -22,6 +23,21 @@ function Leaderboard({ user, loading, handleDays }) {
     pic: "lb-pic-middle",
     lbicon: null,
     lbiconlink: null,
+  };
+
+  const buttonstyle = {
+    textTransform: "none",
+    fontSize: "10px",
+    color: "#314e52",
+    backgroundColor: "rgba(255, 255, 255, 0.15)",
+    borderRadius: "0%",
+    "&:focus": {
+      color: "red",
+    },
+    "&:hover": {
+      backgroundColor: "#fff",
+      color: "#3c52b2",
+    },
   };
 
   let lbTop = user.slice(0, 3);
@@ -69,10 +85,40 @@ function Leaderboard({ user, loading, handleDays }) {
           </div>
 
           <div className="lb-button">
-            <button onClick={() => handleDays("1")}>Today</button>
-            <button onClick={() => handleDays("7")}>Week</button>
-            <button onClick={() => handleDays("30")}>Month</button>
-            <button onClick={() => handleDays("5000")}>All-Time</button>
+            <div class="multi-button">
+              <button onClick={() => handleDays("1")}>Today</button>
+              <button onClick={() => handleDays("7")}>Week</button>
+              <button onClick={() => handleDays("30")}>Month</button>
+              <button onClick={() => handleDays("5000")}>All Time</button>
+            </div>
+
+            {/* <div>
+              <Button onClick={() => handleDays("1")} style={buttonstyle}>
+                Today
+              </Button>
+              <Button onClick={() => handleDays("7")} style={buttonstyle}>
+                Week
+              </Button>
+              <Button onClick={() => handleDays("30")} style={buttonstyle}>
+                Month
+              </Button>
+              <Button onClick={() => handleDays("5000")} style={buttonstyle}>
+                All Time
+              </Button>
+            </div> */}
+
+            {/* <button className="lb-topbutton" onClick={() => handleDays("1")}>
+              Today
+            </button>
+            <button className="lb-topbutton" onClick={() => handleDays("7")}>
+              Week
+            </button>
+            <button className="lb-topbutton" onClick={() => handleDays("30")}>
+              Month
+            </button>
+            <button className="lb-topbutton" onClick={() => handleDays("5000")}>
+              All-Time
+            </button> */}
           </div>
 
           <div className="leaderboard-top"></div>
