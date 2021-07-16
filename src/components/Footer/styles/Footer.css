@@ -8,6 +8,7 @@
 	color: #f2a154;
 	border-top: 0.5px solid black;
 	text-align: center;
+	grid-row: 5;
 }
 
 .hidden {
