@@ -48,7 +48,7 @@ These endpoints allow you to navigate through the website:
 To enter development mode:
 
 ```bash
-npm run serve
+npm start
 ```
 
 Please visit http://localhost:5000 to view the app in the browser.
