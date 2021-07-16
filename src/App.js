@@ -50,7 +50,7 @@ export default function App() {
 
     const userAPI = async () => {
       setLoading(true);
-      const res = await axios.get(`localhost:3000/lb/${days}`);
+      const res = await axios.get(`http://202.61.225.240:3000/lb/${days}`);
       setUser(res.data);
       setLoading(false);
     };
