@@ -31,13 +31,13 @@ export default function SignUp() {
       console.log(response.data)  
     })
     .catch((e) => {
-      const usernameError = e.response.data.err.details[0].message
-      const emailError = e.response.data.err.details[2].message
-      const passwordError = e.response.data.err.details[1].message
+      const usernameError = e.response.data.err.details[0]?.message      
+      const passwordError = e.response.data.err.details[1]?.message
+      const emailError = e.response.data.err.details[2]?.message
       setusernameError(usernameError)     
       setemailError(emailError)  
       setpasswordError(passwordError)
- });
+   });
  }   
  
 
@@ -61,7 +61,7 @@ export default function SignUp() {
                         value={values.username}
                         onChange={handleChange}              
                     />      
-                    {errors.username&& <div className={classes.redColor}>{usernameError}</div>}                          
+                    {errors.username && <div className={classes.redColor}>{usernameError}</div>}                          
                     <InputField
                         name="email"
                         type="email"

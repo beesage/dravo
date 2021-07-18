@@ -27,6 +27,7 @@ import Apiaries from "./components/UserProfile/EditProfile/ProfileInfo/Apiaries"
 import Beehives from "./components/UserProfile/EditProfile/ProfileInfo/Beehives";
 import Footer from "./components/Footer/Footer";
 
+
 export default function App() {
 	const [user, setUser] = useState([]);
 	const [loading, setLoading] = useState(false);
@@ -73,7 +74,7 @@ export default function App() {
 						<Switch>
 							<Route exact path="/" component={LogIn} />
 							<Route path="/signup" component={SignUp} />
-							<Route path="/forgotpassword" component={ForgotPassword} />
+							 <Route path="/forgotpassword" component={ForgotPassword} />
 							<Route
 								path="/leaderboard"
 								render={(props) => (
@@ -135,7 +136,7 @@ export default function App() {
 							/>
 						</Switch>
 						<Footer />
-					</Router>
+					</Router >
 				) : (
 					<LoadingPage />
 				)}

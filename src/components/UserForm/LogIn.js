@@ -10,7 +10,6 @@ import logo from "../../assets/logo-mobile.png";
 import validate from "./ValidateInfo";
 import Axios from 'axios';
 
-
 export default function LogIn() {
 
   const classes = useStyles();
@@ -29,13 +28,14 @@ export default function LogIn() {
    password: values.password,    
   })  
   .then((data) => {
-    console.log(data.data[0])
+    console.log(data.data[0])    
     history.push("/leaderboard")
+    //window.location.reload()
     return setSelectedUser(data.data[0])         
   })
   .catch((e) => {
-      const usernameError = e.response.data.err.details[0].message      
-      const passwordError = e.response.data.err.details[1].message
+      const usernameError = e.response.data.err.details[0]?.message      
+      const passwordError = e.response.data.err.details[1]?.message
       setusernameError(usernameError)   
       setpasswordError(passwordError) 
       setIsLoginCorrect(false)   
@@ -76,8 +76,8 @@ export default function LogIn() {
                       className={classes.checkbox} label="Keep me logged in"/>
                     <NavLink  to="/forgotpassword" className={classes.forgotPassword}>Forgot password?</NavLink >                  
                   </Box>             
-                  <Button type="submit" text="Log In" onClick={login} />              
-            </form>
+                  <Button type="submit" text="Log In" onClick={login} />
+           </form>
             <Box align="center" mt={2}>
               <Typography className={classes.typography}>
                 New to Dravo?
