@@ -1,14 +1,15 @@
 import React from "react";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import DragHandleIcon from "@material-ui/icons/DragHandle";
 
 function LeaderboardCard({ user, index }) {
   return (
     <div className="lb-card-wrapper">
       <div className="lb-card-rank">
-        {user.avg_wd === user.avg_before_wd ? (
-          <DragHandle style={{ fill: "black" }} />
-        ) : user.avg_wd > user.avg_before_wd ? (
+        {user.wd_rank === user.wd_rank_before ? (
+          <DragHandleIcon style={{ fill: "black" }} />
+        ) : user.wd_rank > user.wd_rank_before ? (
           <ArrowDropUpIcon style={{ fill: "green" }} />
         ) : (
           <ArrowDropDownIcon style={{ fill: "red" }} />
