@@ -1,6 +1,7 @@
 import React from "react";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import DragHandleIcon from "@material-ui/icons/DragHandle";
 
 function LeaderboardCard({ user, index }) {
   return (

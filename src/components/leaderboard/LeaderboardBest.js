@@ -2,7 +2,6 @@ import React from "react";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import DragHandleIcon from "@material-ui/icons/DragHandle";
-import DragHandle from "@material-ui/icons/DragHandle";
 
 function LeaderboardBest({ user, orientation, rank }) {
   return (
@@ -20,7 +19,7 @@ function LeaderboardBest({ user, orientation, rank }) {
       <div className="lb-top-wd">{user.avg_wd}</div>
       <div className="lb-top-rank">
         {user.wd_rank === user.wd_rank_before ? (
-          <DragHandle style={{ fill: "black" }} />
+          <DragHandleIcon style={{ fill: "black" }} />
         ) : user.wd_rank > user.wd_rank_before ? (
           <ArrowDropUpIcon style={{ fill: "green" }} />
         ) : (
