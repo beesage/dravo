@@ -1,9 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useState, useEffect } from "react";
 
-import APIContext from "../../../../Context/APIContext";
 import UpdateInfo from "../Functions/UpdateInfo";
-
-import LoadingPage from "../../../Spinner/LoadingPage";
 
 import { Container } from "@material-ui/core";
 import Input from "@material-ui/core/Input";
@@ -14,58 +11,64 @@ import useStylesEdit from "../styles/EditStyle";
 
 export default function Username() {
 	const classesEdit = useStylesEdit();
-	const { user } = useContext(APIContext);
 	const { edited, handleChange, updateUsername, err, res } = UpdateInfo();
-	const [isTablet, setIsTablet] = useState(false);
+	const [isTablet, setIsTablet] = useState(window.innerWidth);
+	const breakpoint = 768;
 
-	const handleTablet = () => {
-		setIsTablet(!isTablet);
-	};
+	useEffect(() => {
+		const handleResizeWindow = () => setIsTablet(window.innerWidth);
+		// subscribe to window resize event "onComponentDidMount"
+		window.addEventListener("resize", handleResizeWindow);
+		return () => {
+			// unsubscribe "onComponentDestroy"
+			window.removeEventListener("resize", handleResizeWindow);
+		};
+	}, []);
 
 	return (
 		<>
-			{user.length > 0 ? (
-				<div
+			<div
+				className={
+					isTablet < breakpoint
+						? "u-edit-container-mobile"
+						: "u-edit-container-tablet"
+				}
+			>
+				<Container
+					component="main"
+					maxWidth={false}
 					className={
-						isTablet ? "u-edit-container-mobile" : "u-edit-container-tablet"
+						!isTablet < breakpoint
+							? classesEdit.container
+							: classesEdit.containerTablet
 					}
 				>
-					<Container
-						component="main"
-						maxWidth={false}
-						className={
-							isTablet ? classesEdit.container : classesEdit.containerTablet
-						}
-					>
-						<form className={classesEdit.root}>
-							<p className="edit-caption">Username</p>
-							<Input
-								name="username"
-								type="text"
-								id="formUsername"
-								onChange={handleChange}
-								value={edited.username}
-								className={classesEdit.textField}
-							/>
+					<form className={classesEdit.root}>
+						<p className="edit-caption">Username</p>
+						<Input
+							name="username"
+							type="text"
+							id="formUsername"
+							onChange={handleChange}
+							value={edited.username}
+							className={classesEdit.textField}
+						/>
 
-							<Button
-								value="Update"
-								text="Update"
-								onClick={updateUsername}
-								className={classesEdit.buttonEdit}
-							>
-								Update
-							</Button>
-							{res && <p className="res-message">{res}</p>}
-							{err && (
-								<p className="err-message">{err.validationErrors[0].message}</p>
-							)}
-						</form>
-					</Container>
-				</div>
-			) : (
-				<LoadingPage />
-			)}
+						<Button
+							value="Update"
+							text="Update"
+							onClick={updateUsername}
+							className={classesEdit.buttonEdit}
+						>
+							Update
+						</Button>
+						{res && <p className="res-message">{res}</p>}
+						{err && (
+							<p className="err-message">{err.validationErrors[0].message}</p>
+						)}
+					</form>
+				</Container>
+			</div>
 		</>
 	);
 }

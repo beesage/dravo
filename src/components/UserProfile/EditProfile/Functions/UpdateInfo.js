@@ -3,7 +3,7 @@ import APIContext from "../../../../Context/APIContext";
 import axios from "axios";
 
 export default function UpdateInfo() {
-	const { user, setUser } = useContext(APIContext);
+	const { user } = useContext(APIContext);
 	const [edited, setEdited] = useState({
 		username: user[0].username,
 		email: user[0].email,
@@ -11,7 +11,6 @@ export default function UpdateInfo() {
 		beehives: user[0].beehives,
 		experience: user[0].experience,
 		password: "",
-		oldPassword: user[0].password,
 		confirmPassword: "",
 		id: user[0].beekeeper_id,
 		bio: "",
@@ -204,36 +203,22 @@ export default function UpdateInfo() {
 
 	// const [errPass, setErrPass] = useState("");
 
-	const checkOldPass = (e) => {
-		if (e.target.value === edited.oldPassword) {
-			setEdited({ [e.target.value]: edited.oldPassword });
-			<p>All gooood!</p>;
-		} else {
-			<p>This is not your old password, you silly</p>;
-		}
-		console.log(edited);
-	};
-
 	const updatePassword = () => {
-		if (checkOldPass) {
-			axios
-				.put("http://localhost:3000/updatePass/1", {
-					oldPassword: edited.confirmPassword,
-				})
-				.then((res) => {
-					console.log(res);
-					setRes("Successfully updated");
-					setErr("");
-				})
-				.catch((err) => {
-					if (err.response) {
-						setErr(err.response.data);
-						setRes("");
-					}
-				});
-		} else {
-			console.log(edited);
-		}
+		axios
+			.put("http://localhost:3000/updatePass/1", {
+				password: edited.confirmPassword,
+			})
+			.then((res) => {
+				console.log(res);
+				setRes("Successfully updated");
+				setErr("");
+			})
+			.catch((err) => {
+				if (err.response) {
+					setErr(err.response.data);
+					setRes("");
+				}
+			});
 	};
 
 	const [updatePic, setUpdatePic] = useState(false);
@@ -297,6 +282,5 @@ export default function UpdateInfo() {
 		err,
 		res,
 		// errPass,
-		checkOldPass,
 	};
 }
