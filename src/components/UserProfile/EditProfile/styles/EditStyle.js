@@ -15,6 +15,7 @@ const useStylesEdit = makeStyles((theme) => ({
 		justifyContent: "space-evenly",
 		alignItems: "center",
 		backgroundColor: "#F7F6E7",
+		marginTop: "2rem",
 	},
 	containerTabletEmail: {
 		display: "flex",

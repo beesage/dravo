@@ -32,6 +32,7 @@ export default function Password(props) {
 		updatePassword,
 		err,
 		res,
+		checkOldPass,
 	} = UpdateInfo();
 
 	return (
@@ -50,7 +51,7 @@ export default function Password(props) {
 									id="formOldPassword"
 									name="oldPassword"
 									value={edited.oldPassword}
-									onChange={handleChange}
+									onChange={checkOldPass}
 									className={classesEdit.textField}
 								/>
 								{err && (

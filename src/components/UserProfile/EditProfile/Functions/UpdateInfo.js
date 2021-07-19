@@ -11,7 +11,7 @@ export default function UpdateInfo() {
 		beehives: user[0].beehives,
 		experience: user[0].experience,
 		password: "",
-		oldPassword: "",
+		oldPassword: user[0].password,
 		confirmPassword: "",
 		id: user[0].beekeeper_id,
 		bio: "",
@@ -29,12 +29,6 @@ export default function UpdateInfo() {
 			...user[0],
 			[e.target.name]: +e.target.value,
 		});
-	};
-
-	const [showPassword, setShowPassword] = useState(false);
-
-	const inputPassword = (e) => {
-		setShowPassword(!showPassword);
 	};
 
 	const [locationC, setLocationC] = useState({
@@ -187,25 +181,37 @@ export default function UpdateInfo() {
 			});
 	};
 
+	const [showPassword, setShowPassword] = useState(false);
+
+	const inputPassword = (e) => {
+		setShowPassword(!showPassword);
+	};
+
 	// const [errPass, setErrPass] = useState("");
 
+	const checkOldPass = (e) => {
+		if (e.target.value == edited.oldPassword) {
+			setEdited({ [e.target.value]: edited.oldPassword });
+		} else {
+			<p>This is not your old password, you silly</p>;
+		}
+	};
+
 	const updatePassword = () => {
-		// if (edited.confirmPassword != edited.password) {
-		// 	setErrPass("The password should match!");
-		// } else {
-		axios
-			.put("http://localhost:3000/updatePass/1", {
-				password: edited.confirmPassword,
-			})
-			.then((res) => {
-				console.log(res);
-				setRes("All good :)");
-			})
-			.catch((err) => {
-				if (err.response) {
-					setErr(err.response.data);
-				}
-			});
+		checkOldPass() &&
+			axios
+				.put("http://localhost:3000/updatePass/1", {
+					password: edited.confirmPassword,
+				})
+				.then((res) => {
+					console.log(res);
+					setRes("All good :)");
+				})
+				.catch((err) => {
+					if (err.response) {
+						setErr(err.response.data);
+					}
+				});
 		// }
 	};
 
@@ -268,5 +274,6 @@ export default function UpdateInfo() {
 		err,
 		res,
 		// errPass,
+		checkOldPass,
 	};
 }

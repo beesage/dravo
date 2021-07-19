@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 
-export default function HexBio({ user }) {
+import APIContext from "../../../../Context/APIContext";
+
+export default function HexBio() {
+	const { user } = useContext(APIContext);
 	return (
 		<>
-			<div className="hex-bio ribbon-outset border" />
+			<div className="hex-bio ribbon-outset border">
+				<p style={{ color: "white" }}>{user[0].bio}</p>
+			</div>
 		</>
 	);
 }
