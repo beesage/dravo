@@ -14,13 +14,6 @@ export default function HexEdit() {
 					</p>
 				</div>
 			</div>
-			{/* <div class="hex-edit">
-				<div class="hexr">
-					<div class="hexb" onClick={handleEditProfile}>
-						Edit Profile
-					</div>
-				</div>
-			</div> */}
 		</>
 	);
 }

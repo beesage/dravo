@@ -64,10 +64,10 @@ export default function UserProfile() {
 						{/* {Icons.map((icons, index) => (
 							<HexData key={index} user={user} />
 						))} */}
-						<HexData></HexData>
-						<HexData>{user[0].apiaries}</HexData>
+						<HexData />
+						{/* <HexData>{user[0].apiaries}</HexData>
 						<HexData>{user[0].beehives}</HexData>
-						<HexData>{user[0].location}</HexData>
+						<HexData>{user[0].location}</HexData> */}
 					</div>
 				</>
 			) : (

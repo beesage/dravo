@@ -92,7 +92,7 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
-				setRes("All good :)");
+				setRes("Successfully updated");
 			})
 			.catch((err) => {
 				if (err.response) {
@@ -108,7 +108,7 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
-				setRes("All good :)");
+				setRes("Successfully updated");
 			})
 			.catch((err) => {
 				if (err.response) {
@@ -124,7 +124,7 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
-				setRes("All good :)");
+				setRes("Successfully updated");
 			})
 			.catch((err) => {
 				if (err.response) {
@@ -140,7 +140,7 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
-				setRes("All good :)");
+				setRes("Successfully updated");
 			})
 			.catch((err) => {
 				if (err.response) {
@@ -156,7 +156,7 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
-				setRes("All good :)");
+				setRes("Successfully updated");
 			})
 			.catch((err) => {
 				if (err.response) {
@@ -172,7 +172,7 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
-				setRes("All good :)");
+				setRes("Successfully updated");
 			})
 			.catch((err) => {
 				if (err.response) {
@@ -190,29 +190,33 @@ export default function UpdateInfo() {
 	// const [errPass, setErrPass] = useState("");
 
 	const checkOldPass = (e) => {
-		if (e.target.value == edited.oldPassword) {
+		if (e.target.value === edited.oldPassword) {
 			setEdited({ [e.target.value]: edited.oldPassword });
+			<p>All gooood!</p>;
 		} else {
 			<p>This is not your old password, you silly</p>;
 		}
+		console.log(edited);
 	};
 
 	const updatePassword = () => {
-		checkOldPass() &&
+		if (checkOldPass) {
 			axios
 				.put("http://localhost:3000/updatePass/1", {
-					password: edited.confirmPassword,
+					oldPassword: edited.confirmPassword,
 				})
 				.then((res) => {
 					console.log(res);
-					setRes("All good :)");
+					setRes("Successfully updated");
 				})
 				.catch((err) => {
 					if (err.response) {
 						setErr(err.response.data);
 					}
 				});
-		// }
+		} else {
+			console.log(edited);
+		}
 	};
 
 	const [updatePic, setUpdatePic] = useState(false);
@@ -241,7 +245,7 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
-				setRes("All good :)");
+				setRes("Successfully updated");
 			})
 			.catch((err) => {
 				if (err.response) {

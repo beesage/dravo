@@ -143,7 +143,7 @@ export default function Password(props) {
 									id="formOldPassword"
 									name="oldPassword"
 									value={edited.oldPassword}
-									onChange={handleChange}
+									onChange={checkOldPass}
 									className={classesEdit.textField}
 								/>
 								{err && (
@@ -151,8 +151,8 @@ export default function Password(props) {
 										{err.validationErrors[0].message}
 									</p>
 								)}
-								<p className="edit-caption">New password</p>
-								<Input
+								{/* <p className="edit-caption">New password</p> */}
+								{/* <Input
 									id="formNewPassword"
 									name="password"
 									value={edited.password}
@@ -171,12 +171,12 @@ export default function Password(props) {
 									value={edited.confirmPassword}
 									onChange={handleChange}
 									className={classesEdit.textField}
-								/>
-								{err && (
+								/> */}
+								{/* {err && (
 									<p className="err-message">
 										{err.validationErrors[0].message}
 									</p>
-								)}
+								)} */}
 								<Button
 									value="Update"
 									text="Update"

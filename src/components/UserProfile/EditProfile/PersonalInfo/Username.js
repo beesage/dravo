@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import APIContext from "../../../../Context/APIContext";
 import UpdateInfo from "../Functions/UpdateInfo";
@@ -16,15 +16,26 @@ export default function Username() {
 	const classesEdit = useStylesEdit();
 	const { user } = useContext(APIContext);
 	const { edited, handleChange, updateUsername, err, res } = UpdateInfo();
+	const [isTablet, setIsTablet] = useState(false);
+
+	const handleTablet = () => {
+		setIsTablet(!isTablet);
+	};
 
 	return (
 		<>
 			{user.length > 0 ? (
-				<div className="u-edit-container-mobile">
+				<div
+					className={
+						isTablet ? "u-edit-container-mobile" : "u-edit-container-tablet"
+					}
+				>
 					<Container
 						component="main"
 						maxWidth={false}
-						className={classesEdit.container}
+						className={
+							isTablet ? classesEdit.container : classesEdit.containerTablet
+						}
 					>
 						<form className={classesEdit.root}>
 							<p className="edit-caption">Username</p>
@@ -47,42 +58,7 @@ export default function Username() {
 							>
 								Update
 							</Button>
-							{res && <p className="err-message">{res}</p>}
-						</form>
-					</Container>
-				</div>
-			) : (
-				<LoadingPage />
-			)}
-			{user.length > 0 ? (
-				<div className="u-edit-container-tablet">
-					<Container
-						component="main"
-						maxWidth={false}
-						className={classesEdit.containerTablet}
-					>
-						<form className={classesEdit.root}>
-							<p className="edit-caption">Username</p>
-							<Input
-								name="username"
-								type="text"
-								id="formUsername"
-								onChange={handleChange}
-								value={edited.username}
-								className={classesEdit.textField}
-							/>
-							{err && (
-								<p className="err-message">{err.validationErrors[0].message}</p>
-							)}
-							<Button
-								value="Update"
-								variant="text"
-								onClick={updateUsername}
-								className={classesEdit.buttonEdit}
-							>
-								Update
-							</Button>
-							{res && <p className="err-message">{res}</p>}
+							{res && <p className="res-message">{res}</p>}
 						</form>
 					</Container>
 				</div>
