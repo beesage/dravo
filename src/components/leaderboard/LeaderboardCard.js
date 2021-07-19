@@ -1,7 +1,7 @@
 import React from "react";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
-import DragHandleIcon from "@material-ui/icons/DragHandle";
+import RemoveIcon from "@material-ui/icons/Remove";
 
 function LeaderboardCard({ user, index }) {
   return (
@@ -9,7 +9,7 @@ function LeaderboardCard({ user, index }) {
       <div className="lb-card-rank">
         {user.wd_rank_before ? (
           user.wd_rank === user.wd_rank_before ? (
-            <DragHandleIcon style={{ fill: "#314e52", width: "15px" }} />
+            <RemoveIcon style={{ fill: "#314e52", width: "15px" }} />
           ) : user.wd_rank > user.wd_rank_before ? (
             <ArrowDropUpIcon style={{ fill: "green" }} />
           ) : (

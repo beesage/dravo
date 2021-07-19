@@ -70,7 +70,7 @@ function Leaderboard({ user, loading, handleDays }) {
           </div>
 
           <div className="lb-button">
-            <div class="multi-button">
+            <div className="multi-button">
               <button onClick={() => handleDays("1")}>Today</button>
               <button onClick={() => handleDays("7")}>Week</button>
               <button onClick={() => handleDays("30")}>Month</button>
