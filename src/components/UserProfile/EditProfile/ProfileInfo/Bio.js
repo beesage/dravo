@@ -39,11 +39,6 @@ export default function Bio() {
 									type="text"
 									id="formBio"
 								/>
-								{err && (
-									<p className="err-message">
-										{err.validationErrors[0].message}
-									</p>
-								)}
 								<Button
 									value="Update"
 									text="Update"
@@ -53,7 +48,12 @@ export default function Bio() {
 								>
 									Update
 								</Button>
-								{res && <p className="err-message">{res}</p>}
+								{res && <p className="res-message">{res}</p>}
+								{err && (
+									<p className="err-message">
+										{err.validationErrors[0].message}
+									</p>
+								)}
 							</form>
 						</Container>
 					</div>
@@ -109,11 +109,6 @@ export default function Bio() {
 											type="text"
 											id="formBio"
 										/>
-										{err && (
-											<p className="err-message">
-												{err.validationErrors[0].message}
-											</p>
-										)}
 										<Button
 											value="Update"
 											text="Update"
@@ -122,7 +117,12 @@ export default function Bio() {
 										>
 											Update
 										</Button>
-										{res && <p className="err-message">{res}</p>}
+										{res && <p className="res-message">{res}</p>}
+										{err && (
+											<p className="err-message">
+												{err.validationErrors[0].message}
+											</p>
+										)}
 									</form>
 								</Container>
 							</div>

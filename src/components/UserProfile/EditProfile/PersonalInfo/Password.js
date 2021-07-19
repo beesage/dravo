@@ -54,11 +54,6 @@ export default function Password(props) {
 									onChange={checkOldPass}
 									className={classesEdit.textField}
 								/>
-								{err && (
-									<p className="err-message">
-										{err.validationErrors[0].message}
-									</p>
-								)}
 								<p className="edit-caption">New password</p>
 								<Input
 									id="formNewPassword"
@@ -67,11 +62,6 @@ export default function Password(props) {
 									onChange={handleChange}
 									className={classesEdit.textField}
 								/>
-								{err && (
-									<p className="err-message">
-										{err.validationErrors[0].message}
-									</p>
-								)}
 								<p className="edit-caption">Confirm new password</p>
 								<Input
 									id="formConfirmPassword"
@@ -80,11 +70,6 @@ export default function Password(props) {
 									onChange={handleChange}
 									className={classesEdit.textField}
 								/>
-								{err && (
-									<p className="err-message">
-										{err.validationErrors[0].message}
-									</p>
-								)}
 								<Button
 									value="Update"
 									text="Update"
@@ -93,7 +78,12 @@ export default function Password(props) {
 								>
 									Update{" "}
 								</Button>
-								{res && <p className="err-message">{res}</p>}
+								{res && <p className="res-message">{res}</p>}
+								{err && (
+									<p className="err-message">
+										{err.validationErrors[0].message}
+									</p>
+								)}
 							</form>
 						</Container>
 					</div>
@@ -146,11 +136,6 @@ export default function Password(props) {
 									onChange={checkOldPass}
 									className={classesEdit.textField}
 								/>
-								{err && (
-									<p className="err-message">
-										{err.validationErrors[0].message}
-									</p>
-								)}
 								{/* <p className="edit-caption">New password</p> */}
 								{/* <Input
 									id="formNewPassword"
@@ -159,11 +144,6 @@ export default function Password(props) {
 									onChange={handleChange}
 									className={classesEdit.textField}
 								/>
-								{err && (
-									<p className="err-message">
-										{err.validationErrors[0].message}
-									</p>
-								)}
 								<p className="edit-caption">Confirm new password</p>
 								<Input
 									id="formConfirmPassword"
@@ -172,11 +152,6 @@ export default function Password(props) {
 									onChange={handleChange}
 									className={classesEdit.textField}
 								/> */}
-								{/* {err && (
-									<p className="err-message">
-										{err.validationErrors[0].message}
-									</p>
-								)} */}
 								<Button
 									value="Update"
 									text="Update"
@@ -185,7 +160,12 @@ export default function Password(props) {
 								>
 									Update{" "}
 								</Button>
-								{res && <p className="err-message">{res}</p>}
+								{res && <p className="res-message">{res}</p>}
+								{err && (
+									<p className="err-message">
+										{err.validationErrors[0].message}
+									</p>
+								)}
 							</form>
 						</Container>
 					</div>

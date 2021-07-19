@@ -73,10 +73,13 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
+				setRes("Successfully updated");
+				setErr("");
 			})
 			.catch((err) => {
 				if (err.response) {
 					setErr(err.response.data);
+					setRes("");
 				}
 			});
 	};
@@ -93,10 +96,12 @@ export default function UpdateInfo() {
 			.then((res) => {
 				console.log(res);
 				setRes("Successfully updated");
+				setErr("");
 			})
 			.catch((err) => {
 				if (err.response) {
 					setErr(err.response.data);
+					setRes("");
 				}
 			});
 	};
@@ -109,10 +114,12 @@ export default function UpdateInfo() {
 			.then((res) => {
 				console.log(res);
 				setRes("Successfully updated");
+				setErr("");
 			})
 			.catch((err) => {
 				if (err.response) {
 					setErr(err.response.data);
+					setRes("");
 				}
 			});
 	};
@@ -125,10 +132,12 @@ export default function UpdateInfo() {
 			.then((res) => {
 				console.log(res);
 				setRes("Successfully updated");
+				setErr("");
 			})
 			.catch((err) => {
 				if (err.response) {
 					setErr(err.response.data);
+					setRes("");
 				}
 			});
 	};
@@ -141,10 +150,12 @@ export default function UpdateInfo() {
 			.then((res) => {
 				console.log(res);
 				setRes("Successfully updated");
+				setErr("");
 			})
 			.catch((err) => {
 				if (err.response) {
 					setErr(err.response.data);
+					setRes("");
 				}
 			});
 	};
@@ -157,10 +168,12 @@ export default function UpdateInfo() {
 			.then((res) => {
 				console.log(res);
 				setRes("Successfully updated");
+				setErr("");
 			})
 			.catch((err) => {
 				if (err.response) {
 					setErr(err.response.data);
+					setRes("");
 				}
 			});
 	};
@@ -173,10 +186,12 @@ export default function UpdateInfo() {
 			.then((res) => {
 				console.log(res);
 				setRes("Successfully updated");
+				setErr("");
 			})
 			.catch((err) => {
 				if (err.response) {
 					setErr(err.response.data);
+					setRes("");
 				}
 			});
 	};
@@ -208,10 +223,12 @@ export default function UpdateInfo() {
 				.then((res) => {
 					console.log(res);
 					setRes("Successfully updated");
+					setErr("");
 				})
 				.catch((err) => {
 					if (err.response) {
 						setErr(err.response.data);
+						setRes("");
 					}
 				});
 		} else {
@@ -246,10 +263,12 @@ export default function UpdateInfo() {
 			.then((res) => {
 				console.log(res);
 				setRes("Successfully updated");
+				setErr("");
 			})
 			.catch((err) => {
 				if (err.response) {
 					setErr(err.response.data);
+					setRes("");
 				}
 			});
 	};

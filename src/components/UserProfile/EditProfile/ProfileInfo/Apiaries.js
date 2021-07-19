@@ -42,11 +42,6 @@ export default function Apiaries() {
 									value={edited.apiaries}
 									className={classesEdit.textField}
 								/>
-								{err && (
-									<p className="err-message">
-										{err.validationErrors[0].message}
-									</p>
-								)}
 								<Button
 									value="Update"
 									onClick={updateApiaries}
@@ -54,7 +49,12 @@ export default function Apiaries() {
 								>
 									Update
 								</Button>
-								{res && <p className="err-message">{res}</p>}
+								{res && <p className="res-message">{res}</p>}
+								{err && (
+									<p className="err-message">
+										{err.validationErrors[0].message}
+									</p>
+								)}
 							</form>
 						</Container>
 					</div>
@@ -110,11 +110,6 @@ export default function Apiaries() {
 											value={edited.apiaries}
 											className={classesEdit.textField}
 										/>
-										{err && (
-											<p className="err-message">
-												{err.validationErrors[0].message}
-											</p>
-										)}
 										<Button
 											value="Update"
 											text="Update"
@@ -124,7 +119,12 @@ export default function Apiaries() {
 										>
 											Button
 										</Button>
-										{res && <p className="err-message">{res}</p>}
+										{res && <p className="res-message">{res}</p>}
+										{err && (
+											<p className="err-message">
+												{err.validationErrors[0].message}
+											</p>
+										)}
 									</form>
 								</Container>
 							</div>

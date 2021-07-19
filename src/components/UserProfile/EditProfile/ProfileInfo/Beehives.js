@@ -42,11 +42,6 @@ export default function Beehives() {
 									value={edited.beehives}
 									className={classesEdit.textField}
 								/>
-								{err && (
-									<p className="err-message">
-										{err.validationErrors[0].message}
-									</p>
-								)}
 								<Button
 									value="Update"
 									text="Update"
@@ -56,7 +51,12 @@ export default function Beehives() {
 								>
 									Update
 								</Button>
-								{res && <p className="err-message">{res}</p>}
+								{res && <p className="res-message">{res}</p>}
+								{err && (
+									<p className="err-message">
+										{err.validationErrors[0].message}
+									</p>
+								)}
 							</form>
 						</Container>
 					</div>
@@ -112,11 +112,6 @@ export default function Beehives() {
 											value={edited.beehives}
 											className={classesEdit.textField}
 										/>
-										{err && (
-											<p className="err-message">
-												{err.validationErrors[0].message}
-											</p>
-										)}
 										<Button
 											value="Update"
 											text="Update"
@@ -126,7 +121,12 @@ export default function Beehives() {
 										>
 											Update
 										</Button>
-										{res && <p className="err-message">{res}</p>}
+										{res && <p className="res-message">{res}</p>}
+										{err && (
+											<p className="err-message">
+												{err.validationErrors[0].message}
+											</p>
+										)}
 									</form>
 								</Container>
 							</div>

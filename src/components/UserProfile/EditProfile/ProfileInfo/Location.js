@@ -46,11 +46,6 @@ export default function Location() {
 									value={locationC.locationC}
 									onChange={selectCountry}
 								/>
-								{err && (
-									<p className="err-message">
-										{err.validationErrors[0].message}
-									</p>
-								)}
 								<p className="edit-caption">Region</p>
 								<RegionDropdown
 									disableWhenEmpty={true}
@@ -59,11 +54,6 @@ export default function Location() {
 									onChange={selectRegion}
 									style={{ marginBottom: "1rem" }}
 								/>
-								{err && (
-									<p className="err-message">
-										{err.validationErrors[0].message}
-									</p>
-								)}
 							</form>
 							<Button
 								value="Update"
@@ -74,7 +64,10 @@ export default function Location() {
 							>
 								Update
 							</Button>
-							{res && <p className="err-message">{res}</p>}
+							{res && <p className="res-message">{res}</p>}
+							{err && (
+								<p className="err-message">{err.validationErrors[0].message}</p>
+							)}
 						</Container>
 					</div>
 				</>
@@ -126,11 +119,6 @@ export default function Location() {
 											onChange={selectCountry}
 											style={{ width: "250px" }}
 										/>
-										{err && (
-											<p className="err-message">
-												{err.validationErrors[0].message}
-											</p>
-										)}
 										<p className="edit-caption">Region</p>
 										<RegionDropdown
 											disableWhenEmpty={true}
@@ -139,11 +127,6 @@ export default function Location() {
 											onChange={selectRegion}
 											style={{ marginBottom: "1rem", width: "250px" }}
 										/>
-										{err && (
-											<p className="err-message">
-												{err.validationErrors[0].message}
-											</p>
-										)}
 										<Button
 											value="Update"
 											text="Update"
@@ -152,7 +135,12 @@ export default function Location() {
 										>
 											Update
 										</Button>
-										{res && <p className="err-message">{res}</p>}
+										{res && <p className="res-message">{res}</p>}
+										{err && (
+											<p className="err-message">
+												{err.validationErrors[0].message}
+											</p>
+										)}
 									</form>
 								</Container>
 							</div>

@@ -37,11 +37,6 @@ export default function Email() {
 									value={edited.email}
 									className={classesEdit.textField}
 								/>
-								{err && (
-									<p className="err-message">
-										{err.validationErrors[0].message}
-									</p>
-								)}
 								<Button
 									value="Update"
 									text="Update"
@@ -50,7 +45,12 @@ export default function Email() {
 								>
 									Update
 								</Button>
-								{res && <p className="err-message">{res}</p>}
+								{res && <p className="res-message">{res}</p>}
+								{err && (
+									<p className="err-message">
+										{err.validationErrors[0].message}
+									</p>
+								)}
 							</form>
 						</Container>
 					</div>
@@ -75,9 +75,7 @@ export default function Email() {
 								value={edited.email}
 								className={classesEdit.textField}
 							/>
-							{err && (
-								<p className="err-message">{err.validationErrors[0].message}</p>
-							)}
+
 							<Button
 								value="Update"
 								name="email"
@@ -86,7 +84,10 @@ export default function Email() {
 							>
 								Update
 							</Button>
-							{res && <p className="err-message">{res}</p>}
+							{res && <p className="res-message">{res}</p>}
+							{err && (
+								<p className="err-message">{err.validationErrors[0].message}</p>
+							)}
 						</form>
 					</Container>
 				</div>

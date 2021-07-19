@@ -38,9 +38,6 @@ export default function ProfilePic() {
 							className="submit-pic"
 						/>
 						<div className="preview">{preview()}</div>
-						{err && (
-							<p className="err-message">{err.validationErrors[0].message}</p>
-						)}
 						<Button
 							onClick={updateProfilePic}
 							text="Upload"
@@ -48,7 +45,10 @@ export default function ProfilePic() {
 						>
 							Upload
 						</Button>
-						{res && <p className="err-message">{res}</p>}
+						{res && <p className="res-message">{res}</p>}
+						{err && (
+							<p className="err-message">{err.validationErrors[0].message}</p>
+						)}
 					</Container>
 				</div>
 			) : (
@@ -99,11 +99,6 @@ export default function ProfilePic() {
 											onChange={handlePicture}
 											className="submit-pic"
 										/>
-										{err && (
-											<p className="err-message">
-												{err.validationErrors[0].message}
-											</p>
-										)}
 										<Button
 											onClick={updateProfilePic}
 											text="Upload"
@@ -111,7 +106,12 @@ export default function ProfilePic() {
 										>
 											Upload pic
 										</Button>
-										{res && <p className="err-message">{res}</p>}
+										{res && <p className="res-message">{res}</p>}
+										{err && (
+											<p className="err-message">
+												{err.validationErrors[0].message}
+											</p>
+										)}
 									</form>
 								</Container>
 							</div>

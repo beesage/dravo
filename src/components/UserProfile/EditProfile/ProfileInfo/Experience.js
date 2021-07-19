@@ -43,11 +43,6 @@ export default function Experience() {
 									value={edited.experience}
 									className={classesEdit.textField}
 								/>
-								{err && (
-									<p className="err-message">
-										{err.validationErrors[0].message}
-									</p>
-								)}
 								<Button
 									value="Update"
 									text="Update"
@@ -57,7 +52,12 @@ export default function Experience() {
 								>
 									Update
 								</Button>
-								{res && <p className="err-message">{res}</p>}
+								{res && <p className="res-message">{res}</p>}
+								{err && (
+									<p className="err-message">
+										{err.validationErrors[0].message}
+									</p>
+								)}
 							</form>
 						</Container>
 					</div>
@@ -113,11 +113,6 @@ export default function Experience() {
 											value={edited.experience}
 											className={classesEdit.textField}
 										/>
-										{err && (
-											<p className="err-message">
-												{err.validationErrors[0].message}
-											</p>
-										)}
 										<Button
 											value="Update"
 											text="Update"
@@ -127,7 +122,12 @@ export default function Experience() {
 										>
 											Update
 										</Button>
-										{res && <p className="err-message">{res}</p>}
+										{res && <p className="res-message">{res}</p>}
+										{err && (
+											<p className="err-message">
+												{err.validationErrors[0].message}
+											</p>
+										)}
 									</form>
 								</Container>
 							</div>

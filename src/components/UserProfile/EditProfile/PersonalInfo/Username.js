@@ -47,9 +47,7 @@ export default function Username() {
 								value={edited.username}
 								className={classesEdit.textField}
 							/>
-							{err && (
-								<p className="err-message">{err.validationErrors[0].message}</p>
-							)}
+
 							<Button
 								value="Update"
 								text="Update"
@@ -59,6 +57,9 @@ export default function Username() {
 								Update
 							</Button>
 							{res && <p className="res-message">{res}</p>}
+							{err && (
+								<p className="err-message">{err.validationErrors[0].message}</p>
+							)}
 						</form>
 					</Container>
 				</div>
