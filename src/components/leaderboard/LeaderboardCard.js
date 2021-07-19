@@ -6,9 +6,9 @@ function LeaderboardCard({ user, index }) {
   return (
     <div className="lb-card-wrapper">
       <div className="lb-card-rank">
-        {user.avg_wd === user.avg_before_wd ? (
+        {user.wd_rank === user.wd_rank_before ? (
           <DragHandle style={{ fill: "black" }} />
-        ) : user.avg_wd > user.avg_before_wd ? (
+        ) : user.wd_rank > user.wd_rank_before ? (
           <ArrowDropUpIcon style={{ fill: "green" }} />
         ) : (
           <ArrowDropDownIcon style={{ fill: "red" }} />

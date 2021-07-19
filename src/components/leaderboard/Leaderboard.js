@@ -25,21 +25,6 @@ function Leaderboard({ user, loading, handleDays }) {
     lbiconlink: null,
   };
 
-  // const buttonstyle = {
-  //   textTransform: "none",
-  //   fontSize: "10px",
-  //   color: "#314e52",
-  //   backgroundColor: "rgba(255, 255, 255, 0.15)",
-  //   borderRadius: "0%",
-  //   "&:focus": {
-  //     color: "red",
-  //   },
-  //   "&:hover": {
-  //     backgroundColor: "#fff",
-  //     color: "#3c52b2",
-  //   },
-  // };
-
   let lbTop = user.slice(0, 3);
   let lbAll = user.slice(3);
 
