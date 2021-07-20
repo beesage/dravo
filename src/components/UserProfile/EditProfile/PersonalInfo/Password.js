@@ -96,14 +96,6 @@ export default function Password(props) {
 							}
 						>
 							<form className={classesEdit.root}>
-								<p className="edit-caption">Old password</p>
-								<Input
-									id="formOldPassword"
-									name="oldPassword"
-									value={edited.oldPassword}
-									onChange={handleChange}
-									className={classesEdit.textField}
-								/>
 								<p className="edit-caption">New password</p>
 								<Input
 									id="formNewPassword"

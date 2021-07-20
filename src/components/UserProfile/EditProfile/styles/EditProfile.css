@@ -25,14 +25,10 @@
 	grid-row: 2;
 }
 
-.err-message {
-	color: red;
-	font-size: 0.7rem;
-}
-
+.err-message,
 .res-message {
 	color: red;
-	font-size: 0.7rem;
+	font-size: 1rem;
 }
 
 .tablet-editprofile {
