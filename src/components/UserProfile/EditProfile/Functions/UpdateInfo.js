@@ -28,6 +28,10 @@ export default function UpdateInfo() {
 		});
 	};
 
+	const [err, setErr] = useState("");
+
+	const [res, setRes] = useState("");
+
 	const [locationC, setLocationC] = useState({
 		locationC: "",
 	});
@@ -65,13 +69,9 @@ export default function UpdateInfo() {
 			});
 	};
 
-	const [err, setErr] = useState("");
-
-	const [res, setRes] = useState("");
-
 	const updateUsername = () => {
 		axios
-			.put("http://localhost:3000/update/1", {
+			.put("http://202.61.225.240/update/1", {
 				username: edited.username,
 			})
 			.then((res) => {
@@ -206,7 +206,7 @@ export default function UpdateInfo() {
 	const updatePassword = () => {
 		if (resetPass.password == resetConf.confirmPassword) {
 			axios
-				.put("http://localhost:3000/updatePass/1", {
+				.put("http://202.61.225.240/updatePass/1", {
 					password: resetConf.confirmPassword,
 				})
 				.then((res) => {
