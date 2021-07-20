@@ -39,9 +39,9 @@ export default function SignUp() {
         console.log(response.data);
       })
       .catch((e) => {
-        const usernameError = e.response.data.err.details[0].message;
-        const emailError = e.response.data.err.details[2].message;
-        const passwordError = e.response.data.err.details[1].message;
+        const usernameError = e.response.data.err.details[0]?.message;
+        const emailError = e.response.data.err.details[2]?.message;
+        const passwordError = e.response.data.err.details[1]?.message;
         setusernameError(usernameError);
         setemailError(emailError);
         setpasswordError(passwordError);

@@ -40,8 +40,8 @@ export default function LogIn() {
         return setSelectedUser(data.data[0]);
       })
       .catch((e) => {
-        const usernameError = e.response.data.err.details[0].message;
-        const passwordError = e.response.data.err.details[1].message;
+        const usernameError = e.response.data.err.details[0]?.message;
+        const passwordError = e.response.data.err.details[1]?.message;
         setusernameError(usernameError);
         setpasswordError(passwordError);
         setIsLoginCorrect(false);
