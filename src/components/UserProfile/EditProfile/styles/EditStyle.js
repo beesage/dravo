@@ -35,9 +35,9 @@ const useStylesEdit = makeStyles((theme) => ({
 	},
 	buttonEdit: {
 		background: "#314E52",
-		padding: "8px 80px",
+		padding: "10px 80px",
 		color: "#F2A154",
-		marginTop: "3%",
+		marginTop: "1rem",
 		boxShadow: "0 8px 6px -6px rgba(0, 0, 0, 0.5)",
 		"&:hover": {
 			backgroundColor: "#5A8288",

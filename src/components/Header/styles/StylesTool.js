@@ -7,6 +7,7 @@ const Tool = withStyles((theme) => ({
 		display: "flex",
 		alignItems: "center",
 		justifyContent: "center",
+		padding: "0",
 		gap: "1.5rem",
 		[theme.breakpoints.up("md")]: {
 			gap: "4rem",
