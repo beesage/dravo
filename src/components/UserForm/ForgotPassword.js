@@ -4,8 +4,9 @@ import Button from "./controls/Submit";
 import UseForm from "./UseForm";
 import useStyles from "./styles/StyleUserForm";
 import NavBar from "../../components/Header/styles/StylesNavBar";
-import { Container } from "@material-ui/core";
+import { Container, Box } from "@material-ui/core";
 import Tool from "../Header/styles/StylesTool";
+import { NavLink } from "react-router-dom";
 
 const ForgotPassword = () => {
   const classes = useStyles();
@@ -17,6 +18,7 @@ const ForgotPassword = () => {
 
   return (
     <>
+    <div className="login-grid">
       <NavBar position="static" className="tablet-navbar">
         <Tool>
           <>
@@ -25,7 +27,7 @@ const ForgotPassword = () => {
         </Tool>
       </NavBar>
       <Container component="main" maxWidth={false} className={classes.container} >
-        <p className="edit-caption">Enter a valid email</p>
+        <p className="edit-caption">Email</p>
         <form className={classes.root} onSubmit={handleNewEmail} noValidate autoComplete="off" >
           <InputField
             name="email"
@@ -34,9 +36,15 @@ const ForgotPassword = () => {
             value={values.email}
             onChange={handleChange}
           />
-          <Button type="submit" text="Submit" />
+          <Button type="submit" text="Recover Password" />
         </form>
+        <Box align="center" mt={2}>               
+          <NavLink to="/" variant="body2" className={classes.link}>
+            {"Back to Log In"}
+          </NavLink> 
+        </Box>
       </Container>
+      </div>
     </>
   );
 };
