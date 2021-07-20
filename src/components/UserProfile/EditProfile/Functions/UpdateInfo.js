@@ -60,10 +60,9 @@ export default function UpdateInfo() {
 
 	const updateLocation = () => {
 		axios
-			.put("http://localhost:3000/update/1", {
+			.put("http://202.61.225.240:3000/update/1", {
 				country: locationC.locationC,
 				region: locationR.locationR,
-				config,
 			})
 			.then((res) => {
 				console.log(res);
@@ -82,7 +81,6 @@ export default function UpdateInfo() {
 		axios
 			.put("http://202.61.225.240:3000/update/1", {
 				username: edited.username,
-				config,
 			})
 			.then((res) => {
 				console.log(res);
@@ -101,7 +99,6 @@ export default function UpdateInfo() {
 		axios
 			.put("http://202.61.225.240:3000/update/1", {
 				email: edited.email,
-				config,
 			})
 			.then((res) => {
 				console.log(res);
@@ -120,7 +117,6 @@ export default function UpdateInfo() {
 		axios
 			.put("http://202.61.225.240:3000/update/1", {
 				apiaries: edited.apiaries,
-				config,
 			})
 			.then((res) => {
 				console.log(res);
@@ -139,7 +135,6 @@ export default function UpdateInfo() {
 		axios
 			.put("http://202.61.225.240:3000/update/1", {
 				beehives: edited.beehives,
-				config,
 			})
 			.then((res) => {
 				console.log(res);
@@ -158,7 +153,6 @@ export default function UpdateInfo() {
 		axios
 			.put("http://202.61.225.240:3000/update/1", {
 				experience: edited.experience,
-				config,
 			})
 			.then((res) => {
 				console.log(res);
@@ -177,7 +171,6 @@ export default function UpdateInfo() {
 		axios
 			.put("http://202.61.225.240:3000/update/1", {
 				bio: edited.bio,
-				config,
 			})
 			.then((res) => {
 				console.log(res);
@@ -194,7 +187,7 @@ export default function UpdateInfo() {
 
 	const [showPassword, setShowPassword] = useState(false);
 
-	const inputPassword = (e) => {
+	const inputPassword = () => {
 		setShowPassword(!showPassword);
 	};
 
@@ -288,6 +281,8 @@ export default function UpdateInfo() {
 		handleChange,
 		handleChangeParse,
 		inputPassword,
+		showPassword,
+		setShowPassword,
 		handlePicture,
 		preview,
 		selectCountry,

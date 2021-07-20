@@ -10,9 +10,9 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
-// import { InputAdornment, IconButton } from "@material-ui/core";
-// import Visibility from "@material-ui/icons/Visibility";
-// import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import { InputAdornment, IconButton } from "@material-ui/core";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
 import "../styles/EditProfile.css";
 import useStylesEdit from "../styles/EditStyle";
@@ -105,6 +105,14 @@ export default function Password(props) {
 									value={resetPass.password}
 									onChange={handleResetPass}
 									className={classesEdit.textField}
+									type={showPassword ? "text" : "password"}
+									endAdornment={
+										<InputAdornment position="end" onClick={inputPassword}>
+											<IconButton style={{ color: "black" }}>
+												{showPassword ? <Visibility /> : <VisibilityOff />}
+											</IconButton>
+										</InputAdornment>
+									}
 								/>
 								<p className="edit-caption">Confirm new password</p>
 								<Input
@@ -113,6 +121,13 @@ export default function Password(props) {
 									value={resetConf.confirmPassword}
 									onChange={handleResetConf}
 									className={classesEdit.textField}
+									endAdornment={
+										<InputAdornment position="end" onClick={inputPassword}>
+											<IconButton style={{ color: "black" }}>
+												{showPassword ? <Visibility /> : <VisibilityOff />}
+											</IconButton>
+										</InputAdornment>
+									}
 								/>
 								<Button
 									value="Update"

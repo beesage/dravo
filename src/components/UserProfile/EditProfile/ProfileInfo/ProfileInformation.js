@@ -141,12 +141,6 @@ export default function ProfileInformation() {
 						</List>
 					</div>
 					<div className="column right">
-						{/* <ProfilePic />
-						<Location />
-						<Bio /> */}
-						{/* <Experience />
-						<Apiaries />
-						<Beehives /> */}
 						<List
 							component="nav"
 							aria-label="mailbox folders"
