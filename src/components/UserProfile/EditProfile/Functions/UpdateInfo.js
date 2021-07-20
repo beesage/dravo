@@ -10,8 +10,6 @@ export default function UpdateInfo() {
 		apiaries: user[0].apiaries,
 		beehives: user[0].beehives,
 		experience: user[0].experience,
-		password: "",
-		confirmPassword: "",
 		id: user[0].beekeeper_id,
 		bio: "",
 	});
@@ -40,15 +38,6 @@ export default function UpdateInfo() {
 		});
 	};
 
-	// const selectCountry = (val) => {
-	// 	setLocationC({
-	// 		locationC: val,
-	// 	});
-	// 	setEdited((prevState) => {
-	// 		return { ...prevState, country: locationC.locationC };
-	// 	});
-	// };
-
 	const [locationR, setLocationR] = useState({
 		locationR: "",
 	});
@@ -56,13 +45,6 @@ export default function UpdateInfo() {
 	const selectRegion = (val) => {
 		setLocationR({ locationR: val });
 	};
-
-	// const selectRegion = (val) => {
-	// 	setLocationR({ locationR: val });
-	// 	setEdited((prevState) => {
-	// 		return { ...prevState, region: locationR.locationR };
-	// 	});
-	// };
 
 	const updateLocation = () => {
 		axios
@@ -201,24 +183,47 @@ export default function UpdateInfo() {
 		setShowPassword(!showPassword);
 	};
 
-	// const [errPass, setErrPass] = useState("");
+	const [resetPass, setResetPass] = useState({
+		password: "",
+	});
+
+	const [resetConf, setResetConf] = useState({
+		confirmPassword: "",
+	});
+
+	const handleResetPass = (e) => {
+		setResetPass({
+			password: e.target.value,
+		});
+	};
+
+	const handleResetConf = (e) => {
+		setResetConf({
+			confirmPassword: e.target.value,
+		});
+	};
 
 	const updatePassword = () => {
-		axios
-			.put("http://localhost:3000/updatePass/1", {
-				password: edited.confirmPassword,
-			})
-			.then((res) => {
-				console.log(res);
-				setRes("Successfully updated");
-				setErr("");
-			})
-			.catch((err) => {
-				if (err.response) {
-					setErr(err.response.data);
-					setRes("");
-				}
-			});
+		if (resetPass.password == resetConf.confirmPassword) {
+			axios
+				.put("http://localhost:3000/updatePass/1", {
+					password: resetConf.confirmPassword,
+				})
+				.then((res) => {
+					console.log(res);
+					setRes("Successfully updated");
+					setErr("");
+				})
+				.catch((err) => {
+					if (err.response) {
+						setErr(err.response.data);
+						setRes("");
+					}
+				});
+		} else {
+			setRes("Password and Confirm Password should match");
+			setErr("");
+		}
 	};
 
 	const [updatePic, setUpdatePic] = useState(false);
@@ -281,6 +286,9 @@ export default function UpdateInfo() {
 		updatePassword,
 		err,
 		res,
-		// errPass,
+		resetPass,
+		resetConf,
+		handleResetConf,
+		handleResetPass,
 	};
 }

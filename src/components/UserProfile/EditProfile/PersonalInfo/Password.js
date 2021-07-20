@@ -20,14 +20,16 @@ import useStylesEdit from "../styles/EditStyle";
 export default function Password(props) {
 	const classesEdit = useStylesEdit();
 	const {
-		edited,
-		handleChange,
 		showPassword,
 		setShowPassword,
 		inputPassword,
 		updatePassword,
 		err,
 		res,
+		resetPass,
+		resetConf,
+		handleResetConf,
+		handleResetPass,
 	} = UpdateInfo();
 
 	const [isTablet, setIsTablet] = useState(window.innerWidth);
@@ -100,16 +102,16 @@ export default function Password(props) {
 								<Input
 									id="formNewPassword"
 									name="password"
-									value={edited.password}
-									onChange={handleChange}
+									value={resetPass.password}
+									onChange={handleResetPass}
 									className={classesEdit.textField}
 								/>
 								<p className="edit-caption">Confirm new password</p>
 								<Input
 									id="formConfirmPassword"
 									name="confirmPassword"
-									value={edited.confirmPassword}
-									onChange={handleChange}
+									value={resetConf.confirmPassword}
+									onChange={handleResetConf}
 									className={classesEdit.textField}
 								/>
 								<Button
