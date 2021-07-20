@@ -33,8 +33,7 @@ export default function UserProfile() {
 						style={{
 							display: "flex",
 							justifyContent: "center",
-							gridRow: "1",
-							gridColumn: "3/5",
+							gridArea: "1 / 1 / auto / 5",
 							justifySelf: "center",
 							marginBottom: "1rem",
 						}}
@@ -46,7 +45,13 @@ export default function UserProfile() {
 					</div>
 					<NavLink
 						to="/settings"
-						style={{ gridColumn: "2/3", gridRow: "3", textDecoration: "none" }}
+						style={{
+							gridColumn: "1/2",
+							gridRow: "3",
+							marginTop: "-7rem",
+							marginLeft: "1.5rem",
+							textDecoration: "none",
+						}}
 					>
 						<HexEdit />
 					</NavLink>
@@ -56,13 +61,7 @@ export default function UserProfile() {
 						))}
 					</div>
 					<div className="all-us-b-hex">
-						{/* {Icons.map((icons, index) => (
-							<HexData key={index} user={user} />
-						))} */}
-						<HexData></HexData>
-						<HexData>{user[0].apiaries}</HexData>
-						<HexData>{user[0].beehives}</HexData>
-						<HexData>{user[0].location}</HexData>
+						<HexData />
 					</div>
 				</>
 			) : (

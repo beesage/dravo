@@ -15,6 +15,7 @@ const useStylesEdit = makeStyles((theme) => ({
 		justifyContent: "space-evenly",
 		alignItems: "center",
 		backgroundColor: "#F7F6E7",
+		marginTop: "2rem",
 	},
 	containerTabletEmail: {
 		display: "flex",
@@ -47,16 +48,6 @@ const useStylesEdit = makeStyles((theme) => ({
 		justifyContent: "space-evenly",
 		alignItems: "center",
 		paddingTop: "50px",
-	},
-	buttonTablet: {
-		background: "#314E52",
-		padding: "8px 40px",
-		color: "#F2A154",
-		marginBottom: "2%",
-		boxShadow: "0 8px 6px -6px rgba(0, 0, 0, 0.5)",
-		"&:hover": {
-			backgroundColor: "#5A8288",
-		},
 	},
 	containerBioTablet: {
 		display: "flex",
