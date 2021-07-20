@@ -7,13 +7,15 @@ function LeaderboardCard({ user, index }) {
   return (
     <div className="lb-card-wrapper">
       <div className="lb-card-rank">
-        {user.wd_rank === user.wd_rank_before ? (
-          <DragHandleIcon style={{ fill: "black" }} />
-        ) : user.wd_rank > user.wd_rank_before ? (
-          <ArrowDropUpIcon style={{ fill: "green" }} />
-        ) : (
-          <ArrowDropDownIcon style={{ fill: "red" }} />
-        )}
+        {user.wd_rank_before ? (
+          user.wd_rank === user.wd_rank_before ? (
+            <DragHandleIcon style={{ fill: "#314e52", width: "15px" }} />
+          ) : user.wd_rank > user.wd_rank_before ? (
+            <ArrowDropUpIcon style={{ fill: "green" }} />
+          ) : (
+            <ArrowDropDownIcon style={{ fill: "red" }} />
+          )
+        ) : null}
       </div>
       <div className="hexagon ribbon-outset border">
         <div className="lb-card-flex-container">

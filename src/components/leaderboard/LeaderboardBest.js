@@ -3,7 +3,7 @@ import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import DragHandleIcon from "@material-ui/icons/DragHandle";
 
-function LeaderboardBest({ user, orientation, rank }) {
+function LeaderboardBest({ user, orientation }) {
   return (
     <div className="lb-top-general" id={orientation.divprop}>
       <img className={orientation.lbicon} src={orientation.lbiconlink} />
@@ -18,13 +18,15 @@ function LeaderboardBest({ user, orientation, rank }) {
       <div className="lb-top-location">{user.country}</div>
       <div className="lb-top-wd">{user.avg_wd}</div>
       <div className="lb-top-rank">
-        {user.wd_rank === user.wd_rank_before ? (
-          <DragHandleIcon style={{ fill: "black" }} />
-        ) : user.wd_rank > user.wd_rank_before ? (
-          <ArrowDropUpIcon style={{ fill: "green" }} />
-        ) : (
-          <ArrowDropDownIcon style={{ fill: "red" }} />
-        )}
+        {user.wd_rank_before ? (
+          user.wd_rank === user.wd_rank_before ? (
+            <DragHandleIcon style={{ fill: "#314e52", width: "15px" }} />
+          ) : user.wd_rank > user.wd_rank_before ? (
+            <ArrowDropUpIcon style={{ fill: "green" }} />
+          ) : (
+            <ArrowDropDownIcon style={{ fill: "red" }} />
+          )
+        ) : null}
       </div>
     </div>
   );
