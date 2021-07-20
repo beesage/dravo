@@ -37,6 +37,7 @@ const useStylesEdit = makeStyles((theme) => ({
 		background: "#314E52",
 		padding: "10px 80px",
 		color: "#F2A154",
+		fontSize: "1rem",
 		marginTop: "1rem",
 		boxShadow: "0 8px 6px -6px rgba(0, 0, 0, 0.5)",
 		"&:hover": {

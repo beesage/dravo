@@ -32,6 +32,14 @@ export default function UpdateInfo() {
 
 	const [res, setRes] = useState("");
 
+	let config = {
+		headers: {
+			"Content-Type": "application/json",
+			"Access-Control-Allow-Origin": "*",
+			"Access-Control-Request-Method": "PUT/OPTIONS",
+		},
+	};
+
 	const [locationC, setLocationC] = useState({
 		locationC: "",
 	});
@@ -55,6 +63,7 @@ export default function UpdateInfo() {
 			.put("http://localhost:3000/update/1", {
 				country: locationC.locationC,
 				region: locationR.locationR,
+				config,
 			})
 			.then((res) => {
 				console.log(res);
@@ -71,8 +80,9 @@ export default function UpdateInfo() {
 
 	const updateUsername = () => {
 		axios
-			.put("http://202.61.225.240/update/1", {
+			.put("http://202.61.225.240:3000/update/1", {
 				username: edited.username,
+				config,
 			})
 			.then((res) => {
 				console.log(res);
@@ -89,8 +99,9 @@ export default function UpdateInfo() {
 
 	const updateEmail = () => {
 		axios
-			.put("http://localhost:3000/update/1", {
+			.put("http://202.61.225.240:3000/update/1", {
 				email: edited.email,
+				config,
 			})
 			.then((res) => {
 				console.log(res);
@@ -107,8 +118,9 @@ export default function UpdateInfo() {
 
 	const updateApiaries = () => {
 		axios
-			.put("http://localhost:3000/update/1", {
+			.put("http://202.61.225.240:3000/update/1", {
 				apiaries: edited.apiaries,
+				config,
 			})
 			.then((res) => {
 				console.log(res);
@@ -125,8 +137,9 @@ export default function UpdateInfo() {
 
 	const updateBeehives = () => {
 		axios
-			.put("http://localhost:3000/update/1", {
+			.put("http://202.61.225.240:3000/update/1", {
 				beehives: edited.beehives,
+				config,
 			})
 			.then((res) => {
 				console.log(res);
@@ -143,8 +156,9 @@ export default function UpdateInfo() {
 
 	const updateExperience = () => {
 		axios
-			.put("http://localhost:3000/update/1", {
+			.put("http://202.61.225.240:3000/update/1", {
 				experience: edited.experience,
+				config,
 			})
 			.then((res) => {
 				console.log(res);
@@ -161,8 +175,9 @@ export default function UpdateInfo() {
 
 	const updateBio = () => {
 		axios
-			.put("http://localhost:3000/update/1", {
+			.put("http://202.61.225.240:3000/update/1", {
 				bio: edited.bio,
+				config,
 			})
 			.then((res) => {
 				console.log(res);
@@ -206,8 +221,9 @@ export default function UpdateInfo() {
 	const updatePassword = () => {
 		if (resetPass.password == resetConf.confirmPassword) {
 			axios
-				.put("http://202.61.225.240/updatePass/1", {
+				.put("http://202.61.225.240:3000/updatePass/1", {
 					password: resetConf.confirmPassword,
+					config,
 				})
 				.then((res) => {
 					console.log(res);
@@ -247,8 +263,9 @@ export default function UpdateInfo() {
 		var formData = new FormData();
 		formData.append("file", updatePic.src);
 		axios
-			.put("http://localhost:3000/update/1", {
+			.put("http://202.61.225.240:3000/update/1", {
 				profile_pic: updatePic.src,
+				config,
 			})
 			.then((res) => {
 				console.log(res);
