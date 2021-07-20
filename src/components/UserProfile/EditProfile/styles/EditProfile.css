@@ -25,9 +25,10 @@
 	grid-row: 2;
 }
 
-.err-message {
+.err-message,
+.res-message {
 	color: red;
-	font-size: 0.7rem;
+	font-size: 1rem;
 }
 
 .tablet-editprofile {
@@ -53,6 +54,10 @@
 .back-to,
 .go-to {
 	font-size: 1.4rem;
+}
+
+.hidden {
+	display: none;
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1300px) and (-webkit-min-device-pixel-ratio: 1) {

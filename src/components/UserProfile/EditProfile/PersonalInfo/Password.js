@@ -1,10 +1,7 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import APIContext from "../../../../Context/APIContext";
 import UpdateInfo from "../Functions/UpdateInfo";
-
-import LoadingPage from "../../../Spinner/LoadingPage";
 
 import { Container } from "@material-ui/core";
 import Input from "@material-ui/core/Input";
@@ -22,7 +19,6 @@ import useStylesEdit from "../styles/EditStyle";
 
 export default function Password(props) {
 	const classesEdit = useStylesEdit();
-	const { user } = useContext(APIContext);
 	const {
 		edited,
 		handleChange,
@@ -34,75 +30,30 @@ export default function Password(props) {
 		res,
 	} = UpdateInfo();
 
+	const [isTablet, setIsTablet] = useState(window.innerWidth);
+	const breakpoint = 768;
+
+	useEffect(() => {
+		const handleResizeWindow = () => setIsTablet(window.innerWidth);
+		// subscribe to window resize event "onComponentDidMount"
+		window.addEventListener("resize", handleResizeWindow);
+		return () => {
+			// unsubscribe "onComponentDestroy"
+			window.removeEventListener("resize", handleResizeWindow);
+		};
+	}, []);
+
 	return (
 		<>
-			{user.length > 0 ? (
-				<>
-					<div className="u-edit-container-mobile">
-						<Container
-							component="main"
-							maxWidth={false}
-							className={classesEdit.container}
-						>
-							<form className={classesEdit.root}>
-								<p className="edit-caption">Old password</p>
-								<Input
-									id="formOldPassword"
-									name="oldPassword"
-									value={edited.oldPassword}
-									onChange={handleChange}
-									className={classesEdit.textField}
-								/>
-								{err && (
-									<p className="err-message">
-										{err.validationErrors[0].message}
-									</p>
-								)}
-								<p className="edit-caption">New password</p>
-								<Input
-									id="formNewPassword"
-									name="password"
-									value={edited.password}
-									onChange={handleChange}
-									className={classesEdit.textField}
-								/>
-								{err && (
-									<p className="err-message">
-										{err.validationErrors[0].message}
-									</p>
-								)}
-								<p className="edit-caption">Confirm new password</p>
-								<Input
-									id="formConfirmPassword"
-									name="confirmPassword"
-									value={edited.confirmPassword}
-									onChange={handleChange}
-									className={classesEdit.textField}
-								/>
-								{err && (
-									<p className="err-message">
-										{err.validationErrors[0].message}
-									</p>
-								)}
-								<Button
-									value="Update"
-									text="Update"
-									onClick={updatePassword}
-									className={classesEdit.buttonEdit}
-								>
-									Update{" "}
-								</Button>
-								{res && <p className="err-message">{res}</p>}
-							</form>
-						</Container>
-					</div>
-				</>
-			) : (
-				<LoadingPage />
-			)}
-			<div className="tablet-editprofile">
+			<div
+				className={
+					isTablet > breakpoint
+						? "tablet-editprofile"
+						: "u-edit-container-mobile"
+				}
+			>
 				<div className="row">
-					<div className="column left">
+					<div className={isTablet > breakpoint ? "column left" : "hidden"}>
 						<List>
 							<Link to="/settings/personal-info">
 								<ListItem>
@@ -130,26 +81,21 @@ export default function Password(props) {
 							<Divider />
 						</List>
 					</div>
-					<div className="column right">
+					<div
+						className={
+							isTablet > breakpoint ? "column right" : "u-edit-container-mobile"
+						}
+					>
 						<Container
 							component="main"
 							maxWidth={false}
-							className={classesEdit.containerTablet}
+							className={
+								!isTablet < breakpoint
+									? classesEdit.container
+									: classesEdit.containerTablet
+							}
 						>
 							<form className={classesEdit.root}>
-								<p className="edit-caption">Old password</p>
-								<Input
-									id="formOldPassword"
-									name="oldPassword"
-									value={edited.oldPassword}
-									onChange={handleChange}
-									className={classesEdit.textField}
-								/>
-								{err && (
-									<p className="err-message">
-										{err.validationErrors[0].message}
-									</p>
-								)}
 								<p className="edit-caption">New password</p>
 								<Input
 									id="formNewPassword"
@@ -158,11 +104,6 @@ export default function Password(props) {
 									onChange={handleChange}
 									className={classesEdit.textField}
 								/>
-								{err && (
-									<p className="err-message">
-										{err.validationErrors[0].message}
-									</p>
-								)}
 								<p className="edit-caption">Confirm new password</p>
 								<Input
 									id="formConfirmPassword"
@@ -171,11 +112,6 @@ export default function Password(props) {
 									onChange={handleChange}
 									className={classesEdit.textField}
 								/>
-								{err && (
-									<p className="err-message">
-										{err.validationErrors[0].message}
-									</p>
-								)}
 								<Button
 									value="Update"
 									text="Update"
@@ -184,7 +120,12 @@ export default function Password(props) {
 								>
 									Update{" "}
 								</Button>
-								{res && <p className="err-message">{res}</p>}
+								{res && <p className="res-message">{res}</p>}
+								{err && (
+									<p className="err-message">
+										{err.validationErrors[0].message}
+									</p>
+								)}
 							</form>
 						</Container>
 					</div>

@@ -132,13 +132,13 @@
 		transform: perspective(20px) rotateX(3deg);
 	}
 	.hex-bio:after {
-		top: 24px;
+		top: 11px;
 		transform: perspective(20px) rotateX(-3deg);
 	}
 
 	.hex-bio.border:before,
 	.hex-bio.border:after {
-		border: 60px solid #314e52;
+		border: 50px solid #314e52;
 		background: #314e52;
 	}
 	.hex-bio.border:before {
@@ -149,22 +149,22 @@
 		margin-top: 74px;
 	}
 
-	.hexagon.border:hover:before,
-	.hexagon.border:hover:after {
+	.hex-bio.border:hover:before,
+	.hex-bio.border:hover:after {
 		background: #314e52;
 	}
-	.hexagon.border:hover {
+	.hex-bio.border:hover {
 		color: #314e52;
 	}
 
 	.hex-edit {
 		display: block;
-		width: 300px;
+		width: 200px;
 		height: 0;
 		position: relative;
 		z-index: 1;
 		background: #314e52;
-		margin-top: 2.5rem;
+		margin-top: 1.5rem;
 		align-self: start;
 		justify-self: center;
 	}
@@ -173,20 +173,20 @@
 	.hex-edit:after {
 		position: absolute;
 		content: "";
-		width: 300px;
+		width: 200px;
 		left: 0px;
 		height: 27px;
 		z-index: -1;
 	}
 
 	.hex-edit:before {
-		transform: perspective(20px) rotateX(3deg);
+		transform: perspective(10px) rotateX(3deg);
 		background: #314e52;
 	}
 
 	.hex-edit:after {
 		top: 28px;
-		transform: perspective(20px) rotateX(-3deg);
+		transform: perspective(10px) rotateX(-3deg);
 		background: #314e52;
 	}
 
@@ -197,12 +197,11 @@
 	}
 
 	.hex-edit.border:before {
-		border-bottom: transparent; /* to prevent the border-line showing up in the middle of the shape */
+		border-bottom: transparent;
 	}
 
 	.hex-edit.border:after {
 		border-top: transparent;
-		/* to prevent the border-line showing up in the middle of the shape */
 	}
 
 	.hex-edit.border:hover:before,

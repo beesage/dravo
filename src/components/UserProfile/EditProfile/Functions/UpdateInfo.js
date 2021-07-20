@@ -3,7 +3,7 @@ import APIContext from "../../../../Context/APIContext";
 import axios from "axios";
 
 export default function UpdateInfo() {
-	const { user, setUser } = useContext(APIContext);
+	const { user } = useContext(APIContext);
 	const [edited, setEdited] = useState({
 		username: user[0].username,
 		email: user[0].email,
@@ -11,7 +11,6 @@ export default function UpdateInfo() {
 		beehives: user[0].beehives,
 		experience: user[0].experience,
 		password: "",
-		oldPassword: "",
 		confirmPassword: "",
 		id: user[0].beekeeper_id,
 		bio: "",
@@ -29,12 +28,6 @@ export default function UpdateInfo() {
 			...user[0],
 			[e.target.name]: +e.target.value,
 		});
-	};
-
-	const [showPassword, setShowPassword] = useState(false);
-
-	const inputPassword = (e) => {
-		setShowPassword(!showPassword);
 	};
 
 	const [locationC, setLocationC] = useState({
@@ -79,10 +72,13 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
+				setRes("Successfully updated");
+				setErr("");
 			})
 			.catch((err) => {
 				if (err.response) {
 					setErr(err.response.data);
+					setRes("");
 				}
 			});
 	};
@@ -98,11 +94,13 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
-				setRes("All good :)");
+				setRes("Successfully updated");
+				setErr("");
 			})
 			.catch((err) => {
 				if (err.response) {
 					setErr(err.response.data);
+					setRes("");
 				}
 			});
 	};
@@ -114,11 +112,13 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
-				setRes("All good :)");
+				setRes("Successfully updated");
+				setErr("");
 			})
 			.catch((err) => {
 				if (err.response) {
 					setErr(err.response.data);
+					setRes("");
 				}
 			});
 	};
@@ -130,11 +130,13 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
-				setRes("All good :)");
+				setRes("Successfully updated");
+				setErr("");
 			})
 			.catch((err) => {
 				if (err.response) {
 					setErr(err.response.data);
+					setRes("");
 				}
 			});
 	};
@@ -146,11 +148,13 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
-				setRes("All good :)");
+				setRes("Successfully updated");
+				setErr("");
 			})
 			.catch((err) => {
 				if (err.response) {
 					setErr(err.response.data);
+					setRes("");
 				}
 			});
 	};
@@ -162,11 +166,13 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
-				setRes("All good :)");
+				setRes("Successfully updated");
+				setErr("");
 			})
 			.catch((err) => {
 				if (err.response) {
 					setErr(err.response.data);
+					setRes("");
 				}
 			});
 	};
@@ -178,35 +184,41 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
-				setRes("All good :)");
+				setRes("Successfully updated");
+				setErr("");
 			})
 			.catch((err) => {
 				if (err.response) {
 					setErr(err.response.data);
+					setRes("");
 				}
 			});
+	};
+
+	const [showPassword, setShowPassword] = useState(false);
+
+	const inputPassword = (e) => {
+		setShowPassword(!showPassword);
 	};
 
 	// const [errPass, setErrPass] = useState("");
 
 	const updatePassword = () => {
-		// if (edited.confirmPassword != edited.password) {
-		// 	setErrPass("The password should match!");
-		// } else {
 		axios
 			.put("http://localhost:3000/updatePass/1", {
 				password: edited.confirmPassword,
 			})
 			.then((res) => {
 				console.log(res);
-				setRes("All good :)");
+				setRes("Successfully updated");
+				setErr("");
 			})
 			.catch((err) => {
 				if (err.response) {
 					setErr(err.response.data);
+					setRes("");
 				}
 			});
-		// }
 	};
 
 	const [updatePic, setUpdatePic] = useState(false);
@@ -235,11 +247,13 @@ export default function UpdateInfo() {
 			})
 			.then((res) => {
 				console.log(res);
-				setRes("All good :)");
+				setRes("Successfully updated");
+				setErr("");
 			})
 			.catch((err) => {
 				if (err.response) {
 					setErr(err.response.data);
+					setRes("");
 				}
 			});
 	};
