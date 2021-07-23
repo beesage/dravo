@@ -4,8 +4,20 @@ import LeaderboardBest from "./LeaderboardBest";
 import Button from "@material-ui/core/Button";
 import lbcrown from "../../assets/crown.png";
 import "./leaderboard.css";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { useState } from "react";
+import { TheatersOutlined } from "@material-ui/icons";
 
 function Leaderboard({ user, loading, handleDays }) {
+  const [lbList, setLbList] = useState(user.slice(3, 13));
+  const [theEnd, setTheEnd] = useState(true);
+  const [lbCounter, setLbCounter] = useState({
+    sliceStart: 13,
+    sliceEnd: 23,
+  });
+
+  let lbTop = user.slice(0, 3);
+
   const left = {
     divprop: "lb-top-left",
     pic: "lb-pic-middle",
@@ -25,8 +37,22 @@ function Leaderboard({ user, loading, handleDays }) {
     lbiconlink: null,
   };
 
-  let lbTop = user.slice(0, 3);
-  let lbAll = user.slice(3);
+  const lbMoreData = () => {
+    if (lbList.length == user.length) {
+      setTheEnd(false);
+      console.log(theEnd);
+      return;
+    }
+    setLbList((prevState) =>
+      prevState.concat(user.slice(lbCounter.sliceStart, lbCounter.sliceEnd))
+    );
+    console.log(lbList);
+    setLbCounter((lbCounter.sliceStart += 10), (lbCounter.sliceEnd += 10));
+    console.log(theEnd);
+    console.log(lbCounter);
+    console.log(user.length);
+    console.log(lbList.length);
+  };
 
   return (
     <>
@@ -68,7 +94,6 @@ function Leaderboard({ user, loading, handleDays }) {
               All Time
             </div>
           </div>
-
           <div className="lb-button">
             <div className="multi-button">
               <button onClick={() => handleDays("1")}>Today</button>
@@ -76,47 +101,24 @@ function Leaderboard({ user, loading, handleDays }) {
               <button onClick={() => handleDays("30")}>Month</button>
               <button onClick={() => handleDays("5000")}>All Time</button>
             </div>
-
-            {/* <div>
-              <Button onClick={() => handleDays("1")} style={buttonstyle}>
-                Today
-              </Button>
-              <Button onClick={() => handleDays("7")} style={buttonstyle}>
-                Week
-              </Button>
-              <Button onClick={() => handleDays("30")} style={buttonstyle}>
-                Month
-              </Button>
-              <Button onClick={() => handleDays("5000")} style={buttonstyle}>
-                All Time
-              </Button>
-            </div> */}
-
-            {/* <button className="lb-topbutton" onClick={() => handleDays("1")}>
-              Today
-            </button>
-            <button className="lb-topbutton" onClick={() => handleDays("7")}>
-              Week
-            </button>
-            <button className="lb-topbutton" onClick={() => handleDays("30")}>
-              Month
-            </button>
-            <button className="lb-topbutton" onClick={() => handleDays("5000")}>
-              All-Time
-            </button> */}
           </div>
-
           <div className="leaderboard-top"></div>
           <LeaderboardBest user={lbTop[1]} orientation={left} rank={2} />
           <LeaderboardBest user={lbTop[0]} orientation={middle} rank={1} />
           <LeaderboardBest user={lbTop[2]} orientation={right} rank={3} />
-
           <div className="lb-all">
-            {lbAll.map((user, index) => (
-              <div key={index}>
-                <LeaderboardCard user={user} index={index} />
-              </div>
-            ))}
+            <InfiniteScroll
+              dataLength={user.length}
+              next={lbMoreData}
+              hasMore={theEnd}
+              loader={<h4>Loading...</h4>}
+            >
+              {lbList.map((user, index) => (
+                <div key={index}>
+                  <LeaderboardCard user={user} index={index} />
+                </div>
+              ))}
+            </InfiniteScroll>
           </div>
         </>
       ) : (

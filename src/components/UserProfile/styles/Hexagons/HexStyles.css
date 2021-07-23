@@ -76,6 +76,11 @@
 	display: none;
 }
 
+.hex-profile {
+	display: flex;
+	justify-content: center;
+}
+
 @media only screen and (min-device-width: 768px) and (max-device-width: 1300px) and (-webkit-min-device-pixel-ratio: 1) {
 	.hex-profile {
 		position: relative;
@@ -85,7 +90,7 @@
 		margin: 51.96px 0;
 		transform: rotate(90deg);
 		box-shadow: inset 20px 20px 0px 20px #f2a154;
-		display: inline-flex;
+		justify-content: normal;
 	}
 
 	.hex-profile:before,
