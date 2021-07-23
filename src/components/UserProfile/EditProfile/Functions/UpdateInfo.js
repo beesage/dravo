@@ -258,7 +258,6 @@ export default function UpdateInfo() {
 		axios
 			.put("http://202.61.225.240:3000/update/1", {
 				profile_pic: updatePic.src,
-				config,
 			})
 			.then((res) => {
 				console.log(res);
