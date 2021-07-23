@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import UpdateInfo from "../Functions/UpdateInfo";
+import APIContext from "../../../../Context/APIContext";
 
 import { Container } from "@material-ui/core";
 import Input from "@material-ui/core/Input";
@@ -12,6 +13,7 @@ import useStylesEdit from "../styles/EditStyle";
 export default function Username() {
 	const classesEdit = useStylesEdit();
 	const { edited, handleChange, updateUsername, err, res } = UpdateInfo();
+	const { user } = useContext(APIContext);
 	const [isTablet, setIsTablet] = useState(window.innerWidth);
 	const breakpoint = 768;
 
