@@ -27,12 +27,19 @@ export default function LogIn() {
   const [responseError, setResponseError] = useState("");
   const [selectedUser, setSelectedUser] = useState("");
   const [isLoginCorrect, setIsLoginCorrect] = useState(true);
+  
   let history = useHistory();
 
   const login = () => {
     Axios.post("http://localhost:3000/auth/login", {
       username: values.username,
       password: values.password,
+    },
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      withCredentials: true,
     })
       .then((data) => {
         console.log(data.data[0]);
