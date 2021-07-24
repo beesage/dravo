@@ -27,10 +27,11 @@ export default function LogIn() {
   const [responseError, setResponseError] = useState("");
   const [selectedUser, setSelectedUser] = useState("");
   const [isLoginCorrect, setIsLoginCorrect] = useState(true);
+  
   let history = useHistory();
 
   const login = () => {
-    Axios.post("http://202.61.225.240:3000/auth/login", {
+    Axios.post("http://localhost:3000/auth/login", {
       username: values.username,
       password: values.password,
     },
@@ -46,8 +47,8 @@ export default function LogIn() {
         return setSelectedUser(data.data[0]);
       })
       .catch((e) => {
-        const usernameError = e.response.data.err.details[0]?.message;
-        const passwordError = e.response.data.err.details[1]?.message;
+        const usernameError = e.response.data.err.details[0].message;
+        const passwordError = e.response.data.err.details[1].message;
         setusernameError(usernameError);
         setpasswordError(passwordError);
         setIsLoginCorrect(false);
