@@ -139,14 +139,17 @@ export default function UpdateInfo() {
 		}
 	};
 
-	const [updatePic, setUpdatePic] = useState(false);
+	const [updatePic, setUpdatePic] = useState({
+		pic: false,
+		src: false,
+	});
 
 	const handlePicture = (e) => {
 		let pic = e.target.files[0];
 		let src = URL.createObjectURL(pic);
 		setUpdatePic({
-			pic,
-			src,
+			pic: pic,
+			src: src,
 		});
 	};
 
@@ -156,12 +159,17 @@ export default function UpdateInfo() {
 		}
 	};
 
-	const updateProfilePic = () => {
+	const updateProfilePic = (id) => {
 		var formData = new FormData();
-		formData.append("file", updatePic.src);
+		formData.append("file", updatePic);
+
 		axios
-			.put("http://202.61.225.240:3000/update/1", {
-				profile_pic: updatePic.src,
+			.put(`http://202.61.225.240:3000/update/${id}`, {
+				profile_picture: updatePic.src,
+				// formData,
+				// cache: false,
+				// contentType: false,
+				// processData: false,
 			})
 			.then((res) => {
 				console.log(res);

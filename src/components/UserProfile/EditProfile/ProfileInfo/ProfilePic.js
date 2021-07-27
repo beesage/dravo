@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import UpdateInfo from "../Functions/UpdateInfo";
+import APIContext from "../../../../Context/APIContext";
 
 import { Container } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
@@ -15,6 +16,7 @@ import useStylesEdit from "../styles/EditStyle";
 
 export default function ProfilePic() {
 	const classesEdit = useStylesEdit();
+	const { user } = useContext(APIContext);
 	const { handlePicture, preview, updateProfilePic, err, res } = UpdateInfo();
 
 	const [isTablet, setIsTablet] = useState(window.innerWidth);
@@ -92,7 +94,7 @@ export default function ProfilePic() {
 								/>
 								<div className="preview">{preview()}</div>
 								<Button
-									onClick={updateProfilePic}
+									onClick={() => updateProfilePic(user[0].beekeeper_id)}
 									text="Upload"
 									className={classesEdit.buttonEdit}
 								>
