@@ -7,24 +7,16 @@ export default function UpdateInfo() {
 	const [edited, setEdited] = useState({
 		username: user[0].username,
 		email: user[0].email,
-		apiaries: user[0].apiaries,
-		beehives: user[0].beehives,
-		experience: user[0].experience,
+		apiaries: "",
+		beehives: "",
+		experience: "",
 		id: user[0].beekeeper_id,
 		bio: "",
 	});
 
 	const handleChange = (e) => {
 		setEdited({
-			...user[0],
 			[e.target.name]: e.target.value,
-		});
-	};
-
-	const handleChangeParse = (e) => {
-		setEdited({
-			...user[0],
-			[e.target.name]: +e.target.value,
 		});
 	};
 
@@ -77,101 +69,9 @@ export default function UpdateInfo() {
 			});
 	};
 
-	const updateUsername = () => {
+	const updateInfo = (id) => {
 		axios
-			.put("http://202.61.225.240:3000/update/1", {
-				username: edited.username,
-			})
-			.then((res) => {
-				console.log(res);
-				setRes("Successfully updated");
-				setErr("");
-			})
-			.catch((err) => {
-				if (err.response) {
-					setErr(err.response.data);
-					setRes("");
-				}
-			});
-	};
-
-	const updateEmail = () => {
-		axios
-			.put("http://202.61.225.240:3000/update/1", {
-				email: edited.email,
-			})
-			.then((res) => {
-				console.log(res);
-				setRes("Successfully updated");
-				setErr("");
-			})
-			.catch((err) => {
-				if (err.response) {
-					setErr(err.response.data);
-					setRes("");
-				}
-			});
-	};
-
-	const updateApiaries = () => {
-		axios
-			.put("http://202.61.225.240:3000/update/1", {
-				apiaries: edited.apiaries,
-			})
-			.then((res) => {
-				console.log(res);
-				setRes("Successfully updated");
-				setErr("");
-			})
-			.catch((err) => {
-				if (err.response) {
-					setErr(err.response.data);
-					setRes("");
-				}
-			});
-	};
-
-	const updateBeehives = () => {
-		axios
-			.put("http://202.61.225.240:3000/update/1", {
-				beehives: edited.beehives,
-			})
-			.then((res) => {
-				console.log(res);
-				setRes("Successfully updated");
-				setErr("");
-			})
-			.catch((err) => {
-				if (err.response) {
-					setErr(err.response.data);
-					setRes("");
-				}
-			});
-	};
-
-	const updateExperience = () => {
-		axios
-			.put("http://202.61.225.240:3000/update/1", {
-				experience: edited.experience,
-			})
-			.then((res) => {
-				console.log(res);
-				setRes("Successfully updated");
-				setErr("");
-			})
-			.catch((err) => {
-				if (err.response) {
-					setErr(err.response.data);
-					setRes("");
-				}
-			});
-	};
-
-	const updateBio = () => {
-		axios
-			.put("http://202.61.225.240:3000/update/1", {
-				bio: edited.bio,
-			})
+			.put(`http://202.61.225.240:3000/update/${id}`, edited)
 			.then((res) => {
 				console.log(res);
 				setRes("Successfully updated");
@@ -188,6 +88,10 @@ export default function UpdateInfo() {
 	const [showPassword, setShowPassword] = useState(false);
 
 	const inputPassword = () => {
+		setShowPassword(!showPassword);
+	};
+
+	const inputConfirmPass = () => {
 		setShowPassword(!showPassword);
 	};
 
@@ -278,21 +182,16 @@ export default function UpdateInfo() {
 		locationR,
 		setEdited,
 		handleChange,
-		handleChangeParse,
 		inputPassword,
+		inputConfirmPass,
 		showPassword,
 		setShowPassword,
 		handlePicture,
 		preview,
 		selectCountry,
 		selectRegion,
-		updateUsername,
-		updateEmail,
-		updateApiaries,
-		updateBeehives,
-		updateExperience,
+		updateInfo,
 		updateProfilePic,
-		updateBio,
 		updateLocation,
 		updatePassword,
 		err,

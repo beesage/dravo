@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import UpdateInfo from "../Functions/UpdateInfo";
+import APIContext from "../../../../Context/APIContext";
 
 import { Container } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
@@ -15,7 +16,8 @@ import useStylesEdit from "../styles/EditStyle";
 
 export default function Bio() {
 	const classesEdit = useStylesEdit();
-	const { edited, handleChange, updateBio, err, res } = UpdateInfo();
+	const { user } = useContext(APIContext);
+	const { edited, handleChange, updateInfo, err, res } = UpdateInfo();
 
 	const [isTablet, setIsTablet] = useState(window.innerWidth);
 	const breakpoint = 768;
@@ -95,7 +97,7 @@ export default function Bio() {
 								<Button
 									value="Update"
 									text="Update"
-									onClick={updateBio}
+									onClick={() => updateInfo(user[0].beekeeper_id)}
 									style={{ fontSize: "1em" }}
 									className={classesEdit.buttonEdit}
 								>
