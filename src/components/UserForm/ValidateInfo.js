@@ -20,9 +20,9 @@ export default function validateInfo(values) {
     }
   
     if (!values.confirmPassword) {
-      errors.confirmPassword = 'Password is required';
+      errors.confirmPassword = "confirm password is not allowed to be empty";
     } else if (values.confirmPassword !== values.password) {
-      errors.confirmPassword = 'Passwords do not match';
+      errors.confirmPassword = "Passwords do not match";
     }
     return errors;
   } 

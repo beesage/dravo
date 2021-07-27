@@ -413,21 +413,21 @@
     border-right: 50px solid transparent;
     border-bottom: 90px solid #f2a154;
     z-index: 2;
+    outline: none;
   }
 
   .lb-triangle:hover {
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
     border-bottom: 90px solid #314e52;
     transition: border-bottom 0.5s;
+    outline: none;
   }
-
+  /* 
   .lb-triangle:focus {
     border-left: 50px solid transparent;
     border-right: 50px solid transparent;
     border-bottom: 90px solid #314e52;
     color: #314e52;
-  }
+  } */
 
   .lb-triangle:hover > .lb-triangle-text {
     color: #f2a154;

@@ -21,7 +21,7 @@ function LeaderboardBest({ user, orientation }) {
         {user.wd_rank_before ? (
           user.wd_rank === user.wd_rank_before ? (
             <RemoveIcon style={{ fill: "#314e52", width: "15px" }} />
-          ) : user.wd_rank > user.wd_rank_before ? (
+          ) : user.wd_rank < user.wd_rank_before ? (
             <ArrowDropUpIcon style={{ fill: "green" }} />
           ) : (
             <ArrowDropDownIcon style={{ fill: "red" }} />
