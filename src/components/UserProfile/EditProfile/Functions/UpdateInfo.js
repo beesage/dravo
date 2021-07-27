@@ -14,12 +14,6 @@ export default function UpdateInfo() {
 		bio: "",
 	});
 
-	const handleChange = (e) => {
-		setEdited({
-			[e.target.name]: e.target.value,
-		});
-	};
-
 	const [err, setErr] = useState("");
 
 	const [res, setRes] = useState("");
@@ -30,6 +24,12 @@ export default function UpdateInfo() {
 			"Access-Control-Allow-Origin": "*",
 			"Access-Control-Request-Method": "PUT/OPTIONS",
 		},
+	};
+
+	const handleChange = (e) => {
+		setEdited({
+			[e.target.name]: e.target.value,
+		});
 	};
 
 	const [locationC, setLocationC] = useState({
