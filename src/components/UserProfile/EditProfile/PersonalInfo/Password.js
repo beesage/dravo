@@ -23,6 +23,7 @@ export default function Password(props) {
 		showPassword,
 		setShowPassword,
 		inputPassword,
+		inputConfirmPass,
 		updatePassword,
 		err,
 		res,
@@ -121,8 +122,9 @@ export default function Password(props) {
 									value={resetConf.confirmPassword}
 									onChange={handleResetConf}
 									className={classesEdit.textField}
+									type={showPassword ? "text" : "password"}
 									endAdornment={
-										<InputAdornment position="end" onClick={inputPassword}>
+										<InputAdornment position="end" onClick={inputConfirmPass}>
 											<IconButton style={{ color: "black" }}>
 												{showPassword ? <Visibility /> : <VisibilityOff />}
 											</IconButton>

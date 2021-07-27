@@ -12,7 +12,7 @@ import useStylesEdit from "../styles/EditStyle";
 
 export default function Username() {
 	const classesEdit = useStylesEdit();
-	const { edited, handleChange, updateUsername, err, res } = UpdateInfo();
+	const { edited, handleChange, updateInfo, err, res } = UpdateInfo();
 	const { user } = useContext(APIContext);
 	const [isTablet, setIsTablet] = useState(window.innerWidth);
 	const breakpoint = 768;
@@ -59,7 +59,7 @@ export default function Username() {
 						<Button
 							value="Update"
 							text="Update"
-							onClick={updateUsername}
+							onClick={() => updateInfo(user[0].beekeeper_id)}
 							className={classesEdit.buttonEdit}
 						>
 							Update
