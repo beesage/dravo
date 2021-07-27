@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import UpdateInfo from "../Functions/UpdateInfo";
+import APIContext from "../../../../Context/APIContext";
 
 import { Container } from "@material-ui/core";
 import Input from "@material-ui/core/Input";
@@ -19,6 +20,7 @@ import useStylesEdit from "../styles/EditStyle";
 
 export default function Password(props) {
 	const classesEdit = useStylesEdit();
+	const { user } = useContext(APIContext);
 	const {
 		showPassword,
 		setShowPassword,
@@ -27,10 +29,8 @@ export default function Password(props) {
 		updatePassword,
 		err,
 		res,
-		resetPass,
-		resetConf,
-		handleResetConf,
-		handleResetPass,
+		edited,
+		handleChange,
 	} = UpdateInfo();
 
 	const [isTablet, setIsTablet] = useState(window.innerWidth);
@@ -103,8 +103,8 @@ export default function Password(props) {
 								<Input
 									id="formNewPassword"
 									name="password"
-									value={resetPass.password}
-									onChange={handleResetPass}
+									value={edited.password}
+									onChange={handleChange}
 									className={classesEdit.textField}
 									type={showPassword ? "text" : "password"}
 									endAdornment={
@@ -119,8 +119,8 @@ export default function Password(props) {
 								<Input
 									id="formConfirmPassword"
 									name="confirmPassword"
-									value={resetConf.confirmPassword}
-									onChange={handleResetConf}
+									value={edited.confirmPassword}
+									onChange={handleChange}
 									className={classesEdit.textField}
 									type={showPassword ? "text" : "password"}
 									endAdornment={
@@ -134,7 +134,7 @@ export default function Password(props) {
 								<Button
 									value="Update"
 									text="Update"
-									onClick={updatePassword}
+									onClick={() => updatePassword(user[0].beekeeper_id)}
 									className={classesEdit.buttonEdit}
 								>
 									Update{" "}

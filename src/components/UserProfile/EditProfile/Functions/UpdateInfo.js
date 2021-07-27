@@ -7,6 +7,10 @@ export default function UpdateInfo() {
 	const [edited, setEdited] = useState({
 		username: user[0].username,
 		email: user[0].email,
+		password: "",
+		confirmPassword: "",
+		country: "",
+		region: "",
 		apiaries: "",
 		beehives: "",
 		experience: "",
@@ -28,45 +32,19 @@ export default function UpdateInfo() {
 
 	const handleChange = (e) => {
 		setEdited({
+			...edited,
 			[e.target.name]: e.target.value,
 		});
 	};
 
-	const [locationC, setLocationC] = useState({
-		locationC: "",
-	});
-
 	const selectCountry = (val) => {
-		setLocationC({
-			locationC: val,
+		setEdited({
+			country: val,
 		});
 	};
 
-	const [locationR, setLocationR] = useState({
-		locationR: "",
-	});
-
 	const selectRegion = (val) => {
-		setLocationR({ locationR: val });
-	};
-
-	const updateLocation = () => {
-		axios
-			.put("http://202.61.225.240:3000/update/1", {
-				country: locationC.locationC,
-				region: locationR.locationR,
-			})
-			.then((res) => {
-				console.log(res);
-				setRes("Successfully updated");
-				setErr("");
-			})
-			.catch((err) => {
-				if (err.response) {
-					setErr(err.response.data);
-					setRes("");
-				}
-			});
+		setEdited({ ...edited, region: val });
 	};
 
 	const updateInfo = (id) => {
@@ -95,31 +73,11 @@ export default function UpdateInfo() {
 		setShowPassword(!showPassword);
 	};
 
-	const [resetPass, setResetPass] = useState({
-		password: "",
-	});
-
-	const [resetConf, setResetConf] = useState({
-		confirmPassword: "",
-	});
-
-	const handleResetPass = (e) => {
-		setResetPass({
-			password: e.target.value,
-		});
-	};
-
-	const handleResetConf = (e) => {
-		setResetConf({
-			confirmPassword: e.target.value,
-		});
-	};
-
-	const updatePassword = () => {
-		if (resetPass.password == resetConf.confirmPassword) {
+	const updatePassword = (id) => {
+		if (edited.password == edited.confirmPassword) {
 			axios
-				.put("http://202.61.225.240:3000/updatePass/1", {
-					password: resetConf.confirmPassword,
+				.put(`http://202.61.225.240:3000/updatePass/${id}`, {
+					password: edited.confirmPassword,
 					config,
 				})
 				.then((res) => {
@@ -186,8 +144,6 @@ export default function UpdateInfo() {
 
 	return {
 		edited,
-		locationC,
-		locationR,
 		setEdited,
 		handleChange,
 		inputPassword,
@@ -200,13 +156,8 @@ export default function UpdateInfo() {
 		selectRegion,
 		updateInfo,
 		updateProfilePic,
-		updateLocation,
 		updatePassword,
 		err,
 		res,
-		resetPass,
-		resetConf,
-		handleResetConf,
-		handleResetPass,
 	};
 }
