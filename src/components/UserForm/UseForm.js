@@ -64,7 +64,7 @@ const UseForm = () => {
 
   const signup = () => {
     if (values.password == values.confirmPassword) {
-      Axios.post("http://localhost:3000/auth/signup", {
+      Axios.post("http://202.61.225.240:3000/auth/signup", {
         username: values.username,
         email: values.email,
         password: values.confirmPassword,
@@ -86,12 +86,11 @@ const UseForm = () => {
   };
 
   const login = () => {
-    Axios.post("http://localhost:3000/auth/login", {
+    Axios.post("http://202.61.225.240:3000/auth/login", {
       username: values.username,
       password: values.password,
     })
-      .then((data) => {
-        // console.log(data);
+      .then((data) => {       
         setResponse("Successfully logged in!");
         setError("");
         history.push("/leaderboard");
@@ -99,8 +98,7 @@ const UseForm = () => {
       })
       .catch((error) => {
         if (error.response) {
-          setError(error.response.data);
-          // console.log(error.response.data);
+          setError(error.response.data);         
           setResponse("");
           setIsLoginCorrect(false);
         }
