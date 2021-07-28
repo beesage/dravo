@@ -60,6 +60,18 @@ export default function App() {
 
   console.log(user);
 
+  /**
+   * A handler function to communicate between child and parent to pass an argument for fetch
+   * <p>
+   * The handler function recieves the argument changeDays which will be set as a the new state
+   * days in App.js via the setDays state function. The function handleDays is passed down in App.js
+   * via <Route> to Leaderboard.js, where it is called via pressing one of the buttons with the
+   * according argument (e.g. 7 for 7 days). The new state days is then used in the axios.get url.
+   *
+   * @author Lukas Kreibig
+   * @param changeDays The Amount of Days recieved from Leaderboard.js Buttons
+   */
+
   const handleDays = (changeDays) => {
     setDays(changeDays);
   };
