@@ -22,14 +22,6 @@ export default function UpdateInfo() {
 
 	const [res, setRes] = useState("");
 
-	let config = {
-		headers: {
-			"Content-Type": "application/json",
-			"Access-Control-Allow-Origin": "*",
-			"Access-Control-Request-Method": "PUT/OPTIONS",
-		},
-	};
-
 	const handleChange = (e) => {
 		setEdited({
 			...edited,
@@ -69,8 +61,12 @@ export default function UpdateInfo() {
 		setShowPassword(!showPassword);
 	};
 
-	const inputConfirmPass = () => {
-		setShowPassword(!showPassword);
+	let config = {
+		headers: {
+			"Content-Type": "application/json",
+			"Access-Control-Allow-Origin": "*",
+			"Access-Control-Request-Method": "PUT/OPTIONS",
+		},
 	};
 
 	const updatePassword = (id) => {
@@ -120,7 +116,6 @@ export default function UpdateInfo() {
 	const updateProfilePic = (id) => {
 		var formData = new FormData();
 		formData.append("file", updatePic);
-
 		axios
 			.put(`http://202.61.225.240:3000/update/${id}`, {
 				profile_picture: updatePic.src,
@@ -147,7 +142,6 @@ export default function UpdateInfo() {
 		setEdited,
 		handleChange,
 		inputPassword,
-		inputConfirmPass,
 		showPassword,
 		setShowPassword,
 		handlePicture,

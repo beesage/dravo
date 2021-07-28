@@ -22,9 +22,6 @@ import "../../styles.css";
 export default function SignUp() {
 	const classes = useStyles();
 	const { values, handleChange, handleSubmit, errors } = UseForm(validate);
-	// const [usernameError, setusernameError] = useState("");
-	// const [passwordError, setpasswordError] = useState("");
-	// const [emailError, setemailError] = useState("");
 	const [error, setError] = useState("");
 	const [response, setResponse] = useState("");
 
@@ -38,12 +35,6 @@ export default function SignUp() {
 				.then((response) => {
 					setResponse("Successfully registered!");
 					setError("");
-					// const usernameError = e.response.data.err.details[0].message;
-					// const emailError = e.response.data.err.details[2].message;
-					// const passwordError = e.response.data.err.details[1].message;
-					// setusernameError(usernameError);
-					// setemailError(emailError);
-					// setpasswordError(passwordError);
 					console.log(response);
 				})
 				.catch((error) => {
@@ -88,12 +79,6 @@ export default function SignUp() {
 									value={values.username}
 									onChange={handleChange}
 								/>
-								{/* {response && <p className="res-message">{response}</p>}
-								{usernameError && (
-									<p className="err-message">
-										{usernameError.validationErrors[0].message}
-									</p>
-								)} */}
 								<InputField
 									name="email"
 									type="email"
@@ -101,24 +86,12 @@ export default function SignUp() {
 									value={values.email}
 									onChange={handleChange}
 								/>
-								{/* {response && <p className="res-message">{response}</p>}
-								{emailError && (
-									<p className="err-message">
-										{emailError.validationErrors[0].message}
-									</p>
-								)} */}
 								<InputPassword
 									name="password"
 									label="Enter your password"
 									value={values.password}
 									onChange={handleChange}
 								/>
-								{/* {response && <p className="res-message">{response}</p>}
-								{passwordError && (
-									<p className="err-message">
-										{passwordError.validationErrors[0].message}
-									</p>
-								)} */}
 								<InputPassword
 									name="confirmPassword"
 									label="Confirm your password"
@@ -131,7 +104,6 @@ export default function SignUp() {
 										{error.validationErrors[0].message}
 									</p>
 								)}
-								{/* {<div className={classes.redColor}>{response}</div>} */}
 								<Box className={classes.box}>
 									<FormControlLabel
 										control={
