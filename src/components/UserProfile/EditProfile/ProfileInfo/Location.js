@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 
 import UpdateInfo from "../Functions/UpdateInfo";
+import APIContext from "../../../../Context/APIContext";
 
 import { Container } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
@@ -16,15 +17,9 @@ import useStylesEdit from "../styles/EditStyle";
 
 export default function Location() {
 	const classesEdit = useStylesEdit();
-	const {
-		locationC,
-		locationR,
-		selectCountry,
-		selectRegion,
-		updateLocation,
-		err,
-		res,
-	} = UpdateInfo();
+	const { user } = useContext(APIContext);
+	const { edited, selectCountry, selectRegion, updateInfo, err, res } =
+		UpdateInfo();
 
 	const [isTablet, setIsTablet] = useState(window.innerWidth);
 	const breakpoint = 768;
@@ -94,14 +89,14 @@ export default function Location() {
 							<form className={classesEdit.root}>
 								<p className="edit-caption">Country</p>
 								<CountryDropdown
-									value={locationC.locationC}
+									value={edited.country}
 									onChange={selectCountry}
 								/>
 								<p className="edit-caption">Region</p>
 								<RegionDropdown
 									disableWhenEmpty={true}
-									country={locationC.locationC}
-									value={locationR.locationR}
+									country={edited.country}
+									value={edited.region}
 									onChange={selectRegion}
 									style={{ marginBottom: "1rem" }}
 								/>
@@ -110,7 +105,7 @@ export default function Location() {
 								value="Update"
 								text="Update"
 								style={{ fontSize: "1em" }}
-								onClick={updateLocation}
+								onClick={() => updateInfo(user[0].beekeeper_id)}
 								className={classesEdit.buttonEdit}
 							>
 								Update

@@ -7,6 +7,10 @@ export default function UpdateInfo() {
 	const [edited, setEdited] = useState({
 		username: user[0].username,
 		email: user[0].email,
+		password: "",
+		confirmPassword: "",
+		country: "",
+		region: "",
 		apiaries: "",
 		beehives: "",
 		experience: "",
@@ -14,59 +18,25 @@ export default function UpdateInfo() {
 		bio: "",
 	});
 
-	const handleChange = (e) => {
-		setEdited({
-			[e.target.name]: e.target.value,
-		});
-	};
-
 	const [err, setErr] = useState("");
 
 	const [res, setRes] = useState("");
 
-	let config = {
-		headers: {
-			"Content-Type": "application/json",
-			"Access-Control-Allow-Origin": "*",
-			"Access-Control-Request-Method": "PUT/OPTIONS",
-		},
-	};
-
-	const [locationC, setLocationC] = useState({
-		locationC: "",
-	});
-
-	const selectCountry = (val) => {
-		setLocationC({
-			locationC: val,
+	const handleChange = (e) => {
+		setEdited({
+			...edited,
+			[e.target.name]: e.target.value,
 		});
 	};
 
-	const [locationR, setLocationR] = useState({
-		locationR: "",
-	});
-
-	const selectRegion = (val) => {
-		setLocationR({ locationR: val });
+	const selectCountry = (val) => {
+		setEdited({
+			country: val,
+		});
 	};
 
-	const updateLocation = () => {
-		axios
-			.put("http://202.61.225.240:3000/update/1", {
-				country: locationC.locationC,
-				region: locationR.locationR,
-			})
-			.then((res) => {
-				console.log(res);
-				setRes("Successfully updated");
-				setErr("");
-			})
-			.catch((err) => {
-				if (err.response) {
-					setErr(err.response.data);
-					setRes("");
-				}
-			});
+	const selectRegion = (val) => {
+		setEdited({ ...edited, region: val });
 	};
 
 	const updateInfo = (id) => {
@@ -91,35 +61,19 @@ export default function UpdateInfo() {
 		setShowPassword(!showPassword);
 	};
 
-	const inputConfirmPass = () => {
-		setShowPassword(!showPassword);
+	let config = {
+		headers: {
+			"Content-Type": "application/json",
+			"Access-Control-Allow-Origin": "*",
+			"Access-Control-Request-Method": "PUT/OPTIONS",
+		},
 	};
 
-	const [resetPass, setResetPass] = useState({
-		password: "",
-	});
-
-	const [resetConf, setResetConf] = useState({
-		confirmPassword: "",
-	});
-
-	const handleResetPass = (e) => {
-		setResetPass({
-			password: e.target.value,
-		});
-	};
-
-	const handleResetConf = (e) => {
-		setResetConf({
-			confirmPassword: e.target.value,
-		});
-	};
-
-	const updatePassword = () => {
-		if (resetPass.password == resetConf.confirmPassword) {
+	const updatePassword = (id) => {
+		if (edited.password == edited.confirmPassword) {
 			axios
-				.put("http://202.61.225.240:3000/updatePass/1", {
-					password: resetConf.confirmPassword,
+				.put(`http://202.61.225.240:3000/updatePass/${id}`, {
+					password: edited.confirmPassword,
 					config,
 				})
 				.then((res) => {
@@ -139,14 +93,17 @@ export default function UpdateInfo() {
 		}
 	};
 
-	const [updatePic, setUpdatePic] = useState(false);
+	const [updatePic, setUpdatePic] = useState({
+		pic: false,
+		src: false,
+	});
 
 	const handlePicture = (e) => {
 		let pic = e.target.files[0];
 		let src = URL.createObjectURL(pic);
 		setUpdatePic({
-			pic,
-			src,
+			pic: pic,
+			src: src,
 		});
 	};
 
@@ -156,12 +113,16 @@ export default function UpdateInfo() {
 		}
 	};
 
-	const updateProfilePic = () => {
+	const updateProfilePic = (id) => {
 		var formData = new FormData();
-		formData.append("file", updatePic.src);
+		formData.append("file", updatePic);
 		axios
-			.put("http://202.61.225.240:3000/update/1", {
-				profile_pic: updatePic.src,
+			.put(`http://202.61.225.240:3000/update/${id}`, {
+				profile_picture: updatePic.src,
+				// formData,
+				// cache: false,
+				// contentType: false,
+				// processData: false,
 			})
 			.then((res) => {
 				console.log(res);
@@ -178,12 +139,9 @@ export default function UpdateInfo() {
 
 	return {
 		edited,
-		locationC,
-		locationR,
 		setEdited,
 		handleChange,
 		inputPassword,
-		inputConfirmPass,
 		showPassword,
 		setShowPassword,
 		handlePicture,
@@ -192,13 +150,8 @@ export default function UpdateInfo() {
 		selectRegion,
 		updateInfo,
 		updateProfilePic,
-		updateLocation,
 		updatePassword,
 		err,
 		res,
-		resetPass,
-		resetConf,
-		handleResetConf,
-		handleResetPass,
 	};
 }
