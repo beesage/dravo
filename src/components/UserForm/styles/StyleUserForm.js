@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#314E52",
   },
   orangeColor: {
-    color: "#F2A154",
+    color: "#F7F6E7",
     fontWeight: "500",
   },
   redColor: {
