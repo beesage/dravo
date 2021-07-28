@@ -32,7 +32,6 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [days, setDays] = useState("30");
 
-  console.log();
   useEffect(() => {
     /**
      * Fetch data via Axios from the API URL and store the fetched user array in the user state
@@ -57,8 +56,6 @@ export default function App() {
     };
     userAPI(days);
   }, [days]);
-
-  console.log(user);
 
   /**
    * A handler function to communicate between child and parent to pass an argument for fetch
