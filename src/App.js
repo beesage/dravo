@@ -73,6 +73,8 @@ export default function App() {
     setDays(changeDays);
   };
 
+  console.log(user);
+
   return (
     <div className="container">
       <APIContext.Provider value={{ user: user, setUser: setUser }}>
