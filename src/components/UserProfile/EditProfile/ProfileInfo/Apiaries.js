@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import UpdateInfo from "../Functions/UpdateInfo";
+import APIContext from "../../../../Context/APIContext";
 
 import { Container } from "@material-ui/core";
 import Input from "@material-ui/core/Input";
@@ -16,7 +17,8 @@ import useStylesEdit from "../styles/EditStyle";
 
 export default function Apiaries() {
 	const classesEdit = useStylesEdit();
-	const { edited, handleChangeParse, updateApiaries, err, res } = UpdateInfo();
+	const { user } = useContext(APIContext);
+	const { edited, handleChange, updateInfo, err, res } = UpdateInfo();
 
 	const [isTablet, setIsTablet] = useState(window.innerWidth);
 	const breakpoint = 768;
@@ -87,15 +89,14 @@ export default function Apiaries() {
 								<p className="edit-caption">Apiaries</p>
 								<Input
 									name="apiaries"
-									type="number"
 									id="formApiaries"
-									onChange={handleChangeParse}
-									value={edited.apiaries}
+									defaultValue={edited.apiaries}
+									onChange={handleChange}
 									className={classesEdit.textField}
 								/>
 								<Button
 									value="Update"
-									onClick={updateApiaries}
+									onClick={() => updateInfo(user[0].beekeeper_id)}
 									className={classesEdit.buttonEdit}
 								>
 									Update

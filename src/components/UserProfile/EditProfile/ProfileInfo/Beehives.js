@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import UpdateInfo from "../Functions/UpdateInfo";
+import APIContext from "../../../../Context/APIContext";
 
 import { Container } from "@material-ui/core";
 import Input from "@material-ui/core/Input";
@@ -16,7 +17,8 @@ import useStylesEdit from "../styles/EditStyle";
 
 export default function Beehives() {
 	const classesEdit = useStylesEdit();
-	const { edited, handleChangeParse, updateBeehives, err, res } = UpdateInfo();
+	const { user } = useContext(APIContext);
+	const { edited, handleChange, updateInfo, err, res } = UpdateInfo();
 
 	const [isTablet, setIsTablet] = useState(window.innerWidth);
 	const breakpoint = 768;
@@ -87,9 +89,8 @@ export default function Beehives() {
 								<p className="edit-caption">Beehives</p>
 								<Input
 									name="beehives"
-									type="number"
 									id="formBeehives"
-									onChange={handleChangeParse}
+									onChange={handleChange}
 									value={edited.beehives}
 									className={classesEdit.textField}
 								/>
@@ -97,7 +98,7 @@ export default function Beehives() {
 									value="Update"
 									text="Update"
 									style={{ fontSize: "1em" }}
-									onClick={updateBeehives}
+									onClick={() => updateInfo(user[0].beekeeper_id)}
 									className={classesEdit.buttonEdit}
 								>
 									Update
