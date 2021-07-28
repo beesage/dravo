@@ -31,7 +31,7 @@ export default function LogIn() {
 	const history = createBrowserHistory({ forceRefresh: true });
 
 	const login = () => {
-		Axios.post("http://202.61.225.240:3000/auth/login", {
+		Axios.post("http://localhost:3000/auth/login", {
 			username: values.username,
 			password: values.password,
 		})

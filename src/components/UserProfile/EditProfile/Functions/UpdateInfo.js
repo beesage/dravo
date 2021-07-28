@@ -11,8 +11,8 @@ export default function UpdateInfo() {
 		confirmPassword: "",
 		country: user[0].country,
 		region: user[0].country,
-		apiaries: 1,
-		beehives: 1,
+		apiaries: user[0].apiaries,
+		beehives: user[0].beehives,
 		experience: user[0].experience,
 		bio: "",
 	});
@@ -39,11 +39,17 @@ export default function UpdateInfo() {
 		axios
 			.put(`http://202.61.225.240:3000/update/${id}`, updatedValues)
 			.then((res) => {
-				console.log("From updateInfo", res.data);
+				const updatedArray = user.map((u) => {
+					if (u.beekeeper_id === res.data[0].beekeeper_id) {
+						return res.data[0];
+					} else {
+						return u;
+					}
+				});
+				console.log("From updateInfo", res);
 				setRes("Successfully updated");
 				setErr("");
-				// if (res.data.id )
-				setUser([...user, res.data[0]]);
+				setUser(updatedArray);
 			})
 			.catch((err) => {
 				if (err.response) {
