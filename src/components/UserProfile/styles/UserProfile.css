@@ -183,7 +183,7 @@
 		grid-row: 2;
 		gap: 4.5rem;
 		margin-left: 16rem;
-		margin-top: 11rem;
+		margin-top: 11.5rem;
 		align-items: baseline;
 	}
 
@@ -210,7 +210,7 @@
 		display: block;
 		text-align: center;
 		font-weight: 400;
-		margin-top: 0.5rem;
+		margin-bottom: 0.5rem;
 		font-size: large;
 		text-transform: uppercase;
 	}
