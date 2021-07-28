@@ -1,5 +1,6 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { useSpring, animated } from "react-spring";
 import LeaderboardCard from "./LeaderboardCard";
 import LeaderboardBest from "./LeaderboardBest";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -11,6 +12,7 @@ import "./leaderboard.css";
 function Leaderboard({ loading, handleDays }) {
   const { user } = useContext(APIContext);
   const { lbMoreData, lbList, theEnd } = LeaderboardFunction();
+
   let lbTop = user.slice(0, 3);
 
   const left = {
@@ -31,6 +33,16 @@ function Leaderboard({ loading, handleDays }) {
     lbicon: null,
     lbiconlink: null,
   };
+
+  const fadein = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    delay: 100,
+
+    config: {
+      duration: 1000,
+    },
+  });
 
   return (
     <>
@@ -78,12 +90,16 @@ function Leaderboard({ loading, handleDays }) {
           <button onClick={() => handleDays("5000")}>All Time</button>
         </div>
       </div>
+
       {user.length > 0 ? (
         <>
           <div className="leaderboard-top"></div>
+
           <LeaderboardBest user={lbTop[1]} orientation={left} rank={2} />
+
           <LeaderboardBest user={lbTop[0]} orientation={middle} rank={1} />
           <LeaderboardBest user={lbTop[2]} orientation={right} rank={3} />
+
           <div className="lb-all">
             <InfiniteScroll
               dataLength={user.length}
@@ -93,7 +109,9 @@ function Leaderboard({ loading, handleDays }) {
             >
               {lbList.map((user, index) => (
                 <div key={index}>
-                  <LeaderboardCard user={user} index={index} />
+                  <animated.div style={fadein}>
+                    <LeaderboardCard user={user} index={index} />
+                  </animated.div>
                 </div>
               ))}
             </InfiniteScroll>
