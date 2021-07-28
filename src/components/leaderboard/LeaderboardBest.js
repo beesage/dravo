@@ -26,7 +26,9 @@ function LeaderboardBest({ user, orientation }) {
           ) : (
             <ArrowDropDownIcon style={{ fill: "red" }} />
           )
-        ) : null}
+        ) : (
+          <ArrowDropDownIcon style={{ fill: "transparent" }} />
+        )}
       </div>
     </div>
   );
