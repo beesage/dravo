@@ -105,7 +105,6 @@ export default function Bio() {
 									value="Update"
 									text="Update"
 									onClick={() => updateInfo(user[0].beekeeper_id)}
-									style={{ fontSize: "1em" }}
 									className={classesEdit.buttonEdit}
 								>
 									Update

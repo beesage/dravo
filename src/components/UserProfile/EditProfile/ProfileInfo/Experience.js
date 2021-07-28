@@ -104,7 +104,6 @@ export default function Experience() {
 								<Button
 									value="Update"
 									text="Update"
-									style={{ fontSize: "1em" }}
 									onClick={() => updateInfo(user[0].beekeeper_id)}
 									className={classesEdit.buttonEdit}
 								>
