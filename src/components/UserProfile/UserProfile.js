@@ -30,15 +30,7 @@ export default function UserProfile() {
 							<p className="user-location">{user[0].region}</p>
 						</div>
 					</div>
-					<div
-						style={{
-							display: "flex",
-							justifyContent: "center",
-							gridArea: "1 / 1 / auto / 5",
-							justifySelf: "center",
-							marginBottom: "1rem",
-						}}
-					>
+					<div className="greeting-container">
 						<p className="greeting-tablet">Welcome, {user[0].username}!</p>
 					</div>
 					<div className="bio-container">
