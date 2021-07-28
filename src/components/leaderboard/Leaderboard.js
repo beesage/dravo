@@ -1,21 +1,16 @@
 import React from "react";
+import { useContext } from "react";
 import LeaderboardCard from "./LeaderboardCard";
 import LeaderboardBest from "./LeaderboardBest";
-import Button from "@material-ui/core/Button";
+import InfiniteScroll from "react-infinite-scroll-component";
+import LeaderboardFunction from "./LeaderboardFunction";
+import APIContext from "../../Context/APIContext";
 import lbcrown from "../../assets/crown.png";
 import "./leaderboard.css";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { useState } from "react";
-import { TheatersOutlined } from "@material-ui/icons";
 
-function Leaderboard({ user, loading, handleDays }) {
-  const [lbList, setLbList] = useState(user.slice(3, 13));
-  const [theEnd, setTheEnd] = useState(true);
-  const [lbCounter, setLbCounter] = useState({
-    sliceStart: 13,
-    sliceEnd: 23,
-  });
-
+function Leaderboard({ loading, handleDays }) {
+  const { user } = useContext(APIContext);
+  const { lbMoreData, lbList, theEnd } = LeaderboardFunction();
   let lbTop = user.slice(0, 3);
 
   const left = {
@@ -37,71 +32,54 @@ function Leaderboard({ user, loading, handleDays }) {
     lbiconlink: null,
   };
 
-  const lbMoreData = () => {
-    if (lbList.length == user.length) {
-      setTheEnd(false);
-      console.log(theEnd);
-      return;
-    }
-    setLbList((prevState) =>
-      prevState.concat(user.slice(lbCounter.sliceStart, lbCounter.sliceEnd))
-    );
-    console.log(lbList);
-    setLbCounter((lbCounter.sliceStart += 10), (lbCounter.sliceEnd += 10));
-    console.log(theEnd);
-    console.log(lbCounter);
-    console.log(user.length);
-    console.log(lbList.length);
-  };
-
   return (
     <>
+      <div className="lb-honeycomb" id="lb-honeycomb-left">
+        <span></span>
+      </div>
+      <div className="lb-honeycomb" id="lb-honeycomb-middle">
+        <span></span>
+      </div>
+      <div className="lb-honeycomb" id="lb-honeycomb-right">
+        <span></span>
+      </div>
+      <div className="lb-triangle" id="lb-triangle-left">
+        <div
+          onClick={() => handleDays("7")}
+          className="lb-triangle-text"
+          id="lb-triangle-transform"
+        >
+          This Week
+        </div>
+      </div>
+      <div
+        onClick={() => handleDays("30")}
+        className="lb-triangle"
+        id="lb-triangle-center"
+      >
+        <div className="lb-triangle-text" id="lb-triangle-rotate-text">
+          This Month
+        </div>
+      </div>
+      <div
+        onClick={() => handleDays("5000")}
+        className="lb-triangle"
+        id="lb-triangle-right"
+      >
+        <div className="lb-triangle-text" id="lb-triangle-transform">
+          All Time
+        </div>
+      </div>
+      <div className="lb-button">
+        <div className="multi-button">
+          <button onClick={() => handleDays("1")}>Today</button>
+          <button onClick={() => handleDays("7")}>Week</button>
+          <button onClick={() => handleDays("30")}>Month</button>
+          <button onClick={() => handleDays("5000")}>All Time</button>
+        </div>
+      </div>
       {user.length > 0 ? (
         <>
-          <div className="lb-honeycomb" id="lb-honeycomb-left">
-            <span></span>
-          </div>
-          <div className="lb-honeycomb" id="lb-honeycomb-middle">
-            <span></span>
-          </div>
-          <div className="lb-honeycomb" id="lb-honeycomb-right">
-            <span></span>
-          </div>
-          <div className="lb-triangle" id="lb-triangle-left">
-            <div
-              onClick={() => handleDays("7")}
-              className="lb-triangle-text"
-              id="lb-triangle-transform"
-            >
-              This Week
-            </div>
-          </div>
-          <div
-            onClick={() => handleDays("30")}
-            className="lb-triangle"
-            id="lb-triangle-center"
-          >
-            <div className="lb-triangle-text" id="lb-triangle-rotate-text">
-              This Month
-            </div>
-          </div>
-          <div
-            onClick={() => handleDays("5000")}
-            className="lb-triangle"
-            id="lb-triangle-right"
-          >
-            <div className="lb-triangle-text" id="lb-triangle-transform">
-              All Time
-            </div>
-          </div>
-          <div className="lb-button">
-            <div className="multi-button">
-              <button onClick={() => handleDays("1")}>Today</button>
-              <button onClick={() => handleDays("7")}>Week</button>
-              <button onClick={() => handleDays("30")}>Month</button>
-              <button onClick={() => handleDays("5000")}>All Time</button>
-            </div>
-          </div>
           <div className="leaderboard-top"></div>
           <LeaderboardBest user={lbTop[1]} orientation={left} rank={2} />
           <LeaderboardBest user={lbTop[0]} orientation={middle} rank={1} />
@@ -122,7 +100,14 @@ function Leaderboard({ user, loading, handleDays }) {
           </div>
         </>
       ) : (
-        loading
+        <>
+          <div className="leaderboard-top"></div>
+          <div className="lb-all">
+            <h5>
+              No Users with Weight Delta available for this period of time.
+            </h5>
+          </div>
+        </>
       )}
     </>
   );
