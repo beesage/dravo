@@ -32,54 +32,71 @@ function Leaderboard({ loading, handleDays }) {
     lbiconlink: null,
   };
 
+  const noData = {
+    beekeeper_id: 0,
+    avg_wd: "0",
+    avg_wd_before: "0",
+    wd_rank: 0,
+    wd_rank_before: 0,
+    username: "No Data",
+    email: "No Data",
+    region: "No Data",
+    country: "No Data",
+    experience: 0,
+    beehives: 0,
+    apiaries: 0,
+    profile_picture: "No Data",
+    bio: "No Data",
+  };
+
   return (
     <>
+      <div className="lb-honeycomb" id="lb-honeycomb-left">
+        <span></span>
+      </div>
+      <div className="lb-honeycomb" id="lb-honeycomb-middle">
+        <span></span>
+      </div>
+      <div className="lb-honeycomb" id="lb-honeycomb-right">
+        <span></span>
+      </div>
+      <div className="lb-triangle" id="lb-triangle-left">
+        <div
+          onClick={() => handleDays("7")}
+          className="lb-triangle-text"
+          id="lb-triangle-transform"
+        >
+          This Week
+        </div>
+      </div>
+      <div
+        onClick={() => handleDays("30")}
+        className="lb-triangle"
+        id="lb-triangle-center"
+      >
+        <div className="lb-triangle-text" id="lb-triangle-rotate-text">
+          This Month
+        </div>
+      </div>
+      <div
+        onClick={() => handleDays("5000")}
+        className="lb-triangle"
+        id="lb-triangle-right"
+      >
+        <div className="lb-triangle-text" id="lb-triangle-transform">
+          All Time
+        </div>
+      </div>
+      <div className="lb-button">
+        <div className="multi-button">
+          <button onClick={() => handleDays("1")}>Today</button>
+          <button onClick={() => handleDays("7")}>Week</button>
+          <button onClick={() => handleDays("30")}>Month</button>
+          <button onClick={() => handleDays("5000")}>All Time</button>
+        </div>
+      </div>
       {user.length > 0 ? (
         <>
-          <div className="lb-honeycomb" id="lb-honeycomb-left">
-            <span></span>
-          </div>
-          <div className="lb-honeycomb" id="lb-honeycomb-middle">
-            <span></span>
-          </div>
-          <div className="lb-honeycomb" id="lb-honeycomb-right">
-            <span></span>
-          </div>
-          <div className="lb-triangle" id="lb-triangle-left">
-            <div
-              onClick={() => handleDays("7")}
-              className="lb-triangle-text"
-              id="lb-triangle-transform"
-            >
-              This Week
-            </div>
-          </div>
-          <div
-            onClick={() => handleDays("30")}
-            className="lb-triangle"
-            id="lb-triangle-center"
-          >
-            <div className="lb-triangle-text" id="lb-triangle-rotate-text">
-              This Month
-            </div>
-          </div>
-          <div
-            onClick={() => handleDays("5000")}
-            className="lb-triangle"
-            id="lb-triangle-right"
-          >
-            <div className="lb-triangle-text" id="lb-triangle-transform">
-              All Time
-            </div>
-          </div>
-          <div className="lb-button">
-            <div className="multi-button">
-              <button onClick={() => handleDays("1")}>Today</button>
-              <button onClick={() => handleDays("7")}>Week</button>
-              <button onClick={() => handleDays("30")}>Month</button>
-              <button onClick={() => handleDays("5000")}>All Time</button>
-            </div>
-          </div>
           <div className="leaderboard-top"></div>
           <LeaderboardBest user={lbTop[1]} orientation={left} rank={2} />
           <LeaderboardBest user={lbTop[0]} orientation={middle} rank={1} />
@@ -100,7 +117,14 @@ function Leaderboard({ loading, handleDays }) {
           </div>
         </>
       ) : (
-        loading
+        <>
+          <div className="leaderboard-top"></div>
+          <div className="lb-all">
+            <h5>
+              No Users with Weight Delta available for this period of time.
+            </h5>
+          </div>
+        </>
       )}
     </>
   );
