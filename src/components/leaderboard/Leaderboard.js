@@ -1,5 +1,6 @@
 import React from "react";
 import { useContext } from "react";
+import { useSpring, animated } from "react-spring";
 import LeaderboardCard from "./LeaderboardCard";
 import LeaderboardBest from "./LeaderboardBest";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -31,6 +32,16 @@ function Leaderboard({ loading, handleDays }) {
     lbicon: null,
     lbiconlink: null,
   };
+
+  const springbestof3 = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    delay: 500,
+
+    config: {
+      duration: 2000, // duration for the whole animation form start to end
+    },
+  });
 
   return (
     <>
@@ -80,8 +91,12 @@ function Leaderboard({ loading, handleDays }) {
       </div>
       {user.length > 0 ? (
         <>
-          <div className="leaderboard-top"></div>
+          <animated.div style={springbestof3}>
+            <div className="leaderboard-top"></div>
+          </animated.div>
+
           <LeaderboardBest user={lbTop[1]} orientation={left} rank={2} />
+
           <LeaderboardBest user={lbTop[0]} orientation={middle} rank={1} />
           <LeaderboardBest user={lbTop[2]} orientation={right} rank={3} />
           <div className="lb-all">
