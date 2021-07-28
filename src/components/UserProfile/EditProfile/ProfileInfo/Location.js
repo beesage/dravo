@@ -18,15 +18,8 @@ import useStylesEdit from "../styles/EditStyle";
 export default function Location() {
 	const classesEdit = useStylesEdit();
 	const { user } = useContext(APIContext);
-	const {
-		edited,
-		selectCountry,
-		selectRegion,
-		// updateLocation,
-		updateInfo,
-		err,
-		res,
-	} = UpdateInfo();
+	const { edited, selectCountry, selectRegion, updateInfo, err, res } =
+		UpdateInfo();
 
 	const [isTablet, setIsTablet] = useState(window.innerWidth);
 	const breakpoint = 768;

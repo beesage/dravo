@@ -14,6 +14,7 @@ export default function Username() {
 	const classesEdit = useStylesEdit();
 	const { edited, handleChange, updateInfo, err, res } = UpdateInfo();
 	const { user } = useContext(APIContext);
+
 	const [isTablet, setIsTablet] = useState(window.innerWidth);
 	const breakpoint = 768;
 

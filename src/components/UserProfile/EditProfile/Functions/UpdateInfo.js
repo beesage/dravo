@@ -17,9 +17,14 @@ export default function UpdateInfo() {
 		bio: "",
 	});
 
-	/** handleChange defines the new state of the variable called with useState.
+	/** handleChange defines the new state of the edited variable called with useState.
 	 * <p>
-	 * By listening to the event (e) performed on an input field, we are able to update the value of the edited object (username, email, password, confirmPassword, country, region, apiaries, beehives, experience, bio)
+	 * By tracking the event change (e) performed on an input field, it is possible to update the value of the keys included in the edited object.
+	 * handleChange is used to update the value of: username, email, password, confirmPassword, apiaries, beehives, experience, bio.
+	 * Once updated, this values are then added to the original object, represented by the spread operator.
+	 * @param e
+	 * @returns updated state of values
+	 * @author Alessandra Pettinato
 	 */
 
 	const handleChange = (e) => {
@@ -27,6 +32,35 @@ export default function UpdateInfo() {
 			...edited,
 			[e.target.name]: e.target.value,
 		});
+	};
+
+	/**	 selectCountry updates the value of the key "country" included in the edited variable called with useState.
+	 * <p>
+	 * By tracking the event change (val) performed on a dropdown menu, it is possible to update the value of country.
+	 * selectCountry is used to update only the value of country.
+	 * @param val
+	 * @returns updated state of a value
+	 * @author Alessandra Pettinato
+	 */
+
+	const selectCountry = (val) => {
+		setEdited({
+			country: val,
+		});
+	};
+
+	/**	 selectRegion updates the value of the key "region" included in the edited variable called with useState.
+	 * <p>
+	 * By tracking the event change (val) performed on a dropdown menu, it is possible to update the value of region.
+	 * Since "region" can be updated only if its counterpart "country" has already been selected, it is mandatory to include in the function the previous object -represented by the spread operator.
+	 * selectCountry is used to update only the value of region.
+	 * @param val
+	 * @returns updated state of a value
+	 * @author Alessandra Pettinato
+	 */
+
+	const selectRegion = (val) => {
+		setEdited({ ...edited, region: val });
 	};
 
 	const [err, setErr] = useState("");
@@ -58,50 +92,6 @@ export default function UpdateInfo() {
 				}
 			});
 	};
-
-	// const [location, setLocation] = useState({
-	// 	country: "",
-	// 	region: "",
-	// });
-
-	// const selectCountry = (val) => {
-	// 	setLocation({
-	// 		country: val,
-	// 	});
-	// };
-
-	// const selectRegion = (val) => {
-	// 	setLocation({ ...location, region: val });
-	// };
-
-	const selectCountry = (val) => {
-		setEdited({
-			country: val,
-		});
-	};
-
-	const selectRegion = (val) => {
-		setEdited({ ...edited, region: val });
-	};
-
-	// const updateLocation = (id) => {
-	// 	axios
-	// 		.put(`http://202.61.225.240:3000/update/${id}`, {
-	// 			country: edited.country,
-	// 			region: edited.region,
-	// 		})
-	// 		.then((res) => {
-	// 			console.log(res);
-	// 			setRes("Successfully updated");
-	// 			setErr("");
-	// 		})
-	// 		.catch((err) => {
-	// 			if (err.response) {
-	// 				setErr(err.response.data);
-	// 				setRes("");
-	// 			}
-	// 		});
-	// };
 
 	const [showPassword, setShowPassword] = useState(false);
 
