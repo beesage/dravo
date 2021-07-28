@@ -7,7 +7,9 @@ export default function HexBio() {
 	return (
 		<>
 			<div className="hex-bio ribbon-outset border">
-				<p style={{ color: "white" }}>{user[0].bio}</p>
+				<div>
+					<p style={{ color: "white" }}>{user[0].bio}</p>
+				</div>
 			</div>
 		</>
 	);

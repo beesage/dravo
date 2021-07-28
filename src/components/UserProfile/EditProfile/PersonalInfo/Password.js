@@ -18,7 +18,7 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import "../styles/EditProfile.css";
 import useStylesEdit from "../styles/EditStyle";
 
-export default function Password(props) {
+export default function Password() {
 	const classesEdit = useStylesEdit();
 	const { user } = useContext(APIContext);
 	const {
@@ -107,7 +107,10 @@ export default function Password(props) {
 									className={classesEdit.textField}
 									type={showPassword ? "text" : "password"}
 									endAdornment={
-										<InputAdornment position="end" onClick={inputPassword}>
+										<InputAdornment
+											position="end"
+											onClick={(e) => setShowPassword(!showPassword)}
+										>
 											<IconButton style={{ color: "black" }}>
 												{showPassword ? <Visibility /> : <VisibilityOff />}
 											</IconButton>
@@ -123,7 +126,10 @@ export default function Password(props) {
 									className={classesEdit.textField}
 									type={showPassword ? "text" : "password"}
 									endAdornment={
-										<InputAdornment position="end" onClick={inputPassword}>
+										<InputAdornment
+											position="end"
+											onClick={(e) => setShowPassword(!showPassword)}
+										>
 											<IconButton style={{ color: "black" }}>
 												{showPassword ? <Visibility /> : <VisibilityOff />}
 											</IconButton>

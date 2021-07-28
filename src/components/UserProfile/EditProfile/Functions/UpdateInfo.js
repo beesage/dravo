@@ -18,10 +18,6 @@ export default function UpdateInfo() {
 		bio: "",
 	});
 
-	const [err, setErr] = useState("");
-
-	const [res, setRes] = useState("");
-
 	const handleChange = (e) => {
 		setEdited({
 			...edited,
@@ -38,6 +34,10 @@ export default function UpdateInfo() {
 	const selectRegion = (val) => {
 		setEdited({ ...edited, region: val });
 	};
+
+	const [err, setErr] = useState("");
+
+	const [res, setRes] = useState("");
 
 	const updateInfo = (id) => {
 		axios
