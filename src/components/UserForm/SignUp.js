@@ -1,13 +1,5 @@
-import React, { useState } from "react";
-import {
-	CssBaseline,
-	FormControlLabel,
-	Checkbox,
-	Grid,
-	Box,
-	Container,
-	Typography,
-} from "@material-ui/core";
+import React from "react";
+import { CssBaseline, FormControlLabel, Checkbox, Grid, Box, Container,	Typography } from "@material-ui/core";
 import InputField from "./controls/InputField";
 import InputPassword from "./controls/InputPassword";
 import Button from "./controls/Submit";
@@ -15,39 +7,11 @@ import UseForm from "./UseForm";
 import { NavLink } from "react-router-dom";
 import useStyles from "./styles/StyleUserForm";
 import logo from "../../assets/logo-mobile.png";
-import validate from "./ValidateInfo";
-import Axios from "axios";
 import "../../styles.css";
 
 export default function SignUp() {
 	const classes = useStyles();
-	const { values, handleChange, handleSubmit, errors } = UseForm(validate);
-	const [error, setError] = useState("");
-	const [response, setResponse] = useState("");
-
-	const signup = () => {
-		if (values.password == values.confirmPassword) {
-			Axios.post("http://localhost:3000/auth/signup", {
-				username: values.username,
-				email: values.email,
-				password: values.confirmPassword,
-			})
-				.then((response) => {
-					setResponse("Successfully registered!");
-					setError("");
-					console.log(response);
-				})
-				.catch((error) => {
-					if (error.response) {
-						setError(error.response.data);
-						setResponse("");
-					}
-				});
-		} else {
-			setResponse("Password and Confirm Password should match");
-			setError("");
-		}
-	};
+	const { values, handleChange, handleSubmit, signup, error, response } = UseForm();
 
 	return (
 		<>
