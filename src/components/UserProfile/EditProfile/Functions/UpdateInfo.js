@@ -162,7 +162,6 @@ export default function UpdateInfo() {
 
 	const [updatePic, setUpdatePic] = useState({
 		pic: false,
-		src: "",
 	});
 
 	const handlePicture = (e) => {
@@ -170,28 +169,28 @@ export default function UpdateInfo() {
 		let src = URL.createObjectURL(pic);
 		setUpdatePic({
 			pic: pic,
-			src: src,
 		});
 	};
 
 	const preview = () => {
 		if (updatePic.src) {
-			return <img src={updatePic.src} />;
+			return <img src={updatePic.pic} />;
 		}
 	};
 
 	const updateProfilePic = (id) => {
 		var formData = new FormData();
-		formData.append("file", updatePic);
+		formData.append("blob", updatePic);
 		const configPic = {
 			formData,
 			cache: false,
 			contentType: false,
 			processData: false,
+			responseType: "blob",
 		};
 		axios
 			.put(
-				`http://localhost:3000/update/${id}`,
+				`http://202.61.225.240:3000/update/${id}`,
 				{
 					profile_picture: updatePic.src,
 				},

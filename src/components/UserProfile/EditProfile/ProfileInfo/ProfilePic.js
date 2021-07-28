@@ -88,6 +88,7 @@ export default function ProfilePic() {
 								<p className="edit-caption">Upload your pic</p>
 								<input
 									type="file"
+									name="image"
 									text="Submit"
 									onChange={handlePicture}
 									className="submit-pic"

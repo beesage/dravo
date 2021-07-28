@@ -27,6 +27,7 @@
 	display: block;
 	border-radius: 50%;
 	border: 6px solid #314e52;
+	transform: rotate(275deg);
 }
 
 .user-profile:before {
