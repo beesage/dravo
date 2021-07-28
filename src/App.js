@@ -47,7 +47,6 @@ export default function App() {
 		 * @author Alessandra Pettinato
 		 * @author Lukas Kreibig
 		 */
-
 		const userAPI = async () => {
 			setLoading(true);
 			const res = await axios.get(`http://202.61.225.240:3000/lb/${days}`);
@@ -56,8 +55,6 @@ export default function App() {
 		};
 		userAPI(days);
 	}, [days]);
-
-	console.log("From App", user);
 
 	/**
 	 * A handler function to communicate between child and parent to pass an argument for fetch
