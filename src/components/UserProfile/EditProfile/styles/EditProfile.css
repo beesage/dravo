@@ -110,4 +110,8 @@
 		font-family: Krub;
 		text-align: left;
 	}
+
+	.bio-textarea {
+		width: 507px;
+	}
 }

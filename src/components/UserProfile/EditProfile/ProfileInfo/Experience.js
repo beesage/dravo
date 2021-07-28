@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import UpdateInfo from "../Functions/UpdateInfo";
+import APIContext from "../../../../Context/APIContext";
 
 import { Container } from "@material-ui/core";
 import Input from "@material-ui/core/Input";
@@ -16,8 +17,8 @@ import useStylesEdit from "../styles/EditStyle";
 
 export default function Experience() {
 	const classesEdit = useStylesEdit();
-	const { edited, handleChangeParse, updateExperience, err, res } =
-		UpdateInfo();
+	const { user } = useContext(APIContext);
+	const { edited, handleChange, updateInfo, err, res } = UpdateInfo();
 
 	const [isTablet, setIsTablet] = useState(window.innerWidth);
 	const breakpoint = 768;
@@ -88,9 +89,8 @@ export default function Experience() {
 								<p className="edit-caption">Experience</p>
 								<Input
 									name="experience"
-									type="number"
 									id="formExperience"
-									onChange={handleChangeParse}
+									onChange={handleChange}
 									value={edited.experience}
 									className={classesEdit.textField}
 								/>
@@ -98,7 +98,7 @@ export default function Experience() {
 									value="Update"
 									text="Update"
 									style={{ fontSize: "1em" }}
-									onClick={updateExperience}
+									onClick={() => updateInfo(user[0].beekeeper_id)}
 									className={classesEdit.buttonEdit}
 								>
 									Update

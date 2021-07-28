@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import UpdateInfo from "../Functions/UpdateInfo";
+import APIContext from "../../../../Context/APIContext";
 
 import { Container } from "@material-ui/core";
 import Input from "@material-ui/core/Input";
@@ -11,8 +12,8 @@ import useStylesEdit from "../styles/EditStyle";
 
 export default function Email() {
 	const classesEdit = useStylesEdit();
-	const { edited, handleChange, updateEmail, err, res } = UpdateInfo();
-
+	const { edited, handleChange, updateInfo, err, res } = UpdateInfo();
+	const { user } = useContext(APIContext);
 	const [isTablet, setIsTablet] = useState(window.innerWidth);
 	const breakpoint = 768;
 
@@ -57,7 +58,7 @@ export default function Email() {
 						<Button
 							value="Update"
 							text="Update"
-							onClick={updateEmail}
+							onClick={() => updateInfo(user[0].beekeeper_id)}
 							className={classesEdit.buttonEdit}
 						>
 							Update
