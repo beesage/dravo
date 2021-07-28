@@ -67,7 +67,7 @@ export default function UpdateInfo() {
 
 	const [res, setRes] = useState("");
 
-	/**updateInfo sends to the server an HTTP PUT request to the chosen API endpoint.
+	/** updateInfo sends to the server an HTTP PUT request to the chosen API endpoint.
 	 * <p>
 	 * updatedValues is a variable who retains the keys contained in the edited object called with useState.
 	 * Using the reserved Javascript word "delete", the information sent to the server don't include the unwanted keys.
@@ -124,7 +124,7 @@ export default function UpdateInfo() {
 		},
 	};
 
-	/**updatePassword sends to the server an HTTP PUT request to the chosen API endpoint.
+	/** updatePassword to the server an HTTP PUT request to the chosen API endpoint.
 	 * <p>
 	 * Before sending the request to the server, the value of "password" and "confirmPassword" stored in the edited object are compared: if they are the same, then the PUT request can be sent through axios; on the contrary, the value of "res" and "err" are updated (respectively in "setRes" and "setErr").
 	 * <p>
@@ -162,7 +162,7 @@ export default function UpdateInfo() {
 
 	const [updatePic, setUpdatePic] = useState({
 		pic: false,
-		src: false,
+		src: "",
 	});
 
 	const handlePicture = (e) => {
@@ -183,14 +183,20 @@ export default function UpdateInfo() {
 	const updateProfilePic = (id) => {
 		var formData = new FormData();
 		formData.append("file", updatePic);
+		const configPic = {
+			formData,
+			cache: false,
+			contentType: false,
+			processData: false,
+		};
 		axios
-			.put(`http://202.61.225.240:3000/update/${id}`, {
-				profile_picture: updatePic.src,
-				// formData,
-				// cache: false,
-				// contentType: false,
-				// processData: false,
-			})
+			.put(
+				`http://localhost:3000/update/${id}`,
+				{
+					profile_picture: updatePic.src,
+				},
+				configPic
+			)
 			.then((res) => {
 				console.log(res);
 				setRes("Successfully updated");
