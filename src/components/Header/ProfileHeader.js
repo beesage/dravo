@@ -16,6 +16,8 @@ export default function PersonalHeader() {
 		setIsSettings,
 	} = handleHeader();
 
+	let location = useLocation();
+
 	/**
 	 * Display the ProfileHeader component according to the location of the app.
 	 * <p>
@@ -25,8 +27,6 @@ export default function PersonalHeader() {
 	 *
 	 * @author Alessandra Pettinato
 	 */
-
-	let location = useLocation();
 
 	useEffect(() => {
 		if (location.pathname == "/settings/profile-info") {
