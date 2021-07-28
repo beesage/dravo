@@ -91,7 +91,7 @@ const UseForm = () => {
       password: values.password,
     })
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setResponse("Successfully logged in!");
         setError("");
         history.push("/leaderboard");
@@ -100,7 +100,7 @@ const UseForm = () => {
       .catch((error) => {
         if (error.response) {
           setError(error.response.data);
-          console.log(error.response.data);
+          // console.log(error.response.data);
           setResponse("");
           setIsLoginCorrect(false);
         }
