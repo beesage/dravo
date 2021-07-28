@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     transitionDuration: "0.4s",
     boxShadow: "0 8px 6px -6px rgba(0, 0, 0, 0.5)",
     "&:hover": {
-      backgroundColor: "#5A8288",
+      backgroundColor: "#5A8288 !important",
     },
   },
   link: {

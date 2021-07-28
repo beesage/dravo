@@ -7,171 +7,41 @@ export default function UpdateInfo() {
 	const [edited, setEdited] = useState({
 		username: user[0].username,
 		email: user[0].email,
-		apiaries: user[0].apiaries,
-		beehives: user[0].beehives,
-		experience: user[0].experience,
+		password: "",
+		confirmPassword: "",
+		country: "",
+		region: "",
+		apiaries: "",
+		beehives: "",
+		experience: "",
 		id: user[0].beekeeper_id,
 		bio: "",
 	});
-
-	const handleChange = (e) => {
-		setEdited({
-			...user[0],
-			[e.target.name]: e.target.value,
-		});
-	};
-
-	const handleChangeParse = (e) => {
-		setEdited({
-			...user[0],
-			[e.target.name]: +e.target.value,
-		});
-	};
 
 	const [err, setErr] = useState("");
 
 	const [res, setRes] = useState("");
 
-	let config = {
-		headers: {
-			"Content-Type": "application/json",
-			"Access-Control-Allow-Origin": "*",
-			"Access-Control-Request-Method": "PUT/OPTIONS",
-		},
-	};
-
-	const [locationC, setLocationC] = useState({
-		locationC: "",
-	});
-
-	const selectCountry = (val) => {
-		setLocationC({
-			locationC: val,
+	const handleChange = (e) => {
+		setEdited({
+			...edited,
+			[e.target.name]: e.target.value,
 		});
 	};
 
-	const [locationR, setLocationR] = useState({
-		locationR: "",
-	});
+	const selectCountry = (val) => {
+		setEdited({
+			country: val,
+		});
+	};
 
 	const selectRegion = (val) => {
-		setLocationR({ locationR: val });
+		setEdited({ ...edited, region: val });
 	};
 
-	const updateLocation = () => {
+	const updateInfo = (id) => {
 		axios
-			.put("http://202.61.225.240:3000/update/1", {
-				country: locationC.locationC,
-				region: locationR.locationR,
-			})
-			.then((res) => {
-				console.log(res);
-				setRes("Successfully updated");
-				setErr("");
-			})
-			.catch((err) => {
-				if (err.response) {
-					setErr(err.response.data);
-					setRes("");
-				}
-			});
-	};
-
-	const updateUsername = () => {
-		axios
-			.put("http://202.61.225.240:3000/update/1", {
-				username: edited.username,
-			})
-			.then((res) => {
-				console.log(res);
-				setRes("Successfully updated");
-				setErr("");
-			})
-			.catch((err) => {
-				if (err.response) {
-					setErr(err.response.data);
-					setRes("");
-				}
-			});
-	};
-
-	const updateEmail = () => {
-		axios
-			.put("http://202.61.225.240:3000/update/1", {
-				email: edited.email,
-			})
-			.then((res) => {
-				console.log(res);
-				setRes("Successfully updated");
-				setErr("");
-			})
-			.catch((err) => {
-				if (err.response) {
-					setErr(err.response.data);
-					setRes("");
-				}
-			});
-	};
-
-	const updateApiaries = () => {
-		axios
-			.put("http://202.61.225.240:3000/update/1", {
-				apiaries: edited.apiaries,
-			})
-			.then((res) => {
-				console.log(res);
-				setRes("Successfully updated");
-				setErr("");
-			})
-			.catch((err) => {
-				if (err.response) {
-					setErr(err.response.data);
-					setRes("");
-				}
-			});
-	};
-
-	const updateBeehives = () => {
-		axios
-			.put("http://202.61.225.240:3000/update/1", {
-				beehives: edited.beehives,
-			})
-			.then((res) => {
-				console.log(res);
-				setRes("Successfully updated");
-				setErr("");
-			})
-			.catch((err) => {
-				if (err.response) {
-					setErr(err.response.data);
-					setRes("");
-				}
-			});
-	};
-
-	const updateExperience = () => {
-		axios
-			.put("http://202.61.225.240:3000/update/1", {
-				experience: edited.experience,
-			})
-			.then((res) => {
-				console.log(res);
-				setRes("Successfully updated");
-				setErr("");
-			})
-			.catch((err) => {
-				if (err.response) {
-					setErr(err.response.data);
-					setRes("");
-				}
-			});
-	};
-
-	const updateBio = () => {
-		axios
-			.put("http://202.61.225.240:3000/update/1", {
-				bio: edited.bio,
-			})
+			.put(`http://202.61.225.240:3000/update/${id}`, edited)
 			.then((res) => {
 				console.log(res);
 				setRes("Successfully updated");
@@ -191,31 +61,19 @@ export default function UpdateInfo() {
 		setShowPassword(!showPassword);
 	};
 
-	const [resetPass, setResetPass] = useState({
-		password: "",
-	});
-
-	const [resetConf, setResetConf] = useState({
-		confirmPassword: "",
-	});
-
-	const handleResetPass = (e) => {
-		setResetPass({
-			password: e.target.value,
-		});
+	let config = {
+		headers: {
+			"Content-Type": "application/json",
+			"Access-Control-Allow-Origin": "*",
+			"Access-Control-Request-Method": "PUT/OPTIONS",
+		},
 	};
 
-	const handleResetConf = (e) => {
-		setResetConf({
-			confirmPassword: e.target.value,
-		});
-	};
-
-	const updatePassword = () => {
-		if (resetPass.password == resetConf.confirmPassword) {
+	const updatePassword = (id) => {
+		if (edited.password == edited.confirmPassword) {
 			axios
-				.put("http://202.61.225.240:3000/updatePass/1", {
-					password: resetConf.confirmPassword,
+				.put(`http://202.61.225.240:3000/updatePass/${id}`, {
+					password: edited.confirmPassword,
 					config,
 				})
 				.then((res) => {
@@ -235,14 +93,17 @@ export default function UpdateInfo() {
 		}
 	};
 
-	const [updatePic, setUpdatePic] = useState(false);
+	const [updatePic, setUpdatePic] = useState({
+		pic: false,
+		src: false,
+	});
 
 	const handlePicture = (e) => {
 		let pic = e.target.files[0];
 		let src = URL.createObjectURL(pic);
 		setUpdatePic({
-			pic,
-			src,
+			pic: pic,
+			src: src,
 		});
 	};
 
@@ -252,12 +113,16 @@ export default function UpdateInfo() {
 		}
 	};
 
-	const updateProfilePic = () => {
+	const updateProfilePic = (id) => {
 		var formData = new FormData();
-		formData.append("file", updatePic.src);
+		formData.append("file", updatePic);
 		axios
-			.put("http://202.61.225.240:3000/update/1", {
-				profile_pic: updatePic.src,
+			.put(`http://202.61.225.240:3000/update/${id}`, {
+				profile_picture: updatePic.src,
+				// formData,
+				// cache: false,
+				// contentType: false,
+				// processData: false,
 			})
 			.then((res) => {
 				console.log(res);
@@ -274,11 +139,8 @@ export default function UpdateInfo() {
 
 	return {
 		edited,
-		locationC,
-		locationR,
 		setEdited,
 		handleChange,
-		handleChangeParse,
 		inputPassword,
 		showPassword,
 		setShowPassword,
@@ -286,20 +148,10 @@ export default function UpdateInfo() {
 		preview,
 		selectCountry,
 		selectRegion,
-		updateUsername,
-		updateEmail,
-		updateApiaries,
-		updateBeehives,
-		updateExperience,
+		updateInfo,
 		updateProfilePic,
-		updateBio,
-		updateLocation,
 		updatePassword,
 		err,
 		res,
-		resetPass,
-		resetConf,
-		handleResetConf,
-		handleResetPass,
 	};
 }
