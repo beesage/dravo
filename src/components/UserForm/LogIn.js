@@ -1,5 +1,13 @@
 import React from "react";
-import { CssBaseline, FormControlLabel, Checkbox, Grid, Box, Container, Typography } from "@material-ui/core";
+import {
+  CssBaseline,
+  FormControlLabel,
+  Checkbox,
+  Grid,
+  Box,
+  Container,
+  Typography,
+} from "@material-ui/core";
 import InputField from "./controls/InputField";
 import InputPassword from "./controls/InputPassword";
 import Button from "./controls/Submit";
@@ -9,10 +17,10 @@ import useStyles from "./styles/StyleUserForm";
 import logo from "../../assets/logo-mobile.png";
 import "../../styles.css";
 
-
 export default function LogIn() {
   const classes = useStyles();
-  const { values, handleChange, handleSubmit, login, error, response } = UseForm();   
+  const { values, handleChange, handleSubmit, login, error, response } =
+    UseForm();
 
   return (
     <>
@@ -43,15 +51,17 @@ export default function LogIn() {
                   label="Enter your username"
                   value={values.username}
                   onChange={handleChange}
-                />             
+                />
                 <InputPassword
                   name="password"
                   label="Enter your password"
                   value={values.password}
                   onChange={handleChange}
-                />             
+                />
                 {response && <p className="res-message">{response}</p>}
-                {error && (<p className="err-message">{error.err.details[0].message}</p>)}
+                {error && (
+                  <p className="err-message">{error.err.details[0].message}</p>
+                )}
                 <Box className={classes.box}>
                   <FormControlLabel
                     control={
@@ -61,15 +71,7 @@ export default function LogIn() {
                         color="default"
                       />
                     }
-                    className={classes.checkbox}
-                    label="Keep me logged in"
                   />
-                  <NavLink
-                    to="/forgotpassword"
-                    className={classes.forgotPassword}
-                  >
-                    Forgot password?
-                  </NavLink>
                 </Box>
                 <Button type="submit" text="Log In" onClick={login} />
               </form>

@@ -39,9 +39,8 @@ export default function Footer() {
 	return (
 		<>
 			<footer className={!isLogin || !isSignUp ? "show" : "hidden"}>
-				<div className="footer-container">
-					<img src={logo} className="footer-img" />
-					<p style={{ color: "#314E52", fontWeight: 800 }}>DRAVO</p>
+				<div className="footer-container">					
+					<p style={{ color: "#314E52", fontWeight: 800, paddingTop: "3%" }}>DRAVO</p>
 					<Copyright />
 				</div>
 			</footer>
