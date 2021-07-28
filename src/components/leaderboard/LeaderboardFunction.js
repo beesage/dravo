@@ -13,7 +13,7 @@ function LeaderboardFunction() {
 
   /**
    * lbMoreData slices and concatenates data for the Infinite Scrolling Component
-   * <p>
+   * <p>np
    * InfiniteScroll uses this function to expand its infinite scroll feature.
    * This function updates the state lbList with new data from the state user. It uses
    * the previous state from lbList and concenates it with a sliced version of the state user.
