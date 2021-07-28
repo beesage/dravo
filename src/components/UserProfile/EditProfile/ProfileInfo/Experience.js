@@ -23,12 +23,19 @@ export default function Experience() {
 	const [isTablet, setIsTablet] = useState(window.innerWidth);
 	const breakpoint = 768;
 
+	/** handleResizeWindow tracks the resize of the window and update the state accordingly.
+	 * <p>
+	 * When called inside useEffect, handleResizeWindow will update the isTable variable called with useState by updating the setIsTablet function.
+	 * The event listener will subscribe to the resize of the window and, once performed, will return the remove event listener to clean after itself.
+	 * @returns updated state of a value
+	 * @author Alessandra Pettinato
+	 *
+	 */
+
 	useEffect(() => {
 		const handleResizeWindow = () => setIsTablet(window.innerWidth);
-		// subscribe to window resize event "onComponentDidMount"
 		window.addEventListener("resize", handleResizeWindow);
 		return () => {
-			// unsubscribe "onComponentDestroy"
 			window.removeEventListener("resize", handleResizeWindow);
 		};
 	}, []);
