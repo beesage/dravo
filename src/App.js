@@ -76,9 +76,7 @@ export default function App() {
               <Route path="/forgotpassword" component={ForgotPassword} />
               <Route
                 path="/leaderboard"
-                render={(props) => (
-                  <Leaderboard user={user} handleDays={handleDays} />
-                )}
+                render={(props) => <Leaderboard handleDays={handleDays} />}
               />
               <Route path="/profile" component={UserProfile} />
               <Route exact path="/settings" component={EditProfile} />

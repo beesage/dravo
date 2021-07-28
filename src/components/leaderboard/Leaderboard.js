@@ -32,23 +32,6 @@ function Leaderboard({ loading, handleDays }) {
     lbiconlink: null,
   };
 
-  const noData = {
-    beekeeper_id: 0,
-    avg_wd: "0",
-    avg_wd_before: "0",
-    wd_rank: 0,
-    wd_rank_before: 0,
-    username: "No Data",
-    email: "No Data",
-    region: "No Data",
-    country: "No Data",
-    experience: 0,
-    beehives: 0,
-    apiaries: 0,
-    profile_picture: "No Data",
-    bio: "No Data",
-  };
-
   return (
     <>
       <div className="lb-honeycomb" id="lb-honeycomb-left">
