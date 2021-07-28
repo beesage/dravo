@@ -67,6 +67,24 @@ export default function UpdateInfo() {
 
 	const [res, setRes] = useState("");
 
+	/**updateInfo sends to the server an HTTP PUT request to the chosen API endpoint.
+	 * <p>
+	 * updatedValues is a variable who retains the keys contained in the edited object called with useState.
+	 * Using the reserved Javascript word "delete", the information sent to the server don't include the unwanted keys.
+	 * The PUT request can then be sent through axios to the relevant endpoint, using the variable updatedValues as a second argument.
+	 * <p>
+	 * If the response to the request is successful, the new array "updatedArray" is created by looping through the "user" array.
+	 * If the id of the element processed in the array (u) is the same as the one of the response, then the response itself is returned; otherwise, the element (u) is returned.
+	 * The "user" array can then receive its new value (in "setUser") from the "updatedArray".
+	 * <p>
+	 * At the same time, the value of the "err" and "res" variables are updated (respectively in "setErr" and "setRes").
+	 * <p>
+	 * If the response from the server is not successful, the relevant error is catched and its value stored in the "err" variable (in "setErr"); "res" is simultaneously updated (in "setRes")
+	 * @param id
+	 * @returns updated state of a value
+	 * @author Alessandra Pettinato
+	 */
+
 	const updateInfo = (id) => {
 		const updatedValues = edited;
 		delete updatedValues.confirmPassword;
@@ -80,10 +98,9 @@ export default function UpdateInfo() {
 						return u;
 					}
 				});
-				console.log("From updateInfo", res);
+				setUser(updatedArray);
 				setRes("Successfully updated");
 				setErr("");
-				setUser(updatedArray);
 			})
 			.catch((err) => {
 				if (err.response) {
@@ -106,6 +123,18 @@ export default function UpdateInfo() {
 			"Access-Control-Request-Method": "PUT/OPTIONS",
 		},
 	};
+
+	/**updatePassword sends to the server an HTTP PUT request to the chosen API endpoint.
+	 * <p>
+	 * Before sending the request to the server, the value of "password" and "confirmPassword" stored in the edited object are compared: if they are the same, then the PUT request can be sent through axios; on the contrary, the value of "res" and "err" are updated (respectively in "setRes" and "setErr").
+	 * <p>
+	 * The PUT request is sent through axios to the relevant endpoint, using "password" as a second argument, and "config", which contains the headers information, as a third.
+	 * If the request is successfully executed, the value of the "err" and "res" variables are updated (respectively in "setErr" and "setRes").
+	 * <p>
+	 * If the response from the server is not successful, the relevant error is catched and its value stored in the "err" variable (in "setErr"); "res" is simultaneously updated (in "setErr")
+	 * @param id
+	 * @author Alessandra Pettinato
+	 */
 
 	const updatePassword = (id) => {
 		if (edited.password == edited.confirmPassword) {
@@ -180,7 +209,6 @@ export default function UpdateInfo() {
 		location,
 		setEdited,
 		handleChange,
-		// handleChangeParsed,
 		inputPassword,
 		showPassword,
 		setShowPassword,
@@ -189,7 +217,6 @@ export default function UpdateInfo() {
 		selectCountry,
 		selectRegion,
 		updateInfo,
-		// updateLocation,
 		updateProfilePic,
 		updatePassword,
 		err,
