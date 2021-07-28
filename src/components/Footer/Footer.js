@@ -1,20 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { Typography } from "@material-ui/core";
-import logo from "../../assets/logo-mobile.png";
 
 import "./styles/Footer.css";
-
-function Copyright() {
-	return (
-		<Typography variant="body2" color="white" align="center">
-			{"Hospitalu 7-13, Riga, LV-1013"} <br />
-			{"Dravo © "}
-			{new Date().getFullYear()}
-			{". All rights reserved."}
-		</Typography>
-	);
-}
 
 export default function Footer() {
 	const [isLogin, setIsLogin] = useState(false);
@@ -53,10 +40,8 @@ export default function Footer() {
 		<>
 			<footer className={!isLogin || !isSignUp ? "show" : "hidden"}>
 				<div className="footer-container">
-					<p style={{ color: "#314E52", fontWeight: 800, paddingTop: "3%" }}>
-						DRAVO
-					</p>
-					<Copyright />
+					<br /> Dravo © {new Date().getFullYear()} <br />
+					Hospitalu 7-13, Riga, LV-1013 <br /> All rights reserved.
 				</div>
 			</footer>
 		</>
