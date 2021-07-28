@@ -107,7 +107,7 @@ const UseForm = () => {
       });
   };
 
-  return { 
+  return {
     values,
     handleChange,
     handleSubmit,
