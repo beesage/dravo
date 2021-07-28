@@ -20,7 +20,7 @@ export default function UserProfile() {
 			{user.length > 0 ? (
 				<>
 					<div className="user-profile">
-						<p>{user[0].wd_rank}</p>
+						<p className="user-rank">{user[0].wd_rank}</p>
 						<FaMedal className="medal" />
 						<div className="user-info">
 							<div className="hex-profile ribbon-outset border">

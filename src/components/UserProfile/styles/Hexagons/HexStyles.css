@@ -91,6 +91,7 @@
 		transform: rotate(90deg);
 		box-shadow: inset 20px 20px 0px 20px #f2a154;
 		justify-content: normal;
+		margin-top: 1rem;
 	}
 
 	.hex-profile:before,

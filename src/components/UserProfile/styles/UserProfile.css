@@ -51,10 +51,21 @@
 
 .medal {
 	grid-column: 1;
-	align-self: center;
+	justify-self: center;
+	margin-top: 1rem;
 	justify-self: center;
 	font-size: 30px;
 	color: #314e52;
+}
+
+.user-rank {
+	grid-column: 1;
+	grid-row: 1;
+	color: #314e52;
+	margin-bottom: 0;
+	font-size: 1.5rem;
+	align-self: end;
+	justify-self: center;
 }
 
 .username,
@@ -124,13 +135,22 @@
 		align-self: center;
 		justify-self: center;
 		margin-left: 2rem;
+		margin-bottom: 6rem;
 	}
 
 	.medal {
 		grid-column: 2;
-		grid-row: 2;
-		margin-left: 4rem;
-		margin-top: -33rem;
+		grid-row: 1;
+		margin-left: 2rem;
+		margin-bottom: 0;
+	}
+
+	.user-rank {
+		grid-column: 2;
+		grid-row: 1;
+		font-size: 1.2rem;
+		margin-left: -1rem;
+		margin-bottom: 2rem;
 	}
 
 	.user-info {
