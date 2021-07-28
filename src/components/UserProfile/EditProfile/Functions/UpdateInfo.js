@@ -3,20 +3,24 @@ import APIContext from "../../../../Context/APIContext";
 import axios from "axios";
 
 export default function UpdateInfo() {
-	const { user } = useContext(APIContext);
+	const { user, setUser } = useContext(APIContext);
 	const [edited, setEdited] = useState({
 		username: user[0].username,
 		email: user[0].email,
 		password: "",
 		confirmPassword: "",
-		country: "",
-		region: "",
-		apiaries: "",
-		beehives: "",
-		experience: "",
-		id: user[0].beekeeper_id,
+		country: user[0].country,
+		region: user[0].country,
+		apiaries: 1,
+		beehives: 1,
+		experience: user[0].experience,
 		bio: "",
 	});
+
+	/** handleChange defines the new state of the variable called with useState.
+	 * <p>
+	 * By listening to the event (e) performed on an input field, we are able to update the value of the edited object (username, email, password, confirmPassword, country, region, apiaries, beehives, experience, bio)
+	 */
 
 	const handleChange = (e) => {
 		setEdited({
@@ -24,6 +28,45 @@ export default function UpdateInfo() {
 			[e.target.name]: e.target.value,
 		});
 	};
+
+	const [err, setErr] = useState("");
+
+	const [res, setRes] = useState("");
+
+	const updateInfo = (id) => {
+		const updatedValues = edited;
+		delete updatedValues.confirmPassword;
+		axios
+			.put(`http://202.61.225.240:3000/update/${id}`, updatedValues)
+			.then((res) => {
+				console.log("From updateInfo", res.data);
+				setRes("Successfully updated");
+				setErr("");
+				// if (res.data.id )
+				setUser([...user, res.data[0]]);
+			})
+			.catch((err) => {
+				if (err.response) {
+					setErr(err.response.data);
+					setRes("");
+				}
+			});
+	};
+
+	// const [location, setLocation] = useState({
+	// 	country: "",
+	// 	region: "",
+	// });
+
+	// const selectCountry = (val) => {
+	// 	setLocation({
+	// 		country: val,
+	// 	});
+	// };
+
+	// const selectRegion = (val) => {
+	// 	setLocation({ ...location, region: val });
+	// };
 
 	const selectCountry = (val) => {
 		setEdited({
@@ -35,25 +78,24 @@ export default function UpdateInfo() {
 		setEdited({ ...edited, region: val });
 	};
 
-	const [err, setErr] = useState("");
-
-	const [res, setRes] = useState("");
-
-	const updateInfo = (id) => {
-		axios
-			.put(`http://202.61.225.240:3000/update/${id}`, edited)
-			.then((res) => {
-				console.log(res);
-				setRes("Successfully updated");
-				setErr("");
-			})
-			.catch((err) => {
-				if (err.response) {
-					setErr(err.response.data);
-					setRes("");
-				}
-			});
-	};
+	// const updateLocation = (id) => {
+	// 	axios
+	// 		.put(`http://202.61.225.240:3000/update/${id}`, {
+	// 			country: edited.country,
+	// 			region: edited.region,
+	// 		})
+	// 		.then((res) => {
+	// 			console.log(res);
+	// 			setRes("Successfully updated");
+	// 			setErr("");
+	// 		})
+	// 		.catch((err) => {
+	// 			if (err.response) {
+	// 				setErr(err.response.data);
+	// 				setRes("");
+	// 			}
+	// 		});
+	// };
 
 	const [showPassword, setShowPassword] = useState(false);
 
@@ -139,8 +181,10 @@ export default function UpdateInfo() {
 
 	return {
 		edited,
+		location,
 		setEdited,
 		handleChange,
+		// handleChangeParsed,
 		inputPassword,
 		showPassword,
 		setShowPassword,
@@ -149,6 +193,7 @@ export default function UpdateInfo() {
 		selectCountry,
 		selectRegion,
 		updateInfo,
+		// updateLocation,
 		updateProfilePic,
 		updatePassword,
 		err,
