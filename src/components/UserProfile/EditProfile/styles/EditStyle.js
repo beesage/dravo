@@ -4,7 +4,6 @@ const useStylesEdit = makeStyles((theme) => ({
 	root: {
 		display: "flex",
 		flexDirection: "column",
-		gap: "0.5rem",
 	},
 	listItem: {
 		paddingLeft: "0",
