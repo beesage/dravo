@@ -50,6 +50,7 @@ const UseForm = () => {
 
   /**
    * The e.preventDefault() method stops the default action of the button from happening.
+   * <p>
    * It prevents the submit button from submitting the form so it does not refresh the page.
    * setErrors receives the validate function and passes the values to check them
    * according to conditions set out in ValidateInfo.js.
@@ -62,16 +63,15 @@ const UseForm = () => {
     e.preventDefault();
   };
 
-  /** The signup function to the server an HTTP POSTgir request to the chosen API endpoint.
-	 * <p>
-	 * Before sending the request to the server, the value of "password" and "confirmPassword" stored in the edited object are compared: if they are the same, 
-   * then the POST request can be sent through axios; on the contrary, the value of "res" and "err" are updated (respectively in "setRes" and "setErr").
-	 * <p>
-	 * The POST request is sent through axios to the relevant endpoint, using "password" as a second argument, and "config", which contains the headers information, as a third.
-	 * If the request is successfully executed, the value of the "err" and "res" variables are updated (respectively in "setErr" and "setRes").
-	 * <p>
-	 * If the response from the server is not successful, the relevant error is catched and its value stored in the "err" variable (in "setErr"); 
-   * "res" is simultaneously updated (in "setErr")
+  /** The signup function register new users to the server with an HTTP POST.
+   * <p>
+	 * Before sending the new user to the server, the value of "password" and "confirmPassword" 
+   * stored in the values object are compared: if they are the same, 
+   * then the POST request can be sent through axios; on the contrary, the state of "response" and "error" 
+   * are updated (respectively in "setResponse" and "setError").
+   * 	If the response from the server is not successful,
+   *  the relevant error is catched and its value stored in the "error" variable (in "setError"); 
+   * "response" is simultaneously updated (in "setResponse")
 	 * @author Pamela Feijo
 	 */
 
@@ -98,6 +98,15 @@ const UseForm = () => {
     }
   };
 
+ /** The login function allows the users to connect to the server with an HTTP POST.
+	 * <p>
+	 * Before sending the request to the server, the value of "username" and "password" are stored in the values object.
+   * The POST request is sent through axios. If the request is successfully executed, the value of the "error" and "response"
+   * variables are updated (respectively in "setError" and "setResponse") and the history.push routes the "selectedUser" to "/leaderboard".
+	 * If the response from the server is not successful, the relevant error is catched and its value stored in the "error" variable (in "setError"); 
+   * "response" is simultaneously updated (in "setResponse"). in this case, the state of "setIsLoginCorrect" is changed to false.
+	 * @author Pamela Feijo
+	 */
   const login = () => {
     Axios.post("http://202.61.225.240:3000/auth/login", {
       username: values.username,
