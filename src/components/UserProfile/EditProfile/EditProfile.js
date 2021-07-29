@@ -24,9 +24,7 @@ export default function EditProfile() {
 					<Link to="/settings/personal-info">
 						<ListItem>
 							<ListItemText>
-								<p style={{ fontSize: "1.1rem", fontFamily: "Krub" }}>
-									Personal Information
-								</p>
+								<p className="list-item">Personal Information</p>
 							</ListItemText>
 							<IoIosArrowForward className="go-to" />
 						</ListItem>
@@ -35,9 +33,7 @@ export default function EditProfile() {
 					<Link to="/settings/profile-info">
 						<ListItem>
 							<ListItemText>
-								<p style={{ fontSize: "1.1rem", fontFamily: "Krub" }}>
-									Profile Information
-								</p>
+								<p className="list-item">Profile Information</p>
 							</ListItemText>
 							<IoIosArrowForward className="go-to" />
 						</ListItem>

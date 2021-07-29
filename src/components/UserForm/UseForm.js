@@ -62,6 +62,19 @@ const UseForm = () => {
     e.preventDefault();
   };
 
+  /** The signup function to the server an HTTP POSTgir request to the chosen API endpoint.
+	 * <p>
+	 * Before sending the request to the server, the value of "password" and "confirmPassword" stored in the edited object are compared: if they are the same, 
+   * then the POST request can be sent through axios; on the contrary, the value of "res" and "err" are updated (respectively in "setRes" and "setErr").
+	 * <p>
+	 * The POST request is sent through axios to the relevant endpoint, using "password" as a second argument, and "config", which contains the headers information, as a third.
+	 * If the request is successfully executed, the value of the "err" and "res" variables are updated (respectively in "setErr" and "setRes").
+	 * <p>
+	 * If the response from the server is not successful, the relevant error is catched and its value stored in the "err" variable (in "setErr"); 
+   * "res" is simultaneously updated (in "setErr")
+	 * @author Pamela Feijo
+	 */
+
   const signup = () => {
     if (values.password == values.confirmPassword) {
       Axios.post("http://202.61.225.240:3000/auth/signup", {

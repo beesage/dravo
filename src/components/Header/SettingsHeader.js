@@ -24,6 +24,8 @@ export default function SettingsHeader() {
 		setBackToSettings,
 	} = handleHeader();
 
+	let location = useLocation();
+
 	/**
 	 * Display the SettingsHeader component according to the location of the app.
 	 * <p>
@@ -33,8 +35,6 @@ export default function SettingsHeader() {
 	 *
 	 * @author Alessandra Pettinato
 	 */
-
-	let location = useLocation();
 
 	useEffect(() => {
 		if (location.pathname == "/settings/personal-info") {

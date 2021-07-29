@@ -47,7 +47,6 @@ export default function App() {
      * @author Alessandra Pettinato
      * @author Lukas Kreibig
      */
-
     const userAPI = async () => {
       setLoading(true);
       const res = await axios.get(`http://202.61.225.240:3000/lb/${days}`);
@@ -72,8 +71,6 @@ export default function App() {
   const handleDays = (changeDays) => {
     setDays(changeDays);
   };
-
-  console.log(user);
 
   return (
     <div className="container">
