@@ -4,6 +4,7 @@ const useStylesEdit = makeStyles((theme) => ({
 	root: {
 		display: "flex",
 		flexDirection: "column",
+		gap: "0.5rem",
 	},
 	listItem: {
 		paddingLeft: "0",
@@ -26,7 +27,15 @@ const useStylesEdit = makeStyles((theme) => ({
 	},
 	textField: {
 		background: "#FFFFFF",
-		padding: "10.5px 14px",
+		padding: "13.5px 14px",
+		border: "1px solid #D3D3D3",
+		fontSize: "0.9rem",
+		borderRadius: "4px",
+		marginBottom: "2.5%",
+		boxShadow: "0 8px 6px -6px rgba(0, 0, 0, 0.1)",
+	},
+	passwordField: {
+		background: "#FFFFFF",
 		border: "1px solid #D3D3D3",
 		fontSize: "0.9rem",
 		borderRadius: "4px",

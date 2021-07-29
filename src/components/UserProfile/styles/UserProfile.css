@@ -24,6 +24,7 @@
 
 .avatar {
 	width: 100%;
+	background: #f2a154;
 	display: block;
 	border-radius: 50%;
 	border: 6px solid #314e52;
