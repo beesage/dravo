@@ -11,7 +11,7 @@ import "./leaderboard.css";
 
 function Leaderboard({ loading, handleDays }) {
   const { user } = useContext(APIContext);
-  const { lbMoreData, lbList, fadeIn, theEnd } = LeaderboardFunction();
+  const { lbMoreData, lbList, fadeIn, fadeIn2, theEnd } = LeaderboardFunction();
 
   let lbTop = user.slice(0, 3);
 
@@ -36,16 +36,32 @@ function Leaderboard({ loading, handleDays }) {
 
   return (
     <>
-      <div className="lb-honeycomb" id="lb-honeycomb-left">
+      <animated.div
+        style={fadeIn}
+        className="lb-honeycomb"
+        id="lb-honeycomb-left"
+      >
         <span></span>
-      </div>
-      <div className="lb-honeycomb" id="lb-honeycomb-middle">
+      </animated.div>
+      <animated.div
+        style={fadeIn}
+        className="lb-honeycomb"
+        id="lb-honeycomb-middle"
+      >
         <span></span>
-      </div>
-      <div className="lb-honeycomb" id="lb-honeycomb-right">
+      </animated.div>
+      <animated.div
+        style={fadeIn}
+        className="lb-honeycomb"
+        id="lb-honeycomb-right"
+      >
         <span></span>
-      </div>
-      <div className="lb-triangle" id="lb-triangle-left">
+      </animated.div>
+      <animated.div
+        style={fadeIn}
+        className="lb-triangle"
+        id="lb-triangle-left"
+      >
         <div
           onClick={() => handleDays("7")}
           className="lb-triangle-text"
@@ -53,8 +69,9 @@ function Leaderboard({ loading, handleDays }) {
         >
           This Week
         </div>
-      </div>
-      <div
+      </animated.div>
+      <animated.div
+        style={fadeIn}
         onClick={() => handleDays("30")}
         className="lb-triangle"
         id="lb-triangle-center"
@@ -62,8 +79,9 @@ function Leaderboard({ loading, handleDays }) {
         <div className="lb-triangle-text" id="lb-triangle-rotate-text">
           This Month
         </div>
-      </div>
-      <div
+      </animated.div>
+      <animated.div
+        style={fadeIn}
         onClick={() => handleDays("5000")}
         className="lb-triangle"
         id="lb-triangle-right"
@@ -71,7 +89,7 @@ function Leaderboard({ loading, handleDays }) {
         <div className="lb-triangle-text" id="lb-triangle-transform">
           All Time
         </div>
-      </div>
+      </animated.div>
       <div className="lb-button">
         <div className="multi-button">
           <button onClick={() => handleDays("1")}>Today</button>
@@ -99,7 +117,7 @@ function Leaderboard({ loading, handleDays }) {
             >
               {lbList.map((user, index) => (
                 <div key={index}>
-                  <animated.div style={fadeIn}>
+                  <animated.div style={fadeIn2}>
                     <LeaderboardCard user={user} index={index} />
                   </animated.div>
                 </div>
