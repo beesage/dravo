@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext, useState } from "react";
-import { useSpring, animated } from "react-spring";
+import { animated } from "react-spring";
 import LeaderboardCard from "./LeaderboardCard";
 import LeaderboardBest from "./LeaderboardBest";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -11,7 +11,7 @@ import "./leaderboard.css";
 
 function Leaderboard({ loading, handleDays }) {
   const { user } = useContext(APIContext);
-  const { lbMoreData, lbList, theEnd } = LeaderboardFunction();
+  const { lbMoreData, lbList, fadeIn, theEnd } = LeaderboardFunction();
 
   let lbTop = user.slice(0, 3);
 
@@ -33,16 +33,6 @@ function Leaderboard({ loading, handleDays }) {
     lbicon: null,
     lbiconlink: null,
   };
-
-  const fadein = useSpring({
-    from: { opacity: 0 },
-    to: { opacity: 1 },
-    delay: 100,
-
-    config: {
-      duration: 1000,
-    },
-  });
 
   return (
     <>
@@ -109,7 +99,7 @@ function Leaderboard({ loading, handleDays }) {
             >
               {lbList.map((user, index) => (
                 <div key={index}>
-                  <animated.div style={fadein}>
+                  <animated.div style={fadeIn}>
                     <LeaderboardCard user={user} index={index} />
                   </animated.div>
                 </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useContext } from "react";
+import { useSpring } from "react-spring";
 import APIContext from "../../Context/APIContext";
 
 function LeaderboardFunction() {
@@ -13,7 +14,7 @@ function LeaderboardFunction() {
 
   /**
    * lbMoreData slices and concatenates data for the Infinite Scrolling Component
-   * <p>np
+   * <p>
    * InfiniteScroll uses this function to expand its infinite scroll feature.
    * This function updates the state lbList with new data from the state user. It uses
    * the previous state from lbList and concenates it with a sliced version of the state user.
@@ -41,9 +42,33 @@ function LeaderboardFunction() {
     }
   };
 
+  /**
+   * fadeIn / useSpring uses the npm module react-spring to fade in the mapped out leaderboard list
+   * <p>
+   * the function uses react-spring (https://react-spring.io/) options as an argument. in this case
+   * it will fade from opacity zero to opacity one in 1000ms and will start 100ms after the page
+   * is loaded. Those options are saved in the variable fadeIn which is then exported in LeaderboardFunction.js
+   * It is imported in Leaderboard.js and passed as aprop ro the the useSprings <animated.div> component.
+   * There it is implemented when rendering out the Leaderboard List.
+   *
+   * @author Lukas Kreibig
+   * @param {options} react-spring prop-options for animations are defined (https://react-spring.io/common/props)
+   */
+
+  const fadeIn = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    delay: 100,
+
+    config: {
+      duration: 1000,
+    },
+  });
+
   return {
     lbList,
     theEnd,
+    fadeIn,
     lbMoreData,
   };
 }
