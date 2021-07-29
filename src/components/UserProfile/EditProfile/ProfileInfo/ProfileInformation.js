@@ -145,7 +145,7 @@ export default function ProfileInformation() {
 							}}
 						>
 							<Link to="/settings/profile-info/profile-pic">
-								<ListItem button>
+								<ListItem button style={{ marginTop: "0.3rem" }}>
 									<ListItemText>
 										<p className="edit-caption">Profile Picture</p>
 									</ListItemText>
@@ -158,7 +158,7 @@ export default function ProfileInformation() {
 							</Link>
 							<Divider />
 							<Link to="/settings/profile-info/location">
-								<ListItem button>
+								<ListItem button style={{ marginTop: "0.3rem" }}>
 									<ListItemText>
 										<p className="edit-caption">Location</p>
 									</ListItemText>
@@ -171,7 +171,7 @@ export default function ProfileInformation() {
 							</Link>
 							<Divider />
 							<Link to="/settings/profile-info/bio">
-								<ListItem button>
+								<ListItem button style={{ marginTop: "0.4rem" }}>
 									<ListItemText>
 										<p className="edit-caption">Bio</p>
 									</ListItemText>
@@ -184,7 +184,7 @@ export default function ProfileInformation() {
 							</Link>
 							<Divider />
 							<Link to="/settings/profile-info/experience">
-								<ListItem button>
+								<ListItem button style={{ marginTop: "0.3rem" }}>
 									<ListItemText>
 										<p className="edit-caption">Experience</p>
 									</ListItemText>
@@ -195,7 +195,7 @@ export default function ProfileInformation() {
 							</Link>
 							<Divider />
 							<Link to="/settings/profile-info/apiaries">
-								<ListItem button>
+								<ListItem button style={{ marginTop: "0.3rem" }}>
 									<ListItemText>
 										<p className="edit-caption">Apiaries</p>
 									</ListItemText>
@@ -206,7 +206,7 @@ export default function ProfileInformation() {
 							</Link>
 							<Divider />
 							<Link to="/settings/profile-info/beehives">
-								<ListItem button>
+								<ListItem button style={{ marginTop: "0.3rem" }}>
 									<ListItemText>
 										<p className="edit-caption">Beehives</p>
 									</ListItemText>
