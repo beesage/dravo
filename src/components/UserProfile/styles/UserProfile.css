@@ -219,21 +219,40 @@
 
 	.bio-container {
 		display: grid;
-		grid-column: 2/3;
-		grid-row: 1;
+		grid-column: 2/5;
+		grid-row: 1/4;
 		justify-content: center;
-		align-items: flex-end;
-		/* margin-left: 5rem; */
-		margin-bottom: 1rem;
+		align-items: center;
+		margin-top: -4rem;
 		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+	}
+
+	.bio-text-container {
+		grid-column: 1/5;
+		grid-row: 1;
+		margin-top: 10rem;
+		margin-right: 4.5rem;
+		text-align: center;
+		z-index: 3;
+		align-self: center;
+	}
+
+	.bio-text {
+		color: #f2a154;
+		font-weight: 300;
+		line-height: 1.5rem;
+		margin-left: 0.5rem;
+		margin-right: 0.5rem;
 	}
 
 	.greeting-container {
 		display: flex;
 		justify-content: center;
-		grid-area: 1 / 1 / auto / 5;
+		grid-area: 1 / 1 / 1 / 6;
 		justify-self: center;
 		margin-bottom: 1rem;
+		margin-right: 1.5rem;
 	}
 
 	.greeting-tablet {

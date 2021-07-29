@@ -41,7 +41,7 @@ export default function UserProfile() {
 						style={{
 							gridColumn: "1/2",
 							gridRow: "3",
-							marginTop: "-7rem",
+							marginTop: "-7.5rem",
 							marginLeft: "1.5rem",
 							textDecoration: "none",
 						}}
