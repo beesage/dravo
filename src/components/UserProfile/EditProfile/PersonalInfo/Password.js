@@ -18,21 +18,6 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import "../styles/EditProfile.css";
 import useStylesEdit from "../styles/EditStyle";
 
-<<<<<<< HEAD
-export default function Password(props) {
-  const classesEdit = useStylesEdit();
-  const { user } = useContext(APIContext);
-  const {
-    showPassword,
-    setShowPassword,
-    inputPassword,
-    updatePassword,
-    err,
-    res,
-    edited,
-    handleChange,
-  } = UpdateInfo();
-=======
 export default function Password() {
 	const classesEdit = useStylesEdit();
 	const { user } = useContext(APIContext);
@@ -46,22 +31,10 @@ export default function Password() {
 		edited,
 		handleChange,
 	} = UpdateInfo();
->>>>>>> 6630297e13045678fe7f49c1e05b61f9da1928f1
 
   const [isTablet, setIsTablet] = useState(window.innerWidth);
   const breakpoint = 768;
 
-<<<<<<< HEAD
-  useEffect(() => {
-    const handleResizeWindow = () => setIsTablet(window.innerWidth);
-    // subscribe to window resize event "onComponentDidMount"
-    window.addEventListener("resize", handleResizeWindow);
-    return () => {
-      // unsubscribe "onComponentDestroy"
-      window.removeEventListener("resize", handleResizeWindow);
-    };
-  }, []);
-=======
 	/** handleResizeWindow tracks the resize of the window and update the state accordingly.
 	 * <p>
 	 * When called inside useEffect, handleResizeWindow will update the isTable variable called with useState by updating the setIsTablet function.
@@ -78,7 +51,6 @@ export default function Password() {
 			window.removeEventListener("resize", handleResizeWindow);
 		};
 	}, []);
->>>>>>> 6630297e13045678fe7f49c1e05b61f9da1928f1
 
   return (
     <>
@@ -157,7 +129,6 @@ export default function Password() {
 											</IconButton>
 										</InputAdornment>
 									}
-<<<<<<< HEAD
 								/> */}
                 <p className="edit-caption">Confirm new password</p>
 				<InputPassword
@@ -202,47 +173,4 @@ export default function Password() {
       </div>
     </>
   );
-=======
-								/>
-								<p className="edit-caption">Confirm new password</p>
-								<Input
-									id="formConfirmPassword"
-									name="confirmPassword"
-									value={edited.confirmPassword}
-									onChange={handleChange}
-									className={classesEdit.textField}
-									type={showPassword ? "text" : "password"}
-									endAdornment={
-										<InputAdornment
-											position="end"
-											onClick={(e) => setShowPassword(!showPassword)}
-										>
-											<IconButton style={{ color: "black" }}>
-												{showPassword ? <Visibility /> : <VisibilityOff />}
-											</IconButton>
-										</InputAdornment>
-									}
-								/>
-								<Button
-									value="Update"
-									text="Update"
-									onClick={() => updatePassword(user[0].beekeeper_id)}
-									className={classesEdit.buttonEdit}
-								>
-									Update{" "}
-								</Button>
-								{res && <p className="res-message">{res}</p>}
-								{err && (
-									<p className="err-message">
-										{err.validationErrors[0].message}
-									</p>
-								)}
-							</form>
-						</Container>
-					</div>
-				</div>
-			</div>
-		</>
-	);
->>>>>>> 6630297e13045678fe7f49c1e05b61f9da1928f1
 }
