@@ -119,8 +119,12 @@
 		width: 0;
 		height: 0;
 		position: relative;
-		z-index: 1;
+		z-index: 2;
 		background: #314e52;
+		/* grid-column: 2; */
+		grid-row: 1;
+		/* opacity: 0.9; */
+		grid-column: 1;
 	}
 
 	.hex-bio:before,
