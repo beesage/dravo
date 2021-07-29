@@ -10,7 +10,7 @@ export default function UpdateInfo() {
 		password: "",
 		confirmPassword: "",
 		country: user[0].country,
-		region: user[0].country,
+		region: user[0].region,
 		apiaries: user[0].apiaries,
 		beehives: user[0].beehives,
 		experience: user[0].experience,
