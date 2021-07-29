@@ -71,11 +71,11 @@ export default function SignUp() {
                   value={values.confirmPassword}
                   onChange={handleChange}
                 />
-                {response && <p className="res-message">{response}</p>}
+                {response && <div className="res-message">{response}</div>}
                 {error && (
-                  <p className="err-message">
+                  <div className="err-message">
                     {error.validationErrors[0].message}
-                  </p>
+                  </div>
                 )}
                 <Box className={classes.box}>
                   <FormControlLabel
