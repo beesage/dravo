@@ -2,10 +2,17 @@ import React from "react";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import RemoveIcon from "@material-ui/icons/Remove";
+import LeaderboardFunction from "./LeaderboardFunction";
+import { animated } from "react-spring";
 
 function LeaderboardBest({ user, orientation }) {
+  const { fadeIn } = LeaderboardFunction();
   return (
-    <div className="lb-top-general" id={orientation.divprop}>
+    <animated.div
+      style={fadeIn}
+      className="lb-top-general"
+      id={orientation.divprop}
+    >
       <img className={orientation.lbicon} src={orientation.lbiconlink} />
       <img
         className="lb-top-pic"
@@ -30,7 +37,7 @@ function LeaderboardBest({ user, orientation }) {
           <ArrowDropDownIcon style={{ fill: "transparent" }} />
         )}
       </div>
-    </div>
+    </animated.div>
   );
 }
 

@@ -58,7 +58,17 @@ function LeaderboardFunction() {
   const fadeIn = useSpring({
     from: { opacity: 0 },
     to: { opacity: 1 },
-    delay: 100,
+    delay: 0,
+
+    config: {
+      duration: 1000,
+    },
+  });
+
+  const fadeIn2 = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    delay: 500,
 
     config: {
       duration: 1000,
@@ -69,6 +79,7 @@ function LeaderboardFunction() {
     lbList,
     theEnd,
     fadeIn,
+    fadeIn2,
     lbMoreData,
   };
 }
