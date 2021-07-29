@@ -58,9 +58,9 @@ export default function LogIn() {
                   value={values.password}
                   onChange={handleChange}
                 />
-                {response && <p className="res-message">{response}</p>}
+                {response && <div className="res-message">{response}</div>}
                 {error && (
-                  <p className="err-message">{error.err.details[0].message}</p>
+                  <div className="err-message">{error.err.details[0].message}</div>
                 )}
                 <Box className={classes.box}>
                   <FormControlLabel
