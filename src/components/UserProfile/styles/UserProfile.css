@@ -246,9 +246,10 @@
 	.greeting-container {
 		display: flex;
 		justify-content: center;
-		grid-area: 1 / 1 / auto / 5;
+		grid-area: 1 / 1 / 1 / 6;
 		justify-self: center;
 		margin-bottom: 1rem;
+		margin-right: 1.5rem;
 	}
 
 	.greeting-tablet {

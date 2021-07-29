@@ -121,9 +121,7 @@
 		position: relative;
 		z-index: 2;
 		background: #314e52;
-		/* grid-column: 2; */
 		grid-row: 1;
-		/* opacity: 0.9; */
 		grid-column: 1;
 	}
 
