@@ -118,7 +118,7 @@ export default function UpdateInfo() {
 		},
 	};
 
-	/** updatePassword to the server an HTTP PUT request to the chosen API endpoint.
+	/** updatePassword send to the server an HTTP PUT request to the chosen API endpoint.
 	 * <p>
 	 * Before sending the request to the server, the value of "password" and "confirmPassword" stored in the edited object are compared: if they are the same, then the PUT request can be sent through axios; on the contrary, the value of "res" and "err" are updated (respectively in "setRes" and "setErr").
 	 * <p>
@@ -155,25 +155,45 @@ export default function UpdateInfo() {
 	};
 
 	const [updatePic, setUpdatePic] = useState({
-		pic: false,
+		pic: "",
+		src: "",
 	});
+
+	/** handlePicture updates the values of the updatePic variable called with useState after an onClick event.
+	 * <p>
+	 * "pic" and "src" are two empty strings declared inside the updatePic object. In the function, to "pic" is assigned the value of "e", an event triggered by the onClick event, which will target a file image.
+	 * To assign a value to "src", instead, it is used "createObjectURL", a method that creates a DOMString containing a URL representing the object given in the parameter -which in this case is "pic" itself.
+	 * The values contained in the "updatePic" object can then be set to, respectively, "pic" and "src" itself.
+	 * @param e
+	 * @returns updated state of a value
+	 * @author Alessandra Pettinato
+	 */
 
 	const handlePicture = (e) => {
 		let pic = e.target.files[0];
 		let src = URL.createObjectURL(pic);
 		setUpdatePic({
 			pic: pic,
+			src: src,
 		});
 	};
 
-	const preview = () => {
-		if (updatePic.src) {
-			return <img src={updatePic.pic} />;
-		}
-	};
+	/** updatePassword send to the server an HTTP PUT request to the chosen API endpoint.
+	 * <p>
+	 * A new variable is declared ("formData") and its value set to a new FormData, which will provide a way to construct a set of key/value pairs to be sent to the server.
+	 * The method append is used to attach a new name and value onto an existing key inside a FormData object: in this case, name would be "blob" and the value to attach would be "updatePic.src".
+	 * "configPic" contains the information that has to be passes from the client to the server: the "formData" variable, "cache" (set to false), "contentType" (set to false), "processData" (set to false), and "responseType" (seto to blob).
+	 * <p>
+	 * The PUT request is sent through axios to the relevant endpoint, using "profile_picture" as a second argument, and "configPic" as a third.
+	 * If the request is successfully executed, the value of the "err" and "res" variables are updated (respectively in "setErr" and "setRes").
+	 * <p>
+	 * If the response from the server is not successful, the relevant error is catched and its value stored in the "err" variable (in "setErr"); "res" is simultaneously updated (in "setErr")
+	 * @param id
+	 * @author Alessandra Pettinato
+	 */
 
 	const updateProfilePic = (id) => {
-		var formData = new FormData();
+		let formData = new FormData();
 		formData.append("blob", updatePic.src);
 		const configPic = {
 			formData,
@@ -209,7 +229,6 @@ export default function UpdateInfo() {
 		setEdited,
 		handleChange,
 		handlePicture,
-		preview,
 		selectCountry,
 		selectRegion,
 		updateInfo,
