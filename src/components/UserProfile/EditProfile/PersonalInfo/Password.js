@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import UpdateInfo from "../Functions/UpdateInfo";
 import APIContext from "../../../../Context/APIContext";
-
+import InputPassword from "../../../UserForm/controls/InputPassword";
 import { Container } from "@material-ui/core";
 import Input from "@material-ui/core/Input";
 import Button from "@material-ui/core/Button";
@@ -32,8 +32,8 @@ export default function Password() {
 		handleChange,
 	} = UpdateInfo();
 
-	const [isTablet, setIsTablet] = useState(window.innerWidth);
-	const breakpoint = 768;
+  const [isTablet, setIsTablet] = useState(window.innerWidth);
+  const breakpoint = 768;
 
 	/** handleResizeWindow tracks the resize of the window and update the state accordingly.
 	 * <p>
@@ -52,61 +52,67 @@ export default function Password() {
 		};
 	}, []);
 
-	return (
-		<>
-			<div
-				className={
-					isTablet > breakpoint
-						? "tablet-editprofile"
-						: "u-edit-container-mobile"
-				}
-			>
-				<div className="row">
-					<div className={isTablet > breakpoint ? "column left" : "hidden"}>
-						<List>
-							<Link to="/settings/personal-info">
-								<ListItem>
-									<ListItemText>
-										<p className="menu-item-tablet">Personal Information</p>
-									</ListItemText>
-								</ListItem>
-							</Link>
-							<Divider />
-							<Link to="/settings/personal-info/password">
-								<ListItem>
-									<ListItemText>
-										<p className="menu-item-tablet">Password</p>
-									</ListItemText>
-								</ListItem>
-							</Link>
-							<Divider />
-							<Link to="/settings/profile-info">
-								<ListItem>
-									<ListItemText>
-										<p className="menu-item-tablet">Profile Information</p>
-									</ListItemText>
-								</ListItem>
-							</Link>
-							<Divider />
-						</List>
-					</div>
-					<div
-						className={
-							isTablet > breakpoint ? "column right" : "u-edit-container-mobile"
-						}
-					>
-						<Container
-							component="main"
-							maxWidth={false}
-							className={
-								!isTablet < breakpoint
-									? classesEdit.container
-									: classesEdit.containerTablet
-							}
-						>
-							<form className={classesEdit.root}>
-								<p className="edit-caption">New password</p>
-								<Input
+  return (
+    <>
+      <div
+        className={
+          isTablet > breakpoint
+            ? "tablet-editprofile"
+            : "u-edit-container-mobile"
+        }
+      >
+        <div className="row">
+          <div className={isTablet > breakpoint ? "column left" : "hidden"}>
+            <List>
+              <Link to="/settings/personal-info">
+                <ListItem>
+                  <ListItemText>
+                    <p className="menu-item-tablet">Personal Information</p>
+                  </ListItemText>
+                </ListItem>
+              </Link>
+              <Divider />
+              <Link to="/settings/personal-info/password">
+                <ListItem>
+                  <ListItemText>
+                    <p className="menu-item-tablet">Password</p>
+                  </ListItemText>
+                </ListItem>
+              </Link>
+              <Divider />
+              <Link to="/settings/profile-info">
+                <ListItem>
+                  <ListItemText>
+                    <p className="menu-item-tablet">Profile Information</p>
+                  </ListItemText>
+                </ListItem>
+              </Link>
+              <Divider />
+            </List>
+          </div>
+          <div
+            className={
+              isTablet > breakpoint ? "column right" : "u-edit-container-mobile"
+            }
+          >
+            <Container
+              component="main"
+              maxWidth={false}
+              className={
+                !isTablet < breakpoint
+                  ? classesEdit.container
+                  : classesEdit.containerTablet
+              }
+            >
+              <form className={classesEdit.root}>
+                <p className="edit-caption">New password</p>
+                <InputPassword
+                  name="password"
+                  value={edited.password}
+                  onChange={handleChange}
+				  className={classesEdit.textField}
+                />
+                {/* <Input
 									id="formNewPassword"
 									name="password"
 									value={edited.password}
@@ -123,45 +129,48 @@ export default function Password() {
 											</IconButton>
 										</InputAdornment>
 									}
-								/>
-								<p className="edit-caption">Confirm new password</p>
-								<Input
-									id="formConfirmPassword"
-									name="confirmPassword"
-									value={edited.confirmPassword}
-									onChange={handleChange}
-									className={classesEdit.textField}
-									type={showPassword ? "text" : "password"}
-									endAdornment={
-										<InputAdornment
-											position="end"
-											onClick={(e) => setShowPassword(!showPassword)}
-										>
-											<IconButton style={{ color: "black" }}>
-												{showPassword ? <Visibility /> : <VisibilityOff />}
-											</IconButton>
-										</InputAdornment>
-									}
-								/>
-								<Button
-									value="Update"
-									text="Update"
-									onClick={() => updatePassword(user[0].beekeeper_id)}
-									className={classesEdit.buttonEdit}
-								>
-									Update{" "}
-								</Button>
-								{res && <p className="res-message">{res}</p>}
-								{err && (
-									<p className="err-message">
-										{err.validationErrors[0].message}
-									</p>
-								)}
-							</form>
-						</Container>
-					</div>
-				</div>
-			</div>
-		</>
-	);
+								/> */}
+                <p className="edit-caption">Confirm new password</p>
+				<InputPassword
+                  name="confirmPassword"              
+				  value={edited.confirmPassword}
+                  onChange={handleChange}
+				  className={classesEdit.textField}
+                />
+                {/* <Input
+                  id="formConfirmPassword"
+                  name="confirmPassword"
+                  value={edited.confirmPassword}
+                  onChange={handleChange}
+                  className={classesEdit.textField}
+                  type={showPassword ? "text" : "password"}
+                  endAdornment={
+                    <InputAdornment position="end" onClick={inputPassword}>
+                      <IconButton style={{ color: "black" }}>
+                        {showPassword ? <Visibility /> : <VisibilityOff />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                /> */}
+                <Button
+                  value="Update"
+                  text="Update"
+                  onClick={() => updatePassword(user[0].beekeeper_id)}
+                  className={classesEdit.buttonEdit}
+                >
+                  Update{" "}
+                </Button>
+                {res && <p className="res-message">{res}</p>}
+                {err && (
+                  <p className="err-message">
+                    {err.validationErrors[0].message}
+                  </p>
+                )}
+              </form>
+            </Container>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
