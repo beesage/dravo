@@ -27,7 +27,7 @@
 	display: block;
 	border-radius: 50%;
 	border: 6px solid #314e52;
-	transform: rotate(275deg);
+	transform: rotate(360deg);
 }
 
 .user-profile:before {
@@ -124,7 +124,7 @@
 	font-size: 1rem;
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1300px) and (-webkit-min-device-pixel-ratio: 1) {
+@media only screen and (min-device-width: 960px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
 	.user-container {
 		grid-template-rows: 0.1fr 1fr 0.5fr 0.5fr 0.2fr;
 		grid-template-rows: 0.1fr 1fr 0.5fr;
@@ -176,6 +176,7 @@
 	.avatar {
 		width: 55%;
 		margin-left: 2.3rem;
+		transform: rotate(270deg);
 	}
 
 	.all-us-hex {

@@ -42,7 +42,7 @@ a {
 	left: 0.5rem;
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1370px) and (-webkit-min-device-pixel-ratio: 1) {
+@media only screen and (min-device-width: 960px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
 	.setting {
 		display: none;
 	}
