@@ -1,23 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Krub:wght@600&display=swap");
 
 * {
-  font-family: Krub;
+	font-family: Krub;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  position: relative;
-  background: #f7f6e7;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	background: #f7f6e7;
 }
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(9, minmax(0, 1fr));
-  grid-template-rows: 70px 50px 220px 1fr 30px 60px;
-  background-color: #f7f6e7;
+	display: grid;
+	grid-template-columns: repeat(9, minmax(0, 1fr));
+	grid-template-rows: 70px 50px 220px 1fr 30px 60px;
+	background-color: #f7f6e7;
 }
 
 .login-grid {
-  grid-column: 1 / 10;
+	grid-column: 1 / 10;
+	grid-row: 1/-1;
 }
