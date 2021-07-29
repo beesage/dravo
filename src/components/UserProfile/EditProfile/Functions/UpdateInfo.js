@@ -10,7 +10,7 @@ export default function UpdateInfo() {
 		password: "",
 		confirmPassword: "",
 		country: user[0].country,
-		region: user[0].country,
+		region: user[0].region,
 		apiaries: user[0].apiaries,
 		beehives: user[0].beehives,
 		experience: user[0].experience,
@@ -110,12 +110,6 @@ export default function UpdateInfo() {
 			});
 	};
 
-	const [showPassword, setShowPassword] = useState(false);
-
-	const inputPassword = () => {
-		setShowPassword(!showPassword);
-	};
-
 	let config = {
 		headers: {
 			"Content-Type": "application/json",
@@ -180,7 +174,7 @@ export default function UpdateInfo() {
 
 	const updateProfilePic = (id) => {
 		var formData = new FormData();
-		formData.append("blob", updatePic);
+		formData.append("blob", updatePic.src);
 		const configPic = {
 			formData,
 			cache: false,
@@ -214,9 +208,6 @@ export default function UpdateInfo() {
 		location,
 		setEdited,
 		handleChange,
-		inputPassword,
-		showPassword,
-		setShowPassword,
 		handlePicture,
 		preview,
 		selectCountry,
