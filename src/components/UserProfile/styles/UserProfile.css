@@ -231,7 +231,7 @@
 	.bio-text-container {
 		grid-column: 1/5;
 		grid-row: 1;
-		margin-top: 9rem;
+		margin-top: 10rem;
 		margin-right: 4.5rem;
 		text-align: center;
 		z-index: 3;
@@ -241,6 +241,9 @@
 	.bio-text {
 		color: #f2a154;
 		font-weight: 300;
+		line-height: 1.5rem;
+		margin-left: 0.5rem;
+		margin-right: 0.5rem;
 	}
 
 	.greeting-container {
