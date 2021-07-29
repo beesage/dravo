@@ -94,7 +94,7 @@ export default function ProfilePic() {
 							<form className={classesEdit.root}>
 								<p className="edit-caption">Upload your pic</p>
 								<input
-									type="blob"
+									type="file"
 									name="image"
 									text="Submit"
 									onChange={handlePicture}

@@ -159,6 +159,12 @@ export default function UpdateInfo() {
 		src: "",
 	});
 
+	const preview = () => {
+		if (updatePic.src) {
+			return <img src={updatePic.src} />;
+		}
+	};
+
 	/** handlePicture updates the values of the updatePic variable called with useState after an onClick event.
 	 * <p>
 	 * "pic" and "src" are two empty strings declared inside the updatePic object. In the function, to "pic" is assigned the value of "e", an event triggered by the onClick event, which will target a file image.
@@ -233,6 +239,7 @@ export default function UpdateInfo() {
 		selectRegion,
 		updateInfo,
 		updateProfilePic,
+		preview,
 		updatePassword,
 		err,
 		res,
