@@ -21,6 +21,8 @@ export default function Header() {
 		handleEditProfile,
 	} = handleHeader();
 
+	let location = useLocation();
+
 	/**
 	 * Display the header component according to the location of the app.
 	 * <p>
@@ -30,8 +32,6 @@ export default function Header() {
 	 *
 	 * @author Alessandra Pettinato
 	 */
-
-	let location = useLocation();
 
 	useEffect(() => {
 		if (location.pathname == "/profile") {

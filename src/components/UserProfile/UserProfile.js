@@ -20,6 +20,7 @@ export default function UserProfile() {
 			{user.length > 0 ? (
 				<>
 					<div className="user-profile">
+						<p className="user-rank">{user[0].wd_rank}</p>
 						<FaMedal className="medal" />
 						<div className="user-info">
 							<div className="hex-profile ribbon-outset border">
@@ -29,15 +30,7 @@ export default function UserProfile() {
 							<p className="user-location">{user[0].region}</p>
 						</div>
 					</div>
-					<div
-						style={{
-							display: "flex",
-							justifyContent: "center",
-							gridArea: "1 / 1 / auto / 5",
-							justifySelf: "center",
-							marginBottom: "1rem",
-						}}
-					>
+					<div className="greeting-container">
 						<p className="greeting-tablet">Welcome, {user[0].username}!</p>
 					</div>
 					<div className="bio-container">

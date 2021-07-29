@@ -9,13 +9,6 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
 import { IoIosArrowForward } from "react-icons/io";
 
-import ProfilePic from "./ProfilePic";
-import Location from "./Location";
-import Bio from "./Bio";
-import Experience from "./Experience";
-import Apiaries from "./Apiaries";
-import Beehives from "./Beehives";
-
 import "../styles/EditProfile.css";
 
 export default function ProfileInformation() {
