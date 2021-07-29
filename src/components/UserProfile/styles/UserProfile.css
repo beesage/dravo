@@ -126,8 +126,7 @@
 
 @media only screen and (min-device-width: 960px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
 	.user-container {
-		grid-template-rows: 0.1fr 1fr 0.5fr 0.5fr 0.2fr;
-		grid-template-rows: 0.1fr 1fr 0.5fr;
+		grid-template-rows: 0.1fr 1fr 0.3fr;
 	}
 
 	.user-profile {
@@ -259,7 +258,7 @@
 		display: block;
 		font-size: 26px;
 		text-align: end;
-		margin-top: 5rem;
+		margin-top: 3rem;
 	}
 
 	.edit-profile {
