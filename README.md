@@ -8,6 +8,7 @@ https://github.com/lukaskreibig/beesage-api
  Social network for beekeepers that enables sharing data from their apiaries through an API and shows the result through gamification (leaderboard) to the users.
 
 ![Dravo](https://www.lukaskreibig.com/wp-content/uploads/leaderboard-tablet.png)
+![Dravo](https://www.lukaskreibig.com/wp-content/uploads/beekeeper-app.png)
 ---
 
 #### Built with
@@ -23,8 +24,6 @@ https://github.com/lukaskreibig/beesage-api
 • [node.js](https://nodejs.org/en/)
 
 • [MySQL](https://www.mysql.com/)
-
-![Dravo](https://www.lukaskreibig.com/wp-content/uploads/beekeeper-app.png)
 ---
 
 #### Installation
