@@ -1,9 +1,10 @@
-# Dravo
+# Dravo - Frontend Repository
+--> API Backend Respository can be found here:
+https://github.com/lukaskreibig/beesage-api
 
 ## About the project
 
-Under construction :tractor:
-
+ Social network for beekeepers that enables sharing data from their apiaries through an API and shows the result through gamification (leaderboard) to the users.
 ---
 
 #### Built with
