@@ -16,6 +16,10 @@ https://github.com/lukaskreibig/beesage-api
 
 • [materialUI](https://material-ui.com/)
 
+• [express.js](https://expressjs.com/de/)
+
+• [node.js](https://nodejs.org/en/)
+
 • [MySQL](https://www.mysql.com/)
 
 
