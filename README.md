@@ -24,7 +24,7 @@ https://github.com/lukaskreibig/beesage-api
 
 • [MySQL](https://www.mysql.com/)
 
-
+![Dravo](https://www.lukaskreibig.com/wp-content/uploads/beekeeper-app.png)
 ---
 
 #### Installation
