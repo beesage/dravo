@@ -16,6 +16,9 @@ https://github.com/lukaskreibig/beesage-api
 
 • [materialUI](https://material-ui.com/)
 
+• [MySQL](https://www.mysql.com/)
+
+
 ---
 
 #### Installation
