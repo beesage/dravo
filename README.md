@@ -1,12 +1,16 @@
 # Dravo - Frontend Repository
 
+CHECK OUT THE LIVE DEMO HERE (Design for Tablet and Phone only):
+http://202.61.225.240:8080/leaderboard
+
 --> API Backend Respository can be found here:
 https://github.com/lukaskreibig/beesage-api
 
 ## About the project
 
  Social network for beekeepers that enables sharing data from their apiaries through an API and shows the result through gamification (leaderboard) to the users.
-
+ Designed for Tablet and Phone only.
+ 
 ---
 
 
