@@ -1,7 +1,5 @@
 # Dravo - Frontend Repository
 
-### CHECK OUT THE LIVE DEMO HERE (Design for Tablet and Phone): [LIVE DEMO](http://202.61.225.240:8080/leaderboard)
-
 --> API Backend Respository can be found here:
 https://github.com/lukaskreibig/beesage-api
 
